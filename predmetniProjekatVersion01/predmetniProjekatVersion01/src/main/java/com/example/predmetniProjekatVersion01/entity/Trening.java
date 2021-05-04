@@ -30,15 +30,18 @@ public class Trening implements Serializable {
     @Column
     private int trajanje;
 
-    /*
+    // druga strana veze 1:n
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Trener trening;
+
     @ManyToMany(mappedBy = "odradjeniTreninzi")
-    private Set<Clan> clanovi = new HashSet<>();
+    private Set<Clan> clanovi_odradjeni = new HashSet<>();
 
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
-    private Set<Clan> clanovi_prijavljeni = new HashSet<>();    */
+    private Set<Clan> clanovi_prijavljeni = new HashSet<>();
 
-    //private Set <Trener> treneri = new HashSet<>();
-    //private Set <Sala> sale = new HashSet<>();
+    @ManyToMany(mappedBy = "terminska_lista")
+    private Set<Sala> sale_terminska = new HashSet<>();
 
     @Override
     public String toString() {

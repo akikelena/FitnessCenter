@@ -44,6 +44,9 @@ public class Clan implements Serializable {
                 inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> prijavljeniTreninzi = new HashSet<>(); */
 
+    /* lista ocena za odradjene treninge
+    private Set<double> lista_ocena = new HashSet<>();  */
+
     @Override
     public String toString() {
         return "Clan : " +

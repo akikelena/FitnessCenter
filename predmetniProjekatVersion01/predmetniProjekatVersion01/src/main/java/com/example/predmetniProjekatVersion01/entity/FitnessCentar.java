@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -26,9 +28,15 @@ public class FitnessCentar {
     @Column
     private String email;
 
-    // treneri koji rade u tom fitnes centru
-    // lista sala koje se nalaze u tom fitnes centru
     // raspored odrzavanja treninga + cena za svaki termin
+
+    // 1. treneri koji rade u tom fitnes centru
+    @OneToMany(mappedBy = "treneriFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Trener> treneriUFC = new HashSet<>();
+
+    // 2. lista sala koje se nalaze u tom fitnes centru
+    @OneToMany(mappedBy = "saleFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Sala> saleUFC = new HashSet<>();
 
 
     @Override

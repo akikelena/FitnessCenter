@@ -25,7 +25,12 @@ public class Sala {
         n:n veza
         broj prijvaljenih clanova za taj trening
 
-     */
+
+    @ManyToMany
+    @JoinTable(name = "terminska_li",
+                joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
+                inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+    private Set<Trening> terminska_lista = new HashSet<>(); */
 
     @Override
     public String toString() {
