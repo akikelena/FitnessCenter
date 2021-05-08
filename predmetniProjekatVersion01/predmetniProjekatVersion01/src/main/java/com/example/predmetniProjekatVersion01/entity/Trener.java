@@ -15,6 +15,7 @@ public class Trener {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @Column
     private double prosecnaOcena;
 
