@@ -25,7 +25,7 @@ public class Trening implements Serializable {
     private String opis;
 
     @Column
-    private String tipTreninga;
+    private TipTreninga tipTreninga;
 
     @Column
     private int trajanje;
