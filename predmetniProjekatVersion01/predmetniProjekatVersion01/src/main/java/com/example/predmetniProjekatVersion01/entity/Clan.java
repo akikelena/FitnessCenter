@@ -16,33 +16,23 @@ public class Clan extends Korisnik implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /*
-        1. lista odradjenih treninga
-        2. lista prijavljenih, neodradjenih treninga
-        3. lista ocena za odradjene treninge
-     */
+    /*  lista odradjenih treninga
+        Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
+        veza n:n                                                                                    */
+    @ManyToMany
+    @JoinTable(name = "odradjeni_treninzi",
+                                            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
+                                            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+    private Set<Trening> odradjeniTreninzi = new HashSet<>();
 
-    /*
-        Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova,
-        stoga se formira veza ManyToMany.
-     */
-    /* @ManyToMany
-    @JoinTable(name = "odredjeni_treninzi",
-            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> odradjeniTreninzi = new HashSet<>();   */
-
-    /*
-        Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti
-        vise clanova, te ce veza biti ManyToMany.
-     */
-
-    /*
+    /*  lista prijavljenih treninga
+        Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
+        veza n:n                                                                                             */
     @ManyToMany
     @JoinTable(name = "prijavljeni_treninzi",
                 joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
                 inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> prijavljeniTreninzi = new HashSet<>(); */
+    private Set<Trening> prijavljeniTreninzi = new HashSet<>();
 
     /* lista ocena za odradjene treninge
     private Set<double> lista_ocena = new HashSet<>();  */

@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Setter
 @Getter
 @Entity
-public class Sala {
+public class Sala implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,8 +17,15 @@ public class Sala {
     @Column
     private int kapacitet;
 
-    @Column
+    @Column(unique = true)
     private String oznakaSale;
+
+   /*  lista sala koje se nalaze u tom fitnes centru(veza 1:n)
+       "U 1 fitness centru moze postojati vise sala"
+       veza 1:n, strana: n
+     */
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private FitnessCentar saleFC;
 
     // terminska lista treninga
     /*

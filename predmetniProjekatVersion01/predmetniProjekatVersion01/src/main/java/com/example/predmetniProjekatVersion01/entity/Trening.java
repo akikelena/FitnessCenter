@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-//import java.util.HashSet;
-//import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -30,18 +30,29 @@ public class Trening implements Serializable {
     @Column
     private int trajanje;
 
-    // druga strana veze 1:n
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Trener trening;
+    /*
+         lista treninga koje trener drzi
+        "1 trener moze drzati vise treninga"
+        veza 1:n, strana: n                    */
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Trener treninzi_koje_drzi;
 
+    /*  lista odradjenih treninga
+        Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
+        veza n:n                                                                                    */
     @ManyToMany(mappedBy = "odradjeniTreninzi")
     private Set<Clan> clanovi_odradjeni = new HashSet<>();
 
+    /*  lista prijavljenih treninga
+      Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
+      veza n:n                                                                                             */
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
     private Set<Clan> clanovi_prijavljeni = new HashSet<>();
 
-    @ManyToMany(mappedBy = "terminska_lista")
+    /*
+        @ManyToMany(mappedBy = "terminska_lista")
     private Set<Sala> sale_terminska = new HashSet<>();
+     */
 
     @Override
     public String toString() {

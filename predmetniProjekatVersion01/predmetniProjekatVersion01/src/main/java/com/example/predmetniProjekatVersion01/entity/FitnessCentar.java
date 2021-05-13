@@ -4,13 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Setter
 @Getter
 @Entity
-public class FitnessCentar {
+public class FitnessCentar implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +31,17 @@ public class FitnessCentar {
 
     // raspored odrzavanja treninga + cena za svaki termin
 
-    // 1. treneri koji rade u tom fitnes centru
+    /* treneri koji rade u tom fitnes centru
+       "U 1 fitnes centru moze da radi vise trenera"
+        veza 1:n, strana: 1                              */
     @OneToMany(mappedBy = "treneriFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> treneriUFC = new HashSet<>();
 
-    // 2. lista sala koje se nalaze u tom fitnes centru
+    /* lista sala koje se nalaze u tom fitnes centru(veza 1:n)
+       "U 1 fitness centru moze postojati vise sala"
+       veza 1:n, strana: 1                                     */
     @OneToMany(mappedBy = "saleFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> saleUFC = new HashSet<>();
-
 
     @Override
     public String toString() {

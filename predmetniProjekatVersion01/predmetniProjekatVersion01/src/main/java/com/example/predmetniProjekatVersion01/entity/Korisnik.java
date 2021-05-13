@@ -13,35 +13,34 @@ import java.util.Date;
 public class Korisnik implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     @Column(unique = true, nullable = false)
-    private String korisnickoIme;
-
-    @Column(unique = true, nullable = false)
-    private String lozinka;
+    protected String korisnickoIme;
 
     @Column(nullable = false)
-    private String ime;
+    protected String lozinka;
 
     @Column(nullable = false)
-    private String prezime;
+    protected String ime;
+
+    @Column(nullable = false)
+    protected String prezime;
 
     @Column(unique = true)
-    private String kontakt_telefon;
+    protected String kontakt_telefon;
 
     @Column(unique = true, nullable = false)
-    private String email;
+    protected String email;
 
     @Column
-    private Date datum_rodjenja;
+    protected Date datumRodjenja;
 
     @Column
-    private Uloga uloga;
+    protected Uloga uloga;
 
     @Column
-    private Boolean aktivan;
-
+    protected Boolean aktivan;
 
     @Override
     public String toString() {
@@ -53,7 +52,7 @@ public class Korisnik implements Serializable {
                                 "Prezime = " + prezime + '\'' +
                                 "Kontakt telefon = " + kontakt_telefon + '\'' +
                                 "Email = " + email + '\'' +
-                                "Datum rodjenja = " + datum_rodjenja + '\'' +
+                                "Datum rodjenja = " + datumRodjenja + '\'' +
                                 "Uloga = " + uloga + '\'' +
                                 "Aktivan = " + aktivan + '\'';
     }

@@ -16,24 +16,22 @@ public class Trener extends Korisnik implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column
     private double prosecnaOcena;
 
-       /* 1. lista treninga koje on drzi
-       2. prosecna ocena trenera
-     */
-
-    // jedna strana veze 1:n
-    @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    /*
+        lista treninga koje trener drzi
+        "1 trener moze drzati vise treninga"
+        veza 1:n, strana: 1                     */
+    @OneToMany(mappedBy = "treninzi_koje_drzi", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> lista_treninga = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private FitnessCentar trenFC;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    private FitnessCentar trenFCs;
-
+    /*
+        treneri koji rade u tom fitnes centru
+       "Vise trenera moze da radi u 1(postojecem) fitness centru"
+       (veza 1:n), strana: n                                        */
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private FitnessCentar treneriFC;
 
     @Override
     public String toString() {
