@@ -52,4 +52,4 @@ INSERT INTO ODRADJENI_TRENINZI(clan_id, trening_id) VALUES (2, 1);
 INSERT INTO PRIJAVLJENI_TRENINZI(clan_id, trening_id) VALUES (1,1);
 
 /* OCENE TRENINGA */
-INSERT INTO OCENE(clan_id, ocena_id) VALUES (2, 1);
+INSERT INTO OCENE_TRENINGA(clan_id, ocena_id) VALUES (2, 1);
