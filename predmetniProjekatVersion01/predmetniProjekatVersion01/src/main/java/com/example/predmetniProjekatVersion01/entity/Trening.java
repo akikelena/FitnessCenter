@@ -18,16 +18,16 @@ public class Trening implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String naziv;
 
     @Column
     private String opis;
 
-    @Column
+    @Column(nullable = false)
     private TipTreninga tipTreninga;
 
-    @Column
+    @Column(nullable = false)
     private int trajanje;
 
     /*
@@ -49,18 +49,7 @@ public class Trening implements Serializable {
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
     private Set<Clan> clanovi_prijavljeni = new HashSet<>();
 
-    /*
-        @ManyToMany(mappedBy = "terminska_lista")
-    private Set<Sala> sale_terminska = new HashSet<>();
-     */
+    @OneToMany(mappedBy = "treninzi", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Termin> termini = new HashSet<>();
 
-    @Override
-    public String toString() {
-        return "Trening : : " +
-                                "ID = " + id + '\'' +
-                                "Naziv = " + naziv + '\'' +
-                                "Opis = " + opis + '\'' +
-                                "Tip treninga = " + tipTreninga + '\'' +
-                                "Trajanje = " + trajanje + '\'';
-    }
 }

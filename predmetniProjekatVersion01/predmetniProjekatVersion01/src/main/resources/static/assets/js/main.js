@@ -100,7 +100,7 @@
 
     nav_sections.each(function() {
       var top = $(this).offset().top,
-        bottom = top + $(this).outerHeight();
+          bottom = top + $(this).outerHeight();
 
       if (cur_pos >= top && cur_pos <= bottom) {
         if (cur_pos <= bottom) {

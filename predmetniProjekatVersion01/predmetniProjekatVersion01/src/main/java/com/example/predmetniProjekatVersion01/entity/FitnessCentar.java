@@ -43,13 +43,4 @@ public class FitnessCentar implements Serializable {
     @OneToMany(mappedBy = "saleFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> saleUFC = new HashSet<>();
 
-    @Override
-    public String toString() {
-        return "FitnessCentar : " +
-                                     "ID=" + id +
-                                     "Naziv = " + naziv + '\'' +
-                                     "Adresa = " + adresa + '\'' +
-                                     "Broj Telefona Centrale="  + brTelCentrale + '\'' +
-                                     "Email =" + email + '\'' ;
-    }
 }

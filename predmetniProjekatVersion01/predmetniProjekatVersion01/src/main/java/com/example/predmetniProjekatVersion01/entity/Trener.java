@@ -33,10 +33,8 @@ public class Trener extends Korisnik implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnessCentar treneriFC;
 
-    @Override
-    public String toString() {
-        return "Trener : "  +
-                                "ID = " + id + '\'' +
-                                "Prosecna ocena = " + prosecnaOcena + '\'' ;
-    }
+    // prosecna ocena trenera, veza 1:n, strana: 1
+    @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Ocena> ocene = new HashSet<>();
+
 }

@@ -42,18 +42,4 @@ public class Korisnik implements Serializable {
     @Column
     protected Boolean aktivan;
 
-    @Override
-    public String toString() {
-        return "Korisnik : " +
-                                "ID = " + id + '\'' +
-                                "Korisnicko ime = " + korisnickoIme + '\'' +
-                                "Lozinka = " + lozinka + '\'' +
-                                "Ime = " + ime  + '\'' +
-                                "Prezime = " + prezime + '\'' +
-                                "Kontakt telefon = " + kontakt_telefon + '\'' +
-                                "Email = " + email + '\'' +
-                                "Datum rodjenja = " + datumRodjenja + '\'' +
-                                "Uloga = " + uloga + '\'' +
-                                "Aktivan = " + aktivan + '\'';
-    }
 }

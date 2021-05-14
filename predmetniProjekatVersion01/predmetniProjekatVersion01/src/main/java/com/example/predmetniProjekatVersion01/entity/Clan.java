@@ -35,11 +35,14 @@ public class Clan extends Korisnik implements Serializable {
     private Set<Trening> prijavljeniTreninzi = new HashSet<>();
 
     /* lista ocena za odradjene treninge
-    private Set<double> lista_ocena = new HashSet<>();  */
+       Jedan clan moze oceniti vise treninga, ali i jedan trening moze oceniti vise clanova.
+       veza n:n
+     */
+    @ManyToMany
+    @JoinTable(name = "ocene_treninga",
+                joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
+                inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
+    private Set<Ocena> ocene = new HashSet<>();
 
-    @Override
-    public String toString() {
-        return "Clan : " +
-                "ID = " + id + '\'';
-    }
+
 }
