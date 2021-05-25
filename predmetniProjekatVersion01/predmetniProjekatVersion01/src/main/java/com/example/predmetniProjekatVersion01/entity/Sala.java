@@ -19,7 +19,7 @@ public class Sala implements Serializable {
     @Column
     private int kapacitet;
 
-    @Column(unique = true)
+    @Column(name = "oznaka_sale", unique = true)
     private String oznakaSale;
 
    /*  lista sala koje se nalaze u tom fitnes centru(veza 1:n)

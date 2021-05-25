@@ -16,7 +16,7 @@ public class Trener extends Korisnik implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "prosecna_ocena")
     private double prosecnaOcena;
 
     /*

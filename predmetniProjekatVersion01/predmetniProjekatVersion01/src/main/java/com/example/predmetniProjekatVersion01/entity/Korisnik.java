@@ -15,7 +15,7 @@ public class Korisnik implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "korisnicnko_ime", unique = true, nullable = false)
     protected String korisnickoIme;
 
     @Column(nullable = false)
@@ -33,7 +33,7 @@ public class Korisnik implements Serializable {
     @Column(unique = true, nullable = false)
     protected String email;
 
-    @Column
+    @Column(name = "datum_rodjenja")
     protected Date datumRodjenja;
 
     @Column

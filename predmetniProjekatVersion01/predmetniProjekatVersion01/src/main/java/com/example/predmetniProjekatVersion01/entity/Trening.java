@@ -24,7 +24,7 @@ public class Trening implements Serializable {
     @Column
     private String opis;
 
-    @Column(nullable = false)
+    @Column(name = "tip_treninga", nullable = false)
     private TipTreninga tipTreninga;
 
     @Column(nullable = false)

@@ -23,13 +23,11 @@ public class FitnessCentar implements Serializable {
     @Column
     private String adresa;
 
-    @Column
+    @Column(name = "br_tel_centrale")
     private String brTelCentrale;
 
     @Column
     private String email;
-
-    // raspored odrzavanja treninga + cena za svaki termin
 
     /* treneri koji rade u tom fitnes centru
        "U 1 fitnes centru moze da radi vise trenera"

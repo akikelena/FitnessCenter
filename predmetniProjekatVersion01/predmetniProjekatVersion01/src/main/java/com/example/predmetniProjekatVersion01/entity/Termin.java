@@ -20,7 +20,7 @@ public class Termin implements Serializable {
     @Column
     private int cena;
 
-    @Column
+    @Column(name = "pocetak_termina")
     private Date pocetakTermina;
 
 
