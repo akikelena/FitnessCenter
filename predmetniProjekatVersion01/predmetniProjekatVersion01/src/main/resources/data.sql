@@ -27,15 +27,15 @@ INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, em
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan) VALUES ('jelenadimitrijevic', 'd_jelena34', 'Jelena', 'Dimitrijevic', '0655546790', 'ana.p@gmail.com', '1987-10-15 19:00:00.000000', 'CLAN', true);
 
 /* ADMINISTRATOR */
-INSERT INTO ADMINISTRATOR(id) VALUES (0);
+INSERT INTO ADMINISTRATOR_KORISNIK(id) VALUES (0);
 
 /* CLAN */
-INSERT INTO CLAN(id) VALUES (1);
-INSERT INTO CLAN(id) VALUES (2);
-INSERT INTO CLAN(id) VALUES (3);
+INSERT INTO CLAN_KORISNIK(id) VALUES (1);
+INSERT INTO CLAN_KORISNIK(id) VALUES (2);
+INSERT INTO CLAN_KORISNIK(id) VALUES (3);
 
 /* TRENER */
-INSERT INTO TRENER(id, fcentar_id) VALUES (1, 1);
+INSERT INTO TRENER_KORISNIK(id, fcentar_id) VALUES (1, 1);
 
 /* TERMIN  */
 INSERT INTO TERMIN(cena, pocetak_termina, sala_id, trening_id) VALUES (3000, 2021-05-20 08:00:00.000000, 1, 1);

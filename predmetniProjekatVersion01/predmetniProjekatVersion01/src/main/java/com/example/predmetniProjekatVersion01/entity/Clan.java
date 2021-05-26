@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
+@Table(name = "CLAN_KORISNIK")
 public class Clan extends Korisnik implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

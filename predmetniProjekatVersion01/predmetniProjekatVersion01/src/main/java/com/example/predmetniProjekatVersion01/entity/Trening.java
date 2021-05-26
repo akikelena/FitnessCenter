@@ -13,6 +13,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
+@Table(name = "TRENING")
 public class Trening implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,7 @@ public class Trening implements Serializable {
     private String opis;
 
     @Column(name = "tip_treninga", nullable = false)
+    @Enumerated(value = EnumType.STRING)
     private TipTreninga tipTreninga;
 
     @Column(nullable = false)

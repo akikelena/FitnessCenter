@@ -1,29 +1,43 @@
 package com.example.predmetniProjekatVersion01;
 
-import com.example.predmetniProjekatVersion01.repository.FCRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import com.example.predmetniProjekatVersion01.entity.FitnessCentar;
+import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.Trener;
+import com.example.predmetniProjekatVersion01.repository.*;
+import lombok.val;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import java.util.Date;
+
 
 @SpringBootApplication
-public class PredmetniProjekatVersion01Application implements CommandLineRunner {
-
-	@Autowired
-	private FCRepository fcRepository;
+public class PredmetniProjekatVersion01Application  {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PredmetniProjekatVersion01Application.class, args);
+		ConfigurableApplicationContext configurableApplicationContext=
+				SpringApplication.run(PredmetniProjekatVersion01Application.class, args);
+		// korisnik
+		KorisnikRepository korisnikRepository =
+				configurableApplicationContext.getBean(KorisnikRepository.class);
+		// clan
+		KorisnikRepository clanKorisnikRepository =
+				configurableApplicationContext.getBean(ClanRepository.class);
 
-		// novi onjekat klase Fitness Centar
-		FitnessCentar fitnessCentar = new FitnessCentar();
-		fitnessCentar.setNaziv("Pro</G>YM");
-		fitnessCentar.setAdresa("Trg Dositeja Obradovica 6");
-		fitnessCentar.setBrTelCentrale("0612573450");
-		fitnessCentar.setEmail("progym@gmail.com");
+		// administrator
+		KorisnikRepository adminKorisnikRepository =
+				configurableApplicationContext.getBean(AdministratorRepository.class);
 
-		// cuvanje u bazi
-		this.fcRepository.save(fitnessCentar)	*/
+		// trener
+		KorisnikRepository trenerKorisnikRepository =
+				configurableApplicationContext.getBean(TrenerRepository.class);
+
+		// fitness centar
+		FCRepository fcRepository =
+				configurableApplicationContext.getBean(FCRepository.class);
+
+
 	}
 
 }

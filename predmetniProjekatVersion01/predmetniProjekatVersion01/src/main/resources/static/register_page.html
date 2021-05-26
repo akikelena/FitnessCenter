@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -69,7 +70,8 @@
                                 <i class="fa fa-user icon"></i>
                             </span>
                                     </div>
-                                    <input id="korisnickoime" type="text"  placeholder="Korisničko ime" class="form-control bg-white border-left-0 border-md">
+                                    <input id="korisnickoime" type="text"  placeholder="Korisničko ime"  name="KorisnickoIme"
+                                           class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
                                 <!-- Lozinka -->
                                 <div class="input-group col-lg-6 mb-4">
@@ -78,7 +80,8 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="password" type="password"  placeholder="Lozinka" class="form-control bg-white border-left-0 border-md">
+                                    <input id="password" type="password"  placeholder="Lozinka" name="Lozinka"
+                                           class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
                                 <!-- Ime -->
                                 <div class="input-group col-lg-6 mb-4">
@@ -87,7 +90,8 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="ime" type="text"  placeholder="Ime" class="form-control bg-white border-left-0 border-md">
+                                    <input id="ime" type="text"  placeholder="Ime" name="Ime"
+                                           class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
 
                                 <!-- Prezime -->
@@ -97,7 +101,8 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="prezime" type="text"  placeholder="Prezime" class="form-control bg-white border-left-0 border-md">
+                                    <input id="prezime" type="text"  placeholder="Prezime" name="Prezime"
+                                           class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
 
                                 <!-- Kontakt telefon -->
@@ -107,10 +112,12 @@
                                 <i class="fa fa-phone-square text-muted"></i>
                             </span>
                                     </div>
-                                    <select id="countrycode"  style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
+                                    <select id="countrycode"  style="max-width: 80px"
+                                            class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
                                         <option value="">+381</option>
                                     </select>
-                                    <input id="brtel" type="tel"  placeholder="Broj telefona" class="form-control bg-white border-md border-left-0 pl-3">
+                                    <input id="brtel" type="tel"  placeholder="Broj telefona" name="BrojTelefona"
+                                           class="form-control bg-white border-md border-left-0 pl-3" required="true">
                                 </div>
 
                                 <!-- Email -->
@@ -120,7 +127,8 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="email" type="email" placeholder="Email" class="form-control bg-white border-left-0 border-md">
+                                    <input id="email" type="email" placeholder="Email" name="Email"
+                                           class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
 
                                 <!-- Datum rodjenja -->
@@ -130,7 +138,8 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="datum_rodjenja" type="date"  placeholder="Datum rođenja" class="form-control bg-white border-left-0 border-md">
+                                    <input id="datum_rodjenja" type="date"  placeholder="Datum rođenja" name="DatumRodjenja"
+                                           class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
 
                                 <!-- Uloga -->
@@ -140,7 +149,7 @@
                                 <i class="fa fa-black-tie text-muted"></i>
                             </span>
                                     </div>
-                                    <select id="uloga"  class="form-control custom-select bg-white border-left-0 border-md">
+                                    <select id="uloga" name="Uloga" class="form-control custom-select bg-white border-left-0 border-md">
                                         <option value="">Uloga</option>
                                         <option value="">Novi član</option>
                                         <option value="">Novi trener</option>
@@ -162,7 +171,8 @@
                                 </div>
 
                                 <div class="text-center w-100">
-                                    <p class="text-muted font-weight-bold"> Već imaš nalog? <a href="login_page.html" class="text-primary ml-2">Prijavi se</a></p>
+                                    <p class="text-muted font-weight-bold"> Već imaš nalog?
+                                        <a href="login_page.html" class="text-primary ml-2">Prijavi se</a></p>
                                 </div>
 
                             </div>

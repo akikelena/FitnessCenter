@@ -10,7 +10,9 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Korisnik implements Serializable {
+@Table(name = "KORISNIK")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Korisnik implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
@@ -27,8 +29,8 @@ public class Korisnik implements Serializable {
     @Column(nullable = false)
     protected String prezime;
 
-    @Column(unique = true)
-    protected String kontakt_telefon;
+    @Column(unique = true, name = "kontakt_telefon")
+    protected String kontaktTelefon;
 
     @Column(unique = true, nullable = false)
     protected String email;
@@ -37,6 +39,7 @@ public class Korisnik implements Serializable {
     protected Date datumRodjenja;
 
     @Column
+    @Enumerated(value = EnumType.STRING)
     protected Uloga uloga;
 
     @Column

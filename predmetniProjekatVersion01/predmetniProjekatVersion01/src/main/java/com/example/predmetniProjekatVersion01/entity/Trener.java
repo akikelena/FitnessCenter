@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
+@Table(name = "TRENER_KORISNIK")
 public class Trener extends Korisnik implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

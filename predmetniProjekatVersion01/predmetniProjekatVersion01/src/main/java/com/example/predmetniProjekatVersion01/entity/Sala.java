@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
+@Table(name = "SALA")
 public class Sala implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,9 @@
-package main.java.com.example.predmetniProjekatVersion01.repository;
+package com.example.predmetniProjekatVersion01.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.predmetniProjekatVersion01.entity.Trener;
+import org.springframework.stereotype.Repository;
 
-public interface TrenerRepository extends JpaRepository<Trener, Long> {
+@Repository
+public interface TrenerRepository extends KorisnikRepository {
 }

@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
+@Table(name = "FITNESS_CENTAR")
 public class FitnessCentar implements Serializable {
 
     @Id
