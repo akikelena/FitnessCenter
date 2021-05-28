@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface TreningRepository extends JpaRepository<Trening, Long> {
 
-    void deleteById();
+    void deleteById(Long id);
 
     // pretraga treninga u ponudi -> svih treninga, bez parametara za pretragu
     List<Trening> findAll();
