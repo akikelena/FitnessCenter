@@ -19,17 +19,17 @@ public class Trening implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "naziv", nullable = false)
     private String naziv;
 
-    @Column
+    @Column(name = "opis")
     private String opis;
 
     @Column(name = "tip_treninga", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private TipTreninga tipTreninga;
 
-    @Column(nullable = false)
+    @Column(name = "trajanje", nullable = false)
     private int trajanje;
 
     /*

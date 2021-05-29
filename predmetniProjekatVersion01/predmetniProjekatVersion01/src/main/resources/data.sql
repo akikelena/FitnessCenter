@@ -38,7 +38,7 @@ INSERT INTO CLAN_KORISNIK(id) VALUES (3);
 INSERT INTO TRENER_KORISNIK(id, fcentar_id) VALUES (1, 1);
 
 /* TERMIN  */
-INSERT INTO TERMIN(cena, pocetak_termina, sala_id, trening_id) VALUES (3000, 2021-05-20 08:00:00.000000, 1, 1);
+INSERT INTO TERMIN(cena, pocetak_termina, broj_prijavljenih, sala_id, trening_id) VALUES (3000, 2021-05-20 08:00:00.000000, 13,  3, 1);
 
 /* OCENA */
 INSERT INTO OCENA(ocena, trener_id, termin_id) VALUES (5, 1, 1);

@@ -19,7 +19,7 @@ public class Clan extends Korisnik implements Serializable {
 
     /*  lista odradjenih treninga
         Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
-        veza n:n                                                                                    */
+        veza n:n  */
     @ManyToMany
     @JoinTable(name = "odradjeni_treninzi",
                                             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),

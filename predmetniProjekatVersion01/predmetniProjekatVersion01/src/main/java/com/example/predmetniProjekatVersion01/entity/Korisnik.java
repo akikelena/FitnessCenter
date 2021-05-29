@@ -17,32 +17,32 @@ public abstract class Korisnik implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Column(name = "korisnicnko_ime", unique = true, nullable = false)
+    @Column(name = "korisnicko_ime", unique = true, nullable = false)
     protected String korisnickoIme;
 
-    @Column(nullable = false)
+    @Column(name = "lozinka", nullable = false)
     protected String lozinka;
 
-    @Column(nullable = false)
+    @Column(name = "ime", nullable = false)
     protected String ime;
 
-    @Column(nullable = false)
+    @Column(name = "prezime", nullable = false)
     protected String prezime;
 
-    @Column(unique = true, name = "kontakt_telefon")
+    @Column(name = "kontakt_telefon", unique = true)
     protected String kontaktTelefon;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     protected String email;
 
     @Column(name = "datum_rodjenja")
     protected Date datumRodjenja;
 
-    @Column
+    @Column(name = "uloga")
     @Enumerated(value = EnumType.STRING)
     protected Uloga uloga;
 
-    @Column
+    @Column(name = "aktivan")
     protected Boolean aktivan;
 
 }

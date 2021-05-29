@@ -18,16 +18,16 @@ public class FitnessCentar implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "naziv")
     private String naziv;
 
-    @Column
+    @Column(name = "adresa")
     private String adresa;
 
     @Column(name = "br_tel_centrale")
     private String brTelCentrale;
 
-    @Column
+    @Column(name = "email")
     private String email;
 
     /* treneri koji rade u tom fitnes centru

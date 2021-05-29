@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pro&lt;G/&gt;YM</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Dodaj fitness centar</title>
 
     <link href="assets/img/icon.png" rel="icon">
 
@@ -20,17 +17,14 @@
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="reg_css.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!--  Header -->
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
@@ -43,29 +37,25 @@
         </nav>
 
     </div>
-</header><!-- End Header -->
+</header>
 
 <main id="main">
     <hr/>
-    <!-- PRIJAVA -->
+
     <section id="prijava" class="prijava section-bg">
         <div class="container" data-aos="fade-up">
 
             <header class="header">
-                <nav class="navbar navbar-expand-lg navbar-light py-3">
-                    <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light py-3  justify-content-center">
+                    <div class=" col-xl-12 col-lg-12 text-center text-lg-center">
+                        <h3> DODAJ NOVI FITNESS CENTAR </h3>
                     </div>
                 </nav>
             </header>
 
-            <div class="container">
-                <div class="row py-5 mt-4 align-items-center">
-                    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-                        <img src="assets/img/g3.png" alt="" class="img-fluid mb-3 d-none d-md-block">
-                    </div>
-
                     <!-- Form -->
-                    <div class="col-md-7 col-lg-6 ml-auto">
+                    <div class="col-md-12 col-lg-12
+                     ml-auto">
                         <form>
                             <div class="row">
                                 <!-- NAZIV -->
@@ -82,7 +72,7 @@
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
+                                <i class="fa fa-map-marker text-muted"></i>
                             </span>
                                     </div>
                                     <input id="adresa_fc" type="text" name="Adresa_fc" placeholder="Adresa"
@@ -93,7 +83,7 @@
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
+                                <i class="fa fa-phone-square text-muted"></i>
                             </span>
                                     </div>
                                     <input id="br_tel" type="text" name="Br_tel" placeholder="Broj telefona centrale"
@@ -104,7 +94,7 @@
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
+                                <i class="fa fa-envelope text-muted"></i>
                             </span>
                                     </div>
                                     <input id="email_fc" type="email" name="Email_fc" placeholder="Email"
@@ -113,8 +103,7 @@
 
                                 <!-- Kreiraj novi FC -->
                                 <div class="form-group col-lg-12 mx-auto mb-0">
-                                    <a href="#" class="btn btn-primary btn-block py-2">
-                                        <span class="font-weight-bold">Kreiraj novi fitness centar</span>
+                                        <button name="Kreiraj_fc" type="submit" href="#" class="btn btn-primary btn-block py-2" > Kreiraj novi fitness centar </button>
                                     </a>
                                 </div>
 

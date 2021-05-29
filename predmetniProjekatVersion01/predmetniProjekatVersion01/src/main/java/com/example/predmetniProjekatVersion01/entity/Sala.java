@@ -17,7 +17,7 @@ public class Sala implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "kapacitet")
     private int kapacitet;
 
     @Column(name = "oznaka_sale", unique = true)
@@ -38,3 +38,4 @@ public class Sala implements Serializable {
     private Set<Termin> termini = new HashSet<>();
 
 }
+

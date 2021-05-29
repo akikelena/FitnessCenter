@@ -16,7 +16,7 @@ import java.util.Date;
 public class PredmetniProjekatVersion01Application  {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext configurableApplicationContext=
+		/* ConfigurableApplicationContext configurableApplicationContext=
 				SpringApplication.run(PredmetniProjekatVersion01Application.class, args);
 		// korisnik
 		KorisnikRepository korisnikRepository =
@@ -36,7 +36,7 @@ public class PredmetniProjekatVersion01Application  {
 		// fitness centar
 		FCRepository fcRepository =
 				configurableApplicationContext.getBean(FCRepository.class);
-
+	*/
 
 	}
 
