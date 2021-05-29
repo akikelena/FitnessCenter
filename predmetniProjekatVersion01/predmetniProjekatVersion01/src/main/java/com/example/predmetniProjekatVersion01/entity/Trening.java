@@ -32,6 +32,9 @@ public class Trening implements Serializable {
     @Column(name = "trajanje", nullable = false)
     private int trajanje;
 
+    @Column(name = "cena")
+    private int cena;
+
     /*
          lista treninga koje trener drzi
         "1 trener moze drzati vise treninga"

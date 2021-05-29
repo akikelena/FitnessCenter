@@ -16,12 +16,24 @@ public interface TreningRepository extends JpaRepository<Trening, Long> {
     List<Trening> findAll();
 
     // pretraga treninga po POJEDINACNIM kriterijumima
+    // 1. NAZIV
     List<Trening> findByNaziv(String naziv);
 
+    // 2. OPIS
     List<Trening> findByOpis(String opis);
 
+    // 3. TIP TRENINGA
     List<Trening> findByTipTreninga(TipTreninga tipTreninga);
 
+    // 4. TRAJANJE
     List<Trening> findByTrajanje(int trajanje);
+
+    // 5. CENA
+    List<Trening> findByCena(int cena);
+
+    // VISEKRITERIJUMSKA pretraga
+    List<Trening> findByTipTreningaAndCena(TipTreninga tipTreninga, int cena);
+    List<Trening> findTreningsByCenaIsLessThanAndTipTreningOrderByCena(int cena);
+
 
 }

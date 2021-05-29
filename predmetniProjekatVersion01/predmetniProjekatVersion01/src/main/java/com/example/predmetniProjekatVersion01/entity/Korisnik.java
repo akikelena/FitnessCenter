@@ -12,7 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "KORISNIK")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Korisnik implements Serializable {
+public class Korisnik implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;

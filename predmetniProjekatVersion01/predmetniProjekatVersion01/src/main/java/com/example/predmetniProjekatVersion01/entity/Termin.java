@@ -18,9 +18,6 @@ public class Termin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private int cena;
-
     @Column(name = "pocetak_termina")
     private Date pocetakTermina;
 
@@ -35,5 +32,9 @@ public class Termin implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sale;
+
+    // ocena odredjenog treninga(u odredjenom terminu)
+    @ManyToMany(mappedBy = "ocene")
+    private Set<Clan> ocenjeni_treninzi = new HashSet<>();
 
 }

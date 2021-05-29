@@ -43,7 +43,7 @@ public class Clan extends Korisnik implements Serializable {
     @JoinTable(name = "ocene_treninga",
                 joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
                 inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
-    private Set<Ocena> ocene = new HashSet<>();
+    private Set<Termin> ocene = new HashSet<>();
 
 
 }

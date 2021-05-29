@@ -27,8 +27,4 @@ public class Ocena implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Termin termini;
 
-    @ManyToMany(mappedBy = "ocene")
-    private Set<Clan> ocenjeni_treninzi = new HashSet<>();
-
-
 }
