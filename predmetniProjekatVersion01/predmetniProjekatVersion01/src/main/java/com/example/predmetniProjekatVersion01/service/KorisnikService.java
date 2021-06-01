@@ -26,7 +26,9 @@ public class KorisnikService {
     public Korisnik save(Korisnik korisnik){
         return this.korisnikRepository.save(korisnik);
     }
-
+    public Korisnik izmeni(Korisnik korisnik){
+        return korisnikRepository.save(korisnik);
+    }
     public  void  delete(Long id){
         this.korisnikRepository.deleteById(id);
     }

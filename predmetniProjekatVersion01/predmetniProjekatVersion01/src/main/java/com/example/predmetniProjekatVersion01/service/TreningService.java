@@ -14,7 +14,23 @@ public class TreningService {
     @Autowired
     private TreningRepository treningRepository;
 
-    // *** SORTIRANJE treninga
+    // cuvanje
+    public Trening save(Trening trening){
+        return treningRepository.save(trening);
+    }
+
+    // izmena treninga
+    public Trening izmeni(Trening trening){
+        return  treningRepository.save(trening);
+    }
+
+    // brisanje
+    public  void delete(Long id){
+        treningRepository.deleteById(id);
+    }
+
+    /*  SORTIRANJE treninga
+                                */
     // 1. rastuci redosled, po nazivu
     public List<Trening> sort_by_naziv(){
         List<Trening> treningList = treningRepository.findAll(Sort.by(Sort.Direction.ASC, "naziv"));
@@ -23,5 +39,15 @@ public class TreningService {
     // 2. opadajuci redosled, po ceni
     public  List<Trening> treningList = treningRepository.findAll(Sort.by(Sort.Direction.DESC, "cena"));
 
+    // "obicna" pretraga
+    public Trening pronadji(Long id){
+        Trening trening = this.treningRepository.getOne(id);
+        return trening;
+    }
+
+    public List<Trening> findAll(){
+        List<Trening> treningList = this.treningRepository.findAll();
+        return  treningList;
+    }
 
 }
