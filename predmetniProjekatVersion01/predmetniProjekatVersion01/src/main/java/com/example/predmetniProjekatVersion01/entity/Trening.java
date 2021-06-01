@@ -44,15 +44,15 @@ public class Trening implements Serializable {
 
     /*  lista odradjenih treninga
         Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
-        veza n:n                                                                                    */
+        veza n:n
     @ManyToMany(mappedBy = "odradjeniTreninzi")
     private Set<Clan> clanovi_odradjeni = new HashSet<>();
 
     /*  lista prijavljenih treninga
       Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
-      veza n:n                                                                                             */
+      veza n:n
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
-    private Set<Clan> clanovi_prijavljeni = new HashSet<>();
+    private Set<Clan> clanovi_prijavljeni = new HashSet<>();    */
 
     @OneToMany(mappedBy = "treninzi", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Termin> termini = new HashSet<>();

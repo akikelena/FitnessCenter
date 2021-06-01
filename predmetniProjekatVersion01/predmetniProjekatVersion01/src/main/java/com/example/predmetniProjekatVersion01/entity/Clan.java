@@ -21,29 +21,26 @@ public class Clan extends Korisnik implements Serializable {
         Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
         veza n:n  */
     @ManyToMany
-    @JoinTable(name = "odradjeni_treninzi",
+    @JoinTable(name = "odradjeni_termini",
                                             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
                                             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> odradjeniTreninzi = new HashSet<>();
+    private Set<Termin> odradjeniTermini = new HashSet<>();
 
     /*  lista prijavljenih treninga
         Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
         veza n:n                                                                                             */
     @ManyToMany
-    @JoinTable(name = "prijavljeni_treninzi",
+    @JoinTable(name = "prijavljeni_termini",
                 joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> prijavljeniTreninzi = new HashSet<>();
+                inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+    private Set<Termin> prijavljeniTermini = new HashSet<>();
 
     /* lista ocena za odradjene treninge
        Jedan clan moze oceniti vise treninga, ali i jedan trening moze oceniti vise clanova.
        veza n:n
      */
-    @ManyToMany
-    @JoinTable(name = "ocene_treninga",
-                joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
-    private Set<Termin> ocene = new HashSet<>();
+    @OneToMany(mappedBy = "ocene", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Ocena> ocene = new HashSet<>();
 
 
 }

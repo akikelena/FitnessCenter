@@ -33,8 +33,16 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sale;
 
-    // ocena odredjenog treninga(u odredjenom terminu)
-    @ManyToMany(mappedBy = "ocene")
-    private Set<Clan> ocenjeni_treninzi = new HashSet<>();
+    /*  lista odradjenih treninga
+    Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
+    veza n:n       */
+    @ManyToMany(mappedBy = "odradjeniTermini")
+    private Set<Clan> clanovi_odradjeni = new HashSet<>();
+
+    /*  lista prijavljenih treninga
+      Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
+      veza n:n                                                                                             */
+    @ManyToMany(mappedBy = "prijavljeniTermini")
+    private Set<Clan> clanovi_prijavljeni = new HashSet<>();
 
 }
