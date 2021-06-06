@@ -16,7 +16,9 @@ public class KorisnikDTO {
     private Uloga uloga;
     private Boolean aktivan;
 
-    public KorisnikDTO(){
+    public KorisnikDTO(){}
+
+    public KorisnikDTO(Long id, String korisnickoIme, String ime, String prezime, String lozinka, String kontaktTelefon, String email, Date datumRodjenja, Uloga uloga, Boolean aktivan){
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
