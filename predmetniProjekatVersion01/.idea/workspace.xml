@@ -7,6 +7,9 @@
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/KorisnikDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/KorisnikDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +23,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="JavaScript File" />
         <option value="Interface" />
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -141,7 +144,7 @@
       <workItem from="1622897372206" duration="81000" />
       <workItem from="1622897555328" duration="4970000" />
       <workItem from="1622938504300" duration="28000" />
-      <workItem from="1623013546499" duration="1877000" />
+      <workItem from="1623013546499" duration="5027000" />
     </task>
     <servers />
   </component>
