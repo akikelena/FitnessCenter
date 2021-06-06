@@ -13,6 +13,17 @@ public class KorisnikService {
     @Autowired
     private KorisnikRepository korisnikRepository;
 
+    public Korisnik save(Korisnik korisnik){
+        return this.korisnikRepository.save(korisnik);
+    }
+    public Korisnik change(Korisnik korisnik){
+        return korisnikRepository.save(korisnik);
+    }
+    public  void  delete(Long id){
+        this.korisnikRepository.deleteById(id);
+    }
+
+
     public Korisnik findOne(Long id){
         Korisnik korisnik = this.korisnikRepository.getOne(id);
         return  korisnik;
@@ -23,13 +34,4 @@ public class KorisnikService {
         return  korisnikList;
     }
 
-    public Korisnik save(Korisnik korisnik){
-        return this.korisnikRepository.save(korisnik);
-    }
-    public Korisnik izmeni(Korisnik korisnik){
-        return korisnikRepository.save(korisnik);
-    }
-    public  void  delete(Long id){
-        this.korisnikRepository.deleteById(id);
-    }
 }

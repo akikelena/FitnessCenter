@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FitnessCentarService {
@@ -19,8 +18,12 @@ public class FitnessCentarService {
      */
 
     // dodavanje
-    public FitnessCentar save(FitnessCentar fitnessCentar){
-        return  this.fcRepository.save(fitnessCentar);
+    public FitnessCentar save(FitnessCentar fitnessCentar) throws Exception{
+        if(fitnessCentar.getId() != null) {
+            throw new Exception("ID mora biti null vrednost!");
+        }
+        FitnessCentar fitnessCentar1 = this.fcRepository.save(fitnessCentar);
+        return  fitnessCentar1;
     }
 
     // brisanje
@@ -37,14 +40,16 @@ public class FitnessCentarService {
         FUNKCIONALNOSTI - CLANOVI + KORISNICI
      */
 
-    // pretrazivanje FC
+    // Pretrazivanje svih FC-a
     public List<FitnessCentar> pretrazi_sve(){
-        return fcRepository.findAll();
+        List<FitnessCentar> fitnessCentarList = this.fcRepository.findAll();
+        return fitnessCentarList;
     }
 
-    // pretraga specificnog FC-a
-    public Optional<FitnessCentar> pronadji(Long id){
-        return fcRepository.findById(id);
+    // Pretraga specificnog FC-a
+    public FitnessCentar pronadji(Long id){
+        FitnessCentar fitnessCentar = this.fcRepository.getOne(id);
+        return fitnessCentar;
     }
 
 }
