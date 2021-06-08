@@ -1,12 +1,3 @@
-$(function () {
-    $('input, select').on('focus', function () {
-        $(this).parent().find('.input-group-text').css('border-color', '#80bdff');
-    });
-    $('input, select').on('blur', function () {
-        $(this).parent().find('.input-group-text').css('border-color', '#ced4da');
-    });
-});
-
 // dodavanje novog korisnika
 $(document).on("submit", "#regForm", function (event){
     event.preventDefault();
@@ -40,10 +31,15 @@ $(document).on("submit", "#regForm", function (event){
             console.log(response);
 
             alert("Korisnik" + response.id + "je uspešno kreiran!");
-            window.location.href = "register_page.html";
+            window.location.href = "index.html";
         },
         error: function (){
             alert("Greška prilikom kreiranja novog korisnika!");
         }
     });
+});
+
+$("#btn-login").on("click", function (event) {
+    console.log("test");
+    window.location.href = "login_page.html";
 });

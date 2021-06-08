@@ -19,11 +19,16 @@ $(document).on("submit", "#logForm", function (event){
             console.log(response);
 
             alert("Uspešno logovanje korisnika " + response.id);
-            window.location.href = "login_page.html";
+            window.location.href = "index.html";
         },
 
         error: function (){
             alert("Greška prilikom logovanja!");
         }
     });
+});
+
+$("#btn-reg").on("click", function (event) {
+    console.log("test");
+    window.location.href = "register_page.html";
 });

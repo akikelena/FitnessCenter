@@ -56,7 +56,7 @@
                     <!-- Form -->
                     <div class="col-md-12 col-lg-12
                      ml-auto">
-                        <form>
+                        <form method="post" id="fc-addForm">
                             <div class="row">
                                 <!-- NAZIV -->
                                 <div class="input-group col-lg-12 mb-4">
@@ -66,7 +66,7 @@
                             </span>
                                     </div>
                                     <input id="naziv_fc" type="text" name="Naziv" placeholder="Naziv fitness centra"
-                                           required="true" class="form-control bg-white border-left-0 border-md" >
+                                           required class="form-control bg-white border-left-0 border-md" >
                                 </div>
                                 <!-- ADRESA FC-->
                                 <div class="input-group col-lg-12 mb-4">
@@ -76,7 +76,7 @@
                             </span>
                                     </div>
                                     <input id="adresa_fc" type="text" name="Adresa_fc" placeholder="Adresa"
-                                           required="true" class="form-control bg-white border-left-0 border-md">
+                                           required class="form-control bg-white border-left-0 border-md">
                                 </div>
 
                                 <!-- Broj telefona centrale FC-->
@@ -103,7 +103,7 @@
 
                                 <!-- Kreiraj novi FC -->
                                 <div class="form-group col-lg-12 mx-auto mb-0">
-                                        <button name="Kreiraj_fc" type="submit" href="#" class="btn btn-primary btn-block py-2" > Kreiraj novi fitness centar </button>
+                                        <button name="Kreiraj_fc" id="btn-addFC" type="submit" class="btn btn-primary btn-block py-2" > Kreiraj novi fitness centar </button>
                                     </a>
                                 </div>
 

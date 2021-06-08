@@ -24,6 +24,10 @@ public class FitnessCentarController {
     public ResponseEntity<FitnessCentarDTO> getFC(@PathVariable Long id){
         FitnessCentar fitnessCentar = this.fitnessCentarService.pronadji(id);
 
+        if(!fitnessCentar.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         FitnessCentarDTO fitnessCentarDTO = new FitnessCentarDTO();
         fitnessCentarDTO.setId(fitnessCentar.getId());
         fitnessCentarDTO.setNaziv(fitnessCentar.getNaziv());
