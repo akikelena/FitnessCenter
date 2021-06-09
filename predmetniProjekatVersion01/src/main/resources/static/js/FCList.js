@@ -17,7 +17,7 @@ $(document).ready(function () {
                 row += "<td>" + fcentar.email + "</td>";
                 row += "</tr>";
 
-                $('#sviKorisnici').append(row);
+                $('#sviKorisnici tbody').append(row);
             }
         },
         error: function (response){

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface TreningRepository extends JpaRepository<Trening, Long> {
-
+/*
     void deleteById(Long id);
 
     // pretraga treninga u ponudi -> svih treninga, bez parametara za pretragu
@@ -34,6 +34,6 @@ public interface TreningRepository extends JpaRepository<Trening, Long> {
     // VISEKRITERIJUMSKA pretraga
     List<Trening> findByTipTreningaAndCena(TipTreninga tipTreninga, int cena);
     List<Trening> findTreningsByCenaIsLessThanAndTipTreningaOrderByCena(int cena, TipTreninga tipTreninga);
-
+        */
 
 }

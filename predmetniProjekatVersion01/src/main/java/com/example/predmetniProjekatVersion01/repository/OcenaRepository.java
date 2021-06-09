@@ -4,6 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.predmetniProjekatVersion01.entity.Ocena;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface OcenaRepository extends JpaRepository<Ocena, Long> {
+
+    List<Ocena> findAllById(Long id);
 }

@@ -29,19 +29,9 @@ public class TreningService {
         treningRepository.deleteById(id);
     }
 
-    /*  SORTIRANJE treninga
-                                */
-    // 1. rastuci redosled, po nazivu
-    public List<Trening> sort_by_naziv(){
-        List<Trening> treningList = treningRepository.findAll(Sort.by(Sort.Direction.ASC, "naziv"));
-        return treningList;
-    }
-    // 2. opadajuci redosled, po ceni
-//    public  List<Trening> treningList = treningRepository.findAll(Sort.by(Sort.Direction.DESC, "cena"));
-
     // "obicna" pretraga
     public Trening pronadji(Long id){
-        Trening trening = this.treningRepository.getOne(id);
+        Trening trening = this.treningRepository.findById(id);
         return trening;
     }
 

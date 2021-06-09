@@ -3,8 +3,8 @@
 $(document).ready(function () {
     $.ajax({
         type : "GET",
-        url : "http://localhost:8080/api/approve_request",
         dataType : "json",
+        url : "http://localhost:8080/api/approve_request",
         success : function (response) {
             console.log("SUCCESS: \n", response);
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 row += "<td><input type='checkbox' data-id='" + zahtev.id + "' /> </td>";
                 row += "</tr>";
 
-                $('#sviKorisnici').append(row);
+                $('#sviKorisnici tbody').append(row);
             }
         },
         error: function (response) {

@@ -1,6 +1,8 @@
 package com.example.predmetniProjekatVersion01.service;
 
 import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
+import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
 import com.example.predmetniProjekatVersion01.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,30 @@ public class KorisnikService {
     public List<Korisnik> findAll(){
         List<Korisnik> korisnikList = this.korisnikRepository.findAll();
         return  korisnikList;
+    }
+
+    public Korisnik login(LogInOutDTO logInOutDTO){
+        Korisnik korisnik = korisnikRepository.findKorisnikByKorisnickoIme(logInOutDTO.getKorisnickoIme());
+
+        if(korisnik == null || korisnik.getAktivan() == false || !korisnik.getLozinka().equals(logInOutDTO.getLozinka())){
+            return null;
+        } else{
+            return korisnik;
+        }
+    }
+
+    public Korisnik registration(KorisnikDTO korisnikDTO){
+        if(korisnikDTO.getUloga() == Uloga.TRENER){
+            korisnikDTO.setAktivan(false);
+        } else if(korisnikDTO.getUloga() == Uloga.CLAN){
+            korisnikDTO.setAktivan(true);
+        }
+        Korisnik korisnik = new Korisnik(korisnikDTO.getId(), korisnikDTO.getKorisnickoIme(), korisnikDTO.getIme(),
+                korisnikDTO.getLozinka(), korisnikDTO.getPrezime(), korisnikDTO.getUloga(), korisnikDTO.getAktivan());
+
+        korisnikRepository.save(korisnik);
+
+        return korisnik;
     }
 
 }

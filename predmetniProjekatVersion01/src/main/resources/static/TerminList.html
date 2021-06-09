@@ -68,8 +68,111 @@
                                     <th id="cena">Cena</th>
                                 </tr>
                                 </thead>
+                                <tbody></tbody>
                             </table>
-                            
+
+
+    <form method="post", id="search-form">
+
+        <div class="text-center w-100">
+            <p class="text-muted font-weight-bold"> Pretraga po NAZIVU TRENINGA
+        </div>
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="naziv-polje" type="text"  placeholder="Unesi NAZIV" name="Naziv"
+                   class="form-control bg-white border-left-0 border-md" required="true">
+        </div>
+
+        <div class="text-center w-100">
+            <p class="text-muted font-weight-bold"> Pretraga po TIPU TRENINGA
+        </div>
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="tip-polje" type="text"  placeholder="Unesi TIP TRENINGA" name="tipTreninga"
+                   class="form-control bg-white border-left-0 border-md" required="true">
+        </div>
+
+        <div class="text-center w-100">
+            <p class="text-muted font-weight-bold"> Pretraga po OPISU TRENINGA
+        </div>
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="opis-polje" type="text"  placeholder="Unesi OPIS TRENINGA" name="opisTreninga"
+                   class="form-control bg-white border-left-0 border-md" required="true">
+        </div>
+
+        <div class="text-center w-100">
+            <p class="text-muted font-weight-bold"> Pretraga po VREMENU TERMINA
+        </div>
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                     <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="pocetakTermina-polje" type="date"  placeholder="Unesi POCETAK TERMINA" name="Pocetak-termina"
+                   class="form-control bg-white border-left-0 border-md" required="true">
+        </div>
+
+        <div class="text-center w-100">
+            <p class="text-muted font-weight-bold"> Pretraga po CENI
+        </div>
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                     <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="cena-polje" type="number"  placeholder="Unesi CENU(maksimalnu vrednost)" name="Cena-termina"
+                   class="form-control bg-white border-left-0 border-md" required="true">
+        </div>
+
+        <div class="form-group col-lg-12 mx-auto mb-0">
+            <button name="trazi" type="submit" id="trazi-submit" class="btn btn-primary btn-block py-2" class="font-weight-bold"> Pretraži</button>
+        </div>
+
+        <br> <br>
+
+        <div class="text-center w-100">
+            <label for="sortCena" id="cena-sort-polje"> Sortiraj po CENI</label>
+        </div>
+        <div class="form-group col-lg-12 mx-auto mb-0 text-center">
+            <select name="sortiCena" id="sortCena">
+                <option value="rastuciSort-cena">Redosled RASTUĆE</option>
+                <option value="opadajuciSort-cena">Redosled OPADAJUĆE</option>
+            </select>
+        </div>
+
+        <br>
+
+        <div class="text-center w-100">
+            <label for="sortVreme" id="vreme-sort-polje"> Sortiraj po VREMENU</label>
+        </div>
+        <div class="form-group col-lg-12 mx-auto mb-0 text-center">
+            <select name="sortiVreme" id="sortVreme">
+                <option value="rastuciSort-vreme">Redosled RASTUĆE</option>
+                <option value="opadajuciSort-vreme">Redosled OPADAJUĆE</option>
+            </select>
+        </div>
+
+
+
+
+
+
+    </form>
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ $(document).ready(function (){
 
                 row += "</tr>";
 
-                $('#sviKorisnici').append(row);
+                $('#sviKorisnici tbody').append(row);
             }
         },
         error : function (response) {
