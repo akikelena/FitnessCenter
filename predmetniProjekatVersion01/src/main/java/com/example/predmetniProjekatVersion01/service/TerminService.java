@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import javax.swing.event.ListDataEvent;
 import java.util.Date;
 import java.util.List;
+import com.example.predmetniProjekatVersion01.entity.Termin;
+import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 
 @Service
 public class TerminService {
@@ -18,8 +20,8 @@ public class TerminService {
         return termin1;
     }
 
-    public Termin obrisi(Long id){
-        this.terminRepository.deleteById(id);
+    public void obrisi(Long id){
+         this.terminRepository.deleteById(id);
     }
 
     public Termin izmeni(Termin termin){
@@ -32,17 +34,17 @@ public class TerminService {
     }
 
     public List<Termin> findByNaziv(String naziv){
-        List<Termin> terminiNaziv = this.terminRepository.findAllByTreningNazivContaining(naziv);
+        List<Termin> terminiNaziv = this.terminRepository.findAllByTreninziNazivContaining(naziv);
         return terminiNaziv;
     }
 
     public List<Termin> findByOpis(String opis){
-        List<Termin> terminiOpis = this.terminRepository.findAllByTreningOpisContaining(opis);
+        List<Termin> terminiOpis = this.terminRepository.findAllByTreninziOpisContaining(opis);
         return terminiOpis;
     }
 
     public List<Termin> findAllByTipTreninga(TipTreninga tipTreninga){
-        List<Termin> terminiTip = this.terminRepository.findAllByTreningTipTreninga(tipTreninga);
+        List<Termin> terminiTip = this.terminRepository.findAllByTreninziTipTreninga(tipTreninga);
         return terminiTip;
     }
 
@@ -57,41 +59,41 @@ public class TerminService {
     }
 
     public List<Termin> sortCena(){
-        List<Termin> sortCena = this.terminRepository.findAllByOrderCena();
+        List<Termin> sortCena = this.terminRepository.findAllByOrderByCena();
         return sortCena;
     }
 
     public List<Termin> sortCenaAsc(){
-        List<Termin> sortCenaAsc = this.terminRepository.findAllByOrderCenaAsc();
+        List<Termin> sortCenaAsc = this.terminRepository.findAllByOrderByCenaAsc();
         return sortCenaAsc;
     }
 
     public List<Termin> sortCenaDesc(){
-        List<Termin> sortCenaDesc = this.terminRepository.findAllByOrderCenaDesc();
+        List<Termin> sortCenaDesc = this.terminRepository.findAllByOrderByCenaDesc();
         return  sortCenaDesc;
     }
 
     public List<Termin> sortVreme(){
-        List<Termin> sortVreme = this.terminRepository.findAllByOrderPocetakTermina();
+        List<Termin> sortVreme = this.terminRepository.findAllByOrderByPocetakTermina();
         return sortVreme;
     }
 
     public List<Termin> sortVremeAsc(){
-        List<Termin> sortVremeAsc = this.terminRepository.findAllByOrderPocetakTerminaAsc();
+        List<Termin> sortVremeAsc = this.terminRepository.findAllByOrderByPocetakTerminaAsc();
         return sortVremeAsc;
     }
 
     public List<Termin> sortVremeDesc(){
-        List<Termin> sortVremeDesc = this.terminRepository.findAllByOrderPocetakTerminaDesc();
+        List<Termin> sortVremeDesc = this.terminRepository.findAllByOrderByPocetakTerminaDesc();
         return sortVremeDesc;
     }
 
     public List<Termin> findAllVremeGreaterEqual(Date pocetakTermina){
-        List<Termin> terminiVremeGreaterEqual = this.terminRepository.findAllByPocetakGreaterThanEqual(pocetakTermina);
+        List<Termin> terminiVremeGreaterEqual = this.terminRepository.findAllByPocetakTerminaGreaterThanEqual(pocetakTermina);
         return terminiVremeGreaterEqual;
     }
     public List<Termin> findAllVremeLess(Date pocetakTermina){
-        List<Termin> terminiVremeLess = this.terminRepository.findAllByPocetakLessThan(pocetakTermina);
+        List<Termin> terminiVremeLess = this.terminRepository.findAllByPocetakTerminaLessThan(pocetakTermina);
         return terminiVremeLess;
     }
 

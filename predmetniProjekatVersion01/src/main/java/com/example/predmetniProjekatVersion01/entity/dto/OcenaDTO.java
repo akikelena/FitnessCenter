@@ -1,6 +1,7 @@
 package com.example.predmetniProjekatVersion01.entity.dto;
 
 import java.util.Date;
+import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 
 public class OcenaDTO {
 

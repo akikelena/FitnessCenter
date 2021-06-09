@@ -15,27 +15,25 @@ public interface TerminRepository extends JpaRepository<Termin, Long> {
 
     List<Termin> findAll();
 
-    List<Termin> findAllByTreningNazivContaining(String naziv);
+    List<Termin> findAllByTreninziNazivContaining(String naziv);
 
-    List<Termin> findAllByTreningOpisContaining(String opis);
-    List<Termin> findAllByTreningContaining(String opis);
+    List<Termin> findAllByTreninziOpisContaining(String opis);
+    List<Termin> findAllByTreninziContaining(String opis);
 
-    List<Termin> findAllByTreningTipTreninga(TipTreninga tipTreninga);
-    List<Termin> findAllByTreningContaining(TipTreninga tipTreninga);
+    List<Termin> findAllByTreninziTipTreninga(TipTreninga tipTreninga);
+    List<Termin> findAllByTreninziContaining(TipTreninga tipTreninga);
 
-    List<Termin> findAllByOrderPocetakTermina();
-    List<Termin> findAllByOrderPocetakTerminaAsc();
-    List<Termin> findAllByOrderPocetakTerminaDesc();
-    List<Termin> findAllByPocetakLessThan(Date pocetakTermina);
-    List<Termin> findAllByPocetakGreaterThanEqual(Date pocetakTermina);
+    List<Termin> findAllByOrderByPocetakTermina();
+    List<Termin> findAllByOrderByPocetakTerminaAsc();
+    List<Termin> findAllByOrderByPocetakTerminaDesc();
+    List<Termin> findAllByPocetakTerminaLessThan(Date pocetakTermina);
+    List<Termin> findAllByPocetakTerminaGreaterThanEqual(Date pocetakTermina);
 
-    List<Termin> findAllByOrderCena();
-    List<Termin> findAllByOrderCenaAsc();
-    List<Termin> findAllByOrderCenaDesc();
+    List<Termin> findAllByOrderByCena();
+    List<Termin> findAllByOrderByCenaAsc();
+    List<Termin> findAllByOrderByCenaDesc();
     List<Termin> findAllByCenaGreaterThan(double cena);
     List<Termin> findAllByCenaLessThanEqual(double cena);
 
-    List<Termin> findAllByPocetakTerminaLessThan(Date pocetakTermina);
-    List<Termin> findAllByPocetakTerminaGreaterThanEqual(Date pocetakTermina);
 
 }

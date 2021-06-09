@@ -1,6 +1,7 @@
 package com.example.predmetniProjekatVersion01.service;
 
 import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.Uloga;
 import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
 import com.example.predmetniProjekatVersion01.repository.KorisnikRepository;
@@ -46,6 +47,7 @@ public class KorisnikService {
         }
     }
 
+    /*
     public Korisnik registration(KorisnikDTO korisnikDTO){
         if(korisnikDTO.getUloga() == Uloga.TRENER){
             korisnikDTO.setAktivan(false);
@@ -59,5 +61,5 @@ public class KorisnikService {
 
         return korisnik;
     }
-
+        */
 }

@@ -1,5 +1,8 @@
 /* FITNES CENTAR */
 INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym', 'Trg Dositeja Obradovića 6', '022490481', 'progym@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym01', 'Trg Dositeja Obradovića 7', '022490870', 'progym01@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym02', 'Trg Dositeja Obradovića 8', '022432456', 'progym01@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym03', 'Trg Dositeja Obradovića 9', '022490087', 'progym03@gmail.com');
 
 /* SALA */
 /*
@@ -48,7 +51,7 @@ INSERT INTO TRENER(id, fcentar_id) VALUES (1, 1);
 
 /* TERMIN  */
 /*
-INSERT INTO TERMIN(cena, pocetak_termina, broj_prijavljenih, sala_id, trening_id) VALUES (3000, 2021-05-20 08:00:00.000000, 13,  3, 1);
+INSERT INTO TERMIN( pocetak_termina, broj_prijavljenih, cena, sala_id, trening_id) VALUES (2021-05-20 08:00:00.000000, 13, 3000,  3, 1);
 */
 
 /* OCENA */

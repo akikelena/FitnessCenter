@@ -7,8 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.HashSet;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -31,9 +29,6 @@ public class Trening implements Serializable {
 
     @Column(name = "trajanje", nullable = false)
     private int trajanje;
-
-    @Column(name = "cena")
-    private int cena;
 
     /*
          lista treninga koje trener drzi

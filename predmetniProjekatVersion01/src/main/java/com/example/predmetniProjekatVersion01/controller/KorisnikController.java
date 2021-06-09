@@ -68,12 +68,5 @@ public class KorisnikController {
         return "register_page.html";
     }
  */
-    // Pregled treniga u ponudi
-
-    // Pretraga treninga po odredjenim kriterijumima
-
-    // Visekriterijumska pretraga
-
-    // Sortiranje termina, po vremenu ili ceni
 
 }

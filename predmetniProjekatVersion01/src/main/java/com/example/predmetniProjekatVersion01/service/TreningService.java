@@ -31,7 +31,7 @@ public class TreningService {
 
     // "obicna" pretraga
     public Trening pronadji(Long id){
-        Trening trening = this.treningRepository.findById(id);
+        Trening trening = this.treningRepository.getOne(id);
         return trening;
     }
 

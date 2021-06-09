@@ -48,7 +48,7 @@ public class FitnessCentarService {
 
     // Pretraga specificnog FC-a
     public FitnessCentar pronadji(Long id){
-        FitnessCentar fitnessCentar = this.fcRepository.findById(id);
+        FitnessCentar fitnessCentar = this.fcRepository.getOne(id);
         return fitnessCentar;
     }
 

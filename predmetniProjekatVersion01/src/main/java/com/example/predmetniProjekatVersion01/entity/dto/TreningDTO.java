@@ -48,7 +48,7 @@ public class TreningDTO {
     }
 
     public String getTipTreninga(){
-        return tipTreninga;
+        return tipTreninga.toString();
     }
 
     public void setTipTreninga(TipTreninga tipTreninga) {

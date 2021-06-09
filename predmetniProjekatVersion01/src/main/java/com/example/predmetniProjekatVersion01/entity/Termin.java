@@ -24,6 +24,9 @@ public class Termin implements Serializable {
     @Column(name = "broj_prijavljenih")
     private int brojPrijavljenihClanova;
 
+    @Column(name = "cena")
+    private double cena;
+
     @OneToMany(mappedBy = "termini", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Ocena> ocene = new HashSet<>();
 
