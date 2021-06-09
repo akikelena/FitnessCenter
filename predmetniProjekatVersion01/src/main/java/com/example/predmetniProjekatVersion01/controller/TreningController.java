@@ -9,6 +9,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/trening", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TreningController {
@@ -37,4 +40,43 @@ public class TreningController {
 
         return new ResponseEntity<>(treningDTO, HttpStatus.OK);
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TreningDTO>> getAll(){
+        List<Trening> treningList = treningService.findAll();
+        List<TreningDTO> treningDTOList = new ArrayList<>();
+
+        for(Trening trening : treningList) {
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
+                    trening.getTipTreninga(), trening.getTrajanje());
+            treningDTOList.add(treningDTO);
+        }
+        return new ResponseEntity<>(treningDTOList, HttpStatus.OK);
+    }
+/*
+    @PostMapping(value = "/dodajTr", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TreningDTO> dodajTrening(@RequestBody TreningDTO treningDTO){
+        Trening trening = new Trening(null, treningDTO.getNaziv(), treningDTO.getOpis(),
+                treningDTO.getTipTreninga(), treningDTO.getTrajanje());
+
+        trening = treningService.save(trening);
+        treningDTO.setId(trening.getId());
+
+        return new ResponseEntity<>(treningDTO, HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/azurirajTr", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TreningDTO> izmeniTr(@PathVariable Long id, @RequestBody TreningDTO treningDTO){
+        Trening trening = treningService.pronadji(id);
+
+        Trening trening1 = new Trening(trening.getId(), trening.getNaziv(),
+                trening.getOpis(), trening.getTipTreninga(), trening.getTrajanje());
+
+        trening1 = treningService.izmeni(trening1);
+        treningDTO.setId(id);
+
+        return new ResponseEntity<>(treningDTO, HttpStatus.ACCEPTED);
+    }
+    */
 }
+

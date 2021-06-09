@@ -11,7 +11,7 @@ $(document).on("submit", "#logForm", function (event){
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/login_page",
+        url: "http://localhost:8080/api/login_page",
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(noviLogin),

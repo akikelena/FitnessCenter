@@ -5,8 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -20,12 +18,15 @@ public class Ocena implements Serializable {
     @Column
     private int ocena;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Clan clan;
-
+    /*
     // prosecna ocena trenera, veza 1:n, strana: n
     @ManyToOne(fetch = FetchType.EAGER)
     private Trener trener;
+     */
+
+    // prosecna ocena trenera, veza 1:n, strana: n
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Korisnik trener;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Termin termini;

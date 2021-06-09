@@ -2,13 +2,13 @@ $(document).ready(function (){
     $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://localhost:8080/api/TreningList",
+        url : "http://localhost:8080/api/trening/TreningList",
 
         success : function (response) {
             console.log("SUCCESS: \n", response);
             console.log(response);
 
-            for(let treningList of response){
+            for(let trening of response){
                 let row = "<tr>";
 
                 row += "<td>" + treningList.id + "</td>";

@@ -5,9 +5,9 @@ import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 
 public class OcenaDTO {
 
-    private Long id;
     private int ocena;
 
+    private String korisnickoIme;
     private String trenerPrezime;
     private String trenerIme;
 
@@ -18,8 +18,8 @@ public class OcenaDTO {
 
     public OcenaDTO(){}
 
-    public OcenaDTO(Long id, int ocena, String trenerIme, String  trenerPrezime, String nazivTreninga, TipTreninga tipTreninga, Date pocetakTermina){
-        this.id = id;
+    public OcenaDTO(String korisnickoIme, int ocena, String trenerIme, String  trenerPrezime, String nazivTreninga, TipTreninga tipTreninga, Date pocetakTermina){
+        this.korisnickoIme = korisnickoIme;
         this.ocena = ocena;
         this.trenerIme = trenerIme;
         this.trenerPrezime = trenerPrezime;
@@ -28,20 +28,20 @@ public class OcenaDTO {
         this.pocetakTermina = pocetakTermina;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Date getPocetakTermina() {
         return pocetakTermina;
     }
 
     public void setPocetakTermina(Date pocetakTermina) {
         this.pocetakTermina = pocetakTermina;
+    }
+
+    public String getKorisnickoIme() {
+        return korisnickoIme;
+    }
+
+    public void setKorisnickoIme(String korisnickoIme) {
+        this.korisnickoIme = korisnickoIme;
     }
 
     public int getOcena() {

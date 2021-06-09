@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://localhost:8080/api/lista_termina",
+        url : "http://localhost:8080/api/termin/lista_termina",
 
         success : function (response) {
             console.log("SUCCESS: \n", response);
@@ -44,7 +44,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/naziv?naziv="+ $('#naziv-polje').val(),
+                url: "http://localhost:8080/api/termin/naziv?naziv="+ $('#naziv-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);
@@ -76,7 +76,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/tip?tip="+ $('#tip-polje').val(),
+                url: "http://localhost:8080/api/termin/tip?tip="+ $('#tip-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);
@@ -109,7 +109,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/opis?opis="+ $('#opis-polje').val(),
+                url: "http://localhost:8080/api/termin/opis?opis="+ $('#opis-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);
@@ -142,7 +142,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/tip?tip="+ $('#pocetakTermina-polje').val(),
+                url: "http://localhost:8080/api/pocetakTermina/pocetakTermina?pocetakTermina="+ $('#pocetakTermina-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);
@@ -174,7 +174,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/cena?cena="+ $('#cena-polje').val(),
+                url: "http://localhost:8080/api/termin/cena?cena="+ $('#cena-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);
@@ -206,7 +206,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/sort?vreme="+ $('#sortVreme').val(),
+                url: "http://localhost:8080/api/termin/sort?vreme="+ $('#sortVreme').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);
@@ -239,7 +239,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/api/lista_termina/sort?cena="+ $('#sortCena').val(),
+                url: "http://localhost:8080/api/termin/sort?cena="+ $('#sortCena').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n", response);

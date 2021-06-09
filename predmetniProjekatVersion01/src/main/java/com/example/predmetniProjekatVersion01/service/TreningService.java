@@ -3,7 +3,6 @@ package com.example.predmetniProjekatVersion01.service;
 import com.example.predmetniProjekatVersion01.entity.Trening;
 import com.example.predmetniProjekatVersion01.repository.TreningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

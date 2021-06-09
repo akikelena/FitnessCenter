@@ -10,16 +10,14 @@ public class TreningDTO {
     private String opis;
     private TipTreninga tipTreninga;
     private int trajanje;
-    private int cena;
 
     public TreningDTO(){}
 
-    public TreningDTO(Long id, String naziv, String opis, TipTreninga tipTreninga, int trajanje, int cena){
+    public TreningDTO(Long id, String naziv, String opis, TipTreninga tipTreninga, int trajanje){
         this.id = id;
         this.naziv = naziv;
         this.tipTreninga = tipTreninga;
         this.trajanje = trajanje;
-        this.cena = cena;
         this.opis = opis;
     }
 
@@ -63,11 +61,4 @@ public class TreningDTO {
         this.trajanje = trajanje;
     }
 
-    public int getCena() {
-        return cena;
-    }
-
-    public void setCena(int cena) {
-        this.cena = cena;
-    }
 }

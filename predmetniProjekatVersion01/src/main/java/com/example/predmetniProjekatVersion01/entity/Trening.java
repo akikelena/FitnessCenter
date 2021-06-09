@@ -30,12 +30,18 @@ public class Trening implements Serializable {
     @Column(name = "trajanje", nullable = false)
     private int trajanje;
 
+      /*
+         lista treninga koje trener drzi
+        "1 trener moze drzati vise treninga"
+        veza 1:n, strana: n   */
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Korisnik treninzi_koje_drzi;
     /*
          lista treninga koje trener drzi
         "1 trener moze drzati vise treninga"
-        veza 1:n, strana: n                    */
+        veza 1:n, strana: n
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Trener treninzi_koje_drzi;
+    private Trener treninzi_koje_drzi;  */
 
     /*  lista odradjenih treninga
         Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova

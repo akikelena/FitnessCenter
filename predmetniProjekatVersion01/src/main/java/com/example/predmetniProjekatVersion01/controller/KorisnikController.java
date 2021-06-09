@@ -9,6 +9,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping(value = "/api")
 public class KorisnikController {
@@ -51,22 +54,27 @@ public class KorisnikController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-/*
-    // Prijava
-    @RequestMapping(value =  "/login_page", method = RequestMethod.GET)
-    public String login(Model model){
-        Korisnik korisnik = new Korisnik();
-        model.addAttribute("korisnik", korisnik);
-        return "login_page.html";
+    @PutMapping(value = "approveRequest", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> approveTren(@RequestBody List<Long> listID){
+        System.out.println(listID.toString());
+
+        for(Long id: listID){
+            Korisnik korisnik = korisnikService.findOne(id);
+
+            korisnik.setAktivan(true);
+            korisnikService.change(korisnik);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // Registracija
-    @RequestMapping(value = "register_page.html", method = RequestMethod.GET)
-    public String register(Model model){
-        Korisnik korisnik = new Korisnik();
-        model.addAttribute("korisnik", korisnik);
-        return "register_page.html";
-    }
- */
+/*
+    @PostMapping(value = "register_page", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<KorisnikDTO> reg(@RequestBody KorisnikDTO korisnikDTO){
+        Optional<Korisnik> korisnik = korisnikService.register(korisnik);
+        korisnikDTO.setId(korisnik.getId());
+
+        return new ResponseEntity<>(korisnikDTO, HttpStatus.CREATED);
+    }   */
+
 
 }

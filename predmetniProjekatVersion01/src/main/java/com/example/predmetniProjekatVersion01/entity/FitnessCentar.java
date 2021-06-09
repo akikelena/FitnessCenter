@@ -33,13 +33,13 @@ public class FitnessCentar implements Serializable {
     /* treneri koji rade u tom fitnes centru
        "U 1 fitnes centru moze da radi vise trenera"
         veza 1:n, strana: 1                              */
-    @OneToMany(mappedBy = "treneriFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Trener> treneriUFC = new HashSet<>();
+    @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Korisnik> treneriUFC = new HashSet<>();
 
     /* lista sala koje se nalaze u tom fitnes centru(veza 1:n)
        "U 1 fitness centru moze postojati vise sala"
        veza 1:n, strana: 1                                     */
-    @OneToMany(mappedBy = "saleFC", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> saleUFC = new HashSet<>();
 
 }

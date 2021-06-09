@@ -28,7 +28,7 @@ public class Sala implements Serializable {
        veza 1:n, strana: n
      */
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private FitnessCentar saleFC;
+    private FitnessCentar fitnessCentar;
 
     /*
         terminska lista = trening(dan/cena) + broj prijavljenih clanova u terminu

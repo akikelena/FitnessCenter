@@ -21,7 +21,7 @@ public class Termin implements Serializable {
     @Column(name = "pocetak_termina")
     private Date pocetakTermina;
 
-    @Column(name = "broj_prijavljenih")
+    @Column(name = "broj_prijavljenih_clanova")
     private int brojPrijavljenihClanova;
 
     @Column(name = "cena")
@@ -38,14 +38,26 @@ public class Termin implements Serializable {
 
     /*  lista odradjenih treninga
     Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
-    veza n:n       */
+    veza n:n    */
     @ManyToMany(mappedBy = "odradjeniTermini")
-    private Set<Clan> clanovi_odradjeni = new HashSet<>();
+    private Set<Korisnik> clanovi_odradjeni = new HashSet<>();
+
+    /*  lista odradjenih treninga
+    Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
+    veza n:n
+    @ManyToMany(mappedBy = "odradjeniTermini")
+    private Set<Clan> clanovi_odradjeni = new HashSet<>(); */
 
     /*  lista prijavljenih treninga
       Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
-      veza n:n                                                                                             */
+      veza n:n  */
+    @ManyToMany(mappedBy = "prijavljeniTermini")
+    private Set<Korisnik> clanovi_prijavljeni = new HashSet<>();
+
+    /*  lista prijavljenih treninga
+      Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
+      veza n:n
     @ManyToMany(mappedBy = "prijavljeniTermini")
     private Set<Clan> clanovi_prijavljeni = new HashSet<>();
-
+          */
 }
