@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/KorisnikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/KorisnikRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/OcenaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/OcenaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/TerminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/TerminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/TreningRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/TreningRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/FitnessCentarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/FitnessCentarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TreningService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TreningService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/FCList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/FCList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TreningList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TreningList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/approveReq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/approveReq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addFC.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +154,7 @@
       <workItem from="1622897555328" duration="4970000" />
       <workItem from="1622938504300" duration="28000" />
       <workItem from="1623013546499" duration="14311000" />
-      <workItem from="1623196092535" duration="9846000" />
+      <workItem from="1623196092535" duration="11235000" />
     </task>
     <servers />
   </component>

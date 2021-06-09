@@ -16,7 +16,7 @@ $(document).on("submit", "#fc-addForm", function (event){
 
     $.ajax({
         type: "POST",
-        url : "http://localhost:8080/api/add_fitcentar",
+        url : "http://localhost:8080/api/fcentar/dodaj",
         dataType: JSON.stringify(newFC),
         success : function (response) {
             console.log(response);

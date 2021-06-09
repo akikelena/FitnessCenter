@@ -24,19 +24,19 @@ public class FitnessCentarController {
     public ResponseEntity<FitnessCentarDTO> getFC(@PathVariable Long id){
         FitnessCentar fitnessCentar = this.fitnessCentarService.pronadji(id);
 
-        if(!fitnessCentar.isPresent()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if(fitnessCentar.isPresent()) {
+
+            FitnessCentarDTO fitnessCentarDTO = new FitnessCentarDTO();
+            fitnessCentarDTO.setId(fitnessCentar.getId());
+            fitnessCentarDTO.setNaziv(fitnessCentar.getNaziv());
+            fitnessCentarDTO.setAdresa(fitnessCentar.getAdresa());
+            fitnessCentarDTO.setBrTelCentrale(fitnessCentar.getBrTelCentrale());
+            fitnessCentarDTO.setEmail(fitnessCentar.getEmail());
+
+            return new ResponseEntity<>(fitnessCentarDTO, HttpStatus.OK);
+
         }
-
-        FitnessCentarDTO fitnessCentarDTO = new FitnessCentarDTO();
-        fitnessCentarDTO.setId(fitnessCentar.getId());
-        fitnessCentarDTO.setNaziv(fitnessCentar.getNaziv());
-        fitnessCentarDTO.setAdresa(fitnessCentar.getAdresa());
-        fitnessCentarDTO.setBrTelCentrale(fitnessCentar.getBrTelCentrale());
-        fitnessCentarDTO.setEmail(fitnessCentar.getEmail());
-
-        return new ResponseEntity<>(fitnessCentarDTO, HttpStatus.OK);
-
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     // Dobavljanje svih postojecih FC-a
@@ -57,12 +57,11 @@ public class FitnessCentarController {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> obrisiFitnessCentar(@PathVariable Long id){
         this.fitnessCentarService.delete(id);
-
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     // Dodavanje novog FC-a
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/dodaj" consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FitnessCentarDTO> kreirajNoviFC(@RequestBody FitnessCentarDTO fitnessCentarDTO) throws Exception {
         FitnessCentar fitnessCentar = new FitnessCentar();
 
@@ -72,5 +71,21 @@ public class FitnessCentarController {
                 newFitnessCentar.getAdresa(), newFitnessCentar.getBrTelCentrale(), newFitnessCentar.getEmail());
 
         return new ResponseEntity<>(newFitnessCentarDTO, HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/izmeni/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<FitnessCentarDTO> izmeniFitnessCentar(@PathVariable Long id, @RequestBody FitnessCentarDTO fitnessCentarDTO){
+        FitnessCentar fitnessCentar = fitnessCentarService.pronadji(id);
+
+        if(fitnessCentar.isPresent()){
+            FitnessCentar fitnessCentar1 = new FitnessCentar (fitnessCentar.getId(), fitnessCentar.getNaziv(),
+                    fitnessCentar.getAdresa(), fitnessCentar.getBrTelCentrale(), fitnessCentar.getEmail());
+            fitnessCentar1 = fitnessCentarService.izmeni(fitnessCentar1);
+            fitnessCentarDTO.setId(id);
+
+            return new ResponseEntity<FitnessCentarDTO>(fitnessCentarDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
