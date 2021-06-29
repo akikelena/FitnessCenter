@@ -32,8 +32,6 @@ public class FitnessCentarController {
             fitnessCentarDTO.setEmail(fitnessCentar.getEmail());
 
             return new ResponseEntity<>(fitnessCentarDTO, HttpStatus.OK);
-
-
     }
 
     // Dobavljanje svih postojecih FC-a
@@ -70,11 +68,11 @@ public class FitnessCentarController {
         return new ResponseEntity<>(newFitnessCentarDTO, HttpStatus.CREATED);
     }
 
-    /*
+
     // Izmena postojeceg FC-a
     @PutMapping(value = "/izmeni/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FitnessCentarDTO> izmeniFitnessCentar(@PathVariable Long id, @RequestBody FitnessCentarDTO fitnessCentarDTO){
-        FitnessCentar fitnessCentar = new FitnessCentar(fitnessCentarDTO.getNaziv(), fitnessCentarDTO.getAdresa(), fitnessCentarDTO.getBrTelCentrale(), fitnessCentarDTO.getEmail());
+        FitnessCentar fitnessCentar = new FitnessCentar();
 
         fitnessCentar.setId(id);
 
@@ -84,5 +82,5 @@ public class FitnessCentarController {
                 izmenjenFC.getAdresa(), izmenjenFC.getBrTelCentrale(), izmenjenFC.getEmail());
         return new ResponseEntity<>(izmenjenFitnessCentarDTO, HttpStatus.OK);
 
-    }   */
+    }
 }

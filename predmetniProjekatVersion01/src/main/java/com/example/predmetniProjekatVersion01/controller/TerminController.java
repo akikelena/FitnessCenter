@@ -21,7 +21,7 @@ import java.util.List;
 public class TerminController {
     @Autowired
     private TerminService terminService;
-/*
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TerminDTO>> getAll(){
         List<Termin> terminList = terminService.findAll();
@@ -30,14 +30,14 @@ public class TerminController {
         for (Termin termini : terminList){
             TerminDTO terminDTO = new TerminDTO(termini.getId(),
                     termini.getPocetakTermina(), termini.getBrojPrijavljenihClanova(),
-                    termini.getCena(), termini.getSale().getOznakaSale(),
-                    termini.getTreninzi().getNaziv(), termini.getTreninzi().getOpis(),
-                    termini.getTreninzi().getTrajanje());
+                    termini.getCena(),
+                    termini.getTreninzi().getNaziv(),termini.getTreninzi().getOpis(), termini.getTreninzi().getTipTreninga(),
+                    termini.getSale().getOznakaSale());
             terminDTOList.add(terminDTO);
         }
         return new ResponseEntity<>(terminDTOList, HttpStatus.OK);
     }
-*/
+
     @GetMapping(value = "/naziv", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TerminDTO>> getAllDTONaziv(@RequestParam String naziv){
         System.out.println(naziv);

@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -74,7 +73,7 @@ public class KorisnikController {
         korisnikDTO.setId(korisnik.getId());
 
         return new ResponseEntity<>(korisnikDTO, HttpStatus.CREATED);
-    }   */
-
+    }
+*/
 
 }

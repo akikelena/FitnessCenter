@@ -22,55 +22,31 @@ INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('mobility', 'sr
 
 
 /* KORISNIK */
-/*
+
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('akikelena', 'passadmin2', 'Elena', 'Akik', '0634655690', 'elenaakik11@gmail.com', '2000-08-22 15:00:00.000000', 'ADMINISTRATOR', true,1);
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('anapetrovic1', 'anaxyz34', 'Ana', 'Petrovic', '06578900546', 'ana.p@gmail.com', '1998-08-09 19:00:00.000000', 'CLAN', true, 1);
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('petarpetrovic2', 'petarxu45', 'Petar', 'Petrovic', '0615673449', 'petar.petr45@gmail.com', '1995-07-01 19:00:00.000000', 'CLAN', true, 1);
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('marijasavic09', 'werhjmuo890', 'Marija', 'Savic', '0623899071', 'savicmm93@gmail.com', '1993-08-09 20:00:00.000000', 'TRENER', true, 2);
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('markoperic', 'p.marko99', 'Marko', 'Peric', '0627899031', 'pericm909@gmail.com', '1999-11-11 19:00:00.000000', 'TRENER', false, 2);
-INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('jelenadimitrijevic', 'd_jelena34', 'Jelena', 'Dimitrijevic', '0655546790', 'ana.p@gmail.com', '1987-10-15 19:00:00.000000', 'CLAN', true, 1);
-*/
+INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('jelenadimitrijevic', 'd_jelena34', 'Jelena', 'Dimitrijevic', '0655546790', 'ana.p8@gmail.com', '1987-10-15 19:00:00.000000', 'CLAN', true, 1);
 
-/* ADMINISTRATOR */
-/*
-INSERT INTO ADMINISTRATOR(id) VALUES (0);
-*/
-
-/* CLAN */
-/*
-INSERT INTO CLAN(id) VALUES (1);
-INSERT INTO CLAN(id) VALUES (2);
-INSERT INTO CLAN(id) VALUES (3);
-*/
-
-/* TRENER */
-/*
-INSERT INTO TRENER(id, fcentar_id) VALUES (1, 1);
-*/
 
 /* TERMIN  */
-/*
-INSERT INTO TERMIN( pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 13, 3000,  3, 1);
-*/
+INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 13, 3000,  3, 1);
+INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-14 19:00:00.000000', 15, 3800,  1, 3);
+INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 10, 3400,  4, 2);
 
 /* OCENA */
-/*
 INSERT INTO OCENA(ocena, trener_id, termini_id) VALUES (5, 1, 1);
-*/
 
 /*  MEDJUTABELE  */
 
 /* ODRADJENI TRENINZI  */
-/*
-INSERT INTO ODRADJENI_TRENINZI(korisnik_id, termin_id) VALUES (2, 1);
-*/
+INSERT INTO ODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2, 1);
 
 /* PRIJAVLJENI TRENINZI  */
-/*
-INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, termin_id) VALUES (1,1);
-*/
+INSERT INTO PRIJAVLJENI_TERMINI(korisnik_id, termin_id) VALUES (1,1);
 
-/* OCENE TRENINGA */
-/*
-INSERT INTO OCENE_TRENINGA(korisnik_id, ocena_id) VALUES (2, 1);
+/* OCENE TRENINGA
+INSERT INTO OCENE_TRE(korisnik_id, ocena_id) VALUES (2, 1);
 */

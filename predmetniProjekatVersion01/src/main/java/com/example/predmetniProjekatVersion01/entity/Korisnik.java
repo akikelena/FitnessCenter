@@ -1,6 +1,8 @@
 package com.example.predmetniProjekatVersion01.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,12 +13,14 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 // @Table(name = "KORISNIK")
 // @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Korisnik implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
     @Column(name = "korisnicko_ime", unique = true, nullable = false)
@@ -83,7 +87,5 @@ public class Korisnik implements Serializable {
       veza 1:n, strana: 1                     */
     @OneToMany(mappedBy = "treninzi_koje_drzi", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> lista_treninga = new HashSet<>();
-
-
 
 }
