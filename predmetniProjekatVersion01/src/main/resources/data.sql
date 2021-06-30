@@ -11,15 +11,6 @@ INSERT INTO SALA (kapacitet, oznaka_sale, fitness_centar_id) VALUES (25, 'S2-1',
 INSERT INTO SALA (kapacitet, oznaka_sale, fitness_centar_id) VALUES (10, 'S2-2', 1);
 INSERT INTO SALA (kapacitet, oznaka_sale, fitness_centar_id) VALUES (25, 'S3-1', 1);
 
-/* TRENING */
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('crossfit', 'napredni nivo treninga', 'CROSSFIT', 60 );
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('fitness', 'srednje napredni nivo treninga', 'FITNESS', 45);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('yoga', 'osnovi nivo treninga', 'YOGA', 45);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('skill', 'vezbe tehnike', 'SKILL', 90);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('trx', 'srednje napredni nivo treninga', 'TRX', 60);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('competition', 'takmicarska pripremna grupa', 'COMPETITION', 90);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje) VALUES ('mobility', 'srednji nivo treninga', 'MOBILITY', 60);
-
 
 /* KORISNIK */
 
@@ -31,13 +22,23 @@ INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, em
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('jelenadimitrijevic', 'd_jelena34', 'Jelena', 'Dimitrijevic', '0655546790', 'ana.p8@gmail.com', '1987-10-15 19:00:00.000000', 'CLAN', true, 1);
 
 
+/* TRENING */
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('crossfit', 'napredni nivo treninga', 'CROSSFIT', 60, 1 );
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('fitness', 'srednje napredni nivo treninga', 'FITNESS', 45, 1);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('yoga', 'osnovi nivo treninga', 'YOGA', 45, 1);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('skill', 'vezbe tehnike', 'SKILL', 90, 1);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('trx', 'srednje napredni nivo treninga', 'TRX', 60, 1);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('competition', 'takmicarska pripremna grupa', 'COMPETITION', 90, 1);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('mobility', 'srednji nivo treninga', 'MOBILITY', 60, 1);
+
 /* TERMIN  */
 INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 13, 3000,  3, 1);
 INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-14 19:00:00.000000', 15, 3800,  1, 3);
 INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 10, 3400,  4, 2);
 
 /* OCENA */
-INSERT INTO OCENA(ocena, trener_id, termini_id) VALUES (5, 1, 1);
+INSERT INTO OCENA(ocena, trener_id, termini_id) VALUES (9, 1, 1);
+INSERT INTO OCENA(ocena, trener_id, termini_id) VALUES (10, 2, 2);
 
 /*  MEDJUTABELE  */
 

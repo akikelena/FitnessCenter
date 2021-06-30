@@ -2,7 +2,7 @@ $(document).ready(function (){
     $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://localhost:8080/api/trening/TreningList",
+        url : "http://localhost:8080/trening/TreningList",
 
         success : function (response) {
             console.log("SUCCESS: \n", response);
@@ -19,7 +19,7 @@ $(document).ready(function (){
 
                 row += "</tr>";
 
-                $('#sviKorisnici tbody').append(row);
+                $('#treningList').append(row);
             }
         },
         error : function (response) {

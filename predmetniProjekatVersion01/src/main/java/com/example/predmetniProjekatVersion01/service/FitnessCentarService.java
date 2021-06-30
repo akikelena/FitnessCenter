@@ -41,13 +41,13 @@ public class FitnessCentarService {
      */
 
     // Pretrazivanje svih FC-a
-    public List<FitnessCentar> pretrazi_sve(){
-        List<FitnessCentar> fitnessCentarList = this.fcRepository.findAll();
-        return fitnessCentarList;
+    public List<FitnessCentar> findAll(){
+        List<FitnessCentar> fitnessCentar = this.fcRepository.findAll();
+        return fitnessCentar;
     }
 
     // Pretraga specificnog FC-a
-    public FitnessCentar pronadji(Long id){
+    public FitnessCentar findOne(Long id){
         FitnessCentar fitnessCentar = this.fcRepository.getOne(id);
         return fitnessCentar;
     }

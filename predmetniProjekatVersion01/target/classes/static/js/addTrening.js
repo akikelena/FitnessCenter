@@ -4,14 +4,14 @@ $(document).on("submit", "#tr-addForm", function (event) {
 
     let naziv = $("#naziv").val();
     let opis = $("#opis").val();
-    let tip = $("#tip").val();
+    let tipTreninga = $("#tipTreninga").val();
     let trajanje = $("#trajanje").val();
 
 
     let noviTrening = {
         naziv,
         opis,
-        tip,
+        tipTreninga,
         trajanje
     }
     console.log(noviTrening);
@@ -20,9 +20,10 @@ $(document).on("submit", "#tr-addForm", function (event) {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "http://localhost:8080/api/trening/dodajTr",
+        url: "http://localhost:8080/trening/dodajTrening",
         contentType: "application/json",
         data: JSON.stringify(noviTrening),
+
         success: function (response) {
             console.log(response);
 
@@ -30,7 +31,7 @@ $(document).on("submit", "#tr-addForm", function (event) {
             window.location.href = "TreningList.html";
         },
         error: function () {
-            alert("Greška!");
+            alert("Greška prilikom dodavanja treninga!");
         }
     });
 });

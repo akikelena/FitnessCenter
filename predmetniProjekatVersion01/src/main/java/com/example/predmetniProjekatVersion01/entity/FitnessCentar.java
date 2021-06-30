@@ -1,6 +1,8 @@
 package com.example.predmetniProjekatVersion01.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,8 +10,10 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Setter
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "FITNESS_CENTAR")
 public class FitnessCentar implements Serializable {
@@ -42,4 +46,19 @@ public class FitnessCentar implements Serializable {
     @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> saleUFC = new HashSet<>();
 
+
+    public FitnessCentar(Long id, String naziv, String adresa, String brTelCentrale, String email) {
+        this.id = id;
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.brTelCentrale = brTelCentrale;
+        this.email = email;
+    }
+
+    public FitnessCentar(String naziv, String adresa, String brTelCentrale, String email) {
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.brTelCentrale = brTelCentrale;
+        this.email = email;
+    }
 }

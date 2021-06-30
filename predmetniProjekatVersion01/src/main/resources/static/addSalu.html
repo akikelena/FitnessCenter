@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Dodavanje sale</title>
+    <link href="assets/img/icon.png" rel="icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/addSalu.js"></script>
+</head>
+<body>
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="index.html">Pro&lt;G/&gt;YM</a></h1>
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<main id="main">
+    <hr/>
+
+    <section id="prijava" class="prijava section-bg">
+        <div class="container" data-aos="fade-up">
+            <header class="header">
+                <nav class="navbar navbar-expand-lg navbar-light py-3  justify-content-center">
+                    <div class=" col-xl-12 col-lg-12 text-center text-lg-center">
+                        <h3> DODAJ NOVU SALU </h3>
+                    </div>
+                </nav>
+            </header>
+
+            <form id="sala-addForm" method="post">
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+
+                            </span>
+                    </div>
+                    <input id="oznakaSale" type="text" placeholder="Oznaka sale"
+                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+
+                            </span>
+                    </div>
+                    <input id="kapacitet" type="number" placeholder="Kapacitet sale"
+                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="form-group col-lg-12 mx-auto mb-0 text-center">
+                    <input type="submit" value="Dodaj salu">
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
