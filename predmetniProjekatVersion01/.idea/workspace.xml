@@ -6,32 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TreningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/FitnessCentar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/FitnessCentar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Ocena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Ocena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Sala.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Sala.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Termin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Termin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Trening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Trening.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/FitnessCentarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/FitnessCentarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/FCList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/FCList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TreningList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TreningList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addTrening.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addTrening.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/add_fitcentar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/FCList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/FCList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TreningList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TreningList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addFC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addTrening.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addTrening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/FCList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/FCList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/TreningList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/TreningList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/add_fitcentar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/FCList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/FCList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/TreningList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/TreningList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/addFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/addFC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,15 +89,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,6 +160,7 @@
       <workItem from="1623313230834" duration="1688000" />
       <workItem from="1623315515119" duration="5753000" />
       <workItem from="1624950816964" duration="24499000" />
+      <workItem from="1625169739062" duration="3464000" />
     </task>
     <servers />
   </component>

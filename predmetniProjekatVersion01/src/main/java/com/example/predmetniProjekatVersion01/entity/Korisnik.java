@@ -51,6 +51,20 @@ public class Korisnik implements Serializable {
     @Column(name = "aktivan")
     protected Boolean aktivan;
 
+    public Korisnik(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String kontaktTelefon, String email, Date datumRodjenja, Uloga uloga, Boolean aktivan, boolean aktivanStatus) {
+        this.id = id;
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.kontaktTelefon = kontaktTelefon;
+        this.email = email;
+        this.datumRodjenja = datumRodjenja;
+        this.uloga = uloga;
+        this.aktivan = aktivan;
+        this.aktivanStatus() = aktivanStatus();
+    }
+
     public boolean aktivanStatus(){
         return aktivan;
     }

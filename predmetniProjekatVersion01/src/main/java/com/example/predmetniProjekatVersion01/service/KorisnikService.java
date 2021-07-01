@@ -1,6 +1,8 @@
 package com.example.predmetniProjekatVersion01.service;
 
 import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.Uloga;
+import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
 import com.example.predmetniProjekatVersion01.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,20 +46,23 @@ public class KorisnikService {
             return korisnik;
         }
     }
-/*
-    public Korisnik register(KorisnikDTO korisnikDTO){
+
+    public Korisnik registracija(KorisnikDTO korisnikDTO){
         if(korisnikDTO.getUloga() == Uloga.TRENER){
             korisnikDTO.setAktivan(false);
-        } else if(korisnikDTO.getUloga() == Uloga.CLAN){
+        }
+        else if(korisnikDTO.getUloga() == Uloga.CLAN){
             korisnikDTO.setAktivan(true);
         }
 
         Korisnik korisnik = new Korisnik(korisnikDTO.getId(),
                 korisnikDTO.getKorisnickoIme(), korisnikDTO.getLozinka(),
-                korisnikDTO.getIme(), korisnikDTO.getPrezime(), korisnikDTO.getKontaktTelefon(),
+                korisnikDTO.getIme(), korisnikDTO.getPrezime(),
+                korisnikDTO.getKontaktTelefon(),
                 korisnikDTO.getEmail(), korisnikDTO.getDatumRodjenja(),
-                korisnikDTO.getUloga());
+                korisnikDTO.getUloga(), korisnikDTO.getAktivan(), korisnikDTO.aktivanStatus());
+
         korisnikRepository.save(korisnik);
         return korisnik;
-    }   */
+    }
 }

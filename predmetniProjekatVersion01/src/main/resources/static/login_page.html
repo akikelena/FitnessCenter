@@ -66,7 +66,7 @@
 
                     <!-- Form -->
                     <div class="col-md-7 col-lg-6 ml-auto">
-                        <form  id="logForm" method="post">
+                        <form  id="log-Form" method="post">
                             <div class="row">
                                 <!-- Korisnicko ime -->
                                 <div class="input-group col-lg-12 mb-4">
@@ -75,7 +75,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="korisnickoime" type="text" name="KorisnickoIme" placeholder="Korisničko ime"
+                                    <input id="korisnickoIme" type="text" name="usname" placeholder="Korisničko ime"
                                            required="true" class="form-control bg-white border-left-0 border-md" >
                                 </div>
                                 <!-- Lozinka -->
@@ -85,13 +85,14 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="password" type="password" name="Lozinka" placeholder="Lozinka"
+                                    <input id="lozinka" type="password" name="passwd" placeholder="Lozinka"
                                            required="true" class="form-control bg-white border-left-0 border-md">
                                 </div>
 
                                 <!-- Dugme PRIJAVI SE -->
                                 <div class="form-group col-lg-12 mx-auto mb-0">
-                                    <button name="Prijavi_se" type="submit" id="prijava_submit" class="btn btn-primary btn-block py-2" class="font-weight-bold"> Prijavi se</button>
+
+                                    <button  type="submit" id="prijava_submit" class="btn btn-primary btn-block py-2" class="font-weight-bold"> Prijavi se</button>
                                 </div>
                                 <!-- Za neregistrovane korisnike, vodi do strane za registraciju -->
                                 <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">

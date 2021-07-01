@@ -1,37 +1,37 @@
 // dodavanje novog korisnika
-$(document).on("submit", "#regForm", function (event){
+$(document).on("submit", "#reg-Form", function (event){
     event.preventDefault();
 
-    let korisnickoIme = $("#korisnickoime").val();
-    let password = $("#password").val();
+    let korisnickoIme = $("#korisnickoIme").val();
+    let lozinka = $("#loznika").val();
     let ime = $("ime").val();
     let prezime = $("prezime").val();
-    let brtel = $("brtel").val();
+    let kontaktTelefon = $("kontaktTelefon").val();
     let email = $("email").val();
-    let datum_rodjenja = $("datum_rodjenja").val();
-    let uloga = $("uloga").val();
+    let datumRodjenja = $("datumRodjenja").val();
+    let uloga = $("uloga").is(":checked")?"CLAN":"TRENER";
 
     let noviKorisnik = {
         korisnickoIme,
-        password,
+        lozinka,
         ime,
         prezime,
-        brtel,
+        kontaktTelefon,
         email,
-        datum_rodjenja,
-        ulogaKorsnika: uloga
+        datumRodjenja,
+        uloga: uloga
     }
     $.ajax({
         type: "POST",
-        url : "http://localhost:8080/api/register_page",
+        url : "http://localhost:8080/korisnik/register_page",
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(noviKorisnik),
         success: function (response){
-            console.log(response);
 
-            alert("Korisnik" + response.id + "je uspešno kreiran!");
-            window.location.href = "index.html";
+            console.log(response);
+            alert("Korisnik" + response.id + "je kreiran!");
+            window.location.href = "login_page.html";
         },
         error: function (){
             alert("Greška prilikom kreiranja novog korisnika!");
