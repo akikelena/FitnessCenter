@@ -14,5 +14,6 @@ public class SalaDTO {
     private Long id;
     private int kapacitet;
     private String oznakaSale;
+    private Long idFC;
 
 }

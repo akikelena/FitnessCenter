@@ -65,6 +65,23 @@ public class Korisnik implements Serializable {
         this.aktivanStatus() = aktivanStatus();
     }
 
+    public Korisnik(Long id, String korisnickoIme, String lozinka,
+                    String ime, String prezime,
+                    String kontaktTelefon, String email,
+                    Date datumRodjenja, Uloga uloga, boolean aktivan) {
+        this.id = id;
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.kontaktTelefon = kontaktTelefon;
+        this.email = email;
+        this.datumRodjenja = datumRodjenja;
+        this.uloga = uloga;
+        this.aktivan = aktivan;
+
+    }
+
     public boolean aktivanStatus(){
         return aktivan;
     }

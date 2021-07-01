@@ -4,6 +4,8 @@ import com.example.predmetniProjekatVersion01.entity.Korisnik;
 import com.example.predmetniProjekatVersion01.entity.Uloga;
 import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
+import com.example.predmetniProjekatVersion01.entity.dto.RegTrenerDTO;
+import com.example.predmetniProjekatVersion01.repository.FCRepository;
 import com.example.predmetniProjekatVersion01.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ public class KorisnikService {
 
     @Autowired
     private KorisnikRepository korisnikRepository;
+    @Autowired
+    private FCRepository fcRepository;
 
     public Korisnik save(Korisnik korisnik){
         return this.korisnikRepository.save(korisnik);
@@ -63,6 +67,19 @@ public class KorisnikService {
                 korisnikDTO.getUloga(), korisnikDTO.getAktivan(), korisnikDTO.aktivanStatus());
 
         korisnikRepository.save(korisnik);
+        return korisnik;
+    }
+
+    public Korisnik registracijaTrenera(RegTrenerDTO regTrenerDTO){
+        Korisnik korisnik = new Korisnik(regTrenerDTO.getId(),
+                regTrenerDTO.getKorisnickoIme(), regTrenerDTO.getLozinka(),
+                regTrenerDTO.getIme(), regTrenerDTO.getPrezime(),
+                regTrenerDTO.getKontaktTelefon(), regTrenerDTO.getEmail(),
+                regTrenerDTO.getDatumRodjenja(), regTrenerDTO.getUloga(),
+                regTrenerDTO.isAktivan());
+        korisnik.setFitnessCentar(fcRepository.getOne(regTrenerDTO.getIdFC()));
+        korisnikRepository.save(korisnik);
+
         return korisnik;
     }
 }

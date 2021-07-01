@@ -3,6 +3,7 @@ package com.example.predmetniProjekatVersion01.controller;
 import com.example.predmetniProjekatVersion01.entity.Korisnik;
 import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
+import com.example.predmetniProjekatVersion01.entity.dto.RegTrenerDTO;
 import com.example.predmetniProjekatVersion01.service.FitnessCentarService;
 import com.example.predmetniProjekatVersion01.service.KorisnikService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,4 +105,14 @@ public class KorisnikController {
     }
 
     // REGISTRACIJA - trenera
+    @PostMapping(value = "/registracija_trenera",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RegTrenerDTO> regTrenera(@RequestBody RegTrenerDTO regTrenerDTO){
+
+        Korisnik korisnik = korisnikService.registracijaTrenera(regTrenerDTO);
+        regTrenerDTO.setId(korisnik.getId());
+        regTrenerDTO.setAktivan(true);
+
+        return new ResponseEntity<>(regTrenerDTO, HttpStatus.CREATED);
+    }
 }

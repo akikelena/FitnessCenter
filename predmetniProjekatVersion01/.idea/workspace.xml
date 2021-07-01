@@ -8,11 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/SalaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/SalaDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reg_trener.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reg_trener.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +26,9 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -160,7 +158,7 @@
       <workItem from="1623313230834" duration="1688000" />
       <workItem from="1623315515119" duration="5753000" />
       <workItem from="1624950816964" duration="24499000" />
-      <workItem from="1625169739062" duration="3464000" />
+      <workItem from="1625169739062" duration="5339000" />
     </task>
     <servers />
   </component>
