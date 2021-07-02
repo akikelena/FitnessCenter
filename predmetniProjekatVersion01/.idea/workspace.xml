@@ -6,24 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/OcenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/OcenaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/SalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/SalaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TreningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/TerminDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/TerminDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addTrening.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addTrening.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/approve_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/approve_request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addSalu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addTrening.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addTrening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/approveReq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/approveReq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addTermin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addTermin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteSalu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +25,9 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Class" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -175,7 +161,7 @@
       <workItem from="1623315515119" duration="5753000" />
       <workItem from="1624950816964" duration="24499000" />
       <workItem from="1625169739062" duration="5444000" />
-      <workItem from="1625214456168" duration="11381000" />
+      <workItem from="1625214456168" duration="15836000" />
     </task>
     <servers />
   </component>

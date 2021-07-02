@@ -1,19 +1,21 @@
-$(document).on('click', '.btnDeleteFC', function (){
-    let fcId = this.dataset.id;
+$(document).on("submit", "#fc-delete", function (event){
+    event.preventDefault();
 
-    $.ajax({
-        type : "DELETE",
-        url : "http://localhost:8080/fcentar/" + fcId,
-        dataType : "json",
+    let ID = $("#id").val();
 
-        success: function () {
-            console.log("SUCCESS");
+        $.ajax({
+            type: "DELETE",
+            url : "http://localhost:8080/fcentar/obrisi" + ID,
 
-            $('[data-id="' + fcId + '"]').parent().parent().remove();
-        },
+            success: function (response){
+                console.log(response);
 
-        error: function (){
-            alert("Greska prilikom brisanja FC-a!");
-        }
-    });
+                alert("Fitness centar" + response.ID + "je obrisan!");
+                window.location.href = "admin_page.html";
+            },
+
+            error : function (){
+                console.log("Error!");
+            }
+        });
 });

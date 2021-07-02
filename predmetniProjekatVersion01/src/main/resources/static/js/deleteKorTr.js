@@ -1,22 +1,25 @@
-$(document).on("submit", "#sala-delete", function (event){
+$(document).on("submit", "#kortr-delete", function (event){
     event.preventDefault();
 
     let ID = $("#id").val();
 
-    let novaSala = {
+    let noviKorTr = {
         ID
     }
 
-    console.log(novaSala);
+    console.log(noviKorTr);
 
     $.ajax({
         type: "DELETE",
-        url : "http://localhost:8080/sala/obrisi" + ID,
+        dataType: "json",
+        contentType: "application/json",
+        data : JSON.stringify(noviKorTr),
+        url : "http://localhost:8080/korisnik/obrisi" + ID,
 
         success: function (response){
             console.log(response);
 
-            alert("Sala" + response.ID + "je obrisana!");
+            alert("Korisnik" + response.ID + "je obrisan!");
             window.location.href = "admin_page.html";
         },
 

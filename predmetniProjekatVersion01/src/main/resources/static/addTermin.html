@@ -50,7 +50,6 @@
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
                     <input id="pocetakTerminaDatum" type="date" placeholder="Datum termina"
@@ -60,7 +59,6 @@
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-map-marker text-muted"></i>
                             </span>
                     </div>
                     <input id="pocetakTerminaVreme" type="number" placeholder="Vreme početka termina"
@@ -70,7 +68,7 @@
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-phone-square text-muted"></i>
+
                             </span>
                     </div>
                     <input id="cena" type="number" placeholder="Cena termina"
@@ -78,19 +76,28 @@
                 </div>
 
 
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+
+                            </span>
+                    </div>
+                    <input id="oznakaSale" type="text"  placeholder="Oznaka sale"
+                           required="true" class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-envelope text-muted"></i>
+
                             </span>
                     </div>
-                    <input id="email" type="email"  placeholder="Email"
+                    <input id="tipTreninga" type="text"  placeholder="Tip treninga(CROSSFIT, FITNESS, YOGA, SKILL, TRX, COMPETITION, MOBILITY)"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <input type="submit" value="Dodaj fitness centar">
+                    <button type="submit" id="btn-add-termin">Dodaj termin</button>
                 </div>
             </form>
         </div>
