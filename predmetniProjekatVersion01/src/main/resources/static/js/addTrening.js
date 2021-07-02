@@ -1,7 +1,6 @@
 $(document).on("submit", "#tr-addForm", function (event) {
     event.preventDefault();
 
-
     let naziv = $("#naziv").val();
     let opis = $("#opis").val();
     let tipTreninga = $("#tipTreninga").val();
@@ -15,7 +14,6 @@ $(document).on("submit", "#tr-addForm", function (event) {
         trajanje
     }
     console.log(noviTrening);
-
 
     $.ajax({
         type: "POST",

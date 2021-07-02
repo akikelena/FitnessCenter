@@ -29,7 +29,7 @@ public class SalaController {
         return new ResponseEntity<>(salaDTO, HttpStatus.CREATED);
     }
 
-    // AZURIRANJE SALE
+    /* AZURIRANJE SALE
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SalaDTO> updateSalu(@PathVariable Long id, @RequestBody SalaDTO salaDTO) throws Exception{
@@ -43,7 +43,7 @@ public class SalaController {
 
         return new ResponseEntity<>(updatedSalaDTO, HttpStatus.OK);
     }
-
+*/
     // BRISANJE POSTOJECE SALE
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> obrisiSalu(@PathVariable Long id){

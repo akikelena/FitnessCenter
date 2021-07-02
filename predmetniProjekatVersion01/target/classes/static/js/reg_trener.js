@@ -1,4 +1,3 @@
-// dodavanje novog korisnika
 $(document).on("submit", "#reg-Form", function (event){
     event.preventDefault();
 
@@ -9,7 +8,9 @@ $(document).on("submit", "#reg-Form", function (event){
     let kontaktTelefon = $("kontaktTelefon").val();
     let email = $("email").val();
     let datumRodjenja = $("datumRodjenja").val();
-    let uloga = $("uloga").is(":checked")?"CLAN":"TRENER";
+    let uloga = "TRENER";
+    let idFC = $("#idFC").val();
+    let aktivan = true;
 
     let noviKorisnik = {
         korisnickoIme,
@@ -19,27 +20,26 @@ $(document).on("submit", "#reg-Form", function (event){
         kontaktTelefon,
         email,
         datumRodjenja,
-        uloga: uloga
+        uloga,
+        aktivan: "true",
+        idFC
     }
-    $.ajax({
-        type: "POST",
-        url : "http://localhost:8080/korisnik/register_page",
-        dataType: "json",
-        contentType: "application/json",
-        data: JSON.stringify(noviKorisnik),
-        success: function (response){
 
+    $.ajax({
+        type : "POST",
+        dataType : "json",
+        contentType : "application/json",
+        data : JSON.stringify(noviKorisnik),
+        url : "http://localhost:8080/korisnik/registracija_trenera",
+
+        success : function (response) {
             console.log(response);
-            alert("Korisnik" + response.id + "je kreiran!");
+            alert("Korisnik(TRENER) " + response.id + "je kreiran!");
             window.location.href = "login_page.html";
         },
         error: function (){
-            alert("Greška prilikom kreiranja novog korisnika!");
+            alert("Greska pri registraciji!");
         }
-    });
-});
 
-$("#btn-login").on("click", function (event) {
-    console.log("test");
-    window.location.href = "login_page.html";
+    });
 });

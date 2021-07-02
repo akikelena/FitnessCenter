@@ -1,29 +1,43 @@
-$(document).on("submit", "#logForm", function (event){
+$(document).on("submit", "#log-Form", function (event){
     event.preventDefault();
 
-    let korisnickoime = $("#korisnickoime").val();
-    let password = $("#password").val();
+    let korisnickoime = $("#korisnickoIme").val();
+    let lozinka = $("#password").val();
 
     let noviLogin = {
-        korisnickoime,
-        password
+        korisnickoIme,
+        lozinka
     }
+
+    console.log(noviLogin);
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/api/login_page",
+        url: "http://localhost:8080/korisnik/login_page",
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(noviLogin),
-        success: function (response){
-            console.log(response);
 
-            alert("Uspešno logovanje korisnika " + response.id);
+        success: function (response){
+            window.localStorage.setItem("ID", response.id);
+            window.localStorage.setItem("ULOGA", response.uloga);
+
+                if(response.uloga == "ADMINISTRATOR"){
+                    window.location.href = "admin_page.html";
+                    return;
+                }
+                    if(response.uloga == "CLAN"){
+                        window.location.href = "user_page.html";
+                        return;
+                    }
+                        if(response.uloga == "TRENER"){
+                            window.location.href = "trener_page.html";
+                        }
             window.location.href = "index.html";
         },
 
         error: function (){
-            alert("Greška prilikom logovanja!");
+            alert("Greška prilikom prijave!");
         }
     });
 });

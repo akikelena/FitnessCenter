@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Korisnička strana</title>
+    <title>Moj profil</title>
 
     <link href="assets/img/icon.png" rel="icon">
 
@@ -35,8 +35,6 @@
             <ul>
                 <li class="active"><a href="index.html">Moj profil</a></li>
                 <li class="active"><a href="index.html">Prijavi se / Odjavi se</a></li>
-                <li class="active"><a href="index.html">Treninzi</a></li>
-
             </ul>
         </nav>
 
@@ -46,9 +44,7 @@
 
 </hr>
 <main id="main">
-
-    <!-- ======= REGISTRACIJA ======= -->
-    <section id="registracija" class="registracija">
+    <section id="profil-korisnika" class="registracija">
         <div class="container" data-aos="fade-up">
 
             <header class="header">
@@ -58,148 +54,64 @@
                 </nav>
             </header>
 
-            <div class="container">
-                <div class="row py-5 mt-4 align-items-center">
-                    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <div class="container" data-aos="fade-up">
+                <section class="ftco-section">
+                    <div class="container">
 
-                        <div class="form-group">
-                            <label >Korisničko ime</label>
-                            <span id="korisnicko-ime" class="form-control">akikelena1</span>
-                        </div>
-                        <div class="form-group">
-                            <label >Ime i prezime</label>
-                            <span id="ime_i_prezime" class="form-control">Elena Akik</span>
-                        </div>
-                        <div class="form-group">
-                            <label >Kontakt telefon</label>
-                            <span id="kontakt-telefon" class="form-control">0614577890</span>
-                        </div>
-                        <div class="form-group">
-                            <label >Email</label>
-                            <span id="email-adresa" class="form-control">elenaakik11@gmail.com</span>
-                        </div>
-                        <div class="form-group">
-                            <label >Datum rođenja</label>
-                            <span id="datum-rodjenja" class="form-control">22.08.2000.</span>
-                        </div>
-                        <div class="form-group">
-                            <label >Uloga</label>
-                            <span id="uloga" class="form-control">Korisnik</span>
+                        <div class="row">
+                            <div class="col-md-7 pr-lg-5 mb-5 mb-md-0">
+                                <div class="table-wrap">
+                                    <table id="treningList" class="table">
+                                        <thead class="thead-primary">
+                                        <tr>
+                                            <th id="korisnickoIme">Korisnicko ime</th>
+                                            <th id="lozinka">Lozinka</th>
+                                            <th id="ime">Ime</th>
+                                            <th id="prezime">Prezime</th>
+                                            <th id="kontaktTelefon">Kontakt telefon</th>
+                                            <th id="email">Email</th>
+                                            <th id="datumRodjenja">Datum rodjenja</th>
+                                            <th id="uloga">Uloga</th>
+                                            <th id="status">Status</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </section>
+            </div>
+        </div>
 
 
-                    <div class="col-md-7 col-lg-6 ml-auto">
+                    <div class="col-md-5 col-lg-6 ml-auto align-items-center my-4">
                             <div class="row">
-                                <!-- Korisnicko ime -->
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user icon"></i>
-                            </span>
-                                    </div>
-                                    <input id="korisnickoime" type="text"  placeholder="Korisničko ime"  name="KorisnickoIme"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
-                                </div>
-                                <!-- Lozinka -->
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
-                            </span>
-                                    </div>
-                                    <input id="password" type="password"  placeholder="Lozinka" name="Lozinka"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
-                                </div>
-                                <!-- Ime -->
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
-                            </span>
-                                    </div>
-                                    <input id="ime" type="text"  placeholder="Ime" name="Ime"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
-                                </div>
+                                <!-- prijava za termin -->
+                                    <div class="container" data-aos="fade-up">
 
-                                <!-- Prezime -->
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
-                            </span>
+                                        <div class="text-center">
+                                            <a href="TerminPrijava.html"  target="_blank" class="btn-get-started scrollto btn-lg"> <strong> PRIJAVI SE ZA TERMIN</strong></a>
+                                        </div>
                                     </div>
-                                    <input id="prezime" type="text"  placeholder="Prezime" name="Prezime"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
-                                </div>
-
-                                <!-- Kontakt telefon -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-phone-square text-muted"></i>
-                            </span>
-                                    </div>
-                                    <select id="countrycode"  style="max-width: 80px"
-                                            class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
-                                        <option value="">+381</option>
-                                    </select>
-                                    <input id="brtel" type="tel"  placeholder="Broj telefona" name="BrojTelefona"
-                                           class="form-control bg-white border-md border-left-0 pl-3" required="true">
-                                </div>
-
-                                <!-- Email -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-envelope text-muted"></i>
-                            </span>
-                                    </div>
-                                    <input id="email" type="email" placeholder="Email" name="Email"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
-                                </div>
-
-                                <!-- Datum rodjenja -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-envelope text-muted"></i>
-                            </span>
-                                    </div>
-                                    <input id="datum_rodjenja" type="date"  placeholder="Datum rođenja" name="DatumRodjenja"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
-                                </div>
-
-                                <!-- Uloga -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-black-tie text-muted"></i>
-                            </span>
-                                    </div>
-                                    <select id="uloga" name="Uloga" class="form-control custom-select bg-white border-left-0 border-md">
-                                        <option value="">Uloga</option>
-                                        <option value="">Novi član</option>
-                                        <option value="">Novi trener</option>
-
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-lg-12 mx-auto mb-0">
-                                    <button name="Registruj_se" type="submit" id="reg_submit" class="btn btn-primary btn-block py-2" class="font-weight-bold"> Registruj se</button>
-                                </div>
 
 
                                 <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
                                     <div class="border-bottom w-100 ml-5"></div>
-                                    <span class="px-2 small text-muted font-weight-bold text-muted">ILI</span>
+                                    <span class="px-2 small text-muted font-weight-bold text-muted"> Pro&lt;G/&gt;YM </span>
                                     <div class="border-bottom w-100 mr-5"></div>
                                 </div>
 
-                                <div class="text-center w-100">
-                                    <p class="text-muted font-weight-bold"> Već imaš nalog?
-                                        <a href="login_page.html" class="text-primary ml-2">Prijavi se</a></p>
-                                </div>
+
+                                <!-- pregled treninga -->
+
+                                    <div class="container" data-aos="fade-up">
+
+                                        <div class="text-center">
+                                            <a href="TreningList.html.html"  target="_blank" class="btn-get-started scrollto btn-lg"> <strong> PREGLED TRENINGA</strong></a>
+                                        </div>
+                                    </div>
 
                             </div>
                         </form>

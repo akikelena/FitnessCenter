@@ -57,7 +57,8 @@ public class TreningController {
         return new ResponseEntity<>(treningDTOList, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/dodajTrening", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/dodajTrening",
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TreningDTO> dodajTrening(@RequestBody TreningDTO treningDTO) throws Exception{
 
         Trening trening = new Trening(treningDTO.getId(), treningDTO.getNaziv(),
@@ -70,7 +71,7 @@ public class TreningController {
         return new ResponseEntity<>(treningDTO, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/azurirajTr", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/azurirajTrening", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TreningDTO> izmeniTr(@PathVariable Long id, @RequestBody TreningDTO treningDTO){
         Trening trening = treningService.pronadji(id);
 

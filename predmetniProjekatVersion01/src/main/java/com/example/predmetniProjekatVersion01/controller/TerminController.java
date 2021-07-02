@@ -8,16 +8,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@RestController(value = "/api/termin")
+@CrossOrigin
+@RestController
+@RequestMapping(value = "/termin")
 public class TerminController {
     @Autowired
     private TerminService terminService;

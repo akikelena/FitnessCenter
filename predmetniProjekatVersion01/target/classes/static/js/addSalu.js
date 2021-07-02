@@ -23,7 +23,7 @@ $(document).on("submit", "#sala-addForm", function (event){
             console.log(response);
 
             alert("Uspešno ste kreirali salu " + response.id + "!");
-            window.location.href = "addSalu.html";
+            window.location.href = "admin_page.html";
         },
         error : function (){
             alert("Greška prilikom pokušaja kreiranja nove sale!");
