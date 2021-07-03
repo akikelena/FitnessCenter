@@ -1,4 +1,4 @@
-body {
+body{
     min-height: 100vh;
     font-family: "Open Sans", sans-serif;
     margin        : 0;
@@ -21,7 +21,7 @@ select.form-control {
 }
 
 .form-control::placeholder {
-    color: #ccc;
+    color: #cccccc;
     font-weight: bold;
     font-size: 0.9rem;
 }
