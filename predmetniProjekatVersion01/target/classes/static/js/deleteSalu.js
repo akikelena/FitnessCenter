@@ -1,19 +1,27 @@
-$(document).on('click', '.btnDeleteSalu', function (){
-    let salaId = this.dataset.id;
+$(document).on("submit", "#sala-delete", function (event){
+    event.preventDefault();
+
+    let id = $("#id").val();
+
+    let novaSala = {
+        id
+    }
+
+    console.log(novaSala);
 
     $.ajax({
-        type : "DELETE",
-        url : "http://localhost:8080/sala/" + salaId,
+        type: "DELETE",
         dataType : "json",
+        url : "http://localhost:8080/sala/obrisiSalu"+id,
 
-        success: function () {
-            console.log("SUCCESS");
-
-            $('[data-id="' + salaId + '"]').parent().parent().remove();
+        success: function (response){
+            console.log(response);
+                alert("Sala" + response.id + "je obrisana!");
+                window.location.href = "admin_page.html";
         },
 
-        error: function (){
-            alert("Greska prilikom brisanja sale!");
+        error : function (){
+            console.log("Error!");
         }
     });
 });

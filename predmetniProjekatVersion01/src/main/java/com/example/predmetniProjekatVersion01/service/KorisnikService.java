@@ -31,27 +31,32 @@ public class KorisnikService {
     }
 
 
+    // DOBAVLJANJE KORISNIKA PREKO ID-A
     public Korisnik findOne(Long id){
         Korisnik korisnik = this.korisnikRepository.getOne(id);
         return  korisnik;
     }
 
+    // LISTA KORISNIKA
     public List<Korisnik> findAll(){
         List<Korisnik> korisnikList = this.korisnikRepository.findAll();
         return  korisnikList;
     }
 
+    // PRIJAVA
     public Korisnik login(LogInOutDTO logInOutDTO){
         Korisnik korisnik = korisnikRepository.findKorisnikByKorisnickoIme(logInOutDTO.getKorisnickoIme());
 
-        if(korisnik == null || korisnik.getAktivan() == false || !korisnik.getLozinka().equals(logInOutDTO.getLozinka())){
+        if(korisnik == null || korisnik.aktivanStatus() == false || !korisnik.getLozinka().equals(logInOutDTO.getLozinka())){
             return null;
         } else{
             return korisnik;
         }
     }
 
+    // REGISTRACIJA
     public Korisnik registracija(KorisnikDTO korisnikDTO){
+
         if(korisnikDTO.getUloga() == Uloga.TRENER){
             korisnikDTO.setAktivan(false);
         }
@@ -70,13 +75,16 @@ public class KorisnikService {
         return korisnik;
     }
 
+    // REGISTRACIJA TRENERA
     public Korisnik registracijaTrenera(RegTrenerDTO regTrenerDTO){
+
         Korisnik korisnik = new Korisnik(regTrenerDTO.getId(),
                 regTrenerDTO.getKorisnickoIme(), regTrenerDTO.getLozinka(),
                 regTrenerDTO.getIme(), regTrenerDTO.getPrezime(),
                 regTrenerDTO.getKontaktTelefon(), regTrenerDTO.getEmail(),
                 regTrenerDTO.getDatumRodjenja(), regTrenerDTO.getUloga(),
-                regTrenerDTO.isAktivan());
+                regTrenerDTO.aktivanStatus());
+
         korisnik.setFitnessCentar(fcRepository.getOne(regTrenerDTO.getIdFC()));
         korisnikRepository.save(korisnik);
 

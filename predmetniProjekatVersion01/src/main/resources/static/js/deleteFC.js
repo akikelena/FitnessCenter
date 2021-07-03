@@ -1,11 +1,11 @@
 $(document).on("submit", "#fc-delete", function (event){
     event.preventDefault();
 
-    let ID = $("#id").val();
+    let id = $("#id").val();
 
         $.ajax({
             type: "DELETE",
-            url : "http://localhost:8080/fcentar/obrisi" + ID,
+            url : "http://localhost:8080/fcentar/obrisiFC" + id,
 
             success: function (response){
                 console.log(response);

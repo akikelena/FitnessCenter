@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addTermin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addTermin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/SalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/SalaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TreningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Sala.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Sala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/RegTrenerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/RegTrenerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/FCList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/FCList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/approve_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/approve_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/deleteSalu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addFC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addTrening.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addTrening.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteSalu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +75,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../WebProg/WebProg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs.jest.jest_package" value="" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
@@ -87,15 +101,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,7 +173,8 @@
       <workItem from="1623315515119" duration="5753000" />
       <workItem from="1624950816964" duration="24499000" />
       <workItem from="1625169739062" duration="5444000" />
-      <workItem from="1625214456168" duration="15836000" />
+      <workItem from="1625214456168" duration="15935000" />
+      <workItem from="1625308002360" duration="12896000" />
     </task>
     <servers />
   </component>

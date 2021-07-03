@@ -16,7 +16,7 @@ $(document).on("submit", "#fc-addForm", function (event){
 
     $.ajax ({
         type: "POST",
-        url : "http://localhost:8080/fcentar/dodaj",
+        url : "http://localhost:8080/fcentar/dodajFC",
         dataType : "json",
         contentType : "application/json",
         data: JSON.stringify(newFitnessCentar),

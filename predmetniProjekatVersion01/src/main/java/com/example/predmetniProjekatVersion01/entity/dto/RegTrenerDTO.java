@@ -24,4 +24,8 @@ public class RegTrenerDTO {
     private Uloga uloga;
     private Long idFC;
     boolean aktivan;
+
+    public boolean aktivanStatus(){
+        return aktivan;
+    }
 }

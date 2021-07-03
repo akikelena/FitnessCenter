@@ -25,7 +25,7 @@ $(document).on("submit", "#tr-addForm", function (event) {
         success: function (response) {
             console.log(response);
 
-            alert("Trening" + response.id + " je kreiran!");
+            alert("Trening " + response.id + " je kreiran!");
             window.location.href = "TreningList.html";
         },
         error: function () {

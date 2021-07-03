@@ -1,7 +1,6 @@
 $(document).on("submit", "#tr-addForm", function (event) {
     event.preventDefault();
 
-
     let naziv = $("#naziv").val();
     let opis = $("#opis").val();
     let tipTreninga = $("#tipTreninga").val();
@@ -16,7 +15,6 @@ $(document).on("submit", "#tr-addForm", function (event) {
     }
     console.log(noviTrening);
 
-
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -27,7 +25,7 @@ $(document).on("submit", "#tr-addForm", function (event) {
         success: function (response) {
             console.log(response);
 
-            alert("Trening" + response.id + " je kreiran!");
+            alert("Trening " + response.id + " je kreiran!");
             window.location.href = "TreningList.html";
         },
         error: function () {

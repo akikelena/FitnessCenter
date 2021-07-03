@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Brisanje sale</title>
+    <title>Izmena sale</title>
     <link href="assets/img/icon.png" rel="icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -14,7 +14,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/deleteSalu.js"></script>
+    <script src="js/azurirajSalu.js"></script>
 </head>
 <body>
 
@@ -40,28 +40,53 @@
             <header class="header">
                 <nav class="navbar navbar-expand-lg navbar-light py-3  justify-content-center">
                     <div class=" col-xl-12 col-lg-12 text-center text-lg-center">
-                        <h3> OBRIŠI SALU </h3>
+                        <h3> IZMENI SALU </h3>
                     </div>
                 </nav>
             </header>
 
-            <form id="sala-delete" method="post">
+            <form id="sala-azurirajForm" method="post">
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
+
                             </span>
                     </div>
                     <input id="id" type="number" placeholder="ID sale"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
-                <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <!--
-                    <input type="submit" value="Obriši salu">
-                    -->
-                    <button type="submit" id="btn-deleteSalu"> Obriši salu</button>
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
 
+                            </span>
+                    </div>
+                    <input id="oznakaSale" type="text" placeholder="Oznaka sale"
+                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            </span>
+                    </div>
+                    <input id="kapacitet" type="number" placeholder="Kapacitet sale"
+                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            </span>
+                    </div>
+                    <input id="idFC" type="number" placeholder="ID fitness centra"
+                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="form-group col-lg-12 mx-auto mb-0 text-center">
+                    <input type="submit" value="Izmeni salu">
                 </div>
             </form>
         </div>

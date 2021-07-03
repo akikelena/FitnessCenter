@@ -1,13 +1,17 @@
 package com.example.predmetniProjekatVersion01.controller;
 
+import com.example.predmetniProjekatVersion01.entity.FitnessCentar;
 import com.example.predmetniProjekatVersion01.entity.Sala;
 import com.example.predmetniProjekatVersion01.entity.dto.SalaDTO;
+import com.example.predmetniProjekatVersion01.service.FitnessCentarService;
 import com.example.predmetniProjekatVersion01.service.SalaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -17,38 +21,62 @@ public class SalaController {
     @Autowired
     private SalaService salaService;
 
-    // KREIRANJE NOVE SALE
-    @PostMapping(value = "/dodajSalu", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SalaDTO> kreirajNovuSalu(@RequestBody SalaDTO salaDTO) throws Exception {
+    @Autowired
+    private FitnessCentarService fitnessCentarService;
 
-        Sala sala = new Sala(salaDTO.getId(), salaDTO.getKapacitet(), salaDTO.getOznakaSale());
+    // KREIRANJE NOVE SALE
+    @PostMapping(value = "/dodajSalu",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<SalaDTO> dodajNovuSalu(@RequestBody SalaDTO salaDTO) throws Exception {
+
+        FitnessCentar fitnessCentar = new FitnessCentar();
+        fitnessCentar = fitnessCentarService.findOne(salaDTO.getIdFC());
+
+        Sala sala = new Sala(null, salaDTO.getKapacitet(),
+                salaDTO.getOznakaSale(), fitnessCentar);
 
         sala = salaService.save(sala);
         salaDTO.setId(sala.getId());
 
-        return new ResponseEntity<>(salaDTO, HttpStatus.CREATED);
+        return  new ResponseEntity<>(salaDTO, HttpStatus.CREATED);
     }
 
-    /* AZURIRANJE SALE
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+    // IZMENA SALE
+    @PutMapping(value = "/azurirajSalu/{id}",
     produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SalaDTO> updateSalu(@PathVariable Long id, @RequestBody SalaDTO salaDTO) throws Exception{
+    public ResponseEntity<SalaDTO> izmeniSalu(@PathVariable Long id, @RequestBody SalaDTO salaDTO){
+        Optional<Sala> sala = Optional.ofNullable(salaService.findOne(id));
 
-        Sala sala = new Sala(salaDTO.getKapacitet(), salaDTO.getOznakaSale());
-        sala.setId(id);
+        if(!sala.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
-        Sala updatedSala = salaService.izmeni(sala);
+        FitnessCentar fitnessCentar = new FitnessCentar();
+        fitnessCentar = fitnessCentarService.findOne(salaDTO.getIdFC());
+        System.out.println(fitnessCentar.getNaziv());
 
-        SalaDTO updatedSalaDTO = new SalaDTO(updatedSala.getId(), updatedSala.getKapacitet(), updatedSala.getOznakaSale());
-
-        return new ResponseEntity<>(updatedSalaDTO, HttpStatus.OK);
+        Sala sala1 = new Sala(
+                sala.get().getId(),
+                salaDTO.getKapacitet(), salaDTO.getOznakaSale(),
+                fitnessCentar);
+        
+        System.out.println(sala1.getId());
+        System.out.println(sala1.getOznakaSale());
+        System.out.println(sala1.getKapacitet());
+        
+        sala1 = salaService.izmeni(sala1);
+        salaDTO.setId(id);
+        
+        return new ResponseEntity<>(salaDTO, HttpStatus.ACCEPTED);
     }
-*/
-    // BRISANJE POSTOJECE SALE
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> obrisiSalu(@PathVariable Long id){
+
+    // BRISANJE SALE
+    @DeleteMapping(value = "/obrisiSalu/{id}",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity obrisiSalu(@PathVariable Long id){
+
         this.salaService.delete(id);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
+
 }

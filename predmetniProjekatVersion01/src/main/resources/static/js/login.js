@@ -42,7 +42,7 @@ $(document).on("submit", "#log-Form", function (event){
     });
 });
 
-$("#btn-reg").on("click", function (event) {
+$("#btnReg").on("click", function (event) {
     console.log("test");
     window.location.href = "register_page.html";
 });

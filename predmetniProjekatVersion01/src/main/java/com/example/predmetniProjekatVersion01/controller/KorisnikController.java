@@ -52,14 +52,17 @@ public class KorisnikController {
     }
 
     // Brisanje korisnika
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> obrisiKorisnika(@PathVariable Long id){
-        this.korisnikService.delete(id);
+    @DeleteMapping(value = "/obrisi/{id}",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity obrisiKorisnika(@PathVariable Long id){
 
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        this.korisnikService.delete(id);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping(value = "/approveRequest", produces = MediaType.APPLICATION_JSON_VALUE)
+    // Odobravanje zahteva trenera
+    @PutMapping(value = "/odobri_trenera",
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveTren(@RequestBody List<Long> listID){
         System.out.println(listID.toString());
 
@@ -72,7 +75,7 @@ public class KorisnikController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // LOGIN
+    // LOGIN korisnika
     @PostMapping(value = "/login_page",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<KorisnikDTO> login(@RequestBody LogInOutDTO logInOutDTO){

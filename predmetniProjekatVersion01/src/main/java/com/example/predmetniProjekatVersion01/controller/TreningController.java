@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -21,42 +22,55 @@ public class TreningController {
     @Autowired
     private TreningService treningService;
 
-    @DeleteMapping(value = "/obrisiTrening/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    // Brisanje treninga po id-u
+    @DeleteMapping(value = "/obrisiTrening/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity obrisiTrening(@PathVariable Long id){
-        treningService.delete(id);
 
+        treningService.delete(id);
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TreningDTO> getTrening(@PathVariable("id") Long id){
-        Trening trening = this.treningService.pronadji(id);
+    // Doabavljanje treninga po id-u
+    @GetMapping(value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TreningDTO> getTrening(@PathVariable Long id){
+        Optional<Trening> trening = Optional.ofNullable(treningService.pronadji(id));
 
-        TreningDTO treningDTO = new TreningDTO();
+            if(!trening.isPresent()){   // ako trazeni trening ne postoji
 
-        treningDTO.setId(trening.getId());
-        treningDTO.setNaziv(trening.getNaziv());
-        treningDTO.setTipTreninga(trening.getTipTreninga());
-        treningDTO.setOpis(trening.getOpis());
-        treningDTO.setTrajanje(trening.getTrajanje());
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);  // vrati info o nepostojecem treningu
+            }
+
+        Trening trening1 = trening.get();
+
+            TreningDTO treningDTO = new TreningDTO(trening1.getId(),
+                    trening1.getNaziv(), trening1.getOpis(),
+                    trening1.getTipTreninga(), trening1.getTrajanje());
 
         return new ResponseEntity<>(treningDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/TreningList", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TreningDTO>> getAll(){
+    // Lista svih treninga
+    @GetMapping(value = "/TreningList",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TreningDTO>> listaTreninga(){
 
         List<Trening> treningList = treningService.findAll();
         List<TreningDTO> treningDTOList = new ArrayList<>();
 
         for(Trening trening : treningList) {
-            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(),
-                    trening.getOpis(), trening.getTipTreninga(), trening.getTrajanje());
+
+            TreningDTO treningDTO = new TreningDTO(trening.getId(),
+                    trening.getNaziv(), trening.getOpis(),
+                    trening.getTipTreninga(), trening.getTrajanje());
+
             treningDTOList.add(treningDTO);
         }
         return new ResponseEntity<>(treningDTOList, HttpStatus.OK);
     }
 
+    // Dodavanje treninga
     @PostMapping(value = "/dodajTrening",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TreningDTO> dodajTrening(@RequestBody TreningDTO treningDTO) throws Exception{
@@ -71,6 +85,7 @@ public class TreningController {
         return new ResponseEntity<>(treningDTO, HttpStatus.CREATED);
     }
 
+    // Izmena treninga
     @PutMapping(value = "/azurirajTrening", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TreningDTO> izmeniTr(@PathVariable Long id, @RequestBody TreningDTO treningDTO){
         Trening trening = treningService.pronadji(id);

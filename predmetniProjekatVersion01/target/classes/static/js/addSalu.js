@@ -3,11 +3,13 @@ $(document).on("submit", "#sala-addForm", function (event){
 
     let oznakaSale = $("#oznakaSale").val();
     let kapacitet = $("#kapacitet").val();
+    let idFC = $("#idFC").val();
 
 
     let novaSala = {
         oznakaSale,
         kapacitet,
+        idFC
 
     }
     console.log(novaSala);
