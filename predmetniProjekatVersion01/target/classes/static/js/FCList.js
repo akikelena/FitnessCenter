@@ -16,7 +16,7 @@ $(document).ready(function () {
                 row += "<td>" + fitnessCentar.email + "</td>";
                 row += "</tr>";
 
-                $('#fitnessCentarList').append(row);
+                $('#fc-List').append(row);
             }
         },
         error: function (response){

@@ -1,8 +1,8 @@
 $(document).on("submit", "#log-Form", function (event){
     event.preventDefault();
 
-    let korisnickoime = $("#korisnickoIme").val();
-    let lozinka = $("#password").val();
+    let korisnickoIme = $("#korisnickoIme").val();
+    let lozinka = $("#lozinka").val();
 
     let noviLogin = {
         korisnickoIme,
@@ -40,9 +40,4 @@ $(document).on("submit", "#log-Form", function (event){
             alert("Greška prilikom prijave!");
         }
     });
-});
-
-$("#btnReg").on("click", function (event) {
-    console.log("test");
-    window.location.href = "register_page.html";
 });

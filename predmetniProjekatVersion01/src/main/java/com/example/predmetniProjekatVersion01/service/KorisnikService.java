@@ -49,9 +49,9 @@ public class KorisnikService {
 
         if(korisnik == null || korisnik.aktivanStatus() == false || !korisnik.getLozinka().equals(logInOutDTO.getLozinka())){
             return null;
-        } else{
-            return korisnik;
         }
+            return korisnik;
+
     }
 
     // REGISTRACIJA
@@ -69,7 +69,7 @@ public class KorisnikService {
                 korisnikDTO.getIme(), korisnikDTO.getPrezime(),
                 korisnikDTO.getKontaktTelefon(),
                 korisnikDTO.getEmail(), korisnikDTO.getDatumRodjenja(),
-                korisnikDTO.getUloga(), korisnikDTO.getAktivan(), korisnikDTO.aktivanStatus());
+                korisnikDTO.getUloga(), korisnikDTO.aktivanStatus());
 
         korisnikRepository.save(korisnik);
         return korisnik;

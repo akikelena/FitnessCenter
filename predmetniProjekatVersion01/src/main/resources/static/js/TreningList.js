@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(document).ready(function () {
     $.ajax({
         type : "GET",
         dataType : "json",
@@ -6,20 +6,22 @@ $(document).ready(function (){
 
         success : function (response) {
             console.log("SUCCESS: \n", response);
-            console.log(response);
+
 
             for(let trening of response){
+
                 let row = "<tr>";
 
-                row += "<td>" + treningList.id + "</td>";
-                row += "<td>" + treningList.naziv + "</td>";
-                row += "<td>" + treningList.tipTreninga + "</td>";
-                row += "<td>" + treningList.opis + "</td>";
-                row += "<td>" + treningList.trajanje + "</td>";
+                row += "<td>" + trening.id + "</td>";
+                row += "<td>" + trening.naziv + "</td>";
+                row += "<td>" + trening.opis + "</td>";
+                row += "<td>" + trening.tipTreninga + "</td>";
+                row += "<td>" + trening.trajanje + "</td>";
 
-                row += "</tr>";
 
-                $('#treningList').append(row);
+                row += "</tr>"
+
+                $('#trening-List').append(row);
             }
         },
         error : function (response) {

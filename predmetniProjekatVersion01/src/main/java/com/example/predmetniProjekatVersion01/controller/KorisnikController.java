@@ -91,7 +91,7 @@ public class KorisnikController {
                 korisnik.getIme(), korisnik.getPrezime(),
                 korisnik.getKontaktTelefon(), korisnik.getEmail(),
                 korisnik.getDatumRodjenja(), korisnik.getUloga(),
-                korisnik.getAktivan());
+                korisnik.aktivanStatus());
         return new ResponseEntity<>(korisnikDTO, HttpStatus.CREATED);
     }
 
@@ -103,7 +103,6 @@ public class KorisnikController {
         Korisnik korisnik = korisnikService.registracija(korisnikDTO);
 
         korisnikDTO.setId(korisnik.getId());
-        korisnikDTO.setAktivan(true);
 
         return new ResponseEntity<>(korisnikDTO, HttpStatus.CREATED);
     }

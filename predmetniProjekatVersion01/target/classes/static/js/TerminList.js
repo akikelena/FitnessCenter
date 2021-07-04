@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://localhost:8080/api/termin/lista_termina",
+        url : "http://localhost:8080/termin/TerminList",
 
         success : function (response) {
             console.log("SUCCESS: \n", response);
@@ -12,14 +12,17 @@ $(document).ready(function () {
                 let row = "<tr>";
 
                 row += "<td>" + termini.id + "</td>";
+                row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                row += "<td>" + termini.cena + "</td>";
                 row += "<td>" + termini.naziv + "</td>";
+                row += "<td>" + termini.opis + "</td>";
                 row += "<td>" + termini.tipTreninga + "</td>";
                 row += "<td>" + termini.oznakaSale + "</td>";
-                row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                row += "<td>" + termini.cena + "</td>";
+
                 row += "</tr>";
 
-                $('#sviKorisnici tbody').append(row);
+                $('#termini-List').append(row);
             }
         },
 

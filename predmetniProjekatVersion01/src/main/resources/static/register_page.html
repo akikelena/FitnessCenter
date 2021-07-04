@@ -33,7 +33,6 @@
                 <li class="active"><a href="index.html">Home</a></li>
             </ul>
         </nav>
-
     </div>
 </header>
 <main id="main">
@@ -48,7 +47,7 @@
             </header>
     <!-- ======= REGISTRACIJA ======= -->
                     <!--Form -->
-                        <form id="reg-Form">
+                        <form id="reg-Form" method="post">
                                 <!-- Korisnicko ime -->
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
@@ -131,16 +130,11 @@
                                 <!-- Uloga -->
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-black-tie text-muted"></i>
-                            </span>
+                                        <span> Selektovati ukoliko želite da se registrujete kao TRENER  </span>
                                     </div>
-                                    <select id="uloga" name="Uloga" class="form-control custom-select bg-white border-left-0 border-md">
-                                        <option value="ULOGA">Uloga</option>
-                                        <option value="CLAN">Novi član</option>
-                                        <option value="TRENER">Novi trener</option>
-
-                                    </select>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input class="custom-checkbox" type="checkbox" placeholder="Uloga"
+                                           id="uloga" name="ulogaKorisnika">
                                 </div>
 
                                 <div class="form-group col-lg-12 mx-auto mb-0">
@@ -161,6 +155,7 @@
 
                         </form>
                     </div>
+
             </section><!-- End REGISTRACIJA -->
         </main>
     </body>

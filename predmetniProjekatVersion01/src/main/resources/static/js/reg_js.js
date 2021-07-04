@@ -3,13 +3,13 @@ $(document).on("submit", "#reg-Form", function (event){
     event.preventDefault();
 
     let korisnickoIme = $("#korisnickoIme").val();
-    let lozinka = $("#loznika").val();
-    let ime = $("ime").val();
-    let prezime = $("prezime").val();
-    let kontaktTelefon = $("kontaktTelefon").val();
-    let email = $("email").val();
-    let datumRodjenja = $("datumRodjenja").val();
-    let uloga = $("uloga").is(":checked")?"CLAN":"TRENER";
+    let lozinka = $("#lozinka").val();
+    let ime = $("#ime").val();
+    let prezime = $("#prezime").val();
+    let kontaktTelefon = $("#kontaktTelefon").val();
+    let email = $("#email").val();
+    let datumRodjenja = $("#datumRodjenja").val();
+    let uloga = $("#uloga").is(":checked")?"TRENER":"CLAN";
 
     let noviKorisnik = {
         korisnickoIme,
@@ -19,7 +19,7 @@ $(document).on("submit", "#reg-Form", function (event){
         kontaktTelefon,
         email,
         datumRodjenja,
-        uloga: uloga
+        uloga
     }
     $.ajax({
         type: "POST",

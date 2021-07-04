@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="assets/css/style.css" rel="stylesheet">
+
     <link href="css/login.css" rel="stylesheet">
 
-    <script src="js/login.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/login.js"></script>
 
 </head>
 <body>
@@ -75,21 +75,23 @@
 
                                 <!-- Dugme PRIJAVI SE -->
                                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                                    <input type="submit" value="Prijavi se">
-                                </div>
-                                <!-- Za neregistrovane korisnike, vodi do strane za registraciju -->
-                                <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
-                                    <div class="border-bottom w-100 ml-5"></div>
-                                    <span class="px-2 small text-muted font-weight-bold text-muted">ILI</span>
-                                    <div class="border-bottom w-100 mr-5"></div>
+                                    <button type="submit" id="btnPrijava"> Prijavi se</button>
                                 </div>
 
-                                <div class="text-center w-100">
-                                    <p class="text-muted font-weight-bold"> Još uvek nemaš nalog?
-                                        <a href="register_page.html" > Registruj se </a>
-                                </div>
                         </form>
                      </div>
+
+        <!-- Za neregistrovane korisnike, vodi do strane za registraciju -->
+        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+            <div class="border-bottom w-100 ml-5"></div>
+            <span class="px-2 small text-muted font-weight-bold text-muted">ILI</span>
+            <div class="border-bottom w-100 mr-5"></div>
+        </div>
+
+        <div class="text-center w-100">
+            <p class="text-muted font-weight-bold"> Još uvek nemaš nalog?
+                <a href="register_page.html" > Registruj se </a>
+        </div>
             </section>
         </main>
     </body>

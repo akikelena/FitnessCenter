@@ -22,17 +22,21 @@ public class TerminController {
     @Autowired
     private TerminService terminService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/TerminList", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TerminDTO>> getAll(){
+
         List<Termin> terminList = terminService.findAll();
         List<TerminDTO> terminDTOList = new ArrayList<>();
 
         for (Termin termini : terminList){
             TerminDTO terminDTO = new TerminDTO(termini.getId(),
-                    termini.getPocetakTermina(), termini.getBrojPrijavljenihClanova(),
-                    termini.getCena(),
-                    termini.getTreninzi().getNaziv(),termini.getTreninzi().getOpis(), termini.getTreninzi().getTipTreninga(),
-                    termini.getSale().getOznakaSale());
+            termini.getPocetakTermina(),
+            termini.getBrojPrijavljenihClanova(),
+            termini.getCena(),
+            termini.getTreninzi().getNaziv(),
+            termini.getTreninzi().getOpis(),
+            termini.getTreninzi().getTipTreninga(),
+            termini.getSale().getOznakaSale());
             terminDTOList.add(terminDTO);
         }
         return new ResponseEntity<>(terminDTOList, HttpStatus.OK);
