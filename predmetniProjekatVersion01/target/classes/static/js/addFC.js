@@ -25,7 +25,7 @@ $(document).on("submit", "#fc-addForm", function (event){
             console.log(response);
 
             alert("Uspešno ste kreirali fitness centar " + response.id + "!");
-            window.location.href = "add_FitnessCentar.html";
+            window.location.href = "admin_page.html";
         },
         error : function (){
             alert("Greška prilikom pokušaja kreiranja novog fitness centra!");

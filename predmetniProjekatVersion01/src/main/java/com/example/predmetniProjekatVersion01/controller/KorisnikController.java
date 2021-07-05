@@ -1,6 +1,7 @@
 package com.example.predmetniProjekatVersion01.controller;
 
 import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.Uloga;
 import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.RegTrenerDTO;
@@ -12,7 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -118,4 +121,43 @@ public class KorisnikController {
 
         return new ResponseEntity<>(regTrenerDTO, HttpStatus.CREATED);
     }
+
+    // LISTA TRENERA
+    @GetMapping(value = "/lista_trenera", produces = MediaType.APPLICATION_JSON_VALUE)
+    public  ResponseEntity<List<KorisnikDTO>> listaTrenera(){
+
+        List<Korisnik> korisnikList = korisnikService.findAll();
+        List<KorisnikDTO> korisnikDTOS = new ArrayList<>();
+
+            for(Korisnik korisnik: korisnikList){
+                if(!korisnik.aktivanStatus() && korisnik.getUloga() == Uloga.TRENER){
+                    KorisnikDTO korisnikDTO = new KorisnikDTO(korisnik.getId(),
+                            korisnik.getKorisnickoIme(), korisnik.getLozinka(),
+                            korisnik.getIme(), korisnik.getPrezime(),
+                            korisnik.getKontaktTelefon(), korisnik.getEmail(),
+                            korisnik.getDatumRodjenja(), korisnik.getUloga(),
+                            korisnik.aktivanStatus());
+            korisnikDTOS.add(korisnikDTO);
+                }
+            }
+        return new ResponseEntity<>(korisnikDTOS, HttpStatus.OK);
+    }
+
+    // ODOBRAVANJE ZAHTEVA TRENERA
+    @PutMapping(value = "/odobriZahtevTrenera",
+                 produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> odobriZahtevTrenera(@RequestBody List<Long> idList){
+        System.out.println(idList.toString());
+
+            for (Long id : idList){
+                Optional<Korisnik> korisnik = Optional.ofNullable(korisnikService.findOne(id));
+                    if(korisnik.isPresent()){
+                        korisnik.get().setAktivan(true);
+
+                        korisnikService.change(korisnik.get());
+                }
+            }
+        return  new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

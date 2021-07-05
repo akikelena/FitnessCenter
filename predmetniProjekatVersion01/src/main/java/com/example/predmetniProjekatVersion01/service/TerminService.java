@@ -1,14 +1,13 @@
 package com.example.predmetniProjekatVersion01.service;
 
+import com.example.predmetniProjekatVersion01.entity.Termin;
+import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 import com.example.predmetniProjekatVersion01.repository.TerminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.event.ListDataEvent;
 import java.util.Date;
 import java.util.List;
-import com.example.predmetniProjekatVersion01.entity.Termin;
-import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 
 @Service
 public class TerminService {
@@ -31,6 +30,10 @@ public class TerminService {
 
     public List<Termin> findAll(){
         return this.terminRepository.findAll();
+    }
+
+    public Termin findOne(Long id) {
+        return this.terminRepository.getOne(id);
     }
 
     public List<Termin> findByNaziv(String naziv){

@@ -15,7 +15,7 @@ import java.util.Date;
 public class TerminDTO {
 
     private Long id;
-    private Date pocetakTerminaDatum;
+    private Date pocetakTermina;
     private int brojPrijavljenihClanova;
     private double cena;
     private String naziv;

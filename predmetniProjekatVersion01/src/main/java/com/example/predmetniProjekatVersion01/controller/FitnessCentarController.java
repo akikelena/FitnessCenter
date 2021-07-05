@@ -69,7 +69,7 @@ public class FitnessCentarController {
     }
 
     // DODAVANJE FCENTRA
-    @PostMapping(value = "/dodaj",
+    @PostMapping(value = "/dodajFC",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FitnessCentarDTO> kreirajNoviFC(@RequestBody FitnessCentarDTO fitnessCentarDTO) throws Exception {
 

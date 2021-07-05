@@ -52,4 +52,18 @@ public class Termin implements Serializable {
     @ManyToMany(mappedBy = "prijavljeniTermini")
     private Set<Korisnik> clanovi_prijavljeni = new HashSet<>();
 
+    public Termin(Long id, Date pocetakTermina, int brojPrijavljenihClanova, double cena, String naziv, String opis, TipTreninga tipTreninga, String oznakaSale) {
+        this.id = id;
+        this.pocetakTermina = pocetakTermina;
+        this.brojPrijavljenihClanova = brojPrijavljenihClanova;
+        this.cena = cena;
+        /*
+        this.treninzi.getNaziv() = naziv;
+
+        this.treninzi.getOpis() = opis;
+        this.treninzi.getTipTreninga() = tipTreninga;
+        this.sale.getOznakaSale() = oznakaSale;
+        */
+
+    }
 }

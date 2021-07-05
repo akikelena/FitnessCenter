@@ -5,12 +5,12 @@ $(document).on("submit", "#fc-delete", function (event){
 
         $.ajax({
             type: "DELETE",
-            url : "http://localhost:8080/fcentar/obrisiFC" + id,
+            url : "http://localhost:8080/fcentar/obrisiFC"+id,
 
             success: function (response){
                 console.log(response);
 
-                alert("Fitness centar" + response.ID + "je obrisan!");
+                alert("Fitness centar" + response.id + "je obrisan!");
                 window.location.href = "admin_page.html";
             },
 

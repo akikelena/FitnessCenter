@@ -14,6 +14,7 @@ import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -40,6 +41,27 @@ public class TerminController {
             terminDTOList.add(terminDTO);
         }
         return new ResponseEntity<>(terminDTOList, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/azurirajTermin",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminDTO> izmenaTermina(@PathVariable Long id, @RequestBody TerminDTO terminDTO) throws Exception{
+
+        Optional<Termin> terminOptional = Optional.ofNullable(terminService.findOne(id));
+
+            if(!terminOptional.isPresent()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+
+        Termin termin = new Termin(terminOptional.get().getId(),
+                terminDTO.getPocetakTermina(), terminDTO.getBrojPrijavljenihClanova(),
+                terminDTO.getCena(), terminDTO.getNaziv(), terminDTO.getOpis(),
+                terminDTO.getTipTreninga(), terminDTO.getOznakaSale());
+
+            termin = terminService.izmeni(termin);
+            terminDTO.setId(id);
+
+            return new ResponseEntity<>(terminDTO, HttpStatus.ACCEPTED);
     }
 
     @GetMapping(value = "/naziv", produces = MediaType.APPLICATION_JSON_VALUE)
