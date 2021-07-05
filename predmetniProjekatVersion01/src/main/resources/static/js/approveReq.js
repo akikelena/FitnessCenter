@@ -36,6 +36,7 @@ $(document).ready(function () {
 
             if($(this).is(":checked")) {
                 idList.push($(this).attr("data-id"));
+                alert("Trener odobren!");
                 window.location.href = "approve_request.html";
             }
     })

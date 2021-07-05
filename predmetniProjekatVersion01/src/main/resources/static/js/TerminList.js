@@ -30,8 +30,10 @@ $(document).ready(function () {
             console.log("ERROR: \n", response);
         }
 });
+});
 
-    $("#trazi-submit").on("click", function (event){
+/*
+  $("#trazi-submit").on("click", function (event){
         event.preventDefault();
 
         let naziv = $('#naziv-polje').val();
@@ -270,4 +272,4 @@ $(document).ready(function () {
             });
         }
     });
-});
+ */

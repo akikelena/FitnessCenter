@@ -37,7 +37,7 @@ $(document).on("submit", "#trener-addForm", function (event){
                 console.log(response);
 
                     alert("Trener" + response.id + "je kreiran!");
-                    window.location.href = "addTrenera.html";
+                    window.location.href = "admin_page.html";
             },
 
             error : function (){

@@ -111,7 +111,7 @@ public class KorisnikController {
     }
 
     // REGISTRACIJA - trenera
-    @PostMapping(value = "/registracija_trenera",
+    @PostMapping(value = "/registracijaTrenera",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<RegTrenerDTO> regTrenera(@RequestBody RegTrenerDTO regTrenerDTO){
 
