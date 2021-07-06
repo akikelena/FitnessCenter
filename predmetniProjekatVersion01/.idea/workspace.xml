@@ -6,17 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TerminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TerminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reg_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pretragaTreninga.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pretragaTreninga.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/deleteFC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reg_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/reg_js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/pretragaTreninga.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/pretragaTreninga.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/register_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +164,7 @@
       <workItem from="1624950816964" duration="24499000" />
       <workItem from="1625169739062" duration="5444000" />
       <workItem from="1625214456168" duration="15935000" />
-      <workItem from="1625308002360" duration="61407000" />
+      <workItem from="1625308002360" duration="65976000" />
     </task>
     <servers />
   </component>

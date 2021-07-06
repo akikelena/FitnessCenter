@@ -60,12 +60,11 @@ public class FitnessCentarController {
     }
 
     // BRISANJE FCENTRA
-    @DeleteMapping(value = "/obrisiFC/{id}",
-                    produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity obrisiFitnessCentar(@PathVariable Long id){
+    @DeleteMapping(value = "/obrisiFC/{id}")
+    public ResponseEntity<Void> obrisiFitnessCentar(@PathVariable Long id){
         this.fitnessCentarService.delete(id);
 
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     // DODAVANJE FCENTRA

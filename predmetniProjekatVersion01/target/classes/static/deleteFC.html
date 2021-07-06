@@ -13,7 +13,7 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/deleteFC.js"></script>
 </head>
 <body>
@@ -48,7 +48,7 @@
 
 
             <form id="fc-delete" method="post">
-
+        <!--
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
@@ -60,9 +60,11 @@
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <input type="submit" value="Obriši fitness centar">
+                    <button type="submit" id="submit" >Obriši fitness centar </button>
                 </div>
-
+        -->
+                <input type="number" name="id" id="id" required>
+                <button type="submit" id="submit"> obrisi fc</button>
             </form>
         </div>
     </section>
