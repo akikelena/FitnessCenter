@@ -14,13 +14,15 @@
 
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="reg_css.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
 
 </head>
 
@@ -33,96 +35,151 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">Moj profil</a></li>
-                <li class="active"><a href="index.html">Prijavi se / Odjavi se</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
             </ul>
         </nav>
 
     </div>
-</header>
+</header><!-- End Header -->
 
-
-</hr>
 <main id="main">
-    <section id="profil-korisnika" class="registracija">
-        <div class="container" data-aos="fade-up">
+    <br>
 
-            <header class="header">
-                <nav class="navbar navbar-expand-lg navbar-light py-3">
-                    <div class="container">
-                    </div>
-                </nav>
-            </header>
-
-            <div class="container" data-aos="fade-up">
-                <section class="ftco-section">
-                    <div class="container">
-
-                        <div class="row">
-                            <div class="col-md-7 pr-lg-5 mb-5 mb-md-0">
-                                <div class="table-wrap">
-                                    <table id="treningList" class="table">
-                                        <thead class="thead-primary">
-                                        <tr>
-                                            <th id="korisnickoIme">Korisnicko ime</th>
-                                            <th id="lozinka">Lozinka</th>
-                                            <th id="ime">Ime</th>
-                                            <th id="prezime">Prezime</th>
-                                            <th id="kontaktTelefon">Kontakt telefon</th>
-                                            <th id="email">Email</th>
-                                            <th id="datumRodjenja">Datum rodjenja</th>
-                                            <th id="uloga">Uloga</th>
-                                            <th id="status">Status</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-
-                    <div class="col-md-5 col-lg-6 ml-auto align-items-center my-4">
-                            <div class="row">
-                                <!-- prijava za termin -->
-                                    <div class="container" data-aos="fade-up">
-
-                                        <div class="text-center">
-                                            <a href="TerminPrijava.html"  target="_blank" class="btn-get-started scrollto btn-lg"> <strong> PRIJAVI SE ZA TERMIN</strong></a>
-                                        </div>
-                                    </div>
-
-
-                                <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
-                                    <div class="border-bottom w-100 ml-5"></div>
-                                    <span class="px-2 small text-muted font-weight-bold text-muted"> Pro&lt;G/&gt;YM </span>
-                                    <div class="border-bottom w-100 mr-5"></div>
-                                </div>
-
-
-                                <!-- pregled treninga -->
-
-                                    <div class="container" data-aos="fade-up">
-
-                                        <div class="text-center">
-                                            <a href="TreningList.html.html"  target="_blank" class="btn-get-started scrollto btn-lg"> <strong> PREGLED TRENINGA</strong></a>
-                                        </div>
-                                    </div>
-
-                            </div>
-                        </form>
+    <div class="container">
+        <div class="row py-5 mt-4 align-items-center">
+            <div class="row icon-boxes">
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <img src="assets/img/g1.jpeg" alt="Deadlift" class="img-fluid"/>
                     </div>
                 </div>
+
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box">
+                        <img src="assets/img/g2.jpg" alt="Rope" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="icon-box">
+                        <img src="assets/img/g4.jpeg" alt="Row machine" class="img-fluid">
+                    </div>
+                </div>
+
             </div>
+            <!-- Form -->
+            <form  id="log-Form" method="post">
+                <div class="input-group col-lg-12 ">
+                    <div class="row">
+
+                        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                            <div class="border-bottom w-100 ml-5"></div>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">FITNESS CENTAR</span>
+                            <div class="border-bottom w-100 mr-5"></div>
+                        </div>
+
+
+                        <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
+
+                            <div class="input-group col-lg-4 ">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="add_FitnessCentar.html" class="btn-get-started scrollto btn-lg align-content-lg-center">
+                                    <strong> DODAVANJE FITNESS CENTRA</strong></a>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="deleteFC.html" class="btn-get-started scrollto btn-lg align-content-lg-center">
+                                    <strong> BRISANJE FITNESS CENTRA</strong></a>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="azurirajFC.html" class="btn-get-started scrollto btn-lg
+                                             align-content-lg-center"> <strong> IZMENA FITNESS CENTRA</strong></a>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                            <div class="border-bottom w-100 ml-5"></div>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">SALA</span>
+                            <div class="border-bottom w-100 mr-5"></div>
+                        </div>
+
+
+                        <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
+
+                            <div class="input-group col-lg-4 ">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="addSalu.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> DODAVANJE SALE</strong></a>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="deleteSalu.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> BRISANJE SALE</strong></a>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="azurirajSalu.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> IZMENA SALE</strong></a>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                            <div class="border-bottom w-100 ml-5"></div>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">TRENERI</span>
+                            <div class="border-bottom w-100 mr-5"></div>
+                        </div>
+
+
+                        <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
+
+                            <div class="input-group col-lg-4 ">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="approve_request.html" class="btn-get-started scrollto btn-lg align-content-lg-center "> <strong> ZAHTEVI TRENERA</strong></a>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="addTrenera.html" class="btn-get-started scrollto btn-lg align-content-lg-center "> <strong> REGISTRACIJA TRENERA</strong></a>
+                            </div>
+
+                            <div class="input-group col-lg-4">
+                                <div class="input-group-prepend">
+
+                                </div>
+                                <a href="deleteKorTr.html" class="btn-learn-more btn-lg "> <strong> UKLANJANJE TRENERA</strong></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
         </div>
-    </section>
+    </div>
 
-
-</main>
+</main><!-- End #main -->
 
 <div id="preloader"></div>
 

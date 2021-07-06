@@ -39,7 +39,3 @@ $(document).on("submit", "#reg-Form", function (event){
     });
 });
 
-$("#btn-login").on("click", function (event) {
-    console.log("test");
-    window.location.href = "login_page.html";
-});

@@ -36,7 +36,7 @@ public class TerminService {
         return this.terminRepository.getOne(id);
     }
 
-    public List<Termin> findByNaziv(String naziv){
+    public List<Termin> findAllByNaziv(String naziv){
         List<Termin> terminiNaziv = this.terminRepository.findAllByTreninziNazivContaining(naziv);
         return terminiNaziv;
     }

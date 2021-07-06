@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class KorisnikService {
+public class
+
+
+KorisnikService {
 
     @Autowired
     private KorisnikRepository korisnikRepository;
@@ -47,7 +50,8 @@ public class KorisnikService {
     public Korisnik login(LogInOutDTO logInOutDTO){
         Korisnik korisnik = korisnikRepository.findKorisnikByKorisnickoIme(logInOutDTO.getKorisnickoIme());
 
-        if(korisnik == null || korisnik.aktivanStatus() == false || !korisnik.getLozinka().equals(logInOutDTO.getLozinka())){
+        // provera - da li postoji sa relevantnim podacima + da li je aktivan
+        if(korisnik == null || !korisnik.aktivanStatus() || !korisnik.getLozinka().equals(logInOutDTO.getLozinka())){
             return null;
         }
             return korisnik;
@@ -58,7 +62,7 @@ public class KorisnikService {
     public Korisnik registracija(KorisnikDTO korisnikDTO){
 
         if(korisnikDTO.getUloga() == Uloga.TRENER){
-            korisnikDTO.setAktivan(false);
+            korisnikDTO.setAktivan(false);  // inicijalno, trener nije aktivan, admin ga odobrava
         }
         else if(korisnikDTO.getUloga() == Uloga.CLAN){
             korisnikDTO.setAktivan(true);
