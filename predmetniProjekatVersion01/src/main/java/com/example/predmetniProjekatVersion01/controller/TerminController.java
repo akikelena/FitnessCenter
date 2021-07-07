@@ -1,7 +1,12 @@
 package com.example.predmetniProjekatVersion01.controller;
 
+import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.Ocena;
 import com.example.predmetniProjekatVersion01.entity.Termin;
+import com.example.predmetniProjekatVersion01.entity.TipTreninga;
+import com.example.predmetniProjekatVersion01.entity.dto.IzabraniTerminDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.TerminDTO;
+import com.example.predmetniProjekatVersion01.service.KorisnikService;
 import com.example.predmetniProjekatVersion01.service.TerminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -9,12 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.predmetniProjekatVersion01.entity.TipTreninga;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -22,6 +23,9 @@ import java.util.Optional;
 public class TerminController {
     @Autowired
     private TerminService terminService;
+
+    @Autowired
+    private KorisnikService korisnikService;
 
     @GetMapping(value = "/TerminList", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TerminDTO>> getAll(){
@@ -236,5 +240,79 @@ public class TerminController {
             terminDTOList.add(terminDTO);
         }
         return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/prijaviTrening/{idKorisnik}/{idTermin}",
+                consumes = MediaType.APPLICATION_JSON_VALUE,
+                produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<IzabraniTerminDTO> prijava(@PathVariable Long idKorisnik,
+                                                     @PathVariable Long idTermin){
+            Termin termin = terminService.findOne(idTermin);
+            Korisnik korisnik = korisnikService.findOne(idKorisnik);
+
+                if(termin == null || korisnik == null ){
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
+
+                int noviBrojPrijavljenih = termin.getBrojPrijavljenihClanova() + 1;
+                termin.setBrojPrijavljenihClanova(noviBrojPrijavljenih);
+                korisnikService.save(korisnik);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/odjaviTrening/{idKorisnik}/{idTermin}",
+                consumes = MediaType.APPLICATION_JSON_VALUE,
+                produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<IzabraniTerminDTO> odjava(@PathVariable Long idKorisnik,
+                                                    @PathVariable Long idTermin){
+        Termin termin = terminService.findOne(idTermin);
+        Korisnik korisnik = korisnikService.findOne(idKorisnik);
+
+            if(termin == null || korisnik == null ){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+
+        int noviBrojPrijavljenih = termin.getBrojPrijavljenihClanova() + 1;
+        termin.setBrojPrijavljenihClanova(noviBrojPrijavljenih);
+
+
+        korisnik.getPrijavljeniTermini().remove(termin);
+
+        korisnikService.save(korisnik);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/listaOcenjenihTermina/{id}",
+                produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<IzabraniTerminDTO>> listaOcenjenihTermina(@PathVariable Long id){
+
+        Korisnik korisnik = korisnikService.findOne(id);
+
+            Set<Termin> terminList = korisnik.getPrijavljeniTermini();
+            Set<IzabraniTerminDTO> izabraniTerminDTOS = new HashSet<>();
+
+                for(Termin termini : terminList){
+                    Set<Ocena> ocenaSet = termini.getOcene();
+
+                        for(Ocena ocene : ocenaSet){
+                            if(ocene.getTrener().getId() == id){
+                                Date date = new Date();
+
+                                    if(date.after(termini.getPocetakTermina())){
+                                        IzabraniTerminDTO izabraniTerminDTO = new IzabraniTerminDTO(termini.getId(),
+                                                termini.getPocetakTermina(), termini.getCena(),
+                                                termini.getTreninzi().getTipTreninga(), termini.getTreninzi().getNaziv(),
+                                                termini.getTreninzi().getOpis(), termini.getTreninzi().getTrajanje(),
+                                                termini.getSale().getOznakaSale());
+
+                            izabraniTerminDTOS.add(izabraniTerminDTO);
+                                    }
+                            }
+                        }
+                }
+        return new ResponseEntity<>(izabraniTerminDTOS, HttpStatus.OK);
     }
 }
