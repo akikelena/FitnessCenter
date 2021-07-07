@@ -60,7 +60,7 @@ public class FitnessCentarController {
     }
 
     // BRISANJE FCENTRA
-    @DeleteMapping(value = "/obrisiFC/{id}")
+    @DeleteMapping(value = "/FCList/{id}")
     public ResponseEntity<Void> obrisiFitnessCentar(@PathVariable Long id){
         this.fitnessCentarService.delete(id);
 

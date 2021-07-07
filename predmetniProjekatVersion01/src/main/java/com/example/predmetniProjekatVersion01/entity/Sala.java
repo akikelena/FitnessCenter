@@ -27,6 +27,7 @@ public class Sala implements Serializable {
     @Column(name = "oznaka_sale", unique = true)
     private String oznakaSale;
 
+
    /*  lista sala koje se nalaze u tom fitnes centru(veza 1:n)
        "U 1 fitness centru moze postojati vise sala"
        veza 1:n, strana: n

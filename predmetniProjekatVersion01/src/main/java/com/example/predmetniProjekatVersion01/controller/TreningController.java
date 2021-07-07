@@ -22,15 +22,6 @@ public class TreningController {
     @Autowired
     private TreningService treningService;
 
-    // Brisanje treninga po id-u
-    @DeleteMapping(value = "/obrisiTrening/{id}",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity obrisiTrening(@PathVariable Long id){
-
-        treningService.delete(id);
-        return new ResponseEntity(HttpStatus.ACCEPTED);
-    }
-
     // Doabavljanje treninga po id-u
     @GetMapping(value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -97,6 +88,14 @@ public class TreningController {
         treningDTO.setId(id);
 
         return new ResponseEntity<>(treningDTO, HttpStatus.ACCEPTED);
+    }
+
+    // BRISANJE treninga
+    @DeleteMapping(value = "/TreningList/{id}")
+    public ResponseEntity<Void> obrisiTrening(@PathVariable Long id){
+        this.treningService.delete(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

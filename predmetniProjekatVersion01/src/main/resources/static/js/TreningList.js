@@ -19,7 +19,7 @@ $(document).ready(function () {
                 row += "<td>" + trening.trajanje + "</td>";
 
 
-                row += "</tr>"
+                row += "</tr>";
 
                 $('#trening-List').append(row);
             }

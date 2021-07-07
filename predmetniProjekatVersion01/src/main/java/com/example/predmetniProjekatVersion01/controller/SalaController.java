@@ -11,6 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
@@ -70,13 +72,31 @@ public class SalaController {
         return new ResponseEntity<>(salaDTO, HttpStatus.ACCEPTED);
     }
 
-    // BRISANJE SALE
-    @DeleteMapping(value = "/obrisiSalu/{id}",
-    produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity obrisiSalu(@PathVariable Long id){
+    // LISTA SVIH SALA
+    @GetMapping(value = "/SalaList",
+                produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<SalaDTO>> sveSale(){
 
+        List<Sala> salaList = salaService.findAll();
+        List<SalaDTO> salaDTOS = new ArrayList<>();
+
+            for(Sala sala : salaList){
+                SalaDTO salaDTO = new SalaDTO(sala.getId(),
+                        sala.getOznakaSale(), sala.getKapacitet(),
+                        sala.getFitnessCentar().getId());
+
+            salaDTOS.add(salaDTO);
+            }
+        return new ResponseEntity<>(salaDTOS, HttpStatus.OK);
+
+    }
+
+    // BRISANJE SALE
+    @DeleteMapping(value = "/SalaList/{id}")
+    public ResponseEntity<Void> obrisiSalu(@PathVariable Long id){
         this.salaService.delete(id);
-        return new ResponseEntity(HttpStatus.ACCEPTED);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

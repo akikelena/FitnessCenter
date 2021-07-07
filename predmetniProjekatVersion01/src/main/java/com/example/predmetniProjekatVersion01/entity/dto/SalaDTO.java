@@ -12,8 +12,8 @@ import lombok.Setter;
 public class SalaDTO {
 
     private Long id;
-    private int kapacitet;
     private String oznakaSale;
+    private int kapacitet;
     private Long idFC;
 
 }
