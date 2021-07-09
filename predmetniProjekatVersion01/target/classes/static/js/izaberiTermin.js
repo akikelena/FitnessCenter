@@ -1,44 +1,105 @@
+
+    var slobodnihMesta = 0;
+
 $(document).ready(function () {
+
+    let id = localStorage.getItem('termin');
+
     $.ajax({
         type : "GET",
         dataType : "json",
-        url : "http://localhost:8080/termin/TerminList",
+        url : "http://localhost:8080/termin/izabraniTermini/" + id,
 
         success : function (response) {
             console.log("SUCCESS");
             console.log(response);
 
-            for(let termini of response){
-                let row = "<tr>";
+                    let row = "<tr>";
 
-                row += "<td>" + termini.id + "</td>";
-                row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                row += "<td>" + termini.cena + "</td>";
-                row += "<td>" + termini.naziv + "</td>";
-                row += "<td>" + termini.opis + "</td>";
-                row += "<td>" + termini.tipTreninga + "</td>";
-                row += "<td>" + termini.oznakaSale + "</td>";
-                let btn = "<button class='izborTermina' data-id=" + termini.id + ">Izaberi termin</button>";
-                row += "<td>" + btn + "</td>";
+                row += "<td>" + response.id + "</td>";
+                row += "<td>" + new Date(response.pocetakTermina).toLocaleString() + "</td>";
+                row += "<td>" + response.brojPrijavljenihClanova + "</td>";
+                row += "<td>" + response.cena + "</td>";
+                row += "<td>" + response.naziv + "</td>";
+                row += "<td>" + response.opis + "</td>";
+                row += "<td>" + response.tipTreninga + "</td>";
+                row += "<td>" + response.oznakaSale + "</td>";
+                row += "<td>" + "<button class='izborTermina' data-id=" + response.id + ">Prijavi se za termin</button>" + "</td>";
+                //let btn = "<button class='izborTermina' data-id=" + response.id + ">Prijavi se za termin</button>";
+                //row += "<td>" + btn + "</td>";
 
+                    row += "</tr>";
 
-                row += "</tr>";
+                slobodnihMesta += response.kapacitet;
 
-                $('#termini-List').append(row);
-            }
+                $('#izabranitermini-List').append(row);
+
         },
 
         error : function (response){
-            console.log("ERROR: \n", response);
+            console.log("ERROR: \n");
+            console.log(response);
         }
     });
 });
-
-$(document).on('click', '.izborTermina', function myFunction(event) {
+/*
+$(document).on('click', '.izborTermina', function fun(event) {
     event.preventDefault();
 
-        window.localStorage.setItem('termini', this.id);
-        window.location.href = "izabraniTermini.html";
+    if (slobodnihMesta > 0) {
+        console.log(localStorage.getItem("ID"), localStorage.getItem("termin"));
 
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(),
+            url : "http://localhost:8080/termin/prijaviTrening/" + localStorage.getItem("ID")+ "/" + localStorage.getItem("termin"),
+
+            success: function (response) {
+                console.log("SUCCESS!");
+                console.log(response);
+
+                alert("Prijavljen termin!");
+            },
+
+            error: function () {
+                console.log("ERROR!");
+                console.log(response);
+            }
+        });
+    } else {
+        alert("Nema slobodnih mesta!");
+        window.location.href = "izaberiTermin.html";
+    }
 });
+ */
+
+    $(document).on('click', '.izborTermina', function fun(event) {
+        event.preventDefault();
+
+        if(slobodnihMesta <= 0){
+            alert("Nema slobodnih mesta!");
+            window.location.href = "TerminList.html";
+        }
+        else {
+            console.log(localStorage.getItem("ID"),localStorage.getItem("termin"));
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("ID")+"/"+ localStorage.getItem("termin"),
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(),
+
+                success: function (response) {
+                    console.log(response);
+                    alert("Prijavljen termin!");
+                },
+                error: function(response) {
+                    console.log("ERROR: \n", response);
+                    alert("Prijavljen termin!");
+                }
+            });
+            window.location.href = "TerminList.html";
+        }
+    });

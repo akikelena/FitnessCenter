@@ -46,20 +46,20 @@
     <br><br>
 
 
-    <label for="sortCena" id="cena-sort-polje"> Sortiraj po CENI</label>
-    <select name="sortiCena" id="sortCena">
+    <label for="sortCena" id="cena-sort"> Sortiraj po CENI</label>
+    <select name="sortCena" id="sortCena">
         <option value="nasumicanRedosled"> Nasumičan redosled</option>
         <option value="rastuciSort-cena">Redosled RASTUĆE</option>
         <option value="opadajuciSort-cena">Redosled OPADAJUĆE</option>
     </select>
 
-    <label for="sortVreme" id="vreme-sort-polje"> Sortiraj po VREMENU</label>
-    <select name="sortiVreme" id="sortVreme">
+    <label for="sortVreme" id="pocetakTermina-sort"> Sortiraj po VREMENU</label>
+    <select name="sortVreme" id="sortVreme">
         <option value="nasumicanRedosled"> Nasumičan redosled</option>
         <option value="rastuciSort-vreme">Redosled RASTUĆE</option>
         <option value="opadajuciSort-vreme">Redosled OPADAJUĆE</option>
     </select>
-
+<!--
     <form method="post" id="search-form">
 
         <div class="text-center w-100">
@@ -128,11 +128,36 @@
         </div>
 
         <div class="form-group col-lg-12 mx-auto mb-0">
-            <button name="submit" type="submit" id="submit" class="btn btn-block py-2 font-weight-bold"> Pretraži</button>
+            <button name="submit" type="submit" id="submit" class="submit" style="align-content: center"> Pretraži</button>
         </div>
 
     </form>
+-->
+    <form method="post" class="pretraga-Termina">
+        <label for="naziv"> Pretraga po nazivu</label>
+        <input id="naziv" type="text"  placeholder="Unesi NAZIV" name="Naziv"/>
+        <br>
 
+        <label for="opis"> Pretraga po opis</label>
+        <input id="opis" type="text"  placeholder="Unesi OPIS TRENINGA" name="opisTreninga"/>
+        <br>
+
+        <label for="tipTreninga"> Pretraga po tipu treninga</label>
+        <input id="tipTreninga" type="text"  placeholder="Unesi TIP TRENINGA" name="tipTreninga"/>
+        <br>
+
+        <label for="pocetakTermina"> Pretraga po vremenu pocetka</label>
+        <input id="pocetakTermina" type="date"  placeholder="Unesi POCETAK TERMINA" name="Pocetak-termina"/>
+        <br>
+
+        <label for="cena"> Pretraga po ceni</label>
+        <input id="cena" type="number"  placeholder="Unesi CENU(maksimalnu vrednost)" name="Cena-termina"/>
+        <br>
+
+        <button id="submit" class="submit" style="align-content: center"> Pretraži</button>
+
+
+    </form>
     <table id="termini-List" class="styled-table">
         <thead>
         <tr class="active-row">

@@ -22,4 +22,14 @@ public class TerminDTO {
     private String opis;
     private TipTreninga tipTreninga;
     private String oznakaSale;
+
+    public TerminDTO(Long id, String naziv, String opis, TipTreninga tipTreninga, String oznakaSale, Date pocetakTermina, double cena) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.oznakaSale = oznakaSale;
+        this.pocetakTermina = pocetakTermina;
+        this.cena = cena;
+    }
 }

@@ -15,7 +15,7 @@ $(document).ready(function () {
                 row += "<td>" + sala.oznakaSale + "</td>";
                 row += "<td>" + sala.kapacitet + "</td>";
                 row += "<td>" + sala.idFC + "</td>";
-                
+
                 row += "</tr>";
 
                 $('#sala-List').append(row);

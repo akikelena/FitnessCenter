@@ -37,8 +37,8 @@ $(document).ready(function () {
         event.preventDefault();
 
         let naziv = $('#naziv').val();
-        let tipTreninga = $('#tipTreninga').val();
         let opis = $('#opis').val();
+        let tipTreninga = $('#tipTreninga').val();
         let pocetakTermina = $('#pocetakTermina').val();
         let cena = $('#cena').val();
 
@@ -58,15 +58,18 @@ $(document).ready(function () {
                     $('#termini-List').html("");
 
                     for(let termini of response){
-                        let row = "<tr>";
+                            let row = "<tr>";
 
                         row += "<td>" + termini.id + "</td>";
+                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termini.cena + "</td>";
                         row += "<td>" + termini.naziv + "</td>";
+                        row += "<td>" + termini.opis + "</td>";
                         row += "<td>" + termini.tipTreninga + "</td>";
                         row += "<td>" + termini.oznakaSale + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "</tr>";
+
+                            row += "</tr>";
 
                         $('#termini-List').append(row);
                     }
@@ -91,15 +94,18 @@ $(document).ready(function () {
                     $('#termini-List').html("");
 
                     for(let termini of response){
-                        let row = "<tr>";
+                            let row = "<tr>";
 
                         row += "<td>" + termini.id + "</td>";
+                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termini.cena + "</td>";
                         row += "<td>" + termini.naziv + "</td>";
+                        row += "<td>" + termini.opis + "</td>";
                         row += "<td>" + termini.tipTreninga + "</td>";
                         row += "<td>" + termini.oznakaSale + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "</tr>";
+
+                            row += "</tr>";
 
                         $('#termini-List').append(row);
                     }
@@ -125,15 +131,18 @@ $(document).ready(function () {
                     $('#termini-List').html("");
 
                     for(let termini of response){
-                        let row = "<tr>";
+                            let row = "<tr>";
 
                         row += "<td>" + termini.id + "</td>";
+                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termini.cena + "</td>";
                         row += "<td>" + termini.naziv + "</td>";
+                        row += "<td>" + termini.opis + "</td>";
                         row += "<td>" + termini.tipTreninga + "</td>";
                         row += "<td>" + termini.oznakaSale + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "</tr>";
+
+                            row += "</tr>";
 
                         $('#termini-List').append(row);
                     }
@@ -162,11 +171,14 @@ $(document).ready(function () {
                         let row = "<tr>";
 
                         row += "<td>" + termini.id + "</td>";
+                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termini.cena + "</td>";
                         row += "<td>" + termini.naziv + "</td>";
+                        row += "<td>" + termini.opis + "</td>";
                         row += "<td>" + termini.tipTreninga + "</td>";
                         row += "<td>" + termini.oznakaSale + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
+
                         row += "</tr>";
 
                         $('#termini-List').append(row);
@@ -195,11 +207,14 @@ $(document).ready(function () {
                         let row = "<tr>";
 
                         row += "<td>" + termini.id + "</td>";
+                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termini.cena + "</td>";
                         row += "<td>" + termini.naziv + "</td>";
+                        row += "<td>" + termini.opis + "</td>";
                         row += "<td>" + termini.tipTreninga + "</td>";
                         row += "<td>" + termini.oznakaSale + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
+
                         row += "</tr>";
 
                         $('#termini-List').append(row);
@@ -212,14 +227,14 @@ $(document).ready(function () {
             });
         }
 
-        if($('#sortVreme').val() != "nasumicanRedosled"){
+        if($('#sortVreme').val() != "nasumicanRedosled" && $('#sortCena').val() == "nasumicanRedosled"){
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/sortVreme"+ $('#sortVreme').val(),
+                url: "http://localhost:8080/termin/TerminList/"+ $('#sortVreme').val(),
 
                 success : function (response){
-                    console.log("SUCCESS: \n", response);
+                    console.log("SUCCESS: \n");
                     console.log(response);
 
                     $('#termini-List').html("");
@@ -248,11 +263,11 @@ $(document).ready(function () {
         }
 
 
-        if($('#sortCena').val() != "nasumicanRedosled"){
+        if($('#sortCena').val() != "nasumicanRedosled" && $('#sortVreme') == "nasumicanRedosled"){
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/sortCena"+ $('#sortCena').val(),
+                url: "http://localhost:8080/termin/TerminList/"+ $('#sortCena').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -282,6 +297,10 @@ $(document).ready(function () {
                     console.log(response);
                 }
             });
+        }
+
+        if($('#sortVreme').val() != "nasumicanRedosled" && $('#sortCena').val() != "nasumicanRedosled"){
+            alert("Moguce sortirati samo po 1 paramteru!");
         }
 
         if($('#sortCena').val() == "nasumicanRedosled" && $('#sortVreme').val() == "nasumicanRedosled" &&
