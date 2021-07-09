@@ -360,7 +360,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         window.localStorage.setItem('termin', this.id);
-        window.location.href = "izabraniTermini.html";
+        window.location.href = "userTerminiList.html";
     });
 });
 

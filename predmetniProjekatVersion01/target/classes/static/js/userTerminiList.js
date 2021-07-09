@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    let idKorisnika = localStorage.getItem("id");
+    //let idKorisnika = localStorage.getItem("id");
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/termin/terminiKorisnika/"+idKorisnika,
+        url: "http://localhost:8080/termin/terminiKorisnika/"+localStorage.getItem("ID"),
         dataType: "json",
         success: function (response) {
             console.log(response);
@@ -37,11 +37,11 @@ $(document).ready(function () {
 $(document).on('click', '.odjavi', function myFunction(event) {
     event.preventDefault();
 
-    console.log(localStorage.getItem("id"),localStorage.getItem("termin"));
+    console.log(localStorage.getItem("ID"),localStorage.getItem("termin"));
 
     $.ajax({
         type: "PUT",
-        url: "http://localhost:8080/termin/odjaviTrening/"+localStorage.getItem("id")+"/"+ localStorage.getItem("termin"),
+        url: "http://localhost:8080/termin/odjaviTrening/"+localStorage.getItem("ID")+"/"+ localStorage.getItem("termin"),
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(),

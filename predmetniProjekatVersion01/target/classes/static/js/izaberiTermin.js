@@ -3,11 +3,9 @@
 
 $(document).ready(function () {
 
-    let id = localStorage.getItem('termin');
-
     $.ajax({
         type : "GET",
-        url : "http://localhost:8080/termin/izabraniTermini/" + id,
+        url : "http://localhost:8080/termin/izabraniTermini/" + localStorage.getItem('termin'),
         dataType : "json",
 
         success : function (response) {
@@ -50,11 +48,11 @@ $(document).ready(function () {
             window.location.href = "TerminList.html";
         }
         else {
-            console.log(localStorage.getItem("id"),localStorage.getItem("termin"));
+            console.log(localStorage.getItem("ID"),localStorage.getItem("termin"));
 
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("id")+"/"+ localStorage.getItem("termin"),
+                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("ID")+"/"+ localStorage.getItem("termin"),
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify(),

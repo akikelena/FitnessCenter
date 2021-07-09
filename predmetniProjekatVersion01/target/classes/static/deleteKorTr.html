@@ -12,9 +12,11 @@
 
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/table_prop.css">
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/addFC.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/deleteKorTr.js"></script>
+
 </head>
 <body>
 
@@ -35,7 +37,8 @@
 
 <main id="main">
     <hr/>
-
+    <br>
+    <br>
     <section id="prijava" class="prijava section-bg">
         <div class="container" data-aos="fade-up">
             <header class="header">
@@ -46,23 +49,30 @@
                 </nav>
             </header>
 
-            <form id="kortr-delete" method="post">
+            <table id="fc-List" class="styled-table">
+                <thead>
+                <tr class="active-row">
+                    <th>#</th>
+                    <th>Korisnicko ime</th>
+                    <th>Lozinka</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Kontakt telefon</th>
+                    <th>Email</th>
+                    <th>Datum rodjenja</th>
+                    <th>Uloga</th>
+                    <th>Aktivan</th>
+                </tr>
+                </thead>
 
-                <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                            </span>
-                    </div>
-                    <input id="id" type="number" placeholder="ID korisnika"
-                           required class="form-control bg-white border-left-0 border-md"/> <br>
-                </div>
+                <tbody>
 
-                <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <button type="submit" id="btn-deleteKor">Obriši korisnika</button>
-                </div>
-            </form>
+                </tbody>
+            </table>
+
         </div>
     </section>
+
 </main>
 </body>
 </html>

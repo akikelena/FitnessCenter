@@ -6,28 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/KorisnikController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Korisnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Ocena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Ocena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Termin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Termin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Trening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/Trening.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/KorisnikDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/KorisnikDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/KorisnikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/KorisnikRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/TerminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/repository/TerminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/KorisnikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TerminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TerminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteKorTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/deleteKorTr.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/izabraniTermini.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/izabraniTermini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/NeocenjeniTerminiList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/NeocenjeniTerminiList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/OcenjeniTerminiList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/OcenjeniTerminiList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteKorTr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteKorTr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/izaberiTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/izaberiTermin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/izabraniTermini.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/izabraniTermini.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/TerminList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/TerminList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/izaberiTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/izaberiTermin.js" afterDir="false" />
@@ -187,7 +166,7 @@
       <workItem from="1625308002360" duration="68141000" />
       <workItem from="1625648334993" duration="16749000" />
       <workItem from="1625727406018" duration="22876000" />
-      <workItem from="1625822325067" duration="29456000" />
+      <workItem from="1625822325067" duration="29788000" />
     </task>
     <servers />
   </component>

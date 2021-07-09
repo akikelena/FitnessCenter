@@ -1,11 +1,9 @@
 $(document).ready(function () {
 
-    let id = localStorage.getItem("id");
-
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "http://localhost:8080/termin/listaNeocenjenihTermina/"+id,
+        url: "http://localhost:8080/termin/listaNeocenjenihTermina/"+localStorage.getItem("ID"),
 
             success: function (response) {
 
