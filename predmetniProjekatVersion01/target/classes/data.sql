@@ -32,9 +32,9 @@ INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) 
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, treninzi_koje_drzi_id) VALUES ('mobility', 'srednji nivo treninga', 'MOBILITY', 60, 1);
 
 /* TERMIN  */
-INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 13, 3000,  3, 1);
+INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2020-05-20 08:00:00.000000', 13, 3000,  3, 1);
 INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-14 19:00:00.000000', 15, 3800,  1, 3);
-INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2021-05-20 08:00:00.000000', 10, 3400,  4, 2);
+INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, treninzi_id, sale_id) VALUES ('2020-05-20 08:00:00.000000', 10, 3400,  4, 2);
 
 /* OCENA */
 INSERT INTO OCENA(ocena, trener_id, termini_id) VALUES (9, 1, 1);
@@ -47,7 +47,5 @@ INSERT INTO ODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2, 1);
 
 /* PRIJAVLJENI TRENINZI  */
 INSERT INTO PRIJAVLJENI_TERMINI(korisnik_id, termin_id) VALUES (1,1);
-
-/* OCENE TRENINGA
-INSERT INTO OCENE_TRE(korisnik_id, ocena_id) VALUES (2, 1);
-*/
+INSERT INTO PRIJAVLJENI_TERMINI(korisnik_id, termin_id) VALUES (2,2);
+INSERT INTO PRIJAVLJENI_TERMINI(korisnik_id, termin_id) VALUES (2,1);

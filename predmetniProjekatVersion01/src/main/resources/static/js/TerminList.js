@@ -27,7 +27,8 @@ $(document).ready(function () {
         },
 
         error : function (response){
-            console.log("ERROR: \n", response);
+            console.log("ERROR: \n");
+            console.log( response);
         }
 });
 });
@@ -39,8 +40,8 @@ $(document).ready(function () {
         let naziv = $('#naziv').val();
         let opis = $('#opis').val();
         let tipTreninga = $('#tipTreninga').val();
-        let pocetakTermina = $('#pocetakTermina').val();
-        let cena = $('#cena').val();
+        let pocetakTerminaMax = $('#pocetakTermina').val();
+        let cenaMax = $('#cena').val();
 
         let sortCena = $('#sortCena').val();
         let sortVreme = $('#sortVreme').val();
@@ -49,7 +50,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/naziv?naziv="+ $('#naziv').val(),
+                url: "http://localhost:8080/termin/TerminList/naziv?naziv="+ $('#naziv').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -85,7 +86,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/tipTreninga?tipTreninga="+ $('#tipTreninga').val(),
+                url: "http://localhost:8080/termin/TerminList/tipTreninga?tipTreninga="+ $('#tipTreninga').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -122,7 +123,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/opis?opis="+ $('#opis').val(),
+                url: "http://localhost:8080/termin/TerminList/opis?opis="+ $('#opis').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -159,7 +160,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/pocetakTermina?pocetakTermina="+ $('#pocetakTermina').val(),
+                url: "http://localhost:8080/termin/TerminList/pocetakTermina?pocetakTermina="+ $('#pocetakTermina').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -195,7 +196,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/cena?cena="+ $('#cena').val(),
+                url: "http://localhost:8080/termin/TerminList/cena?cena="+ $('#cena').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -300,7 +301,7 @@ $(document).ready(function () {
         }
 
         if($('#sortVreme').val() != "nasumicanRedosled" && $('#sortCena').val() != "nasumicanRedosled"){
-            alert("Moguce sortirati samo po 1 paramteru!");
+            alert("Moguce sortirati samo po 1 parametru!");
         }
 
         if($('#sortCena').val() == "nasumicanRedosled" && $('#sortVreme').val() == "nasumicanRedosled" &&

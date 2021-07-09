@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    let id = localStorage.getItem("ID");
+    let id = localStorage.getItem("id");
 
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "http://localhost:8080/termin/listaNeocenjenihTermina/"+id,
+        url: "http://localhost:8080/termin/TerminList/listaNeocenjenihTermina/"+id,
 
             success: function (response) {
 
@@ -17,16 +17,17 @@ $(document).ready(function () {
                     let row = "<tr>";
 
                 row += "<td>" + termini.id + "</td>";
+                row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
+                row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
+                row += "<td>" + termini.cena + "</td>";
                 row += "<td>" + termini.naziv + "</td>";
                 row += "<td>" + termini.opis + "</td>";
                 row += "<td>" + termini.tipTreninga + "</td>";
                 row += "<td>" + termini.oznakaSale + "</td>";
-                row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                row += "<td>" + termini.cena + "</td>";
 
                     row += "</tr>";
 
-                $('#neocenjeni-termini-List').append(row);
+                $('#termini-List').append(row);
             }
         },
         error: function (response) {

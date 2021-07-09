@@ -7,8 +7,8 @@ $(document).ready(function () {
 
     $.ajax({
         type : "GET",
+        url : "http://localhost:8080/termin/TerminList/izabraniTermini/" + id,
         dataType : "json",
-        url : "http://localhost:8080/termin/izabraniTermini/" + id,
 
         success : function (response) {
             console.log("SUCCESS");
@@ -24,13 +24,12 @@ $(document).ready(function () {
                 row += "<td>" + response.opis + "</td>";
                 row += "<td>" + response.tipTreninga + "</td>";
                 row += "<td>" + response.oznakaSale + "</td>";
-                row += "<td>" + "<button class='izborTermina' data-id=" + response.id + ">Prijavi se za termin</button>" + "</td>";
-                //let btn = "<button class='izborTermina' data-id=" + response.id + ">Prijavi se za termin</button>";
-                //row += "<td>" + btn + "</td>";
+                let btn = "<button class='izborTermina' data-id=" + response.id + ">Prijavi se za termin</button>";
+                row += "<td>" + btn + "</td>";
 
                     row += "</tr>";
 
-                slobodnihMesta += response.kapacitet;
+                slobodnihMesta = response.kapacitet;
 
                 $('#izabranitermini-List').append(row);
 
@@ -42,38 +41,6 @@ $(document).ready(function () {
         }
     });
 });
-/*
-$(document).on('click', '.izborTermina', function fun(event) {
-    event.preventDefault();
-
-    if (slobodnihMesta > 0) {
-        console.log(localStorage.getItem("ID"), localStorage.getItem("termin"));
-
-        $.ajax({
-            type: "POST",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(),
-            url : "http://localhost:8080/termin/prijaviTrening/" + localStorage.getItem("ID")+ "/" + localStorage.getItem("termin"),
-
-            success: function (response) {
-                console.log("SUCCESS!");
-                console.log(response);
-
-                alert("Prijavljen termin!");
-            },
-
-            error: function () {
-                console.log("ERROR!");
-                console.log(response);
-            }
-        });
-    } else {
-        alert("Nema slobodnih mesta!");
-        window.location.href = "izaberiTermin.html";
-    }
-});
- */
 
     $(document).on('click', '.izborTermina', function fun(event) {
         event.preventDefault();
@@ -83,10 +50,10 @@ $(document).on('click', '.izborTermina', function fun(event) {
             window.location.href = "TerminList.html";
         }
         else {
-            console.log(localStorage.getItem("ID"),localStorage.getItem("termin"));
+            console.log(localStorage.getItem("id"),localStorage.getItem("termin"));
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("ID")+"/"+ localStorage.getItem("termin"),
+                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("id")+"/"+ localStorage.getItem("termin"),
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify(),
