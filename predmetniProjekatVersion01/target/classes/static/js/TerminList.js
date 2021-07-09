@@ -8,18 +8,19 @@ $(document).ready(function () {
             console.log("SUCCESS: \n");
             console.log(response);
 
-            for(let termini of response){
+            for(let termin of response){
                 let row = "<tr>";
 
-                row += "<td>" + termini.id + "</td>";
-                row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                row += "<td>" + termini.cena + "</td>";
-                row += "<td>" + termini.naziv + "</td>";
-                row += "<td>" + termini.opis + "</td>";
-                row += "<td>" + termini.tipTreninga + "</td>";
-                row += "<td>" + termini.oznakaSale + "</td>";
-
+                row += "<td>" + termin.id + "</td>";
+                row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                row += "<td>" + termin.cena + "</td>";
+                row += "<td>" + termin.naziv + "</td>";
+                row += "<td>" + termin.opis + "</td>";
+                row += "<td>" + termin.tipTreninga + "</td>";
+                row += "<td>" + termin.oznakaSale + "</td>";
+                let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#termini-List').append(row);
@@ -31,8 +32,6 @@ $(document).ready(function () {
             console.log( response);
         }
 });
-});
-
 
   $("#submit").on("click", function (event){
         event.preventDefault();
@@ -40,8 +39,8 @@ $(document).ready(function () {
         let naziv = $('#naziv').val();
         let opis = $('#opis').val();
         let tipTreninga = $('#tipTreninga').val();
-        let pocetakTerminaMax = $('#pocetakTermina').val();
-        let cenaMax = $('#cena').val();
+        let pocetakTermina = $('#pocetakTermina').val();
+        let cena = $('#cena').val();
 
         let sortCena = $('#sortCena').val();
         let sortVreme = $('#sortVreme').val();
@@ -58,18 +57,19 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
+                    for(let termin of response){
                             let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
-
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
                             row += "</tr>";
 
                         $('#termini-List').append(row);
@@ -94,17 +94,19 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
+                    for(let termin of response){
                             let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
 
                             row += "</tr>";
 
@@ -131,17 +133,19 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
+                    for(let termin of response){
                             let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
 
                             row += "</tr>";
 
@@ -168,17 +172,19 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
+                    for(let termin of response){
                         let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
 
                         row += "</tr>";
 
@@ -204,17 +210,19 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
+                    for(let termin of response){
                         let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
 
                         row += "</tr>";
 
@@ -240,18 +248,21 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
-                        let row = "<tr>";
+                    for(let termin of response){
+                            let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
-                        row += "</tr>";
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
+
+                            row += "</tr>";
 
                         $('#termini-List').append(row);
                     }
@@ -276,17 +287,19 @@ $(document).ready(function () {
 
                     $('#termini-List').html("");
 
-                    for(let termini of response){
+                    for(let termin of response){
                         let row = "<tr>";
 
-                        row += "<td>" + termini.id + "</td>";
-                        row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                        row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                        row += "<td>" + termini.cena + "</td>";
-                        row += "<td>" + termini.naziv + "</td>";
-                        row += "<td>" + termini.opis + "</td>";
-                        row += "<td>" + termini.tipTreninga + "</td>";
-                        row += "<td>" + termini.oznakaSale + "</td>";
+                        row += "<td>" + termin.id + "</td>";
+                        row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                        row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                        row += "<td>" + termin.cena + "</td>";
+                        row += "<td>" + termin.naziv + "</td>";
+                        row += "<td>" + termin.opis + "</td>";
+                        row += "<td>" + termin.tipTreninga + "</td>";
+                        row += "<td>" + termin.oznakaSale + "</td>";
+                        let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                        row += "<td>" + btn + "</td>";
 
                         row += "</tr>";
 
@@ -316,17 +329,19 @@ $(document).ready(function () {
                         console.log(response);
                             $('#termini-List').html("");
 
-                                for(let termini of response){
+                                for(let termin of response){
                                     let row = "<tr>";
 
-                                    row += "<td>" + termini.id + "</td>";
-                                    row += "<td>" + new Date(termini.pocetakTermina).toLocaleString() + "</td>";
-                                    row += "<td>" + termini.brojPrijavljenihClanova + "</td>";
-                                    row += "<td>" + termini.cena + "</td>";
-                                    row += "<td>" + termini.naziv + "</td>";
-                                    row += "<td>" + termini.opis + "</td>";
-                                    row += "<td>" + termini.tipTreninga + "</td>";
-                                    row += "<td>" + termini.oznakaSale + "</td>";
+                                    row += "<td>" + termin.id + "</td>";
+                                    row += "<td>" + new Date(termin.pocetakTermina).toLocaleString() + "</td>";
+                                    row += "<td>" + termin.brojPrijavljenihClanova + "</td>";
+                                    row += "<td>" + termin.cena + "</td>";
+                                    row += "<td>" + termin.naziv + "</td>";
+                                    row += "<td>" + termin.opis + "</td>";
+                                    row += "<td>" + termin.tipTreninga + "</td>";
+                                    row += "<td>" + termin.oznakaSale + "</td>";
+                                    let btn = "<button class='odaberiTermin' id=" + termin.id + ">Odaberi termin</button>";
+                                    row += "<td>" + btn + "</td>";
 
                                     row += "</tr>";
 
@@ -339,4 +354,14 @@ $(document).ready(function () {
                 }
             });
         }
+  });
+
+    $(document).on('click', '.odaberiTermin', function fun(event) {
+        event.preventDefault();
+
+        window.localStorage.setItem('termin', this.id);
+        window.location.href = "izabraniTermini.html";
     });
+});
+
+

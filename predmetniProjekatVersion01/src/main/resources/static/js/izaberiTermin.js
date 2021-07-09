@@ -3,11 +3,9 @@
 
 $(document).ready(function () {
 
-    let id = localStorage.getItem('termin');
-
     $.ajax({
         type : "GET",
-        url : "http://localhost:8080/termin/TerminList/izabraniTermini/" + id,
+        url : "http://localhost:8080/termin/izabraniTermini/" + localStorage.getItem('termin'),
         dataType : "json",
 
         success : function (response) {
@@ -24,14 +22,14 @@ $(document).ready(function () {
                 row += "<td>" + response.opis + "</td>";
                 row += "<td>" + response.tipTreninga + "</td>";
                 row += "<td>" + response.oznakaSale + "</td>";
-                let btn = "<button class='izborTermina' data-id=" + response.id + ">Prijavi se za termin</button>";
+                let btn = "<button class='prijava' data-id=" + response.id + ">Prijavi se za termin</button>";
                 row += "<td>" + btn + "</td>";
 
                     row += "</tr>";
 
                 slobodnihMesta = response.kapacitet;
 
-                $('#izabranitermini-List').append(row);
+                $('#termini-List').append(row);
 
         },
 
@@ -42,7 +40,7 @@ $(document).ready(function () {
     });
 });
 
-    $(document).on('click', '.izborTermina', function fun(event) {
+    $(document).on('click', '.prijava', function fun(event) {
         event.preventDefault();
 
         if(slobodnihMesta <= 0){
@@ -50,10 +48,11 @@ $(document).ready(function () {
             window.location.href = "TerminList.html";
         }
         else {
-            console.log(localStorage.getItem("id"),localStorage.getItem("termin"));
+            console.log(localStorage.getItem("ID"),localStorage.getItem("termin"));
+
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("id")+"/"+ localStorage.getItem("termin"),
+                url: "http://localhost:8080/termin/prijaviTrening/"+localStorage.getItem("ID")+"/"+ localStorage.getItem("termin"),
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify(),

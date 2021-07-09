@@ -40,6 +40,11 @@ KorisnikService {
         return  korisnik;
     }
 
+    public Korisnik findOneById(Long id){
+        return this.korisnikRepository.findOneById(id);
+    }
+
+
     // LISTA KORISNIKA
     public List<Korisnik> findAll(){
         List<Korisnik> korisnikList = this.korisnikRepository.findAll();

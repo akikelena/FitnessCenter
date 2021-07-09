@@ -33,22 +33,26 @@ public class TerminService {
         return this.terminRepository.findAll();
     }
 
+    public Termin findOneById(Long id){
+        return this.terminRepository.findOneById(id);
+    }
+
     public Termin findOne(Long id) {
         return this.terminRepository.getOne(id);
     }
-    
+
     public List<Termin> findByNaziv(String naziv){
-        List<Termin> terminiNaziv = this.terminRepository.findAllByTreninziNazivContaining(naziv);
+        List<Termin> terminiNaziv = this.terminRepository.findAllByTreningNazivContaining(naziv);
         return terminiNaziv;
     }
 
     public List<Termin> findByOpis(String opis){
-        List<Termin> terminiOpis = this.terminRepository.findAllByTreninziOpisContaining(opis);
+        List<Termin> terminiOpis = this.terminRepository.findAllByTreningOpisContaining(opis);
         return terminiOpis;
     }
 
     public List<Termin> findAllByTipTreninga(TipTreninga tipTreninga){
-        List<Termin> terminiTip = this.terminRepository.findAllByTreninziTipTreninga(tipTreninga);
+        List<Termin> terminiTip = this.terminRepository.findAllByTreningTipTreninga(tipTreninga);
         return terminiTip;
     }
 

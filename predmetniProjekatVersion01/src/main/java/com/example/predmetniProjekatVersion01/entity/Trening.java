@@ -38,9 +38,9 @@ public class Trening implements Serializable {
         "1 trener moze drzati vise treninga"
         veza 1:n, strana: n   */
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Korisnik treninzi_koje_drzi;
+    private Korisnik trener;
 
-    @OneToMany(mappedBy = "treninzi", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Termin> termini = new HashSet<>();
 
     public Trening(Long id, String naziv, String opis, TipTreninga tipTreninga, int trajanje) {

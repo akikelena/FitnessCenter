@@ -24,6 +24,18 @@ public class KorisnikDTO {
     private Uloga uloga;
     private Boolean aktivan;
 
+    public KorisnikDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String kontaktTelefon, String email, Date datumRodjenja, Uloga uloga) {
+        this.id = id;
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.kontaktTelefon = kontaktTelefon;
+        this.email = email;
+        this.datumRodjenja = datumRodjenja;
+        this.uloga = uloga;
+    }
+
     public boolean aktivanStatus(){
         return aktivan;
     }

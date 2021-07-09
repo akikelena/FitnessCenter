@@ -33,6 +33,26 @@ public class KorisnikController {
         return "index.html";
     }
 
+
+    @GetMapping(value = "/KorisnikList",
+                produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<KorisnikDTO>> getAll(){
+
+        List<Korisnik> korisnikList = korisnikService.findAll();
+        List<KorisnikDTO> korisnikDTOS = new ArrayList<>();
+
+            for(Korisnik korisnik: korisnikList){
+                KorisnikDTO korisnikDTO = new KorisnikDTO(korisnik.getId(),
+                        korisnik.getKorisnickoIme(), korisnik.getLozinka(),
+                        korisnik.getIme(), korisnik.getPrezime(),
+                        korisnik.getKontaktTelefon(), korisnik.getEmail(),
+                        korisnik.getDatumRodjenja(), korisnik.getUloga());
+
+            korisnikDTOS.add(korisnikDTO);
+            }
+        return new ResponseEntity<>(korisnikDTOS, HttpStatus.OK);
+    }
+
     // Pronalazak specificnog korisnika po ID-u
     @GetMapping(value = "/{id}",
                 produces = MediaType.APPLICATION_JSON_VALUE)
