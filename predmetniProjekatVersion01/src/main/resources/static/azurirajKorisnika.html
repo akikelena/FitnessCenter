@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dodavanje trenera</title>
+    <title>Izmena podataka</title>
     <link href="assets/img/icon.png" rel="icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -13,8 +13,8 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/addTrenera.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/azurirajKorisnika.js"></script>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
-                <li class="active"><a href="admin_page.html">Početna</a></li>
+                <li class="active"><a href="user_page.html">Početna</a></li>
             </ul>
         </nav>
 
@@ -41,12 +41,12 @@
             <header class="header">
                 <nav class="navbar navbar-expand-lg navbar-light py-3  justify-content-center">
                     <div class=" col-xl-12 col-lg-12 text-center text-lg-center">
-                        <h3> DODAJ NOVOG TRENERA </h3>
+                        <h3> IZMENA PODATAKA KORISNIKA </h3>
                     </div>
                 </nav>
             </header>
 
-            <form id="trener-addForm" method="post">
+            <form id="fc-azurirajForm" method="post">
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
@@ -54,7 +54,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
-                    <input id="idFC" type="number" placeholder="ID fitness centra"
+                    <input id="id" type="number" placeholder="ID korisnika"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -64,14 +64,14 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
-                    <input id="korisnickoIme" type="text" placeholder="Korisničko ime"
+                    <input id="korisnickoIme" type="text" placeholder="Korisnicko ime"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
+                                <i class="fa fa-map-marker text-muted"></i>
                             </span>
                     </div>
                     <input id="lozinka" type="password" placeholder="Lozinka"
@@ -81,40 +81,10 @@
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
-                            </span>
-                    </div>
-                    <input id="ime" type="text" placeholder="Ime"
-                           required class="form-control bg-white border-left-0 border-md"/> <br>
-                </div>
-
-                <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
-                            </span>
-                    </div>
-                    <input id="prezime" type="text" placeholder="Prezime"
-                           required class="form-control bg-white border-left-0 border-md"/> <br>
-                </div>
-
-                <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-birthday-cake text-muted"></i>
-                            </span>
-                    </div>
-                    <input id="datumRodjenja" type="date"  placeholder="Datum rođenja"
-                           required="true" class="form-control bg-white border-left-0 border-md"/> <br>
-                </div>
-
-              <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
                                 <i class="fa fa-phone-square text-muted"></i>
                             </span>
                     </div>
-                    <input id="kontaktTelefon" type="tel" placeholder="Broj telefona"
+                    <input id="kontaktTelefon" type="tel" placeholder="Kontakt telefon"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -130,7 +100,7 @@
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <input type="submit" value="Dodaj trenera">
+                    <input type="submit" value="Izmeni">
                 </div>
             </form>
         </div>

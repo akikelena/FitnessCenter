@@ -21,8 +21,6 @@ $(document).ready(function () {
                 row += "<td>" + korisnik.datumRodjenja + "</td>";
                 row += "<td>" + korisnik.uloga + "</td>";
                 row += "<td>" + korisnik.aktivan + "</td>";
-                let btn = "<button class='btnDelete' data-id=" + fitnessCentar.id + ">OBRIŠI FC</button>";
-                row += "<td>" + btn + "</td>";
 
                 row += "</tr>";
 
@@ -31,32 +29,6 @@ $(document).ready(function () {
         },
         error: function (response){
             console.log("GRESKA! \n", response);
-        }
-    });
-});
-
-$(document).on('click','.btnDelete', function (){
-
-    let korisnikId = this.dataset.id;
-
-    $.ajax({
-        type: "DELETE",
-        dataType : "json",
-        url : "http://localhost:8080/korisnik/KorisnikList/" + korisnikId,
-
-        success: function (){
-            console.log("SUCCESS");
-            //console.log(response);
-
-            $('[data-id="' + korisnikId + '"]').parent().parent().remove();
-
-            //alert("Fitness centar" + response.id + "je obrisan!");
-            //window.location.href = "admin_page.html";
-        },
-
-        error : function (){
-            alert("Error!");
-            //console.log(response);
         }
     });
 });

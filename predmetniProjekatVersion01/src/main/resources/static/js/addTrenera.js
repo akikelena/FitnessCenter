@@ -9,7 +9,6 @@ $(document).on("submit", "#trener-addForm", function (event){
     let datumRodjenja = $("#datumRodjenja").val();
     let kontaktTelefon = $("#kontaktTelefon").val();
     let email = $("#email").val();
-
     let uloga = "TRENER";
     let aktivan = true;
 
@@ -23,7 +22,7 @@ $(document).on("submit", "#trener-addForm", function (event){
         kontaktTelefon,
         email,
         uloga,
-        aktivan
+        aktivan: "true"
     }
 
         $.ajax({
@@ -36,7 +35,7 @@ $(document).on("submit", "#trener-addForm", function (event){
             success : function (response){
                 console.log(response);
 
-                    alert("Trener" + response.id + "je kreiran!");
+                    alert("Trener " + response.id + " je kreiran!");
                     window.location.href = "admin_page.html";
             },
 

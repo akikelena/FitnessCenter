@@ -56,6 +56,7 @@
             <th>Opis</th>
             <th>Tip treninga</th>
             <th>Sala</th>
+            <th>*</th>
         </tr>
         </thead>
         <tbody>
@@ -63,117 +64,54 @@
         </tbody>
     </table>
 
+    <hr>
+    <div class="text-muted font-weight-bold text-center w-100">
 
-    <label for="sortCena" id="cenaSort"> Sortiraj po CENI</label>
-    <select name="sortiCena" id="sortCena">
-        <option value="nasumicanRedosled"> Nasumičan redosled</option>
-        <option value="rastuciSortCena">Redosled RASTUĆE</option>
-        <option value="opadajuciSortCena">Redosled OPADAJUĆE</option>
-    </select>
+        <label for="sortCena" id="polje-cena" > Sortiraj po CENI</label>
+        <select name="sorti-Cena" id="sortCena">
+            <option value="nasumicanRedosled"> Nasumičan redosled</option>
+            <option value="rastuciSortCena">Redosled RASTUĆE</option>
+            <option value="opadajuciSortCena">Redosled OPADAJUĆE</option>
+        </select>
 
-    <label for="sortVreme" id="pocetakTerminaSort"> Sortiraj po VREMENU</label>
-    <select name="sortiVreme" id="sortVreme">
-        <option value="nasumicanRedosled"> Nasumičan redosled</option>
-        <option value="rastuciSortVreme">Redosled RASTUĆE</option>
-        <option value="opadajuciSortVreme">Redosled OPADAJUĆE</option>
-    </select>
+    </div>
+
+    <div class="text-muted font-weight-bold text-center w-100">
+
+        <label for="sortVreme" id="polje-vreme"> Sortiraj po VREMENU</label>
+        <select name="sorti-Vreme" id="sortVreme">
+            <option value="nasumicanRedosled"> Nasumičan redosled</option>
+            <option value="rastuciSortVreme">Redosled RASTUĆE</option>
+            <option value="opadajuciSortVreme">Redosled OPADAJUĆE</option>
+        </select>
+
+    </div>
+
+
+    <hr>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-<!--
-
 
     <form method="post" id="search-form">
-
-        <div class="text-center w-100">
-            <p class="text-muted font-weight-bold"> Pretraga po NAZIVU TRENINGA
-        </div>
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                     <i class="fa fa-user text-muted"></i>
-                 </span>
-            </div>
-            <input id="naziv" type="text"  placeholder="Unesi NAZIV" name="Naziv"
-                   class="form-control bg-white border-left-0 border-md"  />
-        </div>
-
-        <div class="text-center w-100">
-            <p class="text-muted font-weight-bold"> Pretraga po OPISU TRENINGA
-        </div>
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                     <i class="fa fa-user text-muted"></i>
-                 </span>
-            </div>
-            <input id="opis" type="text"  placeholder="Unesi OPIS TRENINGA" name="opisTreninga"
-                   class="form-control bg-white border-left-0 border-md" />
-        </div>
-
-        <div class="text-center w-100">
-            <p class="text-muted font-weight-bold"> Pretraga po TIPU TRENINGA
-        </div>
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                     <i class="fa fa-user text-muted"></i>
-                 </span>
-            </div>
-            <input id="tipTreninga" type="text"  placeholder="Unesi TIP TRENINGA" name="tipTreninga"
-                   class="form-control bg-white border-left-0 border-md">
-        </div>
-
-        <div class="text-center w-100">
-            <p class="text-muted font-weight-bold"> Pretraga po VREMENU TERMINA
-        </div>
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                      <i class="fa fa-user text-muted"></i>
-                 </span>
-            </div>
-            <input id="pocetakTermina" type="date"  placeholder="Unesi POCETAK TERMINA" name="Pocetak-termina"
-                   class="form-control bg-white border-left-0 border-md" >
-        </div>
-
-        <div class="text-center w-100">
-            <p class="text-muted font-weight-bold"> Pretraga po CENI
-        </div>
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                      <i class="fa fa-user text-muted"></i>
-                 </span>
-            </div>
-            <input id="cena" type="number"  placeholder="Unesi CENU(maksimalnu vrednost)" name="Cena-termina"
-                   class="form-control bg-white border-left-0 border-md" >
-        </div>
-
-        <div class="form-group col-lg-12 mx-auto mb-0">
-            <button name="submit" type="submit" id="submit" class="submit" style="align-content: center"> Pretraži</button>
-        </div>
-
-    </form>
--->
-    <form method="post" id="pretraga-Termina">
-        <label for="naziv"> Pretraga po nazivu</label>
-        <input id="naziv" type="text"  placeholder="Unesi NAZIV" name="naziv"/>
+        <p class="text-muted font-weight-bold text-center w-100">
+        <label for="naziv-polje"> Pretraga po nazivu</label>
+        <input id="naziv-polje" type="text"  placeholder="Unesi NAZIV" name="naziv"/>
         <br>
 
-        <label for="opis"> Pretraga po opis</label>
-        <input id="opis" type="text"  placeholder="Unesi OPIS TRENINGA" name="opis"/>
+        <label for="opis-polje"> Pretraga po opis</label>
+        <input id="opis-polje" type="text"  placeholder="Unesi OPIS TRENINGA" name="opis"/>
         <br>
 
-        <label for="tipTreninga"> Pretraga po tipu treninga</label>
-        <input id="tipTreninga" type="text"  placeholder="Unesi TIP TRENINGA" name="tipTreninga"/>
+        <label for="tipTreninga-polje"> Pretraga po tipu treninga</label>
+        <input id="tipTreninga-polje" type="text"  placeholder="Unesi TIP TRENINGA" name="tipTreninga"/>
         <br>
 
-        <label for="pocetakTermina"> Pretraga po vremenu pocetka</label>
-        <input id="pocetakTermina" type="date"  placeholder="Unesi POCETAK TERMINA" name="pocetakTerminaMax"/>
+        <label for="pocetakTermina-polje"> Pretraga po vremenu pocetka</label>
+        <input id="pocetakTermina-polje" type="date"  placeholder="Unesi POCETAK TERMINA" name="pocetakTerminaMax"/>
         <br>
 
-        <label for="cena"> Pretraga po ceni</label>
-        <input id="cena" type="number"  placeholder="Unesi CENU(maksimalnu vrednost)" name="cenaMax"/>
+        <label for="cena-polje"> Pretraga po ceni</label>
+        <input id="cena-polje" type="number"  placeholder="Unesi CENU(maksimalnu vrednost)" name="cenaMax"/>
         <br>
 
         <button id="submit" class="submit" style="align-content: center"> Pretraži</button>

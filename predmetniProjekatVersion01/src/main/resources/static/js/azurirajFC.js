@@ -27,7 +27,7 @@ $(document).on("submit", "#fc-azurirajForm", function (event){
             success : function (response){
                 console.log(response);
 
-                    alert("Fitness centar " + response.id + "je izmenjen!");
+                    alert("Fitness centar " + response.id + " je izmenjen!");
                     window.location.href = "azurirajFC.html";
             },
 

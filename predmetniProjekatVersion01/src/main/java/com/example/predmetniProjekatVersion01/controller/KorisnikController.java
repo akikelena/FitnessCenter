@@ -1,7 +1,9 @@
 package com.example.predmetniProjekatVersion01.controller;
 
+import com.example.predmetniProjekatVersion01.entity.FitnessCentar;
 import com.example.predmetniProjekatVersion01.entity.Korisnik;
 import com.example.predmetniProjekatVersion01.entity.Uloga;
+import com.example.predmetniProjekatVersion01.entity.dto.FitnessCentarDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.KorisnikDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.LogInOutDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.RegTrenerDTO;
@@ -34,6 +36,7 @@ public class KorisnikController {
     }
 
 
+    // lista svih korisnika(kod brisanja korisnika - admin func)
     @GetMapping(value = "/KorisnikList",
                 produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<KorisnikDTO>> getAll(){
@@ -46,11 +49,23 @@ public class KorisnikController {
                         korisnik.getKorisnickoIme(), korisnik.getLozinka(),
                         korisnik.getIme(), korisnik.getPrezime(),
                         korisnik.getKontaktTelefon(), korisnik.getEmail(),
-                        korisnik.getDatumRodjenja(), korisnik.getUloga());
+                        korisnik.getDatumRodjenja(), korisnik.getUloga(),
+                        korisnik.aktivanStatus());
 
-            korisnikDTOS.add(korisnikDTO);
+                korisnikDTOS.add(korisnikDTO);
+
+
             }
         return new ResponseEntity<>(korisnikDTOS, HttpStatus.OK);
+    }
+
+    // Brisanje korisnika
+    @DeleteMapping(value = "/KorisnikList/brisanje/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity obrisiKorisnika(@PathVariable Long id){
+
+        this.korisnikService.delete(id);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     // Pronalazak specificnog korisnika po ID-u
@@ -72,15 +87,6 @@ public class KorisnikController {
         korisnikDTO.setAktivan(korisnik.getAktivan());
 
         return new ResponseEntity<>(korisnikDTO, HttpStatus.OK);
-    }
-
-    // Brisanje korisnika
-    @DeleteMapping(value = "/obrisi/{id}",
-    produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity obrisiKorisnika(@PathVariable Long id){
-
-        this.korisnikService.delete(id);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     // Odobravanje zahteva trenera
@@ -132,7 +138,7 @@ public class KorisnikController {
 
     // REGISTRACIJA - trenera
     @PostMapping(value = "/registracijaTrenera",
-    produces = MediaType.APPLICATION_JSON_VALUE)
+                 produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<RegTrenerDTO> regTrenera(@RequestBody RegTrenerDTO regTrenerDTO){
 
         Korisnik korisnik = korisnikService.registracijaTrenera(regTrenerDTO);
@@ -150,13 +156,14 @@ public class KorisnikController {
         List<KorisnikDTO> korisnikDTOS = new ArrayList<>();
 
             for(Korisnik korisnik: korisnikList){
-                if(!korisnik.aktivanStatus() && korisnik.getUloga() == Uloga.TRENER){
+                if(korisnik.getUloga() == Uloga.TRENER  && korisnik.aktivanStatus() == false ){
                     KorisnikDTO korisnikDTO = new KorisnikDTO(korisnik.getId(),
                             korisnik.getKorisnickoIme(), korisnik.getLozinka(),
                             korisnik.getIme(), korisnik.getPrezime(),
                             korisnik.getKontaktTelefon(), korisnik.getEmail(),
                             korisnik.getDatumRodjenja(), korisnik.getUloga(),
                             korisnik.aktivanStatus());
+
             korisnikDTOS.add(korisnikDTO);
                 }
             }
@@ -178,6 +185,29 @@ public class KorisnikController {
                 }
             }
         return  new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    // Izmena korisnickih podataka
+    @PutMapping(value = "/azurirajKorisnika/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<KorisnikDTO> izmeniFitnessCentar(@PathVariable Long id, @RequestBody KorisnikDTO korisnikDTO) throws Exception{
+
+        Optional<Korisnik> korisnikOptional = Optional.ofNullable(korisnikService.findOne(id));
+
+        if(!korisnikOptional.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Korisnik korisnik = new Korisnik(korisnikOptional.get().getId(),
+                korisnikDTO.getKorisnickoIme(), korisnikDTO.getLozinka(),
+                korisnikDTO.getKontaktTelefon(), korisnikDTO.getEmail());
+
+
+        korisnik = korisnikService.change(korisnik);
+        korisnikDTO.setId(id);
+
+        return new ResponseEntity<>(korisnikDTO, HttpStatus.ACCEPTED);
+
     }
 
 }

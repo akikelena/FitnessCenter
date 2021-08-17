@@ -56,10 +56,6 @@ public class TerminService {
         return terminiTip;
     }
 
-    public List<Termin> findAllCenaGT(double cena){
-        List<Termin> terminiCenaGreaterThan = this.terminRepository.findAllByCenaGreaterThan(cena);
-        return terminiCenaGreaterThan;
-    }
 
     public List<Termin> findByCenaMax(double cena){
         List<Termin> terminiCenaLessEqual = this.terminRepository.findAllByCenaLessThanEqual(cena);
@@ -70,12 +66,6 @@ public class TerminService {
         List<Termin> sortCena = this.terminRepository.findAllByOrderByCena();
         return sortCena;
     }
-    /*
-    public List<Termin> sortCenaAsc(){
-        List<Termin> sortCenaAsc = this.terminRepository.findAllByOrderByCenaAsc();
-        return sortCenaAsc;
-    }
-     */
 
     public List<Termin> sortCenaDesc(){
         List<Termin> sortCenaDesc = this.terminRepository.findAllByOrderByCenaDesc();
@@ -86,12 +76,6 @@ public class TerminService {
         List<Termin> sortVreme = this.terminRepository.findAllByOrderByPocetakTermina();
         return sortVreme;
     }
-    /*
-    public List<Termin> sortVremeAsc(){
-        List<Termin> sortVremeAsc = this.terminRepository.findAllByOrderByPocetakTerminaAsc();
-        return sortVremeAsc;
-    }
-     */
 
     public List<Termin> sortVremeDesc(){
         List<Termin> sortVremeDesc = this.terminRepository.findAllByOrderByPocetakTerminaDesc();

@@ -1,8 +1,8 @@
 /* FITNES CENTAR */
-INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym', 'Trg Dositeja Obradovića 6', '022490481', 'progym@gmail.com');
-INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym01', 'Trg Dositeja Obradovića 7', '022490870', 'progym01@gmail.com');
-INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym02', 'Trg Dositeja Obradovića 8', '022432456', 'progym01@gmail.com');
-INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('Pro</G>ym03', 'Trg Dositeja Obradovića 9', '022490087', 'progym03@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('ProGym', 'Trg Dositeja Obradovića 6', '022490481', 'progym@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('ProGym01', 'Trg Dositeja Obradovića 7', '022490870', 'progym01@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('ProGym02', 'Trg Dositeja Obradovića 8', '022432456', 'progym01@gmail.com');
+INSERT INTO FITNESS_CENTAR (naziv, adresa, br_tel_centrale, email) VALUES ('ProGym03', 'Trg Dositeja Obradovića 9', '022490087', 'progym03@gmail.com');
 
 /* SALA */
 INSERT INTO SALA (kapacitet, oznaka_sale, fitness_centar_id) VALUES (20, 'S1-1', 1);
@@ -20,7 +20,7 @@ INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, em
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('marijasavic09', 'werhjmuo890', 'Marija', 'Savic', '0623899071', 'savicmm93@gmail.com', '1993-08-09 20:00:00.000000', 'TRENER', true, 2);
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('markoperic', 'p.marko99', 'Marko', 'Peric', '0627899031', 'pericm909@gmail.com', '1999-11-11 19:00:00.000000', 'TRENER', false, 2);
 INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('jelenadimitrijevic', 'd_jelena34', 'Jelena', 'Dimitrijevic', '0655546790', 'ana.p8@gmail.com', '1987-10-15 19:00:00.000000', 'CLAN', true, 1);
-
+INSERT INTO KORISNIK (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, uloga, aktivan, fitness_centar_id) VALUES ('m.bojana', 'bojananovi0708', 'Bojana', 'Milic', '0656768987', 'bojanamilicntr07@gmail.com', '1980-10-02 19:00:00.000000', 'TRENER', true, 1);
 
 /* TRENING */
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('crossfit', 'napredni nivo treninga', 'CROSSFIT', 60, 1 );
@@ -37,17 +37,18 @@ INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, trening_id,
 INSERT INTO TERMIN(pocetak_termina, broj_prijavljenih_clanova, cena, trening_id, sale_id) VALUES ('2020-05-20 08:00:00.000000', 10, 3400,  4, 2);
 
 /* OCENA */
-INSERT INTO OCENA(ocena, korisnik_id, termin_id) VALUES (9, 1, 1);
-INSERT INTO OCENA(ocena, korisnik_id, termin_id) VALUES (10, 2, 2);
+INSERT INTO OCENA(ocena, korisnik_id, termin_id) VALUES (4, 1, 1);
+INSERT INTO OCENA(ocena, korisnik_id, termin_id) VALUES (5, 2, 3);
+INSERT INTO OCENA(ocena, korisnik_id, termin_id) VALUES (5, 2, 1);
 
 /*  MEDJUTABELE  */
 
-/* ODRADJENI TRENINZI
+/* ODRADJENI TRENINZI */
 INSERT INTO ODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2, 1);
-
- */
+INSERT INTO ODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2, 3);
 
 /* PRIJAVLJENI TRENINZI  */
 INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (1,1);
 INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (2,2);
+INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (2,3);
 INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (2,1);

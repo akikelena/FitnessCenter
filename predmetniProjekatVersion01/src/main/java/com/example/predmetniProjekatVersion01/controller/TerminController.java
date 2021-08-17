@@ -183,9 +183,9 @@ public class TerminController {
         return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/TerminList/pocetakTermina",
+    @GetMapping(value = "/TerminList/pocetak",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> getAllDTOPocetak(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy")Date pocetakTermina){
+    public ResponseEntity<List<TerminDTO>> getAllDTOPocetak(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")Date pocetakTermina){
 
         System.out.println(pocetakTermina);
 
@@ -206,12 +206,12 @@ public class TerminController {
         return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/TerminList/cena",
+    @GetMapping(value = "/TerminList/pretraziPoCeni",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TerminDTO>> getAllDTONaziv(@RequestParam double cena){
         System.out.println(cena);
 
-        List<Termin> terminList = terminService.findAllCenaGT(cena);
+        List<Termin> terminList = terminService.findByCenaMax(cena);    // uneti max cenu - ogranicenje
         List<TerminDTO> terminDTOList = new ArrayList<>();
 
         for(Termin termin: terminList){
@@ -396,7 +396,7 @@ public class TerminController {
 
     }
 
-    @GetMapping(value = "/listaOcenjenihTermina/{id}",
+    @GetMapping(value = "/TerminList/ocenjeni/{id}",
                 produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Set<IzabraniTerminDTO>> listaOcenjenihTermina(@PathVariable Long id){
 
@@ -406,20 +406,20 @@ public class TerminController {
             Set<Termin> terminList = korisnik.getPrijavljeniTermini();
             Set<IzabraniTerminDTO> izabraniTerminDTOS = new HashSet<>();
 
-                for(Termin termini : terminList){
+                for(Termin termin : terminList){
 
-                    System.out.println(termini.getCena());
-                    Set<Ocena> ocenaSet = termini.getOcene();
+                    System.out.println(termin.getCena());
+                    Set<Ocena> ocenaSet = termin.getOcene();
 
                         for(Ocena ocene : ocenaSet){
                             if(ocene.getKorisnik().getId() == id){
                                 Date date = new Date();
 
-                                    if(date.after(termini.getPocetakTermina())){
-                                        IzabraniTerminDTO izabraniTerminDTO = new IzabraniTerminDTO(termini.getId(),
-                                                termini.getPocetakTermina(), termini.getCena(), termini.getTrening().getNaziv(),
-                                                termini.getTrening().getOpis(), termini.getTrening().getTipTreninga(),
-                                                termini.getSale().getOznakaSale());
+                                    if(date.after(termin.getPocetakTermina())){
+                                        IzabraniTerminDTO izabraniTerminDTO = new IzabraniTerminDTO(termin.getId(),
+                                                termin.getPocetakTermina(), termin.getCena(), termin.getTrening().getNaziv(),
+                                                termin.getTrening().getOpis(), termin.getTrening().getTipTreninga(),
+                                                termin.getSale().getOznakaSale());
 
                             izabraniTerminDTOS.add(izabraniTerminDTO);
                             break;

@@ -36,20 +36,20 @@ $(document).ready(function () {
   $("#submit").on("click", function (event){
         event.preventDefault();
 
-        let naziv = $('#naziv').val();
-        let opis = $('#opis').val();
-        let tipTreninga = $('#tipTreninga').val();
-        let pocetakTermina = $('#pocetakTermina').val();
-        let cena = $('#cena').val();
+        let naziv = $('#naziv-polje').val();
+        let opis = $('#opis-polje').val();
+        let tipTreninga = $('#tipTreninga-polje').val();
+        let pocetakTermina = $('#pocetakTermina-polje').val();
+        let cena = $('#cena-polje').val();
 
         let sortCena = $('#sortCena').val();
         let sortVreme = $('#sortVreme').val();
 
-        if($('#naziv').val() != "") {
+        if($('#naziv-polje').val() != "") {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/TerminList/naziv?naziv="+ $('#naziv').val(),
+                url: "http://localhost:8080/termin/TerminList/naziv?naziv="+ $('#naziv-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -82,11 +82,11 @@ $(document).ready(function () {
             });
         }
 
-        if($('#tipTreninga').val() != ""){
+        if($('#tipTreninga-polje').val() != ""){
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/TerminList/tipTreninga?tipTreninga="+ $('#tipTreninga').val(),
+                url: "http://localhost:8080/termin/TerminList/tipTreninga?tipTreninga="+ $('#tipTreninga-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -121,11 +121,11 @@ $(document).ready(function () {
         }
 
 
-        if($('#opis').val() != ""){
+        if($('#opis-polje').val() != ""){
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/TerminList/opis?opis="+ $('#opis').val(),
+                url: "http://localhost:8080/termin/TerminList/opis?opis="+ $('#opis-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -160,11 +160,11 @@ $(document).ready(function () {
         }
 
 
-        if($('#pocetakTermina').val() != ""){
+        if($('#pocetakTermina-polje').val() != ""){
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/TerminList/pocetakTermina?pocetakTermina="+ $('#pocetakTermina').val(),
+                url: "http://localhost:8080/termin/TerminList/pocetak?pocetakTermina="+ $('#pocetakTermina-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -193,16 +193,16 @@ $(document).ready(function () {
                 },
                 error: function (response) {
                     console.log("ERROR: \n");
-                    console(response);
+                    console.log(response);
                 }
             });
         }
 
-        if($('#cena').val() != ""){
+        if($('#cena-polje').val() != ""){
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:8080/termin/TerminList/cena?cena="+ $('#cena').val(),
+                url: "http://localhost:8080/termin/TerminList/pretraziPoCeni?cena="+ $('#cena-polje').val(),
 
                 success : function (response){
                     console.log("SUCCESS: \n");
@@ -318,8 +318,8 @@ $(document).ready(function () {
         }
 
         if($('#sortCena').val() == "nasumicanRedosled" && $('#sortVreme').val() == "nasumicanRedosled" &&
-            $('#naziv').val() == "" && $('#pocetakTermina').val() == "" && $('#opis').val() == "" &&
-            $('#tipTreninga').val() == "" && $('#cena').val() == ""){
+            $('#naziv-polje').val() == "" && $('#pocetakTermina-polje').val() == "" && $('#opis-polje').val() == "" &&
+            $('#tipTreninga-polje').val() == "" && $('#cena-polje').val() == ""){
             $.ajax({
                 type : "GET",
                 dataType : "json",

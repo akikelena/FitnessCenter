@@ -22,7 +22,7 @@ public class KorisnikDTO {
     private String email;
     private Date datumRodjenja;
     private Uloga uloga;
-    private Boolean aktivan;
+    boolean aktivan;
 
     public KorisnikDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String kontaktTelefon, String email, Date datumRodjenja, Uloga uloga) {
         this.id = id;
@@ -33,6 +33,15 @@ public class KorisnikDTO {
         this.kontaktTelefon = kontaktTelefon;
         this.email = email;
         this.datumRodjenja = datumRodjenja;
+        this.uloga = uloga;
+    }
+
+    public KorisnikDTO(Long id, String korisnickoIme, String ime, String prezime, String email, Uloga uloga) {
+        this.id = id;
+        this.korisnickoIme = korisnickoIme;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.email = email;
         this.uloga = uloga;
     }
 

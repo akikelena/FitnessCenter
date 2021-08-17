@@ -82,6 +82,14 @@ public class Korisnik implements Serializable {
 
     }
 
+    public Korisnik(Long id, String korisnickoIme, String lozinka, String kontaktTelefon, String email) {
+        this.id = id;
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.kontaktTelefon = kontaktTelefon;
+        this.email = email;
+    }
+
     public boolean aktivanStatus(){
         return aktivan;
     }
@@ -97,13 +105,13 @@ public class Korisnik implements Serializable {
     @OneToMany(mappedBy = "korisnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Ocena> ocene = new HashSet<>();
 
-    /*
+
     @ManyToMany
     @JoinTable(name = "odradjeni_termini",
             joinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> odradjeniTermini = new HashSet<>();
-     */
+
 
     /*  lista prijavljenih treninga
        Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova

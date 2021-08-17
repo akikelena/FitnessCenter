@@ -3,7 +3,7 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "http://localhost:8080/termin/listaOcenjenihTermina/"+localStorage.getItem("ID"),
+            url: "http://localhost:8080/termin/TerminList/ocenjeni/"+localStorage.getItem("ID"),
 
             success: function (response) {
 
