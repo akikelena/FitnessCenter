@@ -1,44 +1,28 @@
 package com.example.predmetniProjekatVersion01.service;
 
 import com.example.predmetniProjekatVersion01.entity.Sala;
-import com.example.predmetniProjekatVersion01.repository.SalaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.predmetniProjekatVersion01.entity.dto.SalaDTO;
 
 import java.util.List;
 
-@Service
-public class SalaService {
 
-    @Autowired
-    private SalaRepository salaRepository;
+public interface SalaService {
+
 
     // cuvanje
-    public Sala save(Sala sala){
-        return  this.salaRepository.save(sala);
-    }
+    public Sala saveAndCreate(Sala sala) throws Exception;
 
     // izmena
-    public Sala izmeni(Sala sala){
-        return  this.salaRepository.save(sala);
-    }
+     Sala izmeni(Sala sala);
 
     // brisanje
-    public void delete(Long id){
-        this.salaRepository.deleteById(id);
-    }
+    void delete(Long id);
 
-    /*
-        PRETRAGA SALA
-     */
+    public Sala logickoBrisanje(Long id) throws Exception;
 
-    public Sala findOne(Long id){
-        Sala sala = this.salaRepository.getOne(id);
-        return  sala;
-    }
+     Sala findOne(Long id);
 
-    public List<Sala> findAll(){
-        List<Sala> salaList = this.salaRepository.findAll();
-        return  salaList;
-    }
+    List<Sala> findAll();
+
+    List<SalaDTO> findTrenutne(Long id);
 }

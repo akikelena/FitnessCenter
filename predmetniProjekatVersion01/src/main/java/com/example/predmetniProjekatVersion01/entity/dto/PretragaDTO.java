@@ -5,15 +5,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TreningDTO {
+public class PretragaDTO {
 
-    private Long id;
-    private String naziv;
-    private String opis;
+    private int maxCena;
+    private int maxTrajanje;
     private String tipTreninga;
 
+    private String naziv;
+    private String opis;
+    private Date doDatuma;
+
+    private boolean sviparametri;
+
+    public boolean isSviparametri() {
+        return sviparametri;
+    }
 }

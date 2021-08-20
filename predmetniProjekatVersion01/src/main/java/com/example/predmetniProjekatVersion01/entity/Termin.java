@@ -25,11 +25,17 @@ public class Termin implements Serializable {
     @Column(name = "pocetak_termina")
     private Date pocetakTermina;
 
-    @Column(name = "broj_prijavljenih_clanova")
-    private int brojPrijavljenihClanova;
+    @Column(name = "kraj_termina")
+    private Date krajTermina;
+
+    @Column(name = "trajanje_termina", nullable = false)
+    private int trajanjeTermina;
 
     @Column(name = "cena")
     private double cena;
+
+    @Column
+    private Boolean otkazan;
 
     @OneToMany(mappedBy = "termin", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Ocena> ocene = new HashSet<>();
@@ -40,36 +46,23 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sale;
 
+    /* lista termina koje trener drzi
+        "1 trener moze drzati vise treninga"
+        veza 1:n, strana: n   */
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Trener trener;
+
     /*  lista odradjenih treninga
     Jedan clan moze odraditi vise treninga, ali i jednom treningu moze pristupiti vise clanova
-    veza n:n
+    veza n:n    */
     @ManyToMany(mappedBy = "odradjeniTermini")
-    private Set<Korisnik> clanovi_odradjeni = new HashSet<>();
-     */
+    private Set<Clan> clanovi_odradjeni = new HashSet<>();
+
 
     /*  lista prijavljenih treninga
       Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
       veza n:n  */
     @ManyToMany(mappedBy = "prijavljeniTermini")
-    private Set<Korisnik> clanovi_prijavljeni = new HashSet<>();
-
-    public Termin(Long id, Date pocetakTermina, int brojPrijavljenihClanova, double cena, Sala sale, Trening trening, Set<Ocena> ocene) {
-        this.id = id;
-        this.pocetakTermina = pocetakTermina;
-        this.brojPrijavljenihClanova = brojPrijavljenihClanova;
-        this.cena = cena;
-        this.sale = sale;
-        this.trening = trening;
-        this.ocene = ocene;
-    }
-
-
-    public Termin(Long id, Date pocetakTermina, int brojPrijavljenihClanova, double cena, String naziv, String opis, TipTreninga tipTreninga, String oznakaSale) {
-        this.id = id;
-        this.pocetakTermina = pocetakTermina;
-        this.brojPrijavljenihClanova = brojPrijavljenihClanova;
-        this.cena = cena;
-
-    }
+    private Set<Clan> clanovi_prijavljeni = new HashSet<>();
 
 }

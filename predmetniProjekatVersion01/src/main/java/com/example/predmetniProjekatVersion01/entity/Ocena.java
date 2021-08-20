@@ -25,7 +25,7 @@ public class Ocena implements Serializable {
 
     // prosecna ocena trenera, veza 1:n, strana: n
     @ManyToOne(fetch = FetchType.EAGER)
-    private Korisnik korisnik;
+    private Clan korisnik;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Termin termin;

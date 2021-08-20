@@ -27,6 +27,9 @@ public class Sala implements Serializable {
     @Column(name = "oznaka_sale", unique = true)
     private String oznakaSale;
 
+    @Column(name = "sala_se_koristi")
+    private Boolean salaSeKoristi;
+
 
    /*  lista sala koje se nalaze u tom fitnes centru(veza 1:n)
        "U 1 fitness centru moze postojati vise sala"
@@ -42,23 +45,5 @@ public class Sala implements Serializable {
     @OneToMany(mappedBy = "sale", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Termin> termini = new HashSet<>();
 
-    public Sala(Long id, int kapacitet, String oznakaSale) {
-        this.id = id;
-        this.kapacitet = kapacitet;
-        this.oznakaSale = oznakaSale;
-    }
-
-    public Sala(int kapacitet, String oznakaSale) {
-        this.kapacitet = kapacitet;
-        this.oznakaSale = oznakaSale;
-    }
-
-
-    public Sala(Long id, int kapacitet, String oznakaSale, FitnessCentar fitnessCentar) {
-        this.id = id;
-        this.kapacitet = kapacitet;
-        this.oznakaSale = oznakaSale;
-        this.fitnessCentar = fitnessCentar;
-    }
 }
 

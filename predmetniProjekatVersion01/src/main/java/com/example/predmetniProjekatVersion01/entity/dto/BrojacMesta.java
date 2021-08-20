@@ -9,11 +9,11 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TreningDTO {
+public class BrojacMesta {
 
-    private Long id;
-    private String naziv;
-    private String opis;
-    private String tipTreninga;
 
+    public Long idTermina;
+    public Long idClana;
+
+    public int retVal;
 }

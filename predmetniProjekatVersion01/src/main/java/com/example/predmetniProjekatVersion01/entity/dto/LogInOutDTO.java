@@ -10,7 +10,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LogInOutDTO {
+
     private String korisnickoIme;
     private String lozinka;
 
+    private Integer uloga;
+    private Long id;
+
+    private boolean korimeprovera;
+    private boolean lozinkaprovera;
+
+    public boolean isKorimeprovera() {
+        return korimeprovera;
+    }
+
+    public boolean isLozinkaprovera() {
+        return lozinkaprovera;
+    }
 }

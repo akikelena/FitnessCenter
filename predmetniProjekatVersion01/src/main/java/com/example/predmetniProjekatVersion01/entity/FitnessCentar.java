@@ -34,11 +34,14 @@ public class FitnessCentar implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @Column
+    private Boolean uklonjen;
+
     /* treneri koji rade u tom fitnes centru
        "U 1 fitnes centru moze da radi vise trenera"
         veza 1:n, strana: 1                              */
     @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Korisnik> treneriUFC = new HashSet<>();
+    private Set<Trener> treneriUFC = new HashSet<>();
 
     /* lista sala koje se nalaze u tom fitnes centru(veza 1:n)
        "U 1 fitness centru moze postojati vise sala"
@@ -46,19 +49,4 @@ public class FitnessCentar implements Serializable {
     @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> saleUFC = new HashSet<>();
 
-
-    public FitnessCentar(Long id, String naziv, String adresa, String brTelCentrale, String email) {
-        this.id = id;
-        this.naziv = naziv;
-        this.adresa = adresa;
-        this.brTelCentrale = brTelCentrale;
-        this.email = email;
-    }
-
-    public FitnessCentar(String naziv, String adresa, String brTelCentrale, String email) {
-        this.naziv = naziv;
-        this.adresa = adresa;
-        this.brTelCentrale = brTelCentrale;
-        this.email = email;
-    }
 }

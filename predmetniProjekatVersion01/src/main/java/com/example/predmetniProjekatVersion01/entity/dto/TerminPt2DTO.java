@@ -11,15 +11,32 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TerminDTO {
-
+public class TerminPt2DTO {
     private Long id;
+
     private Date pocetakTermina;
+
     private Date krajTermina;
+
     private Integer trajanjeTermina;
-    private double cena;
+
+    private Integer cena;
+
     private String naziv;
+
     private String opis;
+
     private String tipTreninga;
 
+    private Long idTreninga;
+
+    private Long idTrenera;
+
+    private Long idSale;
+
+    private String oznakaSale;
+
+    private String userTrener;
+
+    private Double ocena;
 }

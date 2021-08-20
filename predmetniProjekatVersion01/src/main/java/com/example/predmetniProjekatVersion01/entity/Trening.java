@@ -29,25 +29,9 @@ public class Trening implements Serializable {
 
     @Column(name = "tip_treninga", nullable = false)
     @Enumerated(value = EnumType.STRING)
-    private TipTreninga tipTreninga;
-
-    @Column(name = "trajanje", nullable = false)
-    private int trajanje;
-
-    /* lista treninga koje trener drzi
-        "1 trener moze drzati vise treninga"
-        veza 1:n, strana: n   */
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Korisnik trener;
+    private String tipTreninga;
 
     @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Termin> termini = new HashSet<>();
 
-    public Trening(Long id, String naziv, String opis, TipTreninga tipTreninga, int trajanje) {
-        this.id = id;
-        this.naziv = naziv;
-        this.opis = opis;
-        this.tipTreninga = tipTreninga;
-        this.trajanje = trajanje;
-    }
 }

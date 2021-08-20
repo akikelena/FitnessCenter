@@ -15,5 +15,6 @@ public class FitnessCentarDTO {
     private String adresa;
     private String brTelCentrale;
     private String email;
+    private Integer uloga;
 
 }
