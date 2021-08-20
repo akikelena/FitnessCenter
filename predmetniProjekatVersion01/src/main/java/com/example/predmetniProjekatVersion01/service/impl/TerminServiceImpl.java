@@ -34,7 +34,7 @@ public class TerminServiceImpl implements TerminService {
     }
 
     @Override
-    public List<Termin> findAllPretraga(PretragaDTO pretragaDTO){
+    public List<TerminDTO> findAllPretraga(PretragaDTO pretragaDTO){
         List<Termin> terminList = this.terminRepository.findAll();
         List<TerminDTO> terminDTOList = new ArrayList<>();
 
