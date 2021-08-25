@@ -21,7 +21,7 @@ public class Ocena implements Serializable {
     private Long id;
 
     @Column
-    private int ocena;
+    private double ocena;
 
     // prosecna ocena trenera, veza 1:n, strana: n
     @ManyToOne(fetch = FetchType.EAGER)

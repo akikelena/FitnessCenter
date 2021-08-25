@@ -58,13 +58,20 @@ public class Clan implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> odradjeniTermini = new HashSet<>();
 
-
-    /*  lista prijavljenih treninga
-       Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
-       veza n:n   */
     @ManyToMany
-    @JoinTable(name = "prijavljeni",
+    @JoinTable(name = "neodradjeni_termini",
             joinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
-    private Set<Termin> prijavljeniTermini = new HashSet<>();
+    private Set<Termin> neodradjeniTermini = new HashSet<>();
+
+    public Clan(String korisnickoIme, String ime, String prezime, String lozinka, String email, Date datumRodjenja, String kontaktTelefon, Boolean aktivan) {
+        this.korisnickoIme = korisnickoIme;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.lozinka = lozinka;
+        this.email = email;
+        this.datumRodjenja = datumRodjenja;
+        this.kontaktTelefon = kontaktTelefon;
+        this. aktivan = aktivan;
+    }
 }

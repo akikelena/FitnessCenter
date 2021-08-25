@@ -28,10 +28,15 @@ public class Trening implements Serializable {
     private String opis;
 
     @Column(name = "tip_treninga", nullable = false)
-    @Enumerated(value = EnumType.STRING)
     private String tipTreninga;
 
     @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Termin> termini = new HashSet<>();
 
+    public Trening(Long id, String naziv, String opis, String tipTreninga) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+    }
 }

@@ -50,36 +50,57 @@
             </header>
 
                     <!-- Form -->
-                        <form id="log-Form" method="post">
+            <div id="loginBox">
+                <form name="loginBox" method="post">
 
-                                <!-- Korisnicko ime -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
+                    <!-- Korisnicko ime -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                                 <i class="fa fa-user text-muted"></i>
                             </span>
-                                    </div>
-                                    <input id="korisnickoIme" type="text" name="usname" placeholder="Korisničko ime"
-                                           required="true" class="form-control bg-white border-left-0 border-md" >
-                                </div>
-                                <!-- Lozinka -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
+                        </div>
+                        <input id="korisnickoIme" type="text" name="usname" placeholder="Korisničko ime"
+                               maxlength="20" required="true" class="form-control bg-white border-left-0 border-md" >
+                    </div>
+                    <!-- Lozinka -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
-                                    </div>
-                                    <input id="lozinka" type="password" name="passwd" placeholder="Lozinka"
-                                           required="true" class="form-control bg-white border-left-0 border-md">
-                                </div>
+                        </div>
+                        <input id="lozinka" type="password" name="passwd" placeholder="Lozinka"
+                               maxlength="20" required="true" class="form-control bg-white border-left-0 border-md">
+                    </div>
 
-                                <!-- Dugme PRIJAVI SE -->
-                                <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                                    <button type="submit" id="btnPrijava"> Prijavi se</button>
-                                </div>
+                    <div class="input-group col-lg-12 mb-4" id="radioClass">
 
-                        </form>
+                        <label class="m-md-2" for="btn1">ADMIN</label>
+                        <input id="btn1" name="class" type="radio" value="admin"/>
+
+                        <br>
+
+                        <label class="m-md-2" for="btn2">ČLAN</label>
+                        <input id="btn2" name="class" type="radio" value="clan"/>
+
+                        <br>
+
+                        <label class="m-md-2" for="btn3">TRENER</label>
+                        <input id="btn3" name="class" type="radio" value="trener"/>
+
+                    </div>
+
+                    <!-- Dugme PRIJAVI SE -->
+                    <div class="form-group col-lg-12 mx-auto mb-0 text-center">
+                        <button type="submit" id="btnPrijava"> Prijavi se</button>
+                    </div>
+
+                </form>
+            </div>
+
                      </div>
+
 
         <!-- Za neregistrovane korisnike, vodi do strane za registraciju -->
         <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">

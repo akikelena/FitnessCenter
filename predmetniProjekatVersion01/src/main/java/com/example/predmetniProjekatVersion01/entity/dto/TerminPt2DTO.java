@@ -20,7 +20,7 @@ public class TerminPt2DTO {
 
     private Integer trajanjeTermina;
 
-    private Integer cena;
+    private double cena;
 
     private String naziv;
 

@@ -5,7 +5,6 @@ import com.example.predmetniProjekatVersion01.entity.Sala;
 import com.example.predmetniProjekatVersion01.entity.dto.SalaDTO;
 import com.example.predmetniProjekatVersion01.service.FitnessCentarService;
 import com.example.predmetniProjekatVersion01.service.SalaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,64 +12,92 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/sala")
 public class SalaController {
 
-    @Autowired
-    private SalaService salaService;
 
-    @Autowired
-    private FitnessCentarService fitnessCentarService;
+    private final SalaService salaService;
+    private final FitnessCentarService fitnessCentarService;
+
+    public SalaController(SalaService salaService, FitnessCentarService fitnessCentarService){
+        super();
+        this.salaService = salaService;
+        this.fitnessCentarService = fitnessCentarService;
+    }
 
     // KREIRANJE NOVE SALE
     @PostMapping(value = "/dodajSalu",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SalaDTO> dodajNovuSalu(@RequestBody SalaDTO salaDTO) throws Exception {
 
-        FitnessCentar fitnessCentar = new FitnessCentar();
-        fitnessCentar = fitnessCentarService.findOne(salaDTO.getIdFC());
+        List<Sala> salaList = salaService.findAll();
 
-        Sala sala = new Sala(null, salaDTO.getKapacitet(),
-                salaDTO.getOznakaSale(), fitnessCentar);
+            for(Sala sala: salaList){
+                if(sala.getOznakaSale().equalsIgnoreCase(salaDTO.getOznakaSale())){
+                    SalaDTO retval = new SalaDTO(
+                            Long.valueOf(0),
+                            "nije kreirano",
+                            0,
+                            Long.valueOf(-1));
+                    return new ResponseEntity<>(retval, HttpStatus.OK);
+                }
+            }
+            Sala novaSala = new Sala();
+                novaSala.setFitnessCentar(fitnessCentarService.findOne(salaDTO.getIdFC()));
+                novaSala.setSalaSeKoristi(true);
+                novaSala.setKapacitet(salaDTO.getKapacitet());
+                novaSala.setOznakaSale(salaDTO.getOznakaSale());
 
-        sala = salaService.save(sala);
-        salaDTO.setId(sala.getId());
+            Sala izmenjena = this.salaService.saveAndCreate(novaSala);
+            SalaDTO salaDTO1 = new SalaDTO(
+                    izmenjena.getId(),
+                    izmenjena.getOznakaSale(),
+                    izmenjena.getKapacitet(),
+                    izmenjena.getFitnessCentar().getId());
 
-        return  new ResponseEntity<>(salaDTO, HttpStatus.CREATED);
+        return  new ResponseEntity<>(salaDTO1, HttpStatus.OK);
     }
 
     // IZMENA SALE
     @PutMapping(value = "/azurirajSalu/{id}",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SalaDTO> izmeniSalu(@PathVariable Long id, @RequestBody SalaDTO salaDTO){
-        Optional<Sala> sala = Optional.ofNullable(salaService.findOne(id));
+        Sala novaSala =salaService.findOne(id);
+            if(salaDTO.getIdFC() != 0){
+                FitnessCentar novifc = fitnessCentarService.findOne(salaDTO.getIdFC());
+                novaSala.setFitnessCentar(novifc);
+            }
+            if(!salaDTO.getOznakaSale().equals("")){
+                List<Sala> salaList = salaService.findAll();
+                    for(Sala sala:salaList){
+                        if(sala.getOznakaSale().equalsIgnoreCase(salaDTO.getOznakaSale())){
+                            SalaDTO povratna = new SalaDTO(
+                                    Long.valueOf(0),
+                                    "nije kreirano",
+                                    0,
+                                    Long.valueOf(-1));
+                            return new ResponseEntity<>(povratna, HttpStatus.OK);
+                        }
+                    }
+                    novaSala.setOznakaSale(salaDTO.getOznakaSale());
+            }
+            if(salaDTO.getKapacitet() != -1){
+                novaSala.setKapacitet(salaDTO.getKapacitet());
+            }
 
-        if(!sala.isPresent()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        FitnessCentar fitnessCentar = new FitnessCentar();
-        fitnessCentar = fitnessCentarService.findOne(salaDTO.getIdFC());
-        System.out.println(fitnessCentar.getNaziv());
-
-        Sala sala1 = new Sala(
-                sala.get().getId(),
-                salaDTO.getKapacitet(), salaDTO.getOznakaSale(),
-                fitnessCentar);
+            Sala promenjena = salaService.izmeni(novaSala);
+            SalaDTO retval = new  SalaDTO(
+                    promenjena.getId(),
+                    promenjena.getOznakaSale(),
+                    promenjena.getKapacitet(),
+                    promenjena.getFitnessCentar().getId());
         
-        System.out.println(sala1.getId());
-        System.out.println(sala1.getOznakaSale());
-        System.out.println(sala1.getKapacitet());
-        
-        sala1 = salaService.izmeni(sala1);
-        salaDTO.setId(id);
-        
-        return new ResponseEntity<>(salaDTO, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(retval, HttpStatus.OK);
     }
+
 
     // LISTA SVIH SALA
     @GetMapping(value = "/SalaList",
@@ -81,20 +108,31 @@ public class SalaController {
         List<SalaDTO> salaDTOS = new ArrayList<>();
 
             for(Sala sala : salaList){
-                SalaDTO salaDTO = new SalaDTO(sala.getId(),
-                        sala.getOznakaSale(), sala.getKapacitet(),
-                        sala.getFitnessCentar().getId());
+                if(sala.getSalaSeKoristi()){
+                    SalaDTO salaDTO = new SalaDTO(sala.getId(),
+                            sala.getOznakaSale(), sala.getKapacitet(),
+                            sala.getFitnessCentar().getId());
 
-            salaDTOS.add(salaDTO);
+                    salaDTOS.add(salaDTO);
+                }
+
             }
         return new ResponseEntity<>(salaDTOS, HttpStatus.OK);
 
     }
 
+    // lista sala za spec trenera
+    @GetMapping(value = "/SalaList/{idTrenera}",
+                produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<SalaDTO>> getSaleTrenera(@PathVariable Long idTrenera){
+        List<SalaDTO> salaDTOList = this.salaService.findTrenutne(idTrenera);
+        return new ResponseEntity<>(salaDTOList, HttpStatus.OK);
+    }
+
     // BRISANJE SALE
     @DeleteMapping(value = "/SalaList/{id}")
-    public ResponseEntity<Void> obrisiSalu(@PathVariable Long id){
-        this.salaService.delete(id);
+    public ResponseEntity<Void> obrisiSalu(@PathVariable Long id) throws Exception {
+        this.salaService.logickoBrisanje(id);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

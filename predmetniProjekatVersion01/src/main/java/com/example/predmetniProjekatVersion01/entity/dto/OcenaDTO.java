@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OcenaDTO {
 
-    private int ocena;
+    double ocena;
 
     Long idTermina;
     Long idClana;

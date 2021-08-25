@@ -58,11 +58,8 @@ public class Termin implements Serializable {
     @ManyToMany(mappedBy = "odradjeniTermini")
     private Set<Clan> clanovi_odradjeni = new HashSet<>();
 
+    @ManyToMany(mappedBy = "neodradjeniTermini")
+    private Set<Clan> clanovi_neodradjeni = new HashSet<>();
 
-    /*  lista prijavljenih treninga
-      Jedan clan moze se prijaviti za VISE treninga, ali i jednom treningu moze pristupiti vise clanova
-      veza n:n  */
-    @ManyToMany(mappedBy = "prijavljeniTermini")
-    private Set<Clan> clanovi_prijavljeni = new HashSet<>();
 
 }

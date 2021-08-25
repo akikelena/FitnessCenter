@@ -1,33 +1,60 @@
 package com.example.predmetniProjekatVersion01.controller;
 
+import com.example.predmetniProjekatVersion01.entity.Ocena;
+import com.example.predmetniProjekatVersion01.entity.Trener;
+import com.example.predmetniProjekatVersion01.entity.dto.OcenaDTO;
+import com.example.predmetniProjekatVersion01.service.ClanService;
 import com.example.predmetniProjekatVersion01.service.OcenaService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.predmetniProjekatVersion01.service.TerminService;
+import com.example.predmetniProjekatVersion01.service.TrenerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/ocena")
 public class OcenaController {
-    @Autowired
-    private OcenaService ocenaService;
 
-    /*
-    @GetMapping(value = "/ocene", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<OcenaDTO>> getAllOcene(OcenaDTO ocenaDTO){
-        List<Ocena> ocenaList = ocenaService.findAll();
-        List<OcenaDTO> ocenaDTOList = new ArrayList<>();
+    private final OcenaService ocenaService;
+    private final TerminService terminService;
+    private final TrenerService trenerService;
+    private final ClanService clanService;
 
-        for(Ocena ocena: ocenaList){
-            String korisnickoIme = ocena.getTrener().getKorisnickoIme();
-            System.out.println(ocena.getTermini().getTreninzi());
-            if(korisnickoIme == ocenaDTO.getTrenerIme()){
-                OcenaDTO ocenaDTO1 = new OcenaDTO(ocena.getTrener().getKorisnickoIme(), ocena.getOcena(),
-                        ocena.getTrener().getIme(), ocena.getTrener().getPrezime());
-            }
-            ocenaDTOList.add(ocenaDTO);
-        }
-        return new ResponseEntity<>(ocenaDTOList, HttpStatus.OK);
-    }   */
+    public OcenaController(OcenaService ocenaService,
+                           TerminService terminService,
+                           TrenerService trenerService,
+                           ClanService clanService){
+        super();
+        this.ocenaService = ocenaService;
+        this.terminService = terminService;
+        this.trenerService = trenerService;
+        this.clanService = clanService;
+    }
+
+    @PostMapping(value = "/dodajNovuOcenu",
+                produces = MediaType.APPLICATION_JSON_VALUE,
+                consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<OcenaDTO> dodajNovuOcenu(@RequestBody OcenaDTO ocenaDTO) throws Exception{
+        Ocena novaOcena = new Ocena();
+
+            novaOcena.setOcena(ocenaDTO.getOcena());
+            novaOcena.setTermin(this.terminService.findOne(ocenaDTO.getIdTermina()));
+            novaOcena.setKorisnik(this.clanService.findOne(ocenaDTO.getIdClana()));
+
+            Ocena cuvaj = this.ocenaService.kreiraj(novaOcena);
+            OcenaDTO povratna = new OcenaDTO(
+                    cuvaj.getOcena(),
+                    cuvaj.getKorisnik().getId(),
+                    cuvaj.getTermin().getId());
+
+        Trener trener = this.trenerService.findOne(this.terminService.findOne(ocenaDTO.getIdTermina()).getTrener().getId());
+
+        trener.setProsecnaOcena(this.ocenaService.izracunajProsecnuOcenu(this.terminService.findOne(ocenaDTO.getIdTermina()).getTrener().getId()));
+        this.trenerService.save(trener);
+
+        return new ResponseEntity<>(povratna, HttpStatus.OK);
+    }
+
 }

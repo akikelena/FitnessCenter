@@ -3,7 +3,7 @@ package com.example.predmetniProjekatVersion01.controller;
 import com.example.predmetniProjekatVersion01.entity.FitnessCentar;
 import com.example.predmetniProjekatVersion01.entity.dto.FitnessCentarDTO;
 import com.example.predmetniProjekatVersion01.service.FitnessCentarService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.predmetniProjekatVersion01.service.SalaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,57 +11,39 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/fcentar")
 public class FitnessCentarController {
 
-    @Autowired
-    private FitnessCentarService fitnessCentarService;
 
-    // Dobavljanje odredjenog FC-a po ID-u
-    @GetMapping(value = "/{id}",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FitnessCentarDTO> getFC(@PathVariable Long id){
+    private final FitnessCentarService fitnessCentarService;
+    private final SalaService salaService;
 
-        Optional<FitnessCentar> fitnessCentar = Optional.ofNullable(fitnessCentarService.findOne(id));
-
-            if(!fitnessCentar.isPresent()){
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-
-        FitnessCentar fcentar = fitnessCentar.get();
-        FitnessCentarDTO fitnessCentarDTO = new FitnessCentarDTO(fcentar.getId(),
-                fcentar.getNaziv(), fcentar.getAdresa(), fcentar.getBrTelCentrale(),
-                fcentar.getEmail());
-
-        return new ResponseEntity<>(fitnessCentarDTO, HttpStatus.OK);
-
+    public FitnessCentarController(FitnessCentarService fitnessCentarService, SalaService salaService){
+        super();
+        this.fitnessCentarService = fitnessCentarService;
+        this.salaService = salaService;
     }
 
     // Lista svih fitness centara
-    @GetMapping(value = "/FCList",
+    @GetMapping(value = "/FCList/{rola}",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<FitnessCentarDTO>> getFCs(){
+    public ResponseEntity<List<FitnessCentarDTO>> getFCs(@PathVariable Integer rola){
 
-        List<FitnessCentar> fitnessCentarList = fitnessCentarService.findAll();
-        List<FitnessCentarDTO> fitnessCentarDTOS = new ArrayList<>();
-
-        for(FitnessCentar fitnessCentar : fitnessCentarList) {
-            FitnessCentarDTO fitnessCentarDTO = new FitnessCentarDTO(fitnessCentar.getId(),
-                    fitnessCentar.getNaziv(), fitnessCentar.getAdresa(),
-                    fitnessCentar.getBrTelCentrale(), fitnessCentar.getEmail());
-
-            fitnessCentarDTOS.add(fitnessCentarDTO);
+        if(rola == 1){
+            List<FitnessCentarDTO> fitnessCentarDTOList = this.fitnessCentarService.findSpecCentre();
+            return new ResponseEntity<>(fitnessCentarDTOList, HttpStatus.OK);
+        } else {
+            List<FitnessCentarDTO> fitnessCentarDTOS = new ArrayList<>();
+            return new ResponseEntity<>(fitnessCentarDTOS, HttpStatus.OK);
         }
-       return new ResponseEntity<>(fitnessCentarDTOS, HttpStatus.OK);
     }
 
     // BRISANJE FCENTRA
-    @DeleteMapping(value = "/FCList/{id}")
-    public ResponseEntity<Void> obrisiFitnessCentar(@PathVariable Long id){
+    @DeleteMapping(value = "/FCList/obrisi/{id}")
+    public ResponseEntity<Void> obrisiFitnessCentar(@PathVariable Long id) throws Exception{
         this.fitnessCentarService.delete(id);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -72,37 +54,116 @@ public class FitnessCentarController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FitnessCentarDTO> kreirajNoviFC(@RequestBody FitnessCentarDTO fitnessCentarDTO) throws Exception {
 
-        FitnessCentar fitnessCentar = new FitnessCentar(fitnessCentarDTO.getId(),
-                fitnessCentarDTO.getNaziv(),
-                fitnessCentarDTO.getAdresa(), fitnessCentarDTO.getBrTelCentrale(),
-                fitnessCentarDTO.getEmail());
+        List<FitnessCentar> fitnessCentarList = fitnessCentarService.findAll();
+            for(FitnessCentar fitnessCentar: fitnessCentarList){
+                if(fitnessCentar.getEmail().equalsIgnoreCase(fitnessCentarDTO.getEmail())){
+                    FitnessCentarDTO noviDTOfc = new FitnessCentarDTO(
+                            Long.valueOf(0),
+                            "nije kreiran",
+                            "nije kreiran",
+                            "nije kreiran",
+                            "nije kreiran",
+                            2);
+                    return new ResponseEntity<>(noviDTOfc, HttpStatus.CREATED);
+                }
+                if(fitnessCentar.getBrTelCentrale().equals(fitnessCentarDTO.getBrTelCentrale())){
+                    FitnessCentarDTO noviFCDTO = new FitnessCentarDTO(
+                            Long.valueOf(0),
+                            "nije kreiran",
+                            "nije kreiran",
+                            "nije kreiran",
+                            "nije kreiran",
+                            3);
+                    return new ResponseEntity<>(noviFCDTO, HttpStatus.CREATED);
+                }
+            }
+                if(fitnessCentarDTO.getRola() == 1){
+                    FitnessCentar centar = new FitnessCentar(
+                            fitnessCentarDTO.getNaziv(),
+                            fitnessCentarDTO.getAdresa(),
+                            fitnessCentarDTO.getBrTelCentrale(),
+                            fitnessCentarDTO.getEmail(),
+                            false);
+                    FitnessCentar novi = fitnessCentarService.saveOrCreate(centar);
 
-       fitnessCentar = fitnessCentarService.save(fitnessCentar);
-       fitnessCentarDTO.setId(fitnessCentar.getId());
-
-        return new ResponseEntity<>(fitnessCentarDTO, HttpStatus.CREATED);
+                    FitnessCentarDTO noviDTO = new FitnessCentarDTO(
+                            novi.getId(),
+                            novi.getNaziv(),
+                            novi.getAdresa(),
+                            novi.getBrTelCentrale(),
+                            novi.getEmail(),
+                            0);
+                    return new ResponseEntity<>(noviDTO, HttpStatus.CREATED);
+                } else {
+                    FitnessCentarDTO centarDTO = new FitnessCentarDTO(
+                            Long.valueOf(0),
+                            "nije kreirano",
+                            "nije kreirano",
+                            "nije kreirano",
+                            "nije kreirano",
+                            1);
+                    return new ResponseEntity<>(centarDTO, HttpStatus.CREATED);
+                }
     }
 
 
     // IZMENA FCENTRA
-    @PutMapping(value = "/azurirajFC/{id}",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FitnessCentarDTO> izmeniFitnessCentar(@PathVariable Long id, @RequestBody FitnessCentarDTO fitnessCentarDTO) throws Exception{
+    @PutMapping(value = "/azurirajFC/{idFC}",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<FitnessCentarDTO> izmeniFitnessCentar(@PathVariable Long idFC, @RequestBody FitnessCentarDTO fitnessCentarDTO) throws Exception{
 
-        Optional<FitnessCentar> fitnessCentarOptional = Optional.ofNullable(fitnessCentarService.findOne(id));
+        if(fitnessCentarDTO.getRola() == 1){
+            List<FitnessCentar> fitnessCentarList = fitnessCentarService.findAll();
+                for(FitnessCentar fitnessCentar: fitnessCentarList){
+                    if(fitnessCentar.getBrTelCentrale().equals(fitnessCentarDTO.getBrTelCentrale())){
+                        FitnessCentarDTO retval = new FitnessCentarDTO(
+                                Long.valueOf(0),
+                                "bez promene",
+                                "bez promene",
+                                "bez promene",
+                                "bez promene",
+                                2);
+                        return new ResponseEntity<>(retval, HttpStatus.OK);
+                    }
+                    if(fitnessCentar.getEmail().equals(fitnessCentarDTO.getEmail())){
+                        FitnessCentarDTO retval = new FitnessCentarDTO(
+                                Long.valueOf(0),
+                                "bez promene",
+                                "bez promene",
+                                "bez promene",
+                                "bez promene",
+                                3);
+                        return new ResponseEntity<>(retval, HttpStatus.OK);
+                    }
+                }
+                FitnessCentar izmenjen = this.fitnessCentarService.izmeni(idFC, fitnessCentarDTO);
+                FitnessCentarDTO povratni = new FitnessCentarDTO(
+                        izmenjen.getId(),
+                        izmenjen.getNaziv(),
+                        izmenjen.getAdresa(),
+                        izmenjen.getBrTelCentrale(),
+                        izmenjen.getEmail(),
+                        0);
+                return new ResponseEntity<>(povratni, HttpStatus.OK);
+        } else {
+            FitnessCentarDTO fitnessCentarDTO1 = new FitnessCentarDTO(
+                    Long.valueOf(0),
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    1);
+            return new ResponseEntity<>(fitnessCentarDTO1, HttpStatus.OK);
+        }
+    }
 
-            if(!fitnessCentarOptional.isPresent()){
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/centri/regTrenera")
+    public ResponseEntity<List<FitnessCentarDTO>> getCentreZaReg() {
 
-        FitnessCentar fitnessCentar = new FitnessCentar(fitnessCentarOptional.get().getId(),
-                fitnessCentarDTO.getNaziv(), fitnessCentarDTO.getAdresa(), fitnessCentarDTO.getBrTelCentrale(),
-                fitnessCentarDTO.getEmail());
 
-            fitnessCentar = fitnessCentarService.izmeni(fitnessCentar);
-            fitnessCentarDTO.setId(id);
-
-            return new ResponseEntity<>(fitnessCentarDTO, HttpStatus.ACCEPTED);
+        List<FitnessCentarDTO> centriList = this.fitnessCentarService.findSpecCentre();
+        return new ResponseEntity<>(centriList, HttpStatus.OK);
 
     }
 

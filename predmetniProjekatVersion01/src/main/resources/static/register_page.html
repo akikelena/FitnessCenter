@@ -17,7 +17,7 @@
     <link href="reg_css.css" rel="stylesheet">
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/reg_js.js"></script>
+    <script src="js/reg_trener.js"></script>
 
 </head>
 
@@ -55,7 +55,7 @@
                                 <i class="fa fa-user icon"></i>
                             </span>
                                     </div>
-                                    <input id="korisnickoIme" type="text"  placeholder="Korisničko ime"  name="KorisnickoIme"
+                                    <input id="korisnickoIme" type="text"  placeholder="Korisničko ime"  name="KoriIme"
                                            class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
                                 <!-- Lozinka -->
@@ -68,6 +68,15 @@
                                     <input id="lozinka" type="password"  placeholder="Lozinka" name="Lozinka"
                                            class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
+                            <div class="input-group col-lg-12 mb-4 align-content-lg-center">
+                                <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                                </div>
+                                <input id="lozinkaProvera" type="password"  placeholder="Provera lozinke" name="LozProvera"
+                                       class="form-control bg-white border-left-0 border-md" required="true">
+                            </div>
                                 <!-- Ime -->
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
@@ -86,7 +95,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="prezime" type="text"  placeholder="Prezime" name="Prezime"
+                                    <input id="prezime" type="text"  placeholder="Prezime" name="prez"
                                            class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
 
@@ -101,7 +110,7 @@
                                             class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
                                         <option value="">+381</option>
                                     </select>
-                                    <input id="kontaktTelefon" type="tel"  placeholder="Broj telefona" name="BrojTelefona"
+                                    <input id="kontaktTelefon" type="tel"  placeholder="Broj telefona" name="BrojTel"
                                            class="form-control bg-white border-md border-left-0 pl-3" required="true">
                                 </div>
 
@@ -116,26 +125,29 @@
                                            class="form-control bg-white border-left-0 border-md" required="true">
                                 </div>
 
+                            <!-- Datum rodjenja-->
+                            <div class="input-group col-lg-12 mb-4">
+                                <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-envelope text-muted"></i>
+                            </span>
+                                </div>
+                                <input id="datumRodjenja" type="date" placeholder="Datum rodjenja" name="DatumRodjenja"
+                                       class="form-control bg-white border-left-0 border-md" required="true">
+                            </div>
+
                                 <!-- Datum rodjenja -->
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-envelope text-muted"></i>
+                                <i class="fa fa-id-badge text-muted"></i>
                             </span>
                                     </div>
-                                    <input id="datumRodjenja" type="date"  placeholder="Datum rođenja" name="DatumRodjenja"
-                                           class="form-control bg-white border-left-0 border-md" required="true">
+                                    <select id="fitnesCentri" name="fitnesCentri" required>
+                                        <option value=""> </option>
+                                    </select>
                                 </div>
 
-                                <!-- Uloga -->
-                                <div class="input-group col-lg-12 mb-4">
-                                    <div class="input-group-prepend">
-                                        <span CLASS="text-center justify-content-center"> SELEKTOVATI ukoliko želite da se registrujete kao TRENER  </span>
-                                    </div>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input class="custom-checkbox" type="checkbox" placeholder="Uloga"
-                                           id="uloga" name="ulogaKorisnika">
-                                </div>
 
                                 <div class="form-group col-lg-12 mx-auto mb-0">
                                         <button  type="submit" id="reg_submit" class="btn btn-primary btn-block py-2" class="font-weight-bold"> Registruj se</button>

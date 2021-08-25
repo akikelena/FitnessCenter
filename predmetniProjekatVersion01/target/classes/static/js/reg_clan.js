@@ -2,62 +2,59 @@ $(document).on("submit", "form", function (event) {
     event.preventDefault();
 
 
-    let korisnickoIme = document.forms['formBox'].KoriIme.value;
+    let korisnickoIme = document.forms['formBox'].KorIme.value;
     let ime = document.forms['formBox'].Ime.value;
-    let prezime = document.forms['formBox'].prez.value;
-    let lozinka = document.forms['formBox'].Lozinka.value;
+    let prezime = document.forms['formBox'].Prezime.value;
+    let lozinka = document.forms['formBox'].Loz.value;
     let lozinkaProvera = document.forms['formBox'].LozProvera.value;
     let email = document.forms['formBox'].Email.value;
     let datumRodjenja = document.forms['formBox'].DatumRodjenja.value;
-    let kontaktTelefon = document.forms['formBox'].BrojTel.value;
-    let aktivan = false;
-    let idFC = document.forms['formBox'].fitnesCentri.value;
+    let kontaktTelefon = document.forms['formBox'].BrojTelefona.value;
+    let aktivan = true;
     if(lozinka !== lozinkaProvera) {
-        alert("Passwords do not match!");
+        alert("Lozinke se ne poklapaju!");
         return false;
     } else {
 
-
-
-        var noviTrener = {
+        var noviClan = {
             korisnickoIme,
+            lozinka,
             ime,
             prezime,
-            lozinka,
             email,
             datumRodjenja,
             kontaktTelefon,
-            aktivan,
-            idFC
+            aktivan
 
         }
-        console.log(noviTrener);
+        console.log(noviClan);
 
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/trener/dodajTrenera",
+            url: "http://localhost:8080/clan/dodajClana",
             dataType: "json",
             contentType: "application/json",
-            data: JSON.stringify(noviTrener),
+            data: JSON.stringify(noviClan),
             success: function (res) {
                 console.log(res);
+
                 if(res.retVal == 0){
-                    alert("Zahtev za registraciju je poslat!");
+                    alert("Clan je uspesno kreiran!");
                     window.location.href = "login_page.html";
                 }
                 if(res.retVal == 1){
-                    alert("Korisnicko ime zauzeto!");
+                    alert("Korisnicko ime vec postoji!");
                 }
                 if(res.retVal == 2){
-                    alert("Email zauzet!");
+                    alert("Email vec postoji!");
                 }
                 if(res.retVal == 3){
-                    alert("Telefon zauzet!");
+                    alert("Telefon vec postoji!");
                 }
-
             },
-            error: function () {
+            error: function (res) {
+                console.log(res);
                 alert("Greška!");
             }
         });
@@ -77,29 +74,10 @@ $(document).ready(function () {
         window.location.href = "trener_page.html";
         alert("Vec ste prijavljeni!");
     }
-    if(role == 3){
+    if(rola == 3){
         window.location.href = "user_page.html";
         alert("Vec ste prijavljeni!");
     }
 
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:8080/fcentar/centri/regTrenera",
-        dataType: "json",
-        success: function (res) {
-            for (i = 0; i < res.length; i++) {
-                let row = "<option value='" + res[i].id + "'>" + res[i].naziv + "</option>";
-
-
-                $('#fitnesCentri').append(row);
-            }
-
-
-        },
-        error: function () {
-            alert("Greška!");
-        }
-    });
-
-
 });
+

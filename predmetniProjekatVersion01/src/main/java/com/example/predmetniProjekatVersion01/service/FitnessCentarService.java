@@ -8,20 +8,11 @@ import java.util.List;
 
 public interface FitnessCentarService {
 
-    // dodavanje
-    public FitnessCentar saveOrCreate(FitnessCentar fitnessCentar) throws Exception;
 
-    // brisanje
-    void delete(Long id);
-
-    // izmena
-    public FitnessCentar izmeni(FitnessCentar fitnessCentar);
-
-    // Pretrazivanje svih FC-a
-    public List<FitnessCentar> findAll();
-
-
-    FitnessCentar findOne(Long id);
-
-    List<FitnessCentarDTO> findSpecCentre();
+     FitnessCentar saveOrCreate(FitnessCentar fitnessCentar) throws Exception;
+     void delete(Long id);
+     FitnessCentar izmeni(Long id, FitnessCentarDTO fitnessCentar) throws Exception;
+     List<FitnessCentar> findAll();
+     FitnessCentar findOne(Long id);
+     List<FitnessCentarDTO> findSpecCentre();
 }

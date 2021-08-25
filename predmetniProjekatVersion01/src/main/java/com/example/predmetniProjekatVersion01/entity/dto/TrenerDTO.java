@@ -21,13 +21,13 @@ public class TrenerDTO {
     private String email;
     private Date datumRodjenja;
     private String kontaktTelefon;
-    private Boolean aktivan;
+    private boolean aktivan;
 
     private Double prosecnaOcena;
     private Integer retVal;
     private Long idFC;
 
-    public TrenerDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String email, Date datumRodjenja, String kontaktTelefon, Boolean aktivan, Integer retVal, Long idFC) {
+    public TrenerDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String email, Date datumRodjenja, String kontaktTelefon, boolean aktivan, Integer retVal, Long idFC) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -39,5 +39,9 @@ public class TrenerDTO {
         this.aktivan = aktivan;
         this.retVal = retVal;
         this.idFC = idFC;
+    }
+
+    public Boolean isAktivan() {
+        return aktivan;
     }
 }

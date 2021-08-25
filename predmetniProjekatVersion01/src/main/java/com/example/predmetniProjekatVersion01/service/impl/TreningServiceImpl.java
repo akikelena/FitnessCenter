@@ -41,4 +41,45 @@ public class TreningServiceImpl implements TreningService {
         Trening trening = treningRepository.getOne(id);
         return trening;
     }
+
+    @Override
+    public void delete(Long id) {
+        this.treningRepository.deleteById(id);
+
+    }
+
+    @Override
+    public Trening findOne(Long id) {
+        Trening trening = this.treningRepository.getOne(id);
+        return trening;
+    }
+
+    @Override
+    public Trening izmeni(Long id, Trening podaci)  throws Exception {
+        Trening centarToUpdate = this.treningRepository.getOne(id);
+        if (centarToUpdate == null) {
+            throw new Exception("Trening ne postoji u bazi podataka");
+        }
+        if(!podaci.getNaziv().isBlank())
+            centarToUpdate.setNaziv(podaci.getNaziv());
+        if(!podaci.getOpis().isBlank())
+            centarToUpdate.setOpis(podaci.getOpis());
+        if(!podaci.getTipTreninga().isBlank())
+            centarToUpdate.setTipTreninga(podaci.getTipTreninga());
+
+        Trening saveFC = this.treningRepository.save(centarToUpdate);
+        return saveFC;
+
+
+    }
+    @Override
+    public Trening save(Trening trening) throws Exception{
+        if(trening.getId() != null){
+            throw new Exception("Id mora biti null");
+        }
+        Trening noviTrening = this.treningRepository.save(trening);
+        return noviTrening;
+    }
+
+
 }

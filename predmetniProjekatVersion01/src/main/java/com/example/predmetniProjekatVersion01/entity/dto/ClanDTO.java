@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class ClanDTO {
     private String ime;
     private String prezime;
     private String email;
-    private String datumRodjenja;
+    private Date datumRodjenja;
     private String kontaktTelefon;
     private Boolean aktivan;
 

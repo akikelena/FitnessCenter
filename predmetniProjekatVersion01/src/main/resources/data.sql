@@ -34,9 +34,9 @@ INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('competition', 'takmicars
 INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('mobility', 'srednji nivo treninga', 'MOBILITY');
 
 /* TERMIN  */
-INSERT INTO TERMIN(pocetak_termina, kraj_termina, trajanje_termina, cena, otkazan, trening_id, sale_id) VALUES ('2020-05-20 08:00:00.000000', 13, 3000,  3, 1);
-INSERT INTO TERMIN(pocetak_termina, kraj_termina, trajanje_termina, cena,otkazan, trening_id, sale_id) VALUES ('2021-05-14 19:00:00.000000', 15, 3800,  1, 3);
-INSERT INTO TERMIN(pocetak_termina,kraj_termina, trajanje_termina, cena, otkazan,trening_id, sale_id) VALUES ('2020-05-20 08:00:00.000000', 10, 3400,  4, 2);
+INSERT INTO TERMIN(pocetak_termina, kraj_termina, trajanje_termina, cena, otkazan, trening_id, trener_id, sale_id) VALUES ('2021-05-04 11:30:00', '2021-05-04 12:30:00', '60', '550', 0, 1, 1, 2);
+INSERT INTO TERMIN(pocetak_termina, kraj_termina, trajanje_termina, cena,otkazan, trening_id, trener_id, sale_id) VALUES ('2021-11-07 18:30:00', '2021-11-07 19:30:00', '60', '500', 0, 4, 1, 4);
+INSERT INTO TERMIN(pocetak_termina,kraj_termina, trajanje_termina, cena, otkazan,trening_id, trener_id,sale_id) VALUES ('2021-11-05 15:45:00', '2021-11-05 17:15:00', '90', '750', 0, 2, 2, 2);
 
 /* OCENA */
 INSERT INTO OCENA(ocena, korisnik_id, termin_id) VALUES (4, 1, 1);
@@ -50,7 +50,7 @@ INSERT INTO ODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2, 1);
 INSERT INTO ODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2, 3);
 
 /* PRIJAVLJENI TRENINZI  */
-INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (1,1);
-INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (2,2);
-INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (2,3);
-INSERT INTO PRIJAVLJENI(korisnik_id, termin_id) VALUES (2,1);
+INSERT INTO NEODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (1,1);
+INSERT INTO NEODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2,2);
+INSERT INTO NEODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2,3);
+INSERT INTO NEODRADJENI_TERMINI(korisnik_id, termin_id) VALUES (2,1);

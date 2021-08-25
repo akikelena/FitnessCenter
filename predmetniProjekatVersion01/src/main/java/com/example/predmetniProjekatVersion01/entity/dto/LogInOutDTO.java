@@ -14,7 +14,7 @@ public class LogInOutDTO {
     private String korisnickoIme;
     private String lozinka;
 
-    private Integer uloga;
+    private Integer rola;
     private Long id;
 
     private boolean korimeprovera;

@@ -66,6 +66,20 @@ public class Trener implements Serializable {
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> lista_treninga = new HashSet<>();
 
+    public Trener(String korisnickoIme, String ime, String prezime, String lozinka, String email, Date datumRodjenja, String kontaktTelefon, Boolean aktivan, Boolean uklonjen, FitnessCentar fc) {
+        super();
+        this.korisnickoIme = korisnickoIme;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.lozinka = lozinka;
+        this.email = email;
+        this.datumRodjenja = datumRodjenja;
+        this.kontaktTelefon = kontaktTelefon;
+        this.aktivan = aktivan;
+        this.uklonjen = uklonjen;
+        this.fitnessCentar = fc;
+    }
+
     public Boolean isAktivan(){
         return  aktivan;
     }

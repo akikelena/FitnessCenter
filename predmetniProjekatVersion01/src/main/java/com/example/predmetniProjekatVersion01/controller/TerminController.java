@@ -1,15 +1,14 @@
 package com.example.predmetniProjekatVersion01.controller;
 
-import com.example.predmetniProjekatVersion01.entity.Korisnik;
+import com.example.predmetniProjekatVersion01.entity.Clan;
 import com.example.predmetniProjekatVersion01.entity.Ocena;
 import com.example.predmetniProjekatVersion01.entity.Termin;
-import com.example.predmetniProjekatVersion01.entity.TipTreninga;
-import com.example.predmetniProjekatVersion01.entity.dto.IzabraniTerminDTO;
+import com.example.predmetniProjekatVersion01.entity.Trener;
+import com.example.predmetniProjekatVersion01.entity.dto.BrojacMesta;
+import com.example.predmetniProjekatVersion01.entity.dto.PretragaDTO;
 import com.example.predmetniProjekatVersion01.entity.dto.TerminDTO;
-import com.example.predmetniProjekatVersion01.service.KorisnikService;
-import com.example.predmetniProjekatVersion01.service.TerminService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
+import com.example.predmetniProjekatVersion01.entity.dto.TerminPt2DTO;
+import com.example.predmetniProjekatVersion01.service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,452 +20,469 @@ import java.util.*;
 @RestController
 @RequestMapping(value = "/termin")
 public class TerminController {
-    @Autowired
-    private TerminService terminService;
 
-    @Autowired
-    private KorisnikService korisnikService;
+    private final TerminService terminService;
+    private final SalaService salaService;
+    private final OcenaService ocenaService;
+    private final ClanService clanService;
+    private final TrenerService trenerService;
+    private final TreningService treningService;
 
-    @GetMapping(value = "/TerminList",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> getAll(){
-
-        List<Termin> terminList = terminService.findAll();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for (Termin termin : terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-            termin.getPocetakTermina(),
-            termin.getBrojPrijavljenihClanova(),
-            termin.getCena(),
-            termin.getTrening().getNaziv(),
-            termin.getTrening().getOpis(),
-            termin.getTrening().getTipTreninga(),
-            termin.getSale().getOznakaSale());
-            terminDTOList.add(terminDTO);
-        }
-        return new ResponseEntity<>(terminDTOList, HttpStatus.OK);
+    public TerminController(TerminService terminService,
+                            SalaService salaService,
+                            OcenaService ocenaService,
+                            ClanService clanService,
+                            TrenerService trenerService,
+                            TreningService treningService) {
+        super();
+        this.terminService = terminService;
+        this.salaService = salaService;
+        this.ocenaService = ocenaService;
+        this.clanService = clanService;
+        this.trenerService = trenerService;
+        this.treningService = treningService;
     }
 
-    @GetMapping(value = "/terminiKorisnika/{id}",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<TerminDTO>> korisnickiTermini(@PathVariable Long id){
-        Korisnik korisnik = korisnikService.findOneById(id);
-        System.out.println(korisnik.getPrezime());
-
-        Set<Termin> terminSet = korisnik.getPrijavljeniTermini();
-        Set<TerminDTO> terminDTOS = new HashSet<>();
-
-            for(Termin termin : terminSet){
-                System.out.println(termin.getBrojPrijavljenihClanova());
-                    TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                            termin.getPocetakTermina(),
-                            termin.getBrojPrijavljenihClanova(),
-                            termin.getCena(),
-                            termin.getTrening().getNaziv(), termin.getTrening().getOpis(),
-                            termin.getTrening().getTipTreninga(),
-                            termin.getSale().getOznakaSale());
-                    terminDTOS.add(terminDTO);
+    @PostMapping(value = "/dodajNoviTermin",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminDTO> dodajNoviTermin(@RequestBody TerminPt2DTO pt2DTO) throws Exception {
+        List<Termin> sviTermini = terminService.findAll();
+        for (Termin termin : sviTermini) {
+            if (termin.getSale().getId() == pt2DTO.getIdSale()) {
+                if ((pt2DTO.getPocetakTermina().before(termin.getKrajTermina()) && pt2DTO.getPocetakTermina().after(termin.getPocetakTermina())) ||
+                        (pt2DTO.getKrajTermina().before(termin.getKrajTermina()) && pt2DTO.getKrajTermina().after(termin.getPocetakTermina())) ||
+                        (pt2DTO.getKrajTermina().after(termin.getKrajTermina()) && pt2DTO.getPocetakTermina().before(termin.getPocetakTermina())) ||
+                        pt2DTO.getKrajTermina().equals(termin.getKrajTermina()) || pt2DTO.getPocetakTermina().equals(termin.getPocetakTermina())) {
+                    TerminDTO retVal = new TerminDTO(Long.valueOf(0), termin.getPocetakTermina(), termin.getKrajTermina(), -1, 0, "not set", "not set", "not set");
+                    return new ResponseEntity<>(retVal, HttpStatus.OK);
+                }
             }
+        }
+        Termin newTermin = new Termin();
+        newTermin.setCena(pt2DTO.getCena());
+        newTermin.setPocetakTermina(pt2DTO.getPocetakTermina());
+        newTermin.setKrajTermina(pt2DTO.getKrajTermina());
+        newTermin.setTrajanjeTermina(pt2DTO.getTrajanjeTermina());
+        newTermin.setOtkazan(false);
+        newTermin.setSale(salaService.findOne(pt2DTO.getIdSale()));
+        newTermin.setTrener(trenerService.findOne(pt2DTO.getIdTrenera()));
+        newTermin.setTrening(treningService.findOne(pt2DTO.getIdTreninga()));
+
+
+        Termin terminRV = this.terminService.kreiraj(newTermin);
+        TerminDTO retVal = new TerminDTO(
+                terminRV.getId(),
+                terminRV.getPocetakTermina(),
+                terminRV.getKrajTermina(),
+                terminRV.getTrajanjeTermina(),
+                terminRV.getCena(),
+                terminRV.getTrening().getNaziv(),
+                terminRV.getTrening().getOpis(),
+                terminRV.getTrening().getTipTreninga());
+
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/izmeniTermin/{idTermina}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminDTO> noviTermin(@RequestBody TerminPt2DTO newTerminDTO, @PathVariable Long idTermina) throws Exception {
+
+        Termin newTermin = this.terminService.findOne(idTermina);
+
+        if (newTerminDTO.getCena() >= 0) {
+            newTermin.setCena(newTerminDTO.getCena());
+        }
+        if (newTerminDTO.getIdSale() > 0) {
+            newTermin.setSale(salaService.findOne(newTerminDTO.getIdSale()));
+        }
+        @SuppressWarnings("deprecation")
+        Date ref = new Date(125, 12, 31);
+
+        if (newTerminDTO.getPocetakTermina().before(ref) && newTerminDTO.getKrajTermina().before(ref)) {
+            List<Termin> sviTermini = terminService.findAll();
+            for (Termin termin : sviTermini) {
+                //System.out.println(termin.getSala().getId() + "==" + newTermin.getSala().getId() + " | " + (termin.getSala().getId() == newTermin.getSala().getId()));
+                if (termin.getSale().getId() == newTermin.getSale().getId()) {
+                    if (termin.getId() != newTermin.getId()) {
+                        if ((newTerminDTO.getPocetakTermina().before(termin.getKrajTermina()) && newTerminDTO.getPocetakTermina().after(termin.getPocetakTermina())) ||
+                                (newTerminDTO.getKrajTermina().before(termin.getKrajTermina()) && newTerminDTO.getKrajTermina().after(termin.getPocetakTermina())) ||
+                                (newTerminDTO.getKrajTermina().after(termin.getKrajTermina()) && newTerminDTO.getPocetakTermina().before(termin.getPocetakTermina())) ||
+                                newTerminDTO.getKrajTermina().equals(termin.getKrajTermina()) || newTerminDTO.getPocetakTermina().equals(termin.getPocetakTermina())) {
+                            System.out.println(termin.getId());
+                            TerminDTO retVal = new TerminDTO(Long.valueOf(0), termin.getPocetakTermina(), termin.getKrajTermina(), -1, 0, "not set", "not set", "not set");
+                            return new ResponseEntity<>(retVal, HttpStatus.OK);
+                        }
+                    }
+                }
+            }
+            newTermin.setPocetakTermina(newTerminDTO.getPocetakTermina());
+            newTermin.setKrajTermina(newTerminDTO.getKrajTermina());
+            newTermin.setTrajanjeTermina(newTerminDTO.getTrajanjeTermina());
+        }
+        if(newTerminDTO.getIdTreninga() > 0) {
+            newTermin.setTrening(treningService.findOne(newTerminDTO.getIdTreninga()));
+        }
+
+        Termin terminRV = this.terminService.izmeni(newTermin);
+        TerminDTO retVal = new TerminDTO(terminRV.getId(),
+                terminRV.getPocetakTermina(),
+                terminRV.getKrajTermina(),
+                terminRV.getTrajanjeTermina(),
+                terminRV.getCena(),
+                terminRV.getTrening().getNaziv(),
+                terminRV.getTrening().getOpis(),
+                terminRV.getTrening().getTipTreninga());
+
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/otkaziTermin/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminDTO> otkaziTermin(@PathVariable Long id) throws Exception {
+
+        Termin terminRV = this.terminService.otkaziTermin(id);
+        TerminDTO retVal = new TerminDTO(terminRV.getId(),
+                terminRV.getPocetakTermina(),
+                terminRV.getKrajTermina(),
+                terminRV.getTrajanjeTermina(),
+                terminRV.getCena(),
+                terminRV.getTrening().getNaziv(),
+                terminRV.getTrening().getOpis(),
+                terminRV.getTrening().getTipTreninga());
+
+
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/prijaviTermin",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<BrojacMesta> prijaviTermin(@RequestBody BrojacMesta info) throws Exception {
+
+
+        Termin newTermin = this.terminService.findOne(info.getIdTermina());
+        Clan clan = this.clanService.findOne(info.idClana);
+        if(newTermin.getClanovi_neodradjeni().size() >= newTermin.getSale().getKapacitet()) {
+            BrojacMesta retVal = new BrojacMesta(Long.valueOf(0), Long.valueOf(0), -1);
+            return new ResponseEntity<>(retVal, HttpStatus.OK);
+        }
+        //System.out.println("PROLAZ?");
+        Set<Termin> updatedSet = clan.getNeodradjeniTermini();
+
+        updatedSet.add(newTermin);
+        clan.setNeodradjeniTermini(updatedSet);
+        this.clanService.save(clan);
+
+
+        BrojacMesta retVal = new BrojacMesta(Long.valueOf(0), Long.valueOf(0), 0);
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+    @PostMapping( value = "/odjaviTermin",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<BrojacMesta> odjaviTermin(@RequestBody BrojacMesta info) throws Exception {
+
+
+        Clan clan = this.clanService.findOne(info.idClana);
+
+        Set<Termin> originalSet = clan.getNeodradjeniTermini();
+        Set<Termin> updatedSet = new HashSet<>();
+
+        for(Termin termin : originalSet) {
+            if(termin.getId() != info.getIdTermina()) {
+                updatedSet.add(termin);
+            }
+        }
+        clan.setNeodradjeniTermini(updatedSet);
+        this.clanService.save(clan);
+
+
+        BrojacMesta retVal = new BrojacMesta(Long.valueOf(0), Long.valueOf(0), 0);
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+    @GetMapping( value = "/prijavljeniTermini/{idClana}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminPt2DTO>> getPrijavljeneTermine(@PathVariable Long idClana) {
+
+
+        Clan clan = this.clanService.findOne(idClana);
+
+        Set<Termin> termini = clan.getNeodradjeniTermini();
+        Set<Termin> termini1 = clan.getOdradjeniTermini();
+        Set<Termin> terminiNO = new HashSet<>();
+        Set<Termin> terminiO = new HashSet<>();
+
+        java.util.Date current=new java.util.Date();
+
+        List<TerminPt2DTO> terminDTOS = new ArrayList<>();
+        for(Termin termin : termini1) {
+            terminiO.add(termin);
+        }
+        for(Termin termin : termini) {
+            if(termin.getKrajTermina().before(current)) {
+                terminiO.add(termin);
+            } else {
+                terminiNO.add(termin);
+                TerminPt2DTO terminDTO = new TerminPt2DTO(
+                        termin.getId(),
+                        termin.getPocetakTermina(),
+                        termin.getKrajTermina(),
+                        termin.getTrajanjeTermina(),
+                        termin.getCena(),
+                        termin.getTrening().getNaziv(),
+                        termin.getTrening().getOpis(),
+                        termin.getTrening().getTipTreninga(),
+                        termin.getTrening().getId(),
+                        termin.getTrener().getId(),
+                        termin.getSale().getId(),
+                        termin.getSale().getOznakaSale(),
+                        termin.getTrener().getKorisnickoIme(),
+                        0.0);
+                terminDTOS.add(terminDTO);
+            }
+
+        }
+        clan.setNeodradjeniTermini(terminiNO);
+        clan.setOdradjeniTermini(terminiO);
+        this.clanService.save(clan);
+        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
+    }
+    @GetMapping( value = "/ocenjeniTermini/{idClana}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminPt2DTO>> getOcenjene(@PathVariable Long idClana) {
+
+
+        Clan clan = this.clanService.findOne(idClana);
+
+        Set<Termin> termini = clan.getOdradjeniTermini();
+        Set<Ocena> ocene = clan.getOcene();
+
+        List<TerminPt2DTO> terminDTOS = new ArrayList<>();
+
+        for(Termin termin : termini) {
+            for(Ocena ocena : ocene) {
+                if(ocena.getTermin().getId() == termin.getId()) {
+                    TerminPt2DTO terminDTO = new TerminPt2DTO(
+                            termin.getId(),
+                            termin.getPocetakTermina(),
+                            termin.getKrajTermina(),
+                            termin.getTrajanjeTermina(),
+                            termin.getCena(),
+                            termin.getTrening().getNaziv(),
+                            termin.getTrening().getOpis(),
+                            termin.getTrening().getTipTreninga(),
+                            termin.getTrening().getId(),
+                            termin.getTrener().getId(),
+                            termin.getSale().getId(),
+                            termin.getSale().getOznakaSale(),
+                            termin.getTrener().getKorisnickoIme(),
+                            ocena.getOcena());
+                    terminDTOS.add(terminDTO);
+                }
+            }
+
+        }
         return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/dodajTermin",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TerminDTO> dodajTerin(@RequestBody TerminDTO terminDTO) throws Exception{
-
-        Termin termin = new Termin(terminDTO.getId(),
-                terminDTO.getPocetakTermina(), terminDTO.getBrojPrijavljenihClanova(),
-                terminDTO.getCena(), terminDTO.getNaziv(), terminDTO.getOpis(),
-                terminDTO.getTipTreninga(), terminDTO.getOznakaSale());
-
-        termin = terminService.dodaj(termin);
-        terminDTO.setId(termin.getId());
-
-        return new ResponseEntity<>(terminDTO, HttpStatus.CREATED);
-    }
-
-    @PutMapping(value = "/azurirajTermin/{id}",
+    @GetMapping(value = "/neocenjeniTermini/{idClana}",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TerminDTO> izmenaTermina(@PathVariable Long id, @RequestBody TerminDTO terminDTO) throws Exception{
+    public ResponseEntity<List<TerminPt2DTO>> getTermineZaClana2(@PathVariable Long idClana) {
 
-        Optional<Termin> terminOptional = Optional.ofNullable(terminService.findOne(id));
 
-        if(!terminOptional.isPresent()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Clan clan = this.clanService.findOne(idClana);
 
-        Termin termin = new Termin(terminOptional.get().getId(),
-                terminDTO.getPocetakTermina(), terminDTO.getBrojPrijavljenihClanova(),
-                terminDTO.getCena(), terminDTO.getNaziv(), terminDTO.getOpis(),
-                terminDTO.getTipTreninga(), terminDTO.getOznakaSale());
+        Set<Termin> termini = clan.getOdradjeniTermini();
+        Set<Ocena> ocene = clan.getOcene();
 
-        termin = terminService.izmeni(termin);
-        terminDTO.setId(id);
+        List<TerminPt2DTO> terminDTOS = new ArrayList<>();
 
-        return new ResponseEntity<>(terminDTO, HttpStatus.ACCEPTED);
-    }
-
-    @DeleteMapping(value = "/TerminList/{id}")
-    public ResponseEntity<Void> obrisiTermin(@PathVariable Long id){
-        this.terminService.obrisi(id);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping(value = "/TerminList/naziv",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> pretragaNaziv(@RequestParam String naziv){
-
-        System.out.println(naziv);
-
-        List<Termin> terminList = terminService.findByNaziv(naziv);
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/tipTreninga",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> pretragaTipTreninga(@RequestParam TipTreninga tipTreninga){
-
-        System.out.println(tipTreninga);
-
-        List<Termin> terminList = terminService.findAllByTipTreninga(tipTreninga);
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/opis",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> getAllDTOOpis(@RequestParam String opis){
-
-        System.out.println(opis);
-
-        List<Termin> terminList = terminService.findByOpis(opis);
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/pocetak",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> getAllDTOPocetak(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")Date pocetakTermina){
-
-        System.out.println(pocetakTermina);
-
-        List<Termin> terminList = terminService.findAllVremeGreaterEqual(pocetakTermina);
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/pretraziPoCeni",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> getAllDTONaziv(@RequestParam double cena){
-        System.out.println(cena);
-
-        List<Termin> terminList = terminService.findByCenaMax(cena);    // uneti max cenu - ogranicenje
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/rastuciSortCena",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> sortRastuciCena(){
-
-        List<Termin> terminList = terminService.sortCena();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/opadajuciSortCena",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> sortOpadCena(){
-
-        List<Termin> terminList = terminService.sortCenaDesc();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/rastuciSortVreme",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> sortRastuciVreme(){
-
-        List<Termin> terminList = terminService.sortVreme();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new  TerminDTO(termin.getId(), termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/opadajuciSortVreme",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> sortOpadVreme(){
-
-        List<Termin> terminList = terminService.sortVremeDesc();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/TerminList/nasumicanRedosled",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> nasumicanRedosledSort(){
-
-        List<Termin> terminList = terminService.findAll();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
-
-        for(Termin termin: terminList){
-            TerminDTO terminDTO = new TerminDTO(termin.getId(),
-                    termin.getPocetakTermina(),
-                    termin.getBrojPrijavljenihClanova(),
-                    termin.getCena(), termin.getTrening().getNaziv(),
-                    termin.getTrening().getOpis(),
-                    termin.getTrening().getTipTreninga(),
-                    termin.getSale().getOznakaSale());
-
-            terminDTOList.add(terminDTO);
-        }
-        return  new ResponseEntity<>(terminDTOList, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/izabraniTermini/{id}",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<IzabraniTerminDTO> izabraniTermini(@PathVariable Long id){
-
-        Termin termin = terminService.findOne(id);
-
-            if(termin == null){
-                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-
-            }
-
-            int trenutniKapacitet = termin.getSale().getKapacitet() - termin.getBrojPrijavljenihClanova();
-
-        IzabraniTerminDTO izabraniTerminDTO = new IzabraniTerminDTO(termin.getId(),
-                termin.getPocetakTermina(), termin.getBrojPrijavljenihClanova(),
-                termin.getCena(), termin.getTrening().getTipTreninga(), termin.getTrening().getNaziv(),
-                termin.getTrening().getOpis(), termin.getSale().getOznakaSale(), trenutniKapacitet);
-
-        return new ResponseEntity<>(izabraniTerminDTO, HttpStatus.OK);
-    }
-
-    @PostMapping(value = "/prijaviTrening/{idKorisnik}/{idTermin}",
-                consumes = MediaType.APPLICATION_JSON_VALUE,
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<IzabraniTerminDTO> prijava(@PathVariable Long idKorisnik,
-                                                     @PathVariable Long idTermin){
-            Termin termin = terminService.findOneById(idTermin);
-            Korisnik korisnik = korisnikService.findOneById(idKorisnik);
-
-                System.out.println(korisnik.getIme());
-                System.out.println(termin.getCena());
-
-                if(korisnik == null  || termin == null ){
-                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        for(Termin termin : termini) {
+            boolean x = false;
+            for(Ocena ocena : ocene) {
+                if(ocena.getTermin().getId() == termin.getId()) {
+                    x = true;
                 }
-
-                int noviBrojPrijavljenih = termin.getBrojPrijavljenihClanova() + 1;
-                termin.setBrojPrijavljenihClanova(noviBrojPrijavljenih);
-                korisnikService.save(korisnik);
-
-            return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @PutMapping(value = "/odjaviTrening/{idKorisnik}/{idTermin}",
-                consumes = MediaType.APPLICATION_JSON_VALUE,
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<IzabraniTerminDTO> odjava(@PathVariable Long idKorisnik,
-                                                    @PathVariable Long idTermin){
-        Korisnik korisnik = korisnikService.findOneById(idKorisnik);
-        Termin termin = terminService.findOneById(idTermin);
-
-            if( korisnik == null||  termin == null){
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            if(!x) {
+                TerminPt2DTO terminDTO = new TerminPt2DTO(
+                        termin.getId(),
+                        termin.getPocetakTermina(),
+                        termin.getKrajTermina(),
+                        termin.getTrajanjeTermina(),
+                        termin.getCena(),
+                        termin.getTrening().getNaziv(),
+                        termin.getTrening().getOpis(),
+                        termin.getTrening().getTipTreninga(),
+                        termin.getTrening().getId(),
+                        termin.getTrener().getId(),
+                        termin.getSale().getId(),
+                        termin.getSale().getOznakaSale(),
+                        termin.getTrener().getKorisnickoIme(),
+                        0.0);
+                terminDTOS.add(terminDTO);
             }
 
-        int noviBrojPrijavljenih = termin.getBrojPrijavljenihClanova() + 1;
-        termin.setBrojPrijavljenihClanova(noviBrojPrijavljenih);
-
-        korisnik.getPrijavljeniTermini().remove(termin);
-
-        korisnikService.save(korisnik);
-
-        return new ResponseEntity<>(HttpStatus.OK);
-
+        }
+        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/TerminList/ocenjeni/{id}",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<IzabraniTerminDTO>> listaOcenjenihTermina(@PathVariable Long id){
+    @GetMapping( value = "/oTerminu/{idTermina}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminPt2DTO> getTerminZaClana(@PathVariable Long idTermina) {
 
-        Korisnik korisnik = korisnikService.findOneById(id);
-        System.out.println(korisnik.getIme());
+        Termin termin = this.terminService.findOne(idTermina);
 
-            Set<Termin> terminList = korisnik.getPrijavljeniTermini();
-            Set<IzabraniTerminDTO> izabraniTerminDTOS = new HashSet<>();
+        Trener trener = this.trenerService.findOne(termin.getTrener().getId());
+        trener.setProsecnaOcena(this.ocenaService.izracunajProsecnuOcenu(trener.getId()));
+        this.trenerService.save(trener);
 
-                for(Termin termin : terminList){
+        TerminPt2DTO terminDTO = new TerminPt2DTO(
+                termin.getId(),
+                termin.getPocetakTermina(),
+                termin.getKrajTermina(),
+                termin.getTrajanjeTermina(),
+                termin.getCena(),
+                termin.getTrening().getNaziv(),
+                termin.getTrening().getOpis(),
+                termin.getTrening().getTipTreninga(),
+                termin.getTrening().getId(),
+                termin.getTrener().getId(),
+                termin.getSale().getId(),
+                termin.getSale().getOznakaSale(),
+                termin.getTrener().getKorisnickoIme(),
+                termin.getTrener().getProsecnaOcena());
 
-                    System.out.println(termin.getCena());
-                    Set<Ocena> ocenaSet = termin.getOcene();
 
-                        for(Ocena ocene : ocenaSet){
-                            if(ocene.getKorisnik().getId() == id){
-                                Date date = new Date();
+        return new ResponseEntity<>(terminDTO, HttpStatus.OK);
+    }
 
-                                    if(date.after(termin.getPocetakTermina())){
-                                        IzabraniTerminDTO izabraniTerminDTO = new IzabraniTerminDTO(termin.getId(),
-                                                termin.getPocetakTermina(), termin.getCena(), termin.getTrening().getNaziv(),
-                                                termin.getTrening().getOpis(), termin.getTrening().getTipTreninga(),
-                                                termin.getSale().getOznakaSale());
+    @GetMapping( value = "/zahtevi",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminDTO>> getTermini() {
 
-                            izabraniTerminDTOS.add(izabraniTerminDTO);
-                            break;
-                                    }
-                            }
-                        }
+
+        List<Termin> terminiList = this.terminService.findAll();
+
+
+        List<TerminDTO> terminDTOS = new ArrayList<>();
+
+        for (Termin termin : terminiList) {
+
+            TerminDTO terminDTO = new TerminDTO(
+                    termin.getId(),
+                    termin.getPocetakTermina(),
+                    termin.getKrajTermina(),
+                    termin.getTrajanjeTermina(),
+                    termin.getCena(),
+                    "-",
+                    "-",
+                    "-");
+            terminDTOS.add(terminDTO);
+        }
+
+        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
+    }
+    @GetMapping(value = "/get/{idTrenera}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminPt2DTO>> getTermineZaTrenera(@PathVariable Long idTrenera) {
+
+
+        List<Termin> terminiList = this.terminService.findAllById(idTrenera);
+
+
+        List<TerminPt2DTO> terminDTOS = new ArrayList<>();
+
+        for (Termin termin : terminiList) {
+
+            TerminPt2DTO terminDTO = new TerminPt2DTO(
+                    termin.getId(),
+                    termin.getPocetakTermina(),
+                    termin.getKrajTermina(),
+                    termin.getTrajanjeTermina(),
+                    termin.getCena(),
+                    termin.getTrening().getNaziv(),
+                    termin.getTrening().getOpis(),
+                    termin.getTrening().getTipTreninga(),
+                    termin.getTrening().getId(),
+                    termin.getTrener().getId(),
+                    termin.getSale().getId(),
+                    termin.getSale().getOznakaSale(),
+                    termin.getTrener().getKorisnickoIme(),
+                    0.0);
+            terminDTOS.add(terminDTO);
+        }
+
+        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
+    }
+
+
+    @PostMapping(value = "/criteria",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminDTO>> getTerminiByCrit(@RequestBody PretragaDTO searchInDTO) throws Exception {
+
+        PretragaDTO searchDTO = new PretragaDTO(
+                searchInDTO.getMaxCena(),
+                searchInDTO.getMaxTrajanje(),
+                searchInDTO.getTipTreninga(),
+                searchInDTO.getNaziv(),
+                searchInDTO.getOpis(),
+                searchInDTO.getDoDatuma(),
+                searchInDTO.isSviparametri());
+
+
+        List<TerminDTO> terminiDTOS = this.terminService.findAllPretraga(searchDTO);
+
+        return new ResponseEntity<>(terminiDTOS, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/criteriaPrijava/{idClana}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminDTO>> getTerminiByCritPrijava(@RequestBody PretragaDTO searchInDTO, @PathVariable Long idClana) throws Exception {
+
+        PretragaDTO searchDTO = new PretragaDTO(
+                searchInDTO.getMaxCena(),
+                searchInDTO.getMaxTrajanje(),
+                searchInDTO.getTipTreninga(),
+                searchInDTO.getNaziv(),
+                searchInDTO.getOpis(),
+                searchInDTO.getDoDatuma(),
+                searchInDTO.isSviparametri());
+
+
+        List<TerminDTO> terminiDTOS = this.terminService.findAllPretraga(searchDTO);
+
+        Set<Termin> neodradjeniTermini = this.clanService.findOne(idClana).getNeodradjeniTermini();
+
+
+        List<TerminDTO> terminiOdradjeni = new ArrayList<>();
+
+        for(TerminDTO termin : terminiDTOS) {
+            boolean x = false;
+            for(Termin terminNO : neodradjeniTermini) {
+                if(termin.getId() == terminNO.getId()) {
+                    x = true;
                 }
-        return new ResponseEntity<>(izabraniTerminDTOS, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/listaNeocenjenihTermina/{id}",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<TerminDTO>> listaNeocenjenihTermina(@PathVariable Long id){
-
-        Korisnik korisnik = korisnikService.findOneById(id);
-        System.out.println(korisnik.getIme());
-
-        Set<Termin> terminSet = korisnik.getPrijavljeniTermini();
-        Set<TerminDTO> terminDTOSet = new HashSet<>();
-
-            for(Termin termini : terminSet){
-
-                System.out.println(termini.getCena());
-                Set<Ocena> ocenaSet = termini.getOcene();
-                boolean ocenjenTermin = false; // pocetna pretpostavka - termin nije ocenjen
-
-                    for(Ocena ocene: ocenaSet){
-                        if(ocene.getKorisnik().getId() == id){
-                            ocenjenTermin = true;   // ako postoji ocena - izmeniti inicijalnu vrednost promenljive, ali ne ocitavati korisnika
-                            break;
-                        }
-                    }
-                        if(ocenjenTermin == false){
-                            Date date = new Date();
-                            if(date.after(termini.getPocetakTermina())){
-
-                                TerminDTO terminDTO = new TerminDTO(termini.getId(),
-                                        termini.getTrening().getNaziv(), termini.getTrening().getOpis(),
-                                        termini.getTrening().getTipTreninga(), termini.getSale().getOznakaSale(),
-                                        termini.getPocetakTermina(), termini.getCena());
-
-                                terminDTOSet.add(terminDTO);
-                                break;
-                            }
-                        }
             }
-            return new ResponseEntity<>(terminDTOSet, HttpStatus.OK);
-    }
+            if(!x) {
+                terminiOdradjeni.add(termin);
+            }
+        }
+        List<TerminDTO> terminiDostupni = new ArrayList<>();
+        java.util.Date date=new java.util.Date();
+        for(TerminDTO termin : terminiOdradjeni) {
+            if(termin.getPocetakTermina().after(date)) {
+                terminiDostupni.add(termin);
+            }
+        }
 
+
+
+        return new ResponseEntity<>(terminiDostupni, HttpStatus.OK);
+    }
 }
