@@ -432,7 +432,7 @@ public class TerminController {
                 searchInDTO.getNaziv(),
                 searchInDTO.getOpis(),
                 searchInDTO.getDoDatuma(),
-                searchInDTO.isSviparametri());
+                searchInDTO.isSve());
 
 
         List<TerminDTO> terminiDTOS = this.terminService.findAllPretraga(searchDTO);
@@ -452,7 +452,7 @@ public class TerminController {
                 searchInDTO.getNaziv(),
                 searchInDTO.getOpis(),
                 searchInDTO.getDoDatuma(),
-                searchInDTO.isSviparametri());
+                searchInDTO.isSve());
 
 
         List<TerminDTO> terminiDTOS = this.terminService.findAllPretraga(searchDTO);

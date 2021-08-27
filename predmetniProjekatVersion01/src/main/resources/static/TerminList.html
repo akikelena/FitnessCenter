@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="css/table_prop.css">
+    <link rel="stylesheet" href="css/termini_tabela.css">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/TerminList.js"></script>
@@ -46,24 +47,74 @@
     <hr/>
     <br><br>
 
-    <table id="termini-List" class="styled-table">
+    <table id = "tabelaSearch" class="styled-table">
+        <form id="searchBox" name = "searchBox" method="POST">
+            <tr class="active-row">
+
+                <th id = "naslovTabele" colspan="1">PRETRAGA TERMINA</th>
+                <th class = "celijaZaSearch" colspan="1">
+                    <label class="radioLabel" for="sve">PRIKAZI SVE</label>
+                    <input class="radioButton" id= "sve" name="ropcija" type="radio" value="sve"/>
+                    <label class="radioLabel" for="kriterijum">PO KRITERIJUMU</label>
+                    <input class="radioButton" id= "kriterijum" name="ropcija" type="radio" value="krit"/>
+                    <br/>
+                    <input id= "maksimalnaCena" class= "criteriaInputBox" name="maksimalnaCena" type="text" placeholder="MAKSIMALNA CENA"/>
+                    <input id= "maksimalnoTrajanje" class= "criteriaInputBox" name="maksimalnoTrajanje" type="text" placeholder="MAKSIMALNO TRAJANJE"/>
+                    <br/>
+                    <select name="nazivTreninga" id = "nazivSelect" class = "criteriaSelectBox">
+                        <option value = "sve">NAZIV TRENINGA</option>
+                        <option value = "push">INTENSE</option>
+                        <option value = "pull">MEDIUM</option>
+                        <option value = "legs">EASY</option>
+                    </select>
+                    <select name="opisTreninga" id = "opisSelect" class = "criteriaSelectBox">
+                        <option value = "sve">OPIS TRENINGA</option>
+                        <option value = "crossfit">NAPREDNI NIVO TRENINGA</option>
+                        <option value = "cardio">VEZBE TEHNIKE</option>
+                        <option value = "powerlift">TAKMICARSKA GRUPA</option>
+                        <option value = "bodybuilding">OSNOVI NIVO TRENINGA</option>
+                    </select>
+                    <br/>
+                    <select name="tipTreninga" id = "tipSelect" class = "criteriaSelectBox">
+                        <option value = "sve">TIP TRENINGA</option>
+                        <option value = "crossfit">CROSSFIT</option>
+                        <option value = "fitness">FITNESS</option>
+                        <option value = "yoga">YOGA</option>
+                        <option value = "skill">SKILL</option>
+                        <option value = "trx">TRX</option>
+                        <option value = "competition">COMPETITION</option>
+                        <option value = "mobility">MOBILITY</option>
+                    </select>
+                    <input id= "datum" class= "criteriaInputBox" name="datum" type="DATE"/>
+
+                </th>
+                <th class = "celijaZaSearch">
+                    <input id = "dugmeTrazi" type = "submit" value = "TRAŽI"/>
+                </th>
+
+            </tr>
+        </form>
+    </table>
+    <table id = "tabelaTermina" class="styled-table">
         <thead>
         <tr class="active-row">
-            <th>#</th>
-            <th>Pocetak termina</th>
-            <th>Broj prijavljenih clanova</th>
-            <th>Cena</th>
-            <th>Naziv</th>
-            <th>Opis</th>
-            <th>Tip treninga</th>
-            <th>Sala</th>
-            <th> Odaberi termin</th>
+            <td class="celijaNaslovTabele idWidth" onclick="sortirajBroj(0)">ID</td>
+            <td class="celijaNaslovTabele nazivWidth" onclick="sortiraj(1)">NAZIV</td>
+            <td class="celijaNaslovTabele opisWidth" onclick="sortiraj(2)">OPIS</td>
+            <td class="celijaNaslovTabele tipWidth" onclick="sortiraj(3)">TIP</td>
+            <td class="celijaNaslovTabele vremeWidth" onclick="sortiraj(4)"> POCETAK TERMINA</td>
+            <td class="celijaNaslovTabele vremeWidth" onclick="sortiraj(5)">KRAJ TERMINA</td>
+            <td class="celijaNaslovTabele trajanjeWidth" onclick="sortirajSaSufiksom(6,3)">TRAJANJE</td>
+            <td class="celijaNaslovTabele cenaWidth" onclick="sortirajSaSufiksom(7,3)">CENA </td>
         </tr>
         </thead>
-        <tbody>
+        <tbody id = "sadrzajTabele">
 
         </tbody>
+
+
     </table>
+
 
 </main>
 

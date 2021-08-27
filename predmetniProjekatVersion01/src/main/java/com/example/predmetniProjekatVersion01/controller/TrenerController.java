@@ -137,13 +137,13 @@ public class TrenerController {
 
     }
 
-    @GetMapping(value = "/profil/{id}",
+    @GetMapping(value = "/profil/{idTrenera}",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TrenerDTO> getAktivne(@PathVariable Long id) {
+    public ResponseEntity<TrenerDTO> getAktivne(@PathVariable Long idTrenera) {
 
-        Trener trener = this.trenerService.findOne(id);
+        Trener trener = this.trenerService.findOne(idTrenera);
 
-        trener.setProsecnaOcena(this.ocenaService.izracunajProsecnuOcenu(id));
+        trener.setProsecnaOcena(this.ocenaService.izracunajProsecnuOcenu(idTrenera));
         this.trenerService.save(trener);
 
         TrenerDTO retVal = new TrenerDTO(

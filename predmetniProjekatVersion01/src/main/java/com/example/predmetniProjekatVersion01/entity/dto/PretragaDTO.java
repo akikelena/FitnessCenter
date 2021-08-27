@@ -21,9 +21,9 @@ public class PretragaDTO {
     private String opis;
     private Date doDatuma;
 
-    private boolean sviparametri;
+    private boolean sve;
 
-    public boolean isSviparametri() {
-        return sviparametri;
+    public boolean isSve() {
+        return sve;
     }
 }

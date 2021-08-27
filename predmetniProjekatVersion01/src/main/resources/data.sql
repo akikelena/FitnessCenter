@@ -25,13 +25,13 @@ INSERT INTO TRENER (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, emai
 INSERT INTO TRENER (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, aktivan, uklonjen, prosecna_ocena, fitness_centar_id) VALUES ('m.bojana', 'bojananovi0708', 'Bojana', 'Milic', '0656768987', 'bojanamilicntr07@gmail.com', '1980-10-02 19:00:00.000000', true, true, '8.45', 1);
 
 /* TRENING */
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('crossfit', 'napredni nivo treninga', 'CROSSFIT');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('fitness', 'srednje napredni nivo treninga', 'FITNESS');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('yoga', 'osnovi nivo treninga', 'YOGA');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('skill', 'vezbe tehnike', 'SKILL');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('trx', 'srednje napredni nivo treninga', 'TRX');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('competition', 'takmicarska pripremna grupa', 'COMPETITION');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('mobility', 'srednji nivo treninga', 'MOBILITY');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('intense', 'napredni nivo treninga', 'CROSSFIT');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'srednji nivo treninga', 'FITNESS');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('easy', 'osnovi nivo treninga', 'YOGA');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'vezbe tehnike', 'SKILL');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'srednji nivo treninga', 'TRX');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('intense', 'takmicarska grupa', 'COMPETITION');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('easy', 'srednji nivo treninga', 'MOBILITY');
 
 /* TERMIN  */
 INSERT INTO TERMIN(pocetak_termina, kraj_termina, trajanje_termina, cena, otkazan, trening_id, trener_id, sale_id) VALUES ('2021-05-04 11:30:00', '2021-05-04 12:30:00', '60', '550', 0, 1, 1, 2);
