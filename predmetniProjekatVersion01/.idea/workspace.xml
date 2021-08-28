@@ -6,23 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TerminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TrenerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TrenerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/PretragaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/entity/dto/PretragaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addTermin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addTermin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/approve_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/approve_request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/azurirajTermin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/azurirajTermin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/brisanjeKorisnikaTrenera.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteKorTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/deleteKorTr.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TerminList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addTermin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/approveReq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/approveReq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTermin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/brisanjeKorisnikaTrenera.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteKorTr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteKorTr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/userTerminiList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/userTerminiList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,9 +25,9 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -185,7 +171,7 @@
       <workItem from="1625903731918" duration="2351000" />
       <workItem from="1628266965992" duration="13543000" />
       <workItem from="1628610515591" duration="19679000" />
-      <workItem from="1629220465384" duration="79374000" />
+      <workItem from="1629220465384" duration="84125000" />
     </task>
     <servers />
   </component>
