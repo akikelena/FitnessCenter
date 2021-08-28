@@ -1,34 +1,72 @@
+function odjaviSe(){
+    localStorage.setItem("rola", 0);
+    localStorage.setItem("id", 0);
+    window.location.href = "index.html";
+}
 $(document).ready(function () {
+
+    let rola = localStorage.getItem("rola");
+    if(rola == null){
+        localStorage.setItem("rola", 0);
+        window.location.href = "index.html";
+    }
+    if(rola == 0){
+        window.location.href = "index.html";
+    }
+    if(rola == 2){
+        window.location.href = "trener_page.html";
+    }
+    if(rola == 3){
+        window.location.href = "user_page.html";
+    }
+
+
     $.ajax({
         type: "GET",
-        dataType : "json",
-        url : "http://localhost:8080/korisnik/KorisnikList",
-
-        success : function (response) {
-            console.log("SUCCESS: \n", response);
-
-            for(let korisnik of response){
-
-                let row = "<tr>";
-
-                row += "<td>" + korisnik.id + "</td>";
-                row += "<td>" + korisnik.korisnickoIme + "</td>";
-                row += "<td>" + korisnik.lozinka + "</td>";
-                row += "<td>" + korisnik.ime + "</td>";
-                row += "<td>" + korisnik.prezime + "</td>";
-                row += "<td>" + korisnik.kontaktTelefon + "</td>";
-                row += "<td>" + korisnik.email + "</td>";
-                row += "<td>" + korisnik.datumRodjenja + "</td>";
-                row += "<td>" + korisnik.uloga + "</td>";
-                row += "<td>" + korisnik.aktivan + "</td>";
-
+        url: "http://localhost:8080/trener/aktivniTreneri/" + rola,
+        dataType: "json",
+        success: function (res) {
+            for (i = 0; i < res.length; i++) {
+                let row = "<tr id = 'red" + res[i].id +"'>";
+                row += "<td class='celijaZahteva'>" + res[i].id + "</td>";
+                row += "<td class='celijaZahteva'>" + res[i].korisnickoIme + "</td>";
+                row += "<td class='celijaZahteva'>" + res[i].ime + "</td>";
+                row += "<td class='celijaZahteva'>" + res[i].prezime + "</td>";
+                row += "<td class='celijaZahteva'>" + res[i].email + "</td>";
+                row += "<td class='celijaZahteva'>" + res[i].kontaktTelefon + "</td>";
+                row += "<td class='celijaZahteva'>" + res[i].idFC + "</td>";
+                let btn = "<button id = 'dugmeObrisi' type = 'submit' data-id=" + res[i].id + ">OBRISI</button>";
+                row += "<td class='celijaZahteva'>" + btn + "</td>";
                 row += "</tr>";
-
-                $('#fc-List').append(row);
+                $('#tabelaZahteva').append(row);
             }
         },
-        error: function (response){
-            console.log("GRESKA! \n", response);
+        error: function (res) {
+            console.log("ERROR:\n", res);
+        }
+    });
+});
+$(document).on('click', '#dugmeObrisi', function () {
+
+    let empId = this.dataset.id;
+    let brisanje = "#red";
+    brisanje += empId;
+
+    let sakrij = $(brisanje);
+    sakrij.hide();
+
+
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:8080/trener/obrisiTrenera/" + empId,
+        dataType: "json",
+        contentType: "application/json",
+
+        success: function () {
+            alert("Trener je obrisan!");
+        },
+        error: function () {
+            console.log("ERROR:\n");
         }
     });
 });

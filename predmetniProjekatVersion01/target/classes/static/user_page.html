@@ -23,6 +23,7 @@
 
     <link href="assets/css/style.css" rel="stylesheet">
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/user_page.js"></script>
 
 </head>
 
@@ -69,17 +70,6 @@
 
             </div>
             <!-- Form -->
-            <!--
-                odabir termina iz rez pretrage - uvezati sa pretraga termina
-                prijva za termin ako ima slobodnih mesta - provera slobodnih u servisu
-                pregled PRIJAVLJENIH treninga
-                otkayivanje prijave za trening
-                pregled profila
-                pregled ODRADJENIH treninga
-                pregled ODRADJENIH, NEOCENJENIH treninga
-                mogucnost ocene treninga(pregled odradjenih treninga)
-                pregled ODREDJENIH, OCENJENIH treninga
-            -->
             <form  id="log-Form" method="post">
                 <div class="input-group col-lg-12 ">
                     <div class="row">
@@ -93,20 +83,20 @@
 
                         <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
 
-                            <div class="input-group col-lg-4 ">
+                            <div class="input-group col-lg-12 justify-content-center ">
                                 <div class="input-group-prepend">
 
                                 </div>
-                                <a href="mojprofil.html" class="btn-get-started scrollto btn-lg align-content-lg-center">
+                                <a href="userProfil.html" class="btn-get-started scrollto btn-lg align-content-lg-center">
                                     <strong>PRIKAZ PROFILA </strong></a>
                             </div>
 
-                            <div class="input-group col-lg-4 ">
+                            <div class="input-group col-lg-12 justify-content-center ">
                                 <div class="input-group-prepend">
 
                                 </div>
                                 <a href="azurirajKorisnika.html" class="btn-get-started scrollto btn-lg align-content-lg-center">
-                                    <strong>IZMENA PODATAKA </strong></a>
+                                    <strong>IZMENA PROFILA</strong></a>
                             </div>
 
 
@@ -115,35 +105,21 @@
 
                         <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
                             <div class="border-bottom w-100 ml-5"></div>
-                            <span class="px-2 small text-muted font-weight-bold text-muted">MOJI TRENINZI/TERMINI</span>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">TERMINI</span>
                             <div class="border-bottom w-100 mr-5"></div>
                         </div>
 
 
                         <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
 
-                            <div class="input-group col-lg-3 ">
+                            <div class="input-group col-lg-12 justify-content-center ">
                                 <div class="input-group-prepend">
 
                                 </div>
-                                <a href="pretragaTreninga.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> PRETRAGA TRENINGA</strong></a>
+                                <a href="userSviTermini.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> SVI TERMINI</strong></a>
                             </div>
 
-                            <div class="input-group col-lg-3">
-                                <div class="input-group-prepend">
-
-                                </div>
-                                <a href="NeocenjeniTerminiList.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> NEOCENJENI TERMINI</strong></a>
-                            </div>
-
-                            <div class="input-group col-lg-3">
-                                <div class="input-group-prepend">
-
-                                </div>
-                                <a href="ocenjeniTerminiList.html" class="btn-get-started scrollto btn-lg align-content-lg-center"> <strong> OCENJENI TERMINI</strong></a>
-                            </div>
-
-                            <div class="input-group col-lg-3">
+                            <div class="input-group col-lg-12 justify-content-center">
                                 <div class="input-group-prepend">
 
                                 </div>
@@ -154,46 +130,24 @@
 
                         <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
                             <div class="border-bottom w-100 ml-5"></div>
-                            <span class="px-2 small text-muted font-weight-bold text-muted">FITNESS CENTRI</span>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">*</span>
                             <div class="border-bottom w-100 mr-5"></div>
                         </div>
 
                         <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
 
-                            <div class="input-group col-lg-4 ">
+                            <div class="input-group col-lg-12 justify-content-center ">
                                 <div class="input-group-prepend">
 
                                 </div>
-                                <a href="FCList.html" class="btn-get-started scrollto btn-lg align-content-lg-center "> <strong>LISTA FITNESS CENTARA</strong></a>
+                                <button id="buttonLO" onclick = "odjaviSe()">Odjavi se</button>
                             </div>
+
+
                         </div>
 
 
-                        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
-                            <div class="border-bottom w-100 ml-5"></div>
-                            <span class="px-2 small text-muted font-weight-bold text-muted">TRENINZI/TERMINI</span>
-                            <div class="border-bottom w-100 mr-5"></div>
-                        </div>
                     </div>
-
-                    <div class="row col-lg-12" data-aos="fade-up" data-aos-delay="150">
-
-                        <div class="input-group col-lg-4 ">
-                            <div class="input-group-prepend">
-
-                            </div>
-                            <a href="TreningList.html" class="btn-get-started scrollto btn-lg align-content-lg-center "> <strong> LISTA TRENINGA</strong></a>
-                        </div>
-
-                        <div class="input-group col-lg-4 ">
-                            <div class="input-group-prepend">
-
-                            </div>
-                            <a href="TerminList.html" class="btn-get-started scrollto btn-lg align-content-lg-center "> <strong> LISTA TERMINA</strong></a>
-                        </div>
-                    </div>
-
-
                 </div>
             </form>
 

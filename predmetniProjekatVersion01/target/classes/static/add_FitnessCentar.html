@@ -46,7 +46,7 @@
         </nav>
     </header>
 
-    <form  id="fc-addForm" method="post">
+    <form  id="formBox" name="formBox" method="post">
 
         <div class="input-group col-lg-12 mb-4">
             <div class="input-group-prepend">
@@ -54,7 +54,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
             </div>
-            <input id="naziv" type="text" placeholder="Naziv fitness centra"
+            <input id="naziv" type="text" placeholder="Naziv fitness centra"  name="nazivCentra"
                    required class="form-control bg-white border-left-0 border-md"/> <br>
         </div>
 
@@ -64,7 +64,7 @@
                                 <i class="fa fa-map-marker text-muted"></i>
                             </span>
             </div>
-            <input id="adresa" type="text" placeholder="Adresa"
+            <input id="adresa" type="text" placeholder="Adresa" name="adresaCentra"
                    required class="form-control bg-white border-left-0 border-md"/> <br>
         </div>
 
@@ -74,7 +74,7 @@
                                 <i class="fa fa-phone-square text-muted"></i>
                             </span>
             </div>
-            <input id="brTelCentrale" type="tel" placeholder="Broj telefona centrale"
+            <input id="brTelCentrale" type="tel" placeholder="Broj telefona centrale" name="brTelefona"
                    required="true" class="form-control bg-white border-left-0 border-md"/> <br>
         </div>
 
@@ -85,12 +85,12 @@
                     <i class="fa fa-envelope text-muted"></i>
                             </span>
             </div>
-            <input id="email" type="email"  placeholder="Email"
+            <input id="email" type="email"  placeholder="Email" name="emailCentra"
                    required="true" class="form-control bg-white border-left-0 border-md"/> <br>
         </div>
 
          <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-            <input type="submit" value="Dodaj fitness centar">
+            <input  id="regBTN" type="submit" value="Dodaj fitness centar">
             </div>
                 </form>
             </div>

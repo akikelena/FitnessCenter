@@ -32,7 +32,7 @@ $(document).on("submit", "form", function (event) {
 
     let naziv = document.forms['fc-azurirajForm'].naziv.value;
     let adresa = document.forms['fc-azurirajForm'].adresa.value;
-    let brTelCentrale = document.forms['fc-azurirajForm'].brTelefona.value;
+    let brTelCentrale = document.forms['fc-azurirajForm'].brTelefonaCentrale.value;
     let email = document.forms['fc-azurirajForm'].Email.value;
     let rola = localStorage.getItem("rola");
     let idFC = localStorage.getItem("CentarZaPromenu");

@@ -6,10 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/userTerminiList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/userTerminiList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/TerminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/TerminServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajFC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/addSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/addSalu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/addTrenera.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/addTrenera.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/add_FitnessCentar.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/add_FitnessCentar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/approve_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/approve_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/azurirajFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/azurirajFC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/azurirajSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/azurirajSalu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/deleteFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/deleteFC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/deleteKorTr.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/deleteKorTr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/deleteSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/deleteSalu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/TerminList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/TerminList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/addTrenera.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/addTrenera.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/approveReq.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/approveReq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/azurirajFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/azurirajFC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/deleteKorTr.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/deleteKorTr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/trener_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/user_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +188,7 @@
       <workItem from="1625903731918" duration="2351000" />
       <workItem from="1628266965992" duration="13543000" />
       <workItem from="1628610515591" duration="19679000" />
-      <workItem from="1629220465384" duration="84125000" />
+      <workItem from="1629220465384" duration="87719000" />
     </task>
     <servers />
   </component>

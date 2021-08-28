@@ -54,7 +54,7 @@
 
                             </span>
                     </div>
-                    <input id="oznakaSale" type="text" placeholder="Oznaka sale"
+                    <input id="oznakaSale" type="text" placeholder="Oznaka sale" name="oznaka"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -63,17 +63,18 @@
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                             </span>
                     </div>
-                    <input id="kapacitet" type="number" placeholder="Kapacitet sale"
+                    <input id="kapacitet" type="number" placeholder="Kapacitet sale" name="kapacitetSale"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                            </span>
+
                     </div>
-                    <input id="idFC" type="number" placeholder="ID fitness centra"
-                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                    <select class="section-bg" id="fitnesCentri" name="fitnesCentri" required>
+                        <option value = "">IZABERI FITNES CENTAR</option>
+                    </select>
+                    <br>
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">

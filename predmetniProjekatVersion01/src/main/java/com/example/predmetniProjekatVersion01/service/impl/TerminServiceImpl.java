@@ -53,7 +53,7 @@ public class TerminServiceImpl implements TerminService {
                     terminDTOList.add(terminDTO);
                 }
             }
-            if(pretragaDTO.isSviparametri()){
+            if(pretragaDTO.isSve()){
                 return terminDTOList;
             } else {
 

@@ -14,7 +14,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/addTrening.js"></script>
+    <script src="js/addTermin.js"></script>
 </head>
 <body>
 
@@ -45,30 +45,40 @@
                 </nav>
             </header>
 
-            <form id="termin-addForm" method="post">
+            <form id="formBox" name="formBox" method="post">
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                             </span>
                     </div>
-                    <input id="pocetakTermina" type="date" placeholder="Datum termina"
+                    <input id="pocetakTerminaDatum" type="date" placeholder="Datum termina"
+                           name="pocetakDatum"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
                 <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                            </span>
+                   <div class="col-lg-6">
+                       <div class="input-group-prepend">
+                       </div>
+                       <input id="pocetakTerminaVreme" type="time"
+                              name="pocetakVreme" min="07:00" maxlength="23:00"
+                              required class="form-control bg-white border-left-0 border-md"/>
+                   </div>
+
+                    <div class="col-lg-6">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input id="krajTerminaVreme" type="time"
+                               name="krajVreme" min="07:00" maxlength="23:00"
+                               required class="form-control bg-white border-left-0 border-md"/>
                     </div>
-                    <input id="pocetakTerminaVreme" type="number" placeholder="Vreme početka termina"
-                           required class="form-control bg-white border-left-0 border-md"/> <br>
+
                 </div>
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-
                             </span>
                     </div>
                     <input id="cena" type="number" placeholder="Cena termina"
@@ -77,29 +87,24 @@
 
 
                 <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-
-                            </span>
-                    </div>
-                    <input id="oznakaSale" type="text"  placeholder="Oznaka sale"
-                           required="true" class="form-control bg-white border-left-0 border-md"/> <br>
+                        <select class="section-bg custom-select" id="treninzi" name="treninzi" required>
+                            <option value=""> TIP TRENINGA</option>
+                        </select>
+                     <br>
                 </div>
 
                 <div class="input-group col-lg-12 mb-4">
-                    <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-
-                            </span>
-                    </div>
-                    <input id="tipTreninga" type="text"  placeholder="Tip treninga(CROSSFIT, FITNESS, YOGA, SKILL, TRX, COMPETITION, MOBILITY)"
-                           required="true" class="form-control bg-white border-left-0 border-md"/> <br>
+                        <select class="section-bg custom-select" name="sale" id="sale" required>
+                            <option value="">ODABERI SALU</option>
+                        </select>
+                     <br>
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <button type="submit" id="btn-add-termin">Dodaj termin</button>
+                   <input id="regBTN" type="submit" value="DODAJ TERMIN" />
                 </div>
             </form>
+
         </div>
     </section>
 </main>

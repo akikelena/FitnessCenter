@@ -1,0 +1,176 @@
+
+
+#tabelaSearch{
+    background-color: #b3d7ff;
+    border: 5px solid #b3b7bb;
+    width: 80vw;
+    margin-left: 10vw;
+}
+#tabelaTermina{
+    background-color: #b3d7ff;
+    border: 5px solid #b3d7ff;
+    width: 80vw;
+    margin-left: 10vw;
+}
+
+.celijaNaslovTabele{
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    font-size: 2vh;
+    height: 4vh;
+    border: 0.5px solid #b3d7ff;
+    background-color: rgb(30, 30, 30);
+}
+
+.celijaNaslovTabele:hover{
+    color: #b3d7ff;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    font-size: 2vh;
+    height: 4vh;
+    border: 0.5px solid #b3d7ff;
+    background-color: rgb(30, 30, 30);
+}
+
+.celijaTabele{
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    height: 4vh;
+    border: 0.5px solid #b3d7ff;
+    background-color: rgb(30, 30, 30);
+}
+#naslovTabele{
+    color: rgb(30, 30, 30);
+    text-align: right;
+    font-size: 4vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+    height: 5vh;
+    border: 0.5px solid #b3d7ff;
+    background-color: #b3d7ff;
+}
+.idWidth{
+    width: 3%;
+}
+.nazivWidth{
+    width: 10%;
+}
+.opisWidth{
+    width: 12%;
+}
+.tipWidth{
+    width: 20%;
+}
+.vremeWidth{
+    width: 19%;
+}
+.trajanjeWidth{
+    width: 10%;
+}
+.cenaWidth{
+    width: 7%;
+}
+
+#radovi{
+    padding-left: 10vw;
+    width: 80vw;
+    height: 60vh;
+    margin: auto;
+}
+
+#testBox{
+    margin: 0 auto;
+    height: 1000px;
+    width: 1000px;
+    border: 1px solid orange;
+    background-color: blue;
+}
+
+
+.alignCenter{
+    text-align: center;
+}
+
+#kriterijumBox{
+    width: 70%;
+
+    color: #b3d7ff;
+    background-color: rgb(30, 30, 30);
+    margin-bottom: 2px;
+    border: #b3d7ff;
+
+    font-size: 1.5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+}
+
+.radioLabel{
+    color: rgb(30, 30, 30);
+
+    border: 1px solid #b3d7ff;
+
+    font-size: 1.5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+}
+
+.criteriaInputBox{
+    width: 30%;
+
+    color: #b3d7ff;
+    background-color: rgb(30, 30, 30);
+
+    border: 1px solid #b3d7ff;
+
+    font-size: 1.5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+}
+.criteriaSelectBox{
+    width: 30.6%;
+
+    color: #b3d7ff;
+    background-color: rgb(30, 30, 30);
+
+    border: 1px solid #b3d7ff;
+
+    font-size: 1.5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+}
+
+#dugmeTrazi{
+    width: 69%;
+    color: #b3d7ff;
+    background-color: rgb(30, 30, 30);
+    border: #b3d7ff;
+    font-size: 3vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+}
+#dugmeTrazi:hover{
+    width: 69%;
+    color: #b3d7ff;
+    background-color: rgb(24, 24, 24);
+    border: #b3d7ff;
+    font-size: 3vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+}
+#dugmeTrazi:active{
+    width: 69%;
+    color: rgb(30, 30, 30);
+    background-color: #b3d7ff;
+    border: rgb(30, 30, 30);
+    font-size: 3vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+}
+
+

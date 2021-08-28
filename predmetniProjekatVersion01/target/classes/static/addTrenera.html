@@ -46,16 +46,17 @@
                 </nav>
             </header>
 
-            <form id="trener-addForm" method="post">
+            <form id="formBox" name="formBox" method="post">
 
                 <div class="input-group col-lg-12 mb-4">
                     <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
-                            </span>
+
                     </div>
-                    <input id="idFC" type="number" placeholder="ID fitness centra"
-                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                    <label class="regFormText" for="fitnesCentri">Fitness centar:        </label>
+                    <select id="fitnesCentri" name="fitnesCentri" required>
+                        <option value = ""></option>
+                    </select>
+                    <br>
                 </div>
 
                 <div class="input-group col-lg-12 mb-4">
@@ -64,7 +65,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
-                    <input id="korisnickoIme" type="text" placeholder="Korisničko ime"
+                    <input id="korisnickoIme" type="text" placeholder="Korisničko ime" name="korime"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -74,7 +75,17 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                     </div>
-                    <input id="lozinka" type="password" placeholder="Lozinka"
+                    <input id="lozinka" type="password" placeholder="Lozinka" name="loz"
+                           required class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                    </div>
+                    <input id="lozinkaProvera" type="password" placeholder="Potvrdi lozinku" name="lozprov"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -84,7 +95,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
-                    <input id="ime" type="text" placeholder="Ime"
+                    <input id="ime" type="text" placeholder="Ime" name="imekor"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -94,7 +105,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
-                    <input id="prezime" type="text" placeholder="Prezime"
+                    <input id="prezime" type="text" placeholder="Prezime" name="prez"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -104,7 +115,7 @@
                     <i class="fa fa-birthday-cake text-muted"></i>
                             </span>
                     </div>
-                    <input id="datumRodjenja" type="date"  placeholder="Datum rođenja"
+                    <input id="datumRodjenja" type="date"  placeholder="Datum rođenja" name="datumr"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -114,7 +125,7 @@
                                 <i class="fa fa-phone-square text-muted"></i>
                             </span>
                     </div>
-                    <input id="kontaktTelefon" type="tel" placeholder="Broj telefona"
+                    <input id="kontaktTelefon" type="tel" placeholder="Broj telefona" name="brtel"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -125,12 +136,12 @@
                     <i class="fa fa-envelope text-muted"></i>
                             </span>
                     </div>
-                    <input id="email" type="email"  placeholder="Email"
+                    <input id="email" type="email"  placeholder="Email" name="emailkor"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <input type="submit" value="Dodaj trenera">
+                    <input type="submit"  id="regBTN" value="Dodaj trenera">
                 </div>
             </form>
         </div>
