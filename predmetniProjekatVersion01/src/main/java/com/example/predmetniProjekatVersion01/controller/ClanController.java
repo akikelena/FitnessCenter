@@ -2,6 +2,7 @@ package com.example.predmetniProjekatVersion01.controller;
 
 import com.example.predmetniProjekatVersion01.entity.Clan;
 import com.example.predmetniProjekatVersion01.entity.dto.ClanDTO;
+import com.example.predmetniProjekatVersion01.entity.dto.IzmenaProfila;
 import com.example.predmetniProjekatVersion01.service.ClanService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -118,6 +119,68 @@ public class ClanController {
 
         return new ResponseEntity<>(retVal, HttpStatus.OK);
 
+    }
+
+    @PostMapping(value = "/azurirajProfil/{idFC}",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<IzmenaProfila> izmeniadmin(@PathVariable Long idFC, @RequestBody IzmenaProfila izmenaProfila) throws Exception{
+
+        if(izmenaProfila.getRola() == 1){
+            List<Clan> adminList = clanService.findAll();
+            for(Clan clan: adminList){
+                if(clan.getKorisnickoIme().equals(izmenaProfila.getKorisnickoIme())){
+                    IzmenaProfila retval = new IzmenaProfila(
+                            Long.valueOf(0),
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            false,
+                            2);
+                    return new ResponseEntity<>(retval, HttpStatus.OK);
+                }
+                if(clan.getEmail().equals(izmenaProfila.getEmail())){
+                    IzmenaProfila retval = new IzmenaProfila(
+                            Long.valueOf(0),
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            false,
+                            3);
+                    return new ResponseEntity<>(retval, HttpStatus.OK);
+                }
+            }
+            Clan izmenjen = this.clanService.izmeni(idFC, izmenaProfila);
+            IzmenaProfila povratni = new IzmenaProfila(
+                    izmenjen.getId(),
+                    izmenjen.getKorisnickoIme(),
+                    "********",
+                    izmenjen.getIme(),
+                    izmenjen.getPrezime(),
+                    izmenjen.getEmail(),
+                    izmenjen.getKontaktTelefon(),
+                    izmenjen.getAktivan(),
+                    0);
+            return new ResponseEntity<>(povratni, HttpStatus.OK);
+        } else {
+            IzmenaProfila adminDTO1 = new IzmenaProfila(
+                    Long.valueOf(0),
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    false,
+                    1);
+            return new ResponseEntity<>(adminDTO1, HttpStatus.OK);
+        }
     }
 
 

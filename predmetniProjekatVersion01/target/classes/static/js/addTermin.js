@@ -77,7 +77,6 @@ $(document).ready(function () {
             for (i = 0; i < res.length; i++) {
                 let row = "<option value='" + res[i].id + "'>" + res[i].oznakaSale + "</option>";
 
-
                 $('#sale').append(row);
             }
 

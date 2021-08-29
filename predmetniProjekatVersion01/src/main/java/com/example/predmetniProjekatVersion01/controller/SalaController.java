@@ -62,7 +62,7 @@ public class SalaController {
     }
 
     // IZMENA SALE
-    @PutMapping(value = "/azurirajSalu/{id}",
+    @PostMapping(value = "/azurirajSalu/{id}",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SalaDTO> izmeniSalu(@PathVariable Long id, @RequestBody SalaDTO salaDTO){
         Sala novaSala =salaService.findOne(id);
@@ -130,7 +130,7 @@ public class SalaController {
     }
 
     // BRISANJE SALE
-    @DeleteMapping(value = "/SalaList/{id}")
+    @PutMapping(value = "/SalaList/obrisi/{id}")
     public ResponseEntity<Void> obrisiSalu(@PathVariable Long id) throws Exception {
         this.salaService.logickoBrisanje(id);
 

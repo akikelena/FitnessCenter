@@ -31,7 +31,7 @@
             alert("Greška prilikom pokušaja kreiranja nove sale!");
         }
     });
-}); *///
+});     *///
 
 $(document).ready(function () {
     let rola = localStorage.getItem("rola");
@@ -66,11 +66,6 @@ $(document).ready(function () {
 
 });
 
-function odjaviSe(){
-    localStorage.setItem("rola", 0);
-    localStorage.setItem("id", 0);
-    window.location.href = "index.html";
-}
 
 $(document).on("submit", "form", function (event) {
     event.preventDefault();
@@ -97,7 +92,7 @@ $(document).on("submit", "form", function (event) {
         data: JSON.stringify(novaSala),
         success: function (res) {
             console.log(res);
-            if(res.idFitnesCentra == -1){
+            if(res.idFC == -1){
                 alert("Oznaka za salu je vec u upotrebi!");
             } else {
                 alert("Sala je uspesno dodata!");

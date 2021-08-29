@@ -42,7 +42,7 @@ public class FitnessCentarController {
     }
 
     // BRISANJE FCENTRA
-    @DeleteMapping(value = "/FCList/obrisi/{id}")
+    @PutMapping(value = "/FCList/obrisi/{id}")
     public ResponseEntity<Void> obrisiFitnessCentar(@PathVariable Long id) throws Exception{
         this.fitnessCentarService.delete(id);
 
@@ -108,7 +108,7 @@ public class FitnessCentarController {
 
 
     // IZMENA FCENTRA
-    @PutMapping(value = "/azurirajFC/{idFC}",
+    @PostMapping(value = "/azurirajFC/{idFC}",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FitnessCentarDTO> izmeniFitnessCentar(@PathVariable Long idFC, @RequestBody FitnessCentarDTO fitnessCentarDTO) throws Exception{

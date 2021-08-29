@@ -1,5 +1,4 @@
-/*
-$(document).ready(function () {
+/* $(document).ready(function () {
 
     $.ajax({
         type: "GET",
@@ -112,7 +111,7 @@ $(document).on('click', '#dugmeObrisi', function () {
 
     $.ajax({
         type: "PUT",
-        url: "http://localhost:8080/sala/SalaList" + fitID,
+        url: "http://localhost:8080/sala/SalaList/obrisi/" + fitID,
         dataType: "json",
         contentType: "application/json",
         success: function () {

@@ -68,11 +68,6 @@ $(document).ready(function () {
 
 });
 
-function odjaviSe(){
-    localStorage.setItem("rola", 0);
-    localStorage.setItem("id", 0);
-    window.location.href = "index.html";
-}
 
 $(document).on("submit", "form", function (event) {
     event.preventDefault();
@@ -86,9 +81,6 @@ $(document).on("submit", "form", function (event) {
     let idFC = document.forms['formBox'].fitnesCentri.value;
     let idSale = localStorage.getItem("SalaZaPromenu");
 
-
-
-
     var promeniSalu = {
         oznakaSale,
         kapacitet,
@@ -96,11 +88,9 @@ $(document).on("submit", "form", function (event) {
 
     }
 
-
-
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/api/sala/promeni/" + idSale,
+        url: "http://localhost:8080/sala/azurirajSalu/" + idSale,
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(promeniSalu),

@@ -1,5 +1,4 @@
-/*
-$(document).ready(function () {
+/* $(document).ready(function () {
 
     $.ajax({
         type: "GET",
@@ -56,7 +55,7 @@ $(document).on('click','.btnDelete', function (){
                 //console.log(response);
             }
         });
-});*///
+});     *///
 
 $(document).ready(function () {
 
@@ -68,15 +67,12 @@ $(document).ready(function () {
     }
     if(rola == 0){
         window.location.href = "index.html";
-        //alert("Nemate pristup ovoj stranici");
     }
     if(rola == 2){
         window.location.href = "trener_page.html";
-        //alert("Nemate pristup ovoj stranici");
     }
     if(rola == 3){
         window.location.href = "user_page.html";
-        //alert("Nemate pristup ovoj stranici");
     }
 
 

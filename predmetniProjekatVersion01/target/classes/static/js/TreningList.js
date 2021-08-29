@@ -16,8 +16,6 @@ $(document).ready(function () {
                 row += "<td>" + trening.naziv + "</td>";
                 row += "<td>" + trening.opis + "</td>";
                 row += "<td>" + trening.tipTreninga + "</td>";
-                row += "<td>" + trening.trajanje + "</td>";
-
 
                 row += "</tr>";
 

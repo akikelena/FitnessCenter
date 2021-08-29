@@ -1,38 +1,82 @@
-$(document).on("submit", "#fc-azurirajForm", function (event){
-    event.preventDefault();
+$(document).ready(function () {
+    let rola = localStorage.getItem("rola");
+    if(rola == null){
+        localStorage.setItem("rola", 0);
+        window.location.href = "index.html";
+    }
+    if(rola == 0){
+        window.location.href = "index.html";
 
-    let id = $("#id").val();
-    let korisnickoIme = $("#korisnickoIme").val();
-    let lozinka = $("#lozinka").val();
-    let kontaktTelefon = $("#kontaktTelefon").val();
-    let email = $("#email").val();
+    }
+    if(rola == 2){
+        window.location.href = "trener_page.html";
 
-    let noviFC = {
-        id,
-        korisnickoIme,
-        lozinka,
-        kontaktTelefon,
-        email
+    }
+    if(rola == 3){
+        window.location.href = "user_page.html";
+
     }
 
-    console.log(noviFC);
+
+});
+
+function odjaviSe(){
+    localStorage.setItem("rola", 0);
+    localStorage.setItem("id", 0);
+    window.location.href = "index.html";
+}
+
+$(document).on("submit", "form", function (event) {
+    event.preventDefault();
+
+
+    let korisnickoIme = document.forms['fc-azurirajForm'].korisnickoIme.value;
+    let lozinka = document.forms['fc-azurirajForm'].lozinka.value;
+    let ime = document.forms['fc-azurirajForm'].ime.value;
+    let prezime = document.forms['fc-azurirajForm'].prezime.value;
+    let email = document.forms['fc-azurirajForm'].email.value;
+    let kontaktTelefon = document.forms['fc-azurirajForm'].kontaktTelefon.value;
+    let rola = localStorage.getItem("rola");
+
+    var promeniFC = {
+        korisnickoIme,
+        ime,
+        prezime,
+        lozinka,
+        kontaktTelefon,
+        email,
+        rola
+
+    }
 
     $.ajax({
-        type : "PUT",
-        dataType : "json",
-        contentType : "application/json",
-        data : JSON.stringify(noviFC),
-        url : "http://localhost:8080/korisnik/azurirajKorisnika/" + id,
+        type: "POST",
+        url: "http://localhost:8080/admin/azurirajProfil/" + idFC,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(promeniFC),
+        success: function (res) {
+            console.log(res);
+            if(res.rola == 0){
+                alert("Podaci su uspesno azurirani!");
+                window.location.href = "admin_page.html";
+            }
+            if(res.rola == 1){
+                alert("Nemate autoriteta za ovu komandu!");
+                window.location.href = "index.html";
+            }
+            if(res.rola == 2){
+                alert("Vec postoji korisnik sa ovim korisnickim imenom!");
+            }
+            if(res.rola == 3){
+                alert("Vec postoji korisnik sa ovom email adresom!");
+            }
 
-        success : function (response){
-            console.log(response);
-
-            alert("Podaci korisnika  " + response.id + " je izmenjen!");
-            window.location.href = "azurirajKorisnika.html";
         },
-
-        error : function (){
-            alert("Error!");
+        error: function (res) {
+            console.log(res);
+            alert("Greška!");
         }
     });
+
 });

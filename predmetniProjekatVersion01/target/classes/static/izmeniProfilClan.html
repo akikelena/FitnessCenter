@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Izmena fitness centra</title>
+    <title>Izmena podataka</title>
     <link href="assets/img/icon.png" rel="icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -14,7 +14,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/azurirajFC.js"></script>
+    <script src="js/azurirajClana.js"></script>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
             <header class="header">
                 <nav class="navbar navbar-expand-lg navbar-light py-3  justify-content-center">
                     <div class=" col-xl-12 col-lg-12 text-center text-lg-center">
-                        <h3> IZMENA FITNESS CENTRA </h3>
+                        <h3> IZMENA PODATAKA PROFILA </h3>
                     </div>
                 </nav>
             </header>
@@ -54,8 +54,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                     </div>
-                    <input id="nazivPolje" type="text" placeholder="Naziv fitness centra"
-                           name="Naziv"
+                    <input id="korisnickoIme" type="text" placeholder="Korisnicko ime" name="korisnickoIme"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -65,8 +64,7 @@
                                 <i class="fa fa-map-marker text-muted"></i>
                             </span>
                     </div>
-                    <input id="adresaPolje" type="text" placeholder="Adresa"
-                           name="Adresa"
+                    <input id="lozinka" type="password" placeholder="Lozinka" name="loznika"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -76,8 +74,19 @@
                                 <i class="fa fa-phone-square text-muted"></i>
                             </span>
                     </div>
-                    <input id="brTelCentralePolje" type="text" placeholder="Broj telefona centrale"
-                           name="brTelefona"
+                    <input id="ime" type="text" placeholder="Ime"
+                           name="ime"
+                           required="true" class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-phone-square text-muted"></i>
+                            </span>
+                    </div>
+                    <input id="prezime" type="text" placeholder="Prezime"
+                           name="prezime"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
@@ -88,12 +97,23 @@
                     <i class="fa fa-envelope text-muted"></i>
                             </span>
                     </div>
-                    <input id="emailPolje" type="email"  placeholder="Email" name="Email"
+                    <input id="email" type="email"  placeholder="Email" name="Email"
+                           required="true" class="form-control bg-white border-left-0 border-md"/> <br>
+                </div>
+
+                <div class="input-group col-lg-12 mb-4">
+                    <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-envelope text-muted"></i>
+                            </span>
+                    </div>
+                    <input id="kontaktTelefon" type="text"  placeholder="Kontakt telefon"
+                           name="kontaktTelefon"
                            required="true" class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
 
                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                    <input id="regBTN" type="submit" value="Izmeni fitness centar">
+                    <input id="regBTN" type="submit" value="Izmeni">
                 </div>
             </form>
         </div>

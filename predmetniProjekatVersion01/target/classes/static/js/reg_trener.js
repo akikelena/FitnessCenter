@@ -13,11 +13,9 @@ $(document).on("submit", "form", function (event) {
     let aktivan = false;
     let idFC = document.forms['formBox'].fitnesCentri.value;
     if(lozinka !== lozinkaProvera) {
-        alert("Passwords do not match!");
+        alert("Lozinke se ne poklapaju!");
         return false;
     } else {
-
-
 
         var noviTrener = {
             korisnickoIme,

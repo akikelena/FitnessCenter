@@ -7,7 +7,6 @@ import com.example.predmetniProjekatVersion01.service.FitnessCentarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.PushBuilder;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -26,13 +26,13 @@ INSERT INTO TRENER (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, emai
 INSERT INTO TRENER (korisnicko_ime, lozinka, ime, prezime, kontakt_telefon, email, datum_rodjenja, aktivan, uklonjen, prosecna_ocena, fitness_centar_id) VALUES ('mitrovicj13', 'mitrovictr567', 'Jovan', 'Mitrovic', '06144768987', 'jovanmitrovic236@gmail.com', '1984-11-02 20:00:00.000000', false , false , '9.35', 2);
 
 /* TRENING */
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('intense', 'napredni nivo treninga', 'CROSSFIT');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'srednji nivo treninga', 'FITNESS');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('easy', 'osnovi nivo treninga', 'YOGA');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'vezbe tehnike', 'SKILL');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'srednji nivo treninga', 'TRX');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('intense', 'takmicarska grupa', 'COMPETITION');
-INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('easy', 'srednji nivo treninga', 'MOBILITY');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('intense', 'napredni', 'CROSSFIT');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'srednji', 'FITNESS');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('easy', 'osnovni', 'YOGA');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'tehnika', 'SKILL');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('medium', 'srednji', 'TRX');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('intense', 'takmicarski', 'COMPETITION');
+INSERT INTO TRENING(naziv, opis, tip_treninga) VALUES ('easy', 'srednji', 'MOBILITY');
 
 /* TERMIN  */
 INSERT INTO TERMIN(pocetak_termina, kraj_termina, trajanje_termina, cena, otkazan, trening_id, trener_id, sale_id) VALUES ('2021-05-04 11:30:00', '2021-05-04 12:30:00', '60', '550', 0, 1, 1, 2);
