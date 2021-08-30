@@ -75,6 +75,7 @@ public class SalaServiceImpl implements SalaService {
                             sala.getOznakaSale(),
                             sala.getKapacitet(),
                             sala.getFitnessCentar().getId());
+                    salaDTOList.add(salaDTO);
                 }
             }
             return salaDTOList;

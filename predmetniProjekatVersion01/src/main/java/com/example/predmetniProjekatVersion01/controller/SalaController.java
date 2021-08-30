@@ -122,7 +122,7 @@ public class SalaController {
     }
 
     // lista sala za spec trenera
-    @GetMapping(value = "/SalaList/{idTrenera}",
+    @GetMapping(value = "/SalaList/aktivneSale/{idTrenera}",
                 produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SalaDTO>> getSaleTrenera(@PathVariable Long idTrenera){
         List<SalaDTO> salaDTOList = this.salaService.findTrenutne(idTrenera);

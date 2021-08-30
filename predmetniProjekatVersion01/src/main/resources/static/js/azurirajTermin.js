@@ -73,7 +73,7 @@ $(document).ready(function () {
     let idTrenera = localStorage.getItem("id");
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/sala/SalaList/" + idTrenera ,
+        url: "http://localhost:8080/sala/SalaList/aktivneSale/" + idTrenera ,
         dataType: "json",
         success: function (res) {
             for (i = 0; i < res.length; i++) {

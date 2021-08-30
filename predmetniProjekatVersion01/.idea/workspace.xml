@@ -6,65 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/ClanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/ClanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/FitnessCentarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/SalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/SalaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/ClanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/ClanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/ClanServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/ClanServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/FitnessCentarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/FitnessCentarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TreningList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TreningList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/addSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/addSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/azurirajFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/azurirajFC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/azurirajSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/azurirajSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/deleteFC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/deleteSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/TreningList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/TreningList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addSalu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/SalaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/SalaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/TerminList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addTermin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajFC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajKorisnika.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajKorisnika.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajSalu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteFC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/deleteSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/deleteSalu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/mojProfil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/odjava.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/odjava.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reg_trener.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reg_trener.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTermin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/userProfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/userProfil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/mojProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/mojProfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register_page_clan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register_page_clan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trenerProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trenerProfil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/userSviTermini.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userSviTermini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/TreningList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/TreningList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/addSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/addSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/azurirajFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/azurirajFC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/azurirajSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/azurirajSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/deleteFC.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/deleteFC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/deleteSalu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/deleteSalu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/TreningList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/TreningList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/addSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/addSalu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/addTermin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/addTermin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/azurirajFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/azurirajFC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/azurirajKorisnika.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/azurirajKorisnika.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/azurirajSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/azurirajSalu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/deleteFC.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/deleteFC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/deleteSalu.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/deleteSalu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/mojProfil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reg_trener.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/reg_trener.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/userProfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/userProfil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/mojProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/mojProfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/register_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/register_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/register_page_clan.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/register_page_clan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/trenerProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/trenerProfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/user_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +178,7 @@
       <workItem from="1625903731918" duration="2351000" />
       <workItem from="1628266965992" duration="13543000" />
       <workItem from="1628610515591" duration="19679000" />
-      <workItem from="1629220465384" duration="106194000" />
+      <workItem from="1629220465384" duration="110132000" />
     </task>
     <servers />
   </component>
