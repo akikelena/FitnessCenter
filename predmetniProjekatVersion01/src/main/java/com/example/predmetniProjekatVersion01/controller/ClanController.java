@@ -136,9 +136,7 @@ public class ClanController {
                             "bez promene",
                             "bez promene",
                             "bez promene",
-                            "bez promene",
-                            "bez promene",
-                            false,
+
                             2);
                     return new ResponseEntity<>(retval, HttpStatus.OK);
                 }
@@ -149,9 +147,6 @@ public class ClanController {
                             "bez promene",
                             "bez promene",
                             "bez promene",
-                            "bez promene",
-                            "bez promene",
-                            false,
                             3);
                     return new ResponseEntity<>(retval, HttpStatus.OK);
                 }
@@ -161,11 +156,8 @@ public class ClanController {
                     izmenjen.getId(),
                     izmenjen.getKorisnickoIme(),
                     "********",
-                    izmenjen.getIme(),
-                    izmenjen.getPrezime(),
                     izmenjen.getEmail(),
                     izmenjen.getKontaktTelefon(),
-                    izmenjen.getAktivan(),
                     0);
             return new ResponseEntity<>(povratni, HttpStatus.OK);
         } else {
@@ -175,9 +167,6 @@ public class ClanController {
                     "bez promene",
                     "bez promene",
                     "bez promene",
-                    "bez promene",
-                    "bez promene",
-                    false,
                     1);
             return new ResponseEntity<>(adminDTO1, HttpStatus.OK);
         }

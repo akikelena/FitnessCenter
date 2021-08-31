@@ -43,7 +43,7 @@ public class TerminController {
         this.treningService = treningService;
     }
 
-    @PostMapping(value = "/dodajNoviTermin",
+    @PostMapping(value = "/dodaj",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TerminDTO> dodajNoviTermin(@RequestBody TerminPt2DTO pt2DTO) throws Exception {
@@ -54,7 +54,15 @@ public class TerminController {
                         (pt2DTO.getKrajTermina().before(termin.getKrajTermina()) && pt2DTO.getKrajTermina().after(termin.getPocetakTermina())) ||
                         (pt2DTO.getKrajTermina().after(termin.getKrajTermina()) && pt2DTO.getPocetakTermina().before(termin.getPocetakTermina())) ||
                         pt2DTO.getKrajTermina().equals(termin.getKrajTermina()) || pt2DTO.getPocetakTermina().equals(termin.getPocetakTermina())) {
-                    TerminDTO retVal = new TerminDTO(Long.valueOf(0), termin.getPocetakTermina(), termin.getKrajTermina(), -1, 0, "not set", "not set", "not set");
+                    TerminDTO retVal = new TerminDTO(
+                            Long.valueOf(0),
+                            termin.getPocetakTermina(),
+                            termin.getKrajTermina(),
+                            -1,
+                            0,
+                            "not set",
+                            "not set",
+                            "not set");
                     return new ResponseEntity<>(retVal, HttpStatus.OK);
                 }
             }

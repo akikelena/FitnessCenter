@@ -94,22 +94,22 @@ $(document).on("submit", "form", function (event) {
     event.preventDefault();
 
 
-    let pocetakTerminaDatum = document.forms['formBox'].pocetakDatum.value;
-    let pocetakTerminaVreme = document.forms['formBox'].pocetakVreme.value;
-    let krajTerminaVreme = document.forms['formBox'].krajVreme.value;
+    let pocetakDatum = document.forms['formBox'].pocetakDatum.value;
+    let pocetakVreme = document.forms['formBox'].pocetakVreme.value;
+    let krajVreme = document.forms['formBox'].krajVreme.value;
     let cena = document.forms['formBox'].cena.value;
     let idTreninga = document.forms['formBox'].treninzi.value;
     let idSale = document.forms['formBox'].sale.value;
     let idTrenera = localStorage.getItem("id");
 
-    let pocetakTermina = pocetakTerminaDatum;
+    let pocetakTermina = pocetakDatum;
     pocetakTermina += "T";
-    pocetakTermina += pocetakTerminaVreme;
+    pocetakTermina += pocetakVreme;
     pocetakTermina += ":00"
 
     let krajTermina = pocetakDatum;
     krajTermina += "T";
-    krajTermina += krajTerminaVreme;
+    krajTermina += krajVreme;
     krajTermina += ":00"
 
     let sati1 = pocetakVreme.substring(0,2);
@@ -136,7 +136,7 @@ $(document).on("submit", "form", function (event) {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/termin/dodajNoviTermin",
+        url: "http://localhost:8080/termin/dodaj",
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(noviTermin),
@@ -146,7 +146,7 @@ $(document).on("submit", "form", function (event) {
                 alert("Termin nije kreiran jer se poklapa sa vec postojecim terminom u datoj sali!");
             } else {
                 alert("Termin je uspesno kreiran!");
-                window.location.href = "trenerTermini.html";
+                window.location.href = "trener_page.html";
             }
         },
         error: function (res) {

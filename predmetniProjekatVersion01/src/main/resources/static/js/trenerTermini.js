@@ -88,14 +88,6 @@ $(document).on('click', '#dugmeObrisi', function () {
 
 });
 
-
-
-
-
-
-
-
-
 function sortiraj(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("tabelaTermina");

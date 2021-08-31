@@ -35,86 +35,96 @@ public class TerminServiceImpl implements TerminService {
 
     @Override
     public List<TerminDTO> findAllPretraga(PretragaDTO pretragaDTO){
-        List<Termin> terminList = this.terminRepository.findAll();
-        List<TerminDTO> terminDTOList = new ArrayList<>();
 
-            for(Termin termin: terminList){
-                TerminDTO terminDTO = new TerminDTO(
-                        termin.getId(),
-                        termin.getPocetakTermina(),
-                        termin.getKrajTermina(),
-                        termin.getTrajanjeTermina(),
-                        termin.getCena(),
-                        termin.getTrening().getNaziv(),
-                        termin.getTrening().getOpis(),
-                        termin.getTrening().getTipTreninga());
+        List<Termin> termini = this.terminRepository.findAll();
+        List<TerminDTO> terminiDTO = new ArrayList<>();
+        for (Termin termin : termini) {
+            TerminDTO terminDTO = new TerminDTO(
+                    termin.getId(),
+                    termin.getPocetakTermina(),
+                    termin.getKrajTermina(),
+                    termin.getTrajanjeTermina(),
+                    termin.getCena(),
+                    termin.getTrening().getNaziv(),
+                    termin.getTrening().getOpis(),
+                    termin.getTrening().getTipTreninga());
 
-                if(!termin.getOtkazan()){
-                    terminDTOList.add(terminDTO);
+            if(!termin.getOtkazan()) {
+                terminiDTO.add(terminDTO);
+            }
+        }
+        if(pretragaDTO.isSve()) {
+            return terminiDTO;
+        } else {
+
+
+            List<TerminDTO> terminiCena  = new ArrayList<>();
+            for (TerminDTO termin : terminiDTO) {
+                if(pretragaDTO.getMaxCena() >= termin.getCena()) {
+                    terminiCena.add(termin);
                 }
             }
-            if(pretragaDTO.isSve()){
-                return terminDTOList;
+            List<TerminDTO> terminiTrajanje  = new ArrayList<>();
+            for (TerminDTO termin : terminiCena) {
+                if(pretragaDTO.getMaxTrajanje() >= termin.getTrajanjeTermina()) {
+                    terminiTrajanje.add(termin);
+                }
+            }
+            List<TerminDTO> terminiDatum  = new ArrayList<>();
+            for (TerminDTO termin : terminiTrajanje) {
+                if(termin.getPocetakTermina().before(pretragaDTO.getDoDatuma())) {
+                    terminiDatum.add(termin);
+                }
+            }
+            List<TerminDTO> terminiNaziv = new ArrayList<>();
+            if(pretragaDTO.getNaziv().equals("sve")) {
+                for (TerminDTO termin : terminiDatum) {
+
+                    terminiNaziv.add(termin);
+
+                }
             } else {
 
-                List<TerminDTO> Cena = new ArrayList<>();
-                    for(TerminDTO terminDTO: terminDTOList){
-                        if(pretragaDTO.getMaxCena() >= terminDTO.getCena()){
-                            Cena.add(terminDTO);
-                        }
+                for (TerminDTO termin : terminiDatum) {
+                    if(termin.getNaziv().equalsIgnoreCase(pretragaDTO.getNaziv())) {
+                        terminiNaziv.add(termin);
                     }
-                List<TerminDTO> Trajanje = new ArrayList<>();
-                    for(TerminDTO terminDTO:Cena ){
-                        if(pretragaDTO.getMaxTrajanje() >= terminDTO.getTrajanjeTermina()){
-                            Trajanje.add(terminDTO);
-                        }
-                    }
-                List<TerminDTO> Datum = new ArrayList<>();
-                    for(TerminDTO terminDTO: Trajanje){
-                        if(terminDTO.getPocetakTermina().before(pretragaDTO.getDoDatuma())){
-                            Datum.add(terminDTO);
-                        }
-                    }
-                List<TerminDTO> Naziv = new ArrayList<>();
-                    if(pretragaDTO.getNaziv().equals("sviParametri")){
-                        for(TerminDTO terminDTO : Datum){
-                            Naziv.add(terminDTO);
-                        }
-                    } else {
-                        for(TerminDTO terminDTO: Datum){
-                            if(terminDTO.getNaziv().equalsIgnoreCase(pretragaDTO.getNaziv())){
-                                Naziv.add(terminDTO);
-                            }
-                        }
-                    }
-                List<TerminDTO> Opis = new ArrayList<>();
-                    if(pretragaDTO.getOpis().equals("sviParametri")){
-                        for(TerminDTO terminDTO: Naziv){
-                            Opis.add(terminDTO);
-                        }
-                    } else {
-                        for(TerminDTO terminDTO: Naziv){
-                            if(terminDTO.getOpis().equalsIgnoreCase(pretragaDTO.getOpis())){
-                                Opis.add(terminDTO);
-                            }
-                        }
-                    }
-                List<TerminDTO> Tip = new ArrayList<>();
-                    if(pretragaDTO.getTipTreninga().equals("sviParametri")){
-                        for(TerminDTO terminDTO: Opis){
-                            Tip.add(terminDTO);
-                        }
-                    } else {
-                        for(TerminDTO terminDTO: Opis){
-                            if(terminDTO.getTipTreninga().equalsIgnoreCase(pretragaDTO.getTipTreninga())){
-                                Tip.add(terminDTO);
-                            }
-                        }
-                    }
-
-                    return Tip;
-
+                }
             }
+            List<TerminDTO> terminiOpis = new ArrayList<>();
+            if(pretragaDTO.getOpis().equals("sve")) {
+                for (TerminDTO termin : terminiNaziv) {
+
+                    terminiOpis.add(termin);
+
+                }
+            } else {
+
+                for (TerminDTO termin : terminiNaziv) {
+                    if(termin.getOpis().equalsIgnoreCase(pretragaDTO.getOpis())) {
+                        terminiOpis.add(termin);
+                    }
+                }
+            }
+
+            List<TerminDTO> terminTip = new ArrayList<>();
+            if(pretragaDTO.getTipTreninga().equals("sve")) {
+                for (TerminDTO termin : terminiOpis) {
+
+                    terminTip.add(termin);
+
+                }
+            } else {
+
+                for (TerminDTO termin : terminiOpis) {
+                    if(termin.getTipTreninga().equalsIgnoreCase(pretragaDTO.getTipTreninga())) {
+                        terminTip.add(termin);
+                    }
+                }
+            }
+
+            return terminTip;
+        }
     }
 
     @Override

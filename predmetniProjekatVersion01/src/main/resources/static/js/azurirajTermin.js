@@ -98,9 +98,9 @@ $(document).on("submit", "form", function (event) {
     let pocetakVreme = document.forms['formBox'].pocetakVreme.value;
     let krajVreme = document.forms['formBox'].krajVreme.value;
 
-    let cenaTermina = document.forms['formBox'].cena.value;
-    if(cenaTermina == ""){
-        cenaTermina = -1;
+    let cena = document.forms['formBox'].cena.value;
+    if(cena == ""){
+        cena = -1;
     }
     let idTreninga = document.forms['formBox'].treninzi.value;
     if(idTreninga == ""){
@@ -149,7 +149,7 @@ $(document).on("submit", "form", function (event) {
         pocetakTermina,
         krajTermina,
         trajanjeTermina,
-        cenaTermina,
+        cena,
         idTreninga,
         idSale
 

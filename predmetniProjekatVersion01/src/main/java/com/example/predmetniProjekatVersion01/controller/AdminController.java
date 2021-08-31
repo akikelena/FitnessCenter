@@ -45,62 +45,50 @@ public class AdminController {
     @PostMapping(value = "/azurirajProfil/{idFC}",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<IzmenaProfila> izmeniadmin(@PathVariable Long idFC, @RequestBody IzmenaProfila izmenaProfila) throws Exception{
+    public ResponseEntity<IzmenaProfila> izmeniadmin(@PathVariable Long idFC, @RequestBody IzmenaProfila fitnessCentarDTO) throws Exception{
 
-        if(izmenaProfila.getRola() == 1){
-            List<Admin> adminList = adminService.findAll();
-            for(Admin admin: adminList){
-                if(admin.getKorisnickoIme().equals(izmenaProfila.getKorisnickoIme())){
+        if(fitnessCentarDTO.getRola() == 1){
+            List<Admin> fitnessCentarList = adminService.findAll();
+            for(Admin fitnessCentar: fitnessCentarList){
+                if(fitnessCentar.getKorisnickoIme().equals(fitnessCentarDTO.getKorisnickoIme())){
                     IzmenaProfila retval = new IzmenaProfila(
                             Long.valueOf(0),
                             "bez promene",
                             "bez promene",
                             "bez promene",
                             "bez promene",
-                            "bez promene",
-                            "bez promene",
-                            false,
                             2);
                     return new ResponseEntity<>(retval, HttpStatus.OK);
                 }
-                if(admin.getEmail().equals(izmenaProfila.getEmail())){
+                if(fitnessCentar.getEmail().equals(fitnessCentarDTO.getEmail())){
                     IzmenaProfila retval = new IzmenaProfila(
                             Long.valueOf(0),
                             "bez promene",
                             "bez promene",
                             "bez promene",
                             "bez promene",
-                            "bez promene",
-                            "bez promene",
-                            false,
                             3);
                     return new ResponseEntity<>(retval, HttpStatus.OK);
                 }
             }
-            Admin izmenjen = this.adminService.izmeni(idFC, izmenaProfila);
+            Admin izmenjen = this.adminService.izmeni(idFC, fitnessCentarDTO);
             IzmenaProfila povratni = new IzmenaProfila(
                     izmenjen.getId(),
                     izmenjen.getKorisnickoIme(),
-                    "********",
-                    izmenjen.getIme(),
-                    izmenjen.getPrezime(),
+                    izmenjen.getLozinka(),
                     izmenjen.getEmail(),
                     izmenjen.getKontaktTelefon(),
-                    izmenjen.getAktivan(),
                     0);
             return new ResponseEntity<>(povratni, HttpStatus.OK);
         } else {
-             IzmenaProfila adminDTO1 = new IzmenaProfila(
+            IzmenaProfila fitnessCentarDTO1 = new IzmenaProfila(
                     Long.valueOf(0),
                     "bez promene",
                     "bez promene",
                     "bez promene",
                     "bez promene",
-                     "bez promene",
-                     "bez promene",
-                    false,
                     1);
-            return new ResponseEntity<>(adminDTO1, HttpStatus.OK);
+            return new ResponseEntity<>(fitnessCentarDTO1, HttpStatus.OK);
         }
     }
 

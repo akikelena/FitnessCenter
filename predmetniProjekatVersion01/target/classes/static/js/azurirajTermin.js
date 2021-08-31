@@ -73,7 +73,7 @@ $(document).ready(function () {
     let idTrenera = localStorage.getItem("id");
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/sala/SalaList/" + idTrenera ,
+        url: "http://localhost:8080/sala/SalaList/aktivneSale/" + idTrenera ,
         dataType: "json",
         success: function (res) {
             for (i = 0; i < res.length; i++) {
@@ -98,9 +98,9 @@ $(document).on("submit", "form", function (event) {
     let pocetakVreme = document.forms['formBox'].pocetakVreme.value;
     let krajVreme = document.forms['formBox'].krajVreme.value;
 
-    let cenaTermina = document.forms['formBox'].cena.value;
-    if(cenaTermina == ""){
-        cenaTermina = -1;
+    let cena = document.forms['formBox'].cena.value;
+    if(cena == ""){
+        cena = -1;
     }
     let idTreninga = document.forms['formBox'].treninzi.value;
     if(idTreninga == ""){
@@ -149,7 +149,7 @@ $(document).on("submit", "form", function (event) {
         pocetakTermina,
         krajTermina,
         trajanjeTermina,
-        cenaTermina,
+        cena,
         idTreninga,
         idSale
 

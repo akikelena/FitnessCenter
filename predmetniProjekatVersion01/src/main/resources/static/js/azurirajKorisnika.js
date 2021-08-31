@@ -30,18 +30,15 @@ $(document).on("submit", "form", function (event) {
     event.preventDefault();
 
 
-    let korisnickoIme = document.forms['fc-azurirajForm'].korisnickoIme.value;
-    let lozinka = document.forms['fc-azurirajForm'].lozinka.value;
-    let ime = document.forms['fc-azurirajForm'].ime.value;
-    let prezime = document.forms['fc-azurirajForm'].prezime.value;
-    let email = document.forms['fc-azurirajForm'].email.value;
-    let kontaktTelefon = document.forms['fc-azurirajForm'].kontaktTelefon.value;
+    let korisnickoIme = document.forms['fc-azurirajForm'].korime.value;
+    let lozinka = document.forms['fc-azurirajForm'].Lozinka.value;
+    let email = document.forms['fc-azurirajForm'].Email.value;
+    let kontaktTelefon = document.forms['fc-azurirajForm'].kontakt.value;
     let rola = localStorage.getItem("rola");
+    let idFC = localStorage.getItem("CentarZaPromenu");
 
     var promeniFC = {
         korisnickoIme,
-        ime,
-        prezime,
         lozinka,
         kontaktTelefon,
         email,

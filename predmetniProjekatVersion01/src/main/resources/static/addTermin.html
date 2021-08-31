@@ -13,8 +13,8 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/addTermin.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/addTermin.js"> </script>
 </head>
 <body>
 
@@ -26,6 +26,7 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="trener_page.html">Pocetna</a></li>
             </ul>
         </nav>
 
@@ -52,7 +53,7 @@
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                             </span>
                     </div>
-                    <input id="pocetakTerminaDatum" type="date" placeholder="Datum termina"
+                    <input id="pocetakDatum" type="date" placeholder="Datum termina"
                            name="pocetakDatum"
                            required class="form-control bg-white border-left-0 border-md"/> <br>
                 </div>
@@ -61,7 +62,7 @@
                    <div class="col-lg-6">
                        <div class="input-group-prepend">
                        </div>
-                       <input id="pocetakTerminaVreme" type="time"
+                       <input id="pocetakVreme" type="time"
                               name="pocetakVreme" min="07:00" maxlength="23:00"
                               required class="form-control bg-white border-left-0 border-md"/>
                    </div>
@@ -69,7 +70,7 @@
                     <div class="col-lg-6">
                         <div class="input-group-prepend">
                         </div>
-                        <input id="krajTerminaVreme" type="time"
+                        <input id="krajVreme" type="time"
                                name="krajVreme" min="07:00" maxlength="23:00"
                                required class="form-control bg-white border-left-0 border-md"/>
                     </div>

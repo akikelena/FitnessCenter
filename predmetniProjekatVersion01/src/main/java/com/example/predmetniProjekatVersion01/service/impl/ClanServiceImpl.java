@@ -65,11 +65,6 @@ public class ClanServiceImpl implements ClanService {
         if (!izmenaProfila.getLozinka().isBlank())
             centarIzmenjen.setLozinka(izmenaProfila.getLozinka());
 
-        if (!izmenaProfila.getIme().isBlank())
-            centarIzmenjen.setIme(izmenaProfila.getIme());
-
-        if (!izmenaProfila.getPrezime().isBlank())
-            centarIzmenjen.setPrezime(izmenaProfila.getPrezime());
 
         if (!izmenaProfila.getKontaktTelefon().isBlank())
             centarIzmenjen.setKontaktTelefon(izmenaProfila.getKontaktTelefon());
