@@ -12,19 +12,13 @@ $(document).ready(function () {
         window.location.href = "trener_page.html";
 
     }
-    if(rola == 3){
+    if(rola == 1){
         window.location.href = "user_page.html";
 
     }
 
 
 });
-
-function odjaviSe(){
-    localStorage.setItem("rola", 0);
-    localStorage.setItem("id", 0);
-    window.location.href = "index.html";
-}
 
 $(document).on("submit", "form", function (event) {
     event.preventDefault();

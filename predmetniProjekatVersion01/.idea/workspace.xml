@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/azurirajTrenera.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/azurirajTrenera.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/table_prop.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/table_prop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTrenera.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTrenera.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trenerProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trenerProfil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajClana.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajClana.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/userProfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/userProfil.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/userProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userProfil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +171,7 @@
       <workItem from="1628266965992" duration="13543000" />
       <workItem from="1628610515591" duration="19679000" />
       <workItem from="1629220465384" duration="128765000" />
-      <workItem from="1630416781989" duration="15567000" />
+      <workItem from="1630416781989" duration="17752000" />
     </task>
     <servers />
   </component>

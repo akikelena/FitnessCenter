@@ -1,9 +1,3 @@
-function odjaviSe(){
-    localStorage.setItem("rola", 0);
-    localStorage.setItem("id", 0);
-    window.location.href = "index.html";
-}
-
 $(document).ready(function () {
     let rola = localStorage.getItem("rola");
     if(rola == null){
