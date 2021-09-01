@@ -8,8 +8,8 @@ $(document).ready(function () {
         window.location.href = "index.html";
 
     }
-    if(rola == 2){
-        window.location.href = "trener_page.html";
+    if(rola == 1){
+        window.location.href = "admin_page.html";
 
     }
     if(rola == 3){
@@ -20,11 +20,6 @@ $(document).ready(function () {
 
 });
 
-function odjaviSe(){
-    localStorage.setItem("rola", 0);
-    localStorage.setItem("id", 0);
-    window.location.href = "index.html";
-}
 
 $(document).on("submit", "form", function (event) {
     event.preventDefault();
