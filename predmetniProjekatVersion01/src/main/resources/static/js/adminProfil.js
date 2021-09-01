@@ -32,8 +32,8 @@ $(document).ready(function () {
             row += "<tr><td class='profilText rightAlign'> Email: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + res.email + "<td></tr>";
             row += "<tr><td class='profilText rightAlign'> Datum rodjenja: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + datum + "<td></tr>";
             row += "<tr><td class='profilText rightAlign'> Kontakt telefon: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + res.kontaktTelefon + "<td></tr>";
-            let btnChange = "<button id = 'dugmeIzmeni' data-id=" + res[i].id + ">IZMENI</button>";
-            row += "<td class='celijaTabele'>" + btnChange + "</td>";
+            let btnChange = "<button id = 'dugmeIzmeni' data-id=" + res.id + ">IZMENI</button>";
+            row += "<tr><td class='celijaTabele'>" + btnChange + "</td></tr>";
             row += "<tr><td style='height: 30px;'></td></tr>";
 
             $('#tableFit').append(row);

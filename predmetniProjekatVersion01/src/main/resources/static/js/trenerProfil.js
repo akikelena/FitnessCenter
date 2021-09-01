@@ -36,7 +36,7 @@ $(document).ready(function () {
             row += "<tr><td class='profilText rightAlign'> Prosecna ocena trenera: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + String(ocena).substring(0,4) + "<td></tr>";
             row += "<tr><td class='profilText rightAlign'> IDFC: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + res.idFC + "<td></tr>";
                 let btnChange = "<button id = 'dugmeIzmeni' data-id=" + res.id + ">IZMENI</button>";
-                row += "<td class='celijaTabele'>" + btnChange + "</td>";
+                row += "<tr><td class='celijaTabele'>" + btnChange + "</td></tr>";
             row += "<tr><td style='height: 30px;'></td></tr>";
 
             $('#tableFit').append(row);

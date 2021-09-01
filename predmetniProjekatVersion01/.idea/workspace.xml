@@ -6,20 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7fedb0-7184-48ce-8f8b-d98301ee170b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TrenerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/controller/TrenerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TrenerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/TrenerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/TrenerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/predmetniProjekatVersion01/service/impl/TrenerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/TerminPrijava.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/azurirajTrenera.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/azurirajTrenera.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/izmeniProfilAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/izmeniProfilAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/azurirajKorisnika.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/deleteKorTr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/error_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/izabraniTermini.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/izmeniProfilClan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/izmeniProfilClan.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/adminProfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/adminProfil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTrenera.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajTrenera.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/azurirajClana.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/azurirajClana.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/trenerProfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/trenerProfil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trenerProfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trenerProfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trener_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/userProfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/userProfil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/overallTermini.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pretragaTreninga.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/userSviTermini.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userSviTermini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/userTerminiList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/TerminPrijava.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/deleteKorTr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/error_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/izabraniTermini.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/overallTermini.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/pretragaTreninga.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/userSviTermini.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/userSviTermini.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +187,7 @@
       <workItem from="1628266965992" duration="13543000" />
       <workItem from="1628610515591" duration="19679000" />
       <workItem from="1629220465384" duration="128765000" />
-      <workItem from="1630416781989" duration="11756000" />
+      <workItem from="1630416781989" duration="13566000" />
     </task>
     <servers />
   </component>

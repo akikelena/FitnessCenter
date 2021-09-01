@@ -15,15 +15,14 @@ $(document).ready(function () {
      
     }
     if(rola == 2){
-        window.location.href = "../trenerPG/trenerPG_sr.html";
+        window.location.href = "trener_page.html";
      
     }
     if(rola == 1){
-        window.location.href = "../adminPG/adminPG_sr.html";
+        window.location.href = "admin_page.html";
      
     }
     let idClana = localStorage.getItem("id");
-
 
 
     $.ajax({
@@ -44,7 +43,8 @@ $(document).ready(function () {
             row += "<tr><td class='profilText rightAlign'> Telefon: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + res.kontaktTelefon + "<td></tr>";
             row += "<tr><td class='profilText rightAlign'> Prijavljeni termini: </td><td class='gap20'></td><td class='profilText centerAlign' colspan='2'>" + res.retVal + "<td></tr>";
             row += "<tr><td style='height: 30px;'></td></tr>";
-            
+            let btnChange = "<button id = 'dugmeIzmeni' data-id=" + res.id + ">IZMENI</button>";
+            row += "<tr><td class='celijaTabele'>" + btnChange + "</td></tr>";
             $('#tableFit').append(row);
 
 
@@ -53,6 +53,14 @@ $(document).ready(function () {
             console.log("ERROR:\n", res);
         }
     });
+
+});
+
+$(document).on('click', '#dugmeIzmeni', function () {
+
+    let terminID = this.dataset.id;
+    localStorage.setItem("CentarZaPromenu", terminID);
+    window.location.href = "izmeniProfilClan.html";
 
 });
 
