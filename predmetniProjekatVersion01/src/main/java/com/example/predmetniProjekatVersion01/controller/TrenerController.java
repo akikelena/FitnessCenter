@@ -2,6 +2,7 @@ package com.example.predmetniProjekatVersion01.controller;
 
 import com.example.predmetniProjekatVersion01.entity.FitnessCentar;
 import com.example.predmetniProjekatVersion01.entity.Trener;
+import com.example.predmetniProjekatVersion01.entity.dto.IzmenaProfila;
 import com.example.predmetniProjekatVersion01.entity.dto.TrenerDTO;
 import com.example.predmetniProjekatVersion01.service.FitnessCentarService;
 import com.example.predmetniProjekatVersion01.service.OcenaService;
@@ -206,5 +207,54 @@ public class TrenerController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PostMapping(value = "/azurirajProfil/{idFC}",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<IzmenaProfila> izmeniTrenera(@PathVariable Long idFC, @RequestBody IzmenaProfila fitnessCentarDTO) throws Exception{
+
+        if(fitnessCentarDTO.getRola() == 1){
+            List<Trener> fitnessCentarList = trenerService.findAll();
+            for(Trener fitnessCentar: fitnessCentarList){
+                if(fitnessCentar.getKorisnickoIme().equals(fitnessCentarDTO.getKorisnickoIme())){
+                    IzmenaProfila retval = new IzmenaProfila(
+                            Long.valueOf(0),
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            2);
+                    return new ResponseEntity<>(retval, HttpStatus.OK);
+                }
+                if(fitnessCentar.getEmail().equals(fitnessCentarDTO.getEmail())){
+                    IzmenaProfila retval = new IzmenaProfila(
+                            Long.valueOf(0),
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            "bez promene",
+                            3);
+                    return new ResponseEntity<>(retval, HttpStatus.OK);
+                }
+            }
+            Trener izmenjen = this.trenerService.izmeni(idFC, fitnessCentarDTO);
+            IzmenaProfila povratni = new IzmenaProfila(
+                    izmenjen.getId(),
+                    izmenjen.getKorisnickoIme(),
+                    izmenjen.getEmail(),
+                    izmenjen.getKontaktTelefon(),
+                    izmenjen.getEmail(),
+                    0);
+            return new ResponseEntity<>(povratni, HttpStatus.OK);
+        } else {
+            IzmenaProfila fitnessCentarDTO1 = new IzmenaProfila(
+                    Long.valueOf(0),
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    "bez promene",
+                    1);
+            return new ResponseEntity<>(fitnessCentarDTO1, HttpStatus.OK);
+        }
+    }
 
 }

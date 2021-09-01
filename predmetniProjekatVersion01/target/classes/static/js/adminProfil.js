@@ -10,7 +10,7 @@ $(document).ready(function () {
     if(rola == 2){
         window.location.href = "trener_page.html";
     }
-    if(rola == 1){
+    if(rola == 3){
         window.location.href = "admin_page.html";
     }
     let idClana = localStorage.getItem("id");

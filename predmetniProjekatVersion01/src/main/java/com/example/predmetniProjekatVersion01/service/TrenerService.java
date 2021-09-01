@@ -1,6 +1,7 @@
 package com.example.predmetniProjekatVersion01.service;
 
 import com.example.predmetniProjekatVersion01.entity.Trener;
+import com.example.predmetniProjekatVersion01.entity.dto.IzmenaProfila;
 import com.example.predmetniProjekatVersion01.entity.dto.TrenerDTO;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface TrenerService {
 
     void save(Trener trener);
     void delete(Long id);
+
+    Trener izmeni(Long idFC, IzmenaProfila fitnessCentarDTO) throws Exception;
 }

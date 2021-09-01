@@ -1,6 +1,7 @@
 package com.example.predmetniProjekatVersion01.service.impl;
 
 import com.example.predmetniProjekatVersion01.entity.Trener;
+import com.example.predmetniProjekatVersion01.entity.dto.IzmenaProfila;
 import com.example.predmetniProjekatVersion01.entity.dto.TrenerDTO;
 import com.example.predmetniProjekatVersion01.repository.TrenerRepository;
 import com.example.predmetniProjekatVersion01.service.TrenerService;
@@ -129,6 +130,28 @@ public class TrenerServiceImpl implements TrenerService {
     @Override
     public void delete(Long id){
         this.trenerRepository.deleteById(id);
+    }
+
+    @Override
+    public Trener izmeni(Long idFC, IzmenaProfila fitnessCentarDTO) throws Exception{
+        Trener centarIzmenjen = this.trenerRepository.getOne(idFC);
+
+        if(centarIzmenjen == null){
+            throw new Exception("Trener ne postoji u postojecoj bazi!");
+        }
+
+        if(!fitnessCentarDTO.getKorisnickoIme().isBlank())
+            centarIzmenjen.setKorisnickoIme(fitnessCentarDTO.getKorisnickoIme());
+
+        if (!fitnessCentarDTO.getEmail().isBlank())
+            centarIzmenjen.setEmail(fitnessCentarDTO.getEmail());
+
+        if (!fitnessCentarDTO.getKontaktTelefon().isBlank())
+            centarIzmenjen.setKontaktTelefon(fitnessCentarDTO.getKontaktTelefon());
+
+
+        Trener centarCuvaj = this.trenerRepository.save(centarIzmenjen);
+        return centarCuvaj;
     }
 
 }

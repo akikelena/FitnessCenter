@@ -1,0 +1,354 @@
+
+#buttonLO{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 5vw;
+    height: 4vh;
+    background-color: rgb(30, 30, 30);
+    color: #3e9bdd;
+    font-size: 1.5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    border: 3px solid #3e9bdd;
+    text-align: center;
+}
+#buttonLO:active{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 5vw;
+    height: 4vh;
+    background-color: #3e9bdd;
+    color: rgb(30, 30, 30);
+    font-size: 1.5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    border: 3px solid #3e9bdd;
+    text-align: center;
+}
+#testBox{
+    margin: 0 auto;
+    height: 1000px;
+    width: 1000px;
+    border: 1px solid orange;
+    background-color: beige;
+}
+
+#dugmePrijavi{
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    width: 40%;
+    background-color: bisque;
+    border: bisque;
+
+    color:rgb(30, 30, 30);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+#dugmePrijavi:hover{
+    background-color: bisque;
+
+}
+#tabelaTermina2{
+
+    background-color: #3e9bdd;
+    border: 5px solid #3e9bdd;
+    width: 85vw;
+    margin-left: 7.5vw;
+
+}
+
+#tabelaSearch2{
+    background-color: #3e9bdd;
+    border: 5px solid #3e9bdd;
+    width: 85vw;
+    margin-left: 7.5vw;
+}
+
+
+.tabelaTermina{
+    background-color: #3e9bdd;
+    border: 5px solid #3e9bdd;
+    width: 90vw;
+    margin-left: 5vw;
+}
+
+.celijaNaslovTabele{
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    font-size: 2vh;
+    height: 4vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: rgb(30, 30, 30);
+}
+.celijaNaslovTabele:hover{
+    color: #3e9bdd;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    font-size: 2vh;
+    height: 4vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: rgb(30, 30, 30);
+}
+
+.celijaTabele{
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    height: 4vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: rgb(30, 30, 30);
+}
+#naslovTabele{
+    color: rgb(30, 30, 30);
+    text-align: center;
+    font-size: 4vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+    height: 5vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: #3e9bdd;
+}
+#naslovTabele2{
+    color: rgb(30, 30, 30);
+    text-align: center;
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+    height: 5vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: #3e9bdd;
+}
+.celijaNaslovZahteva{
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    font-size: 2vh;
+    height: 4vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: rgb(30, 30, 30);
+}
+#kriterijumBox{
+    font-size: 3vh;
+    width: 90%;
+}
+#dugmeOceni{
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    width: 95%;
+    background-color: bisque;
+
+    color:rgb(30, 30, 30);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+#dugmeOceni:hover{
+    background-color: bisque;
+
+}
+#dugmeOtkazi{
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    width: 95%;
+    background-color: #3e9bdd;
+    color:rgb(30, 30, 30);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+#dugmeOtkazi:hover{
+    background-color: crimson;
+
+}
+#dugmeInfo{
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    width: 95%;
+    background-color: rgb(41,170,73);
+    border: rgb(41,170,73);
+
+    color:rgb(30, 30, 30);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+#dugmeInfo:hover{
+    background-color: bisque;
+
+}
+
+#infoBox{
+    position: absolute;
+    top: 42.5vh;
+    left: 35vw;
+
+    width: 30vw;
+    background-color: rgb(30, 30, 30);
+    border: 5px solid #3e9bdd;
+
+}
+
+#closeButton{
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 5%;
+    border: 1px solid #3e9bdd;
+    background-color: #3e9bdd;
+    color:rgb(30, 30, 30);
+
+    font-size: 2vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+
+
+}
+#tableInfo{
+    background-color: rgb(30, 30, 30);
+
+    width: 80%;
+    margin-left: 10%;
+
+}
+#tableInfoNaslov{
+    background-color: rgb(30, 30, 30);
+
+    width: 80%;
+    margin-left: 10%;
+
+}
+
+#naslovInfoTabele{
+    color: rgb(30, 30, 30);
+    text-align: center;
+    font-size: 4vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 2000;
+    height: 5vh;
+    border: 0.5px solid #3e9bdd;
+    background-color: #3e9bdd;
+}
+
+.gap20{
+    width: 20%;
+}
+
+.infoTextTitle{
+    width: 40%;
+    padding: 2px;
+    font-size: 2vh;
+    text-align: right;
+    color: white;
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.infoText{
+    width: 60%;
+    padding: 2px;
+    font-size: 2vh;
+    text-align: right;
+    color: white;
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.profilTextTitle{
+    width: 20%;
+    padding: 2px;
+    font-size: 2vh;
+    text-align: right;
+    color: white;
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.profilText{
+    width: 70%;
+    padding: 2px;
+    font-size: 2vh;
+    text-align: right;
+    color: white;
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#fitBox{
+    background-color: rgb(30, 30, 30);
+    border: 5px solid #3e9bdd;
+    /* height: 1000px; */
+    width: 30vw;
+    padding-top: 5vh;
+    margin-left: 34.5vw;
+    text-align: center;
+
+
+}
+
+#tableFit{
+    background-color: rgb(30, 30, 30);
+
+    width: 80%;
+    margin-left: 10%;
+
+}
+#regBTN{
+    width: 40%;
+    height: 4vh;
+    color: rgb(30, 30, 30);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+    border: 3px solid #3e9bdd;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 4vh;
+    font-size: 1.5vh;
+
+
+}
+
+.tableTitleBox{
+    width: 30%;
+    padding-right: 5%;
+    padding-bottom: 15px;
+    /* border: 1px solid white; */
+    background-color: rgb(30, 30, 30);
+}
+
+.tableInputBox{
+    width: 35%;
+    padding-bottom: 15px;
+    /* border: 1px solid white; */
+    background-color: rgb(30, 30, 30);
+}
+
+.regFormText{
+    width: 100%;
+    padding: 2px;
+    font-size: 1.5vh;
+    text-align: right;
+    color: white;
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+}
+
+.formRegBox{
+    width: 65%;
+    padding: 2px;
+    font-size: 1.5vh;
+    text-align: center;
+    border: 3px solid #3e9bdd;
+    color: rgb(30, 30, 30);;
+    font-weight: 1000;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
